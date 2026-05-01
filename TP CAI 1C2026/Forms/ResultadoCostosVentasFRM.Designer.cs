@@ -74,7 +74,7 @@
             // 
             // buscarBTN
             // 
-            buscarBTN.Location = new Point(410, 14);
+            buscarBTN.Location = new Point(423, 14);
             buscarBTN.Name = "buscarBTN";
             buscarBTN.Size = new Size(80, 27);
             buscarBTN.TabIndex = 4;

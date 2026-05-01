@@ -193,7 +193,7 @@
             // 
             // salirBTN
             // 
-            salirBTN.Location = new Point(465, 432);
+            salirBTN.Location = new Point(465, 442);
             salirBTN.Name = "salirBTN";
             salirBTN.Size = new Size(126, 23);
             salirBTN.TabIndex = 9;
@@ -204,7 +204,7 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(603, 458);
+            ClientSize = new Size(603, 477);
             Controls.Add(salirBTN);
             Controls.Add(label1);
             Controls.Add(encomiendasEntregadasLVW);

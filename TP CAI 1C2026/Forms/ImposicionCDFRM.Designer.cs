@@ -1,7 +1,4 @@
-﻿using System.Xml.Linq;
-using static System.Net.Mime.MediaTypeNames;
-
-namespace TP_CAI_1C2026
+﻿namespace TP_CAI_1C2026
 {
     partial class ImposicionCDFRM
     {
@@ -16,10 +13,16 @@ namespace TP_CAI_1C2026
         private void InitializeComponent()
         {
             clienteGBX = new GroupBox();
+            nombreClienteLBL = new Label();
             idClienteLBL = new Label();
             idClienteTXT = new TextBox();
             buscarClienteBTN = new Button();
+            cdOrigenGBX = new GroupBox();
+            cdOrigenLBL = new Label();
+            cdOrigenCMB = new ComboBox();
             destinatarioGBX = new GroupBox();
+            nombreDestinatarioTXT = new TextBox();
+            nombreDestinatarioLBL = new Label();
             cdRDB = new RadioButton();
             agenciaRDB = new RadioButton();
             domicilioRDB = new RadioButton();
@@ -41,21 +44,33 @@ namespace TP_CAI_1C2026
             confirmarBTN = new Button();
             cancelarBTN = new Button();
             clienteGBX.SuspendLayout();
+            cdOrigenGBX.SuspendLayout();
             destinatarioGBX.SuspendLayout();
             encomiendaGBX.SuspendLayout();
             SuspendLayout();
             // 
             // clienteGBX
             // 
+            clienteGBX.Controls.Add(nombreClienteLBL);
             clienteGBX.Controls.Add(idClienteLBL);
             clienteGBX.Controls.Add(idClienteTXT);
             clienteGBX.Controls.Add(buscarClienteBTN);
             clienteGBX.Location = new Point(12, 12);
             clienteGBX.Name = "clienteGBX";
-            clienteGBX.Size = new Size(649, 60);
+            clienteGBX.Size = new Size(649, 88);
             clienteGBX.TabIndex = 0;
             clienteGBX.TabStop = false;
             clienteGBX.Text = "Cliente";
+            // 
+            // nombreClienteLBL
+            // 
+            nombreClienteLBL.AutoSize = true;
+            nombreClienteLBL.BackColor = SystemColors.ActiveCaption;
+            nombreClienteLBL.Location = new Point(135, 55);
+            nombreClienteLBL.Name = "nombreClienteLBL";
+            nombreClienteLBL.Size = new Size(110, 15);
+            nombreClienteLBL.TabIndex = 3;
+            nombreClienteLBL.Text = "Nombre del Cliente";
             // 
             // idClienteLBL
             // 
@@ -68,22 +83,52 @@ namespace TP_CAI_1C2026
             // 
             // idClienteTXT
             // 
-            idClienteTXT.Location = new Point(135, 23);
+            idClienteTXT.Location = new Point(135, 22);
             idClienteTXT.MaxLength = 11;
             idClienteTXT.Name = "idClienteTXT";
-            idClienteTXT.Size = new Size(180, 23);
+            idClienteTXT.Size = new Size(380, 23);
             idClienteTXT.TabIndex = 1;
             // 
             // buscarClienteBTN
             // 
-            buscarClienteBTN.Location = new Point(321, 21);
+            buscarClienteBTN.Location = new Point(521, 21);
             buscarClienteBTN.Name = "buscarClienteBTN";
-            buscarClienteBTN.Size = new Size(110, 27);
+            buscarClienteBTN.Size = new Size(114, 27);
             buscarClienteBTN.TabIndex = 2;
             buscarClienteBTN.Text = "Buscar Cliente";
+            //
+            // cdOrigenGBX
+            //
+            cdOrigenGBX.Controls.Add(cdOrigenLBL);
+            cdOrigenGBX.Controls.Add(cdOrigenCMB);
+            cdOrigenGBX.Location = new Point(12, 106);
+            cdOrigenGBX.Name = "cdOrigenGBX";
+            cdOrigenGBX.Size = new Size(649, 60);
+            cdOrigenGBX.TabIndex = 1;
+            cdOrigenGBX.TabStop = false;
+            cdOrigenGBX.Text = "Centro de Distribución de Origen";
+            //
+            // cdOrigenLBL
+            //
+            cdOrigenLBL.Location = new Point(10, 25);
+            cdOrigenLBL.Name = "cdOrigenLBL";
+            cdOrigenLBL.Size = new Size(120, 23);
+            cdOrigenLBL.TabIndex = 0;
+            cdOrigenLBL.Text = "CD:";
+            cdOrigenLBL.TextAlign = ContentAlignment.MiddleRight;
+            //
+            // cdOrigenCMB
+            //
+            cdOrigenCMB.DropDownStyle = ComboBoxStyle.DropDownList;
+            cdOrigenCMB.Location = new Point(135, 23);
+            cdOrigenCMB.Name = "cdOrigenCMB";
+            cdOrigenCMB.Size = new Size(500, 23);
+            cdOrigenCMB.TabIndex = 1;
             // 
             // destinatarioGBX
             // 
+            destinatarioGBX.Controls.Add(nombreDestinatarioTXT);
+            destinatarioGBX.Controls.Add(nombreDestinatarioLBL);
             destinatarioGBX.Controls.Add(cdRDB);
             destinatarioGBX.Controls.Add(agenciaRDB);
             destinatarioGBX.Controls.Add(domicilioRDB);
@@ -92,16 +137,34 @@ namespace TP_CAI_1C2026
             destinatarioGBX.Controls.Add(destinoDomicilioTXT);
             destinatarioGBX.Controls.Add(dniDestinatarioLBL);
             destinatarioGBX.Controls.Add(dniDestinatarioTXT);
-            destinatarioGBX.Location = new Point(12, 85);
+            destinatarioGBX.Location = new Point(12, 172);
             destinatarioGBX.Name = "destinatarioGBX";
-            destinatarioGBX.Size = new Size(649, 213);
-            destinatarioGBX.TabIndex = 1;
+            destinatarioGBX.Size = new Size(649, 198);
+            destinatarioGBX.TabIndex = 2;
             destinatarioGBX.TabStop = false;
             destinatarioGBX.Text = "Destinatario";
             // 
+            // nombreDestinatarioTXT
+            // 
+            nombreDestinatarioTXT.Enabled = false;
+            nombreDestinatarioTXT.Location = new Point(135, 158);
+            nombreDestinatarioTXT.MaxLength = 11;
+            nombreDestinatarioTXT.Name = "nombreDestinatarioTXT";
+            nombreDestinatarioTXT.Size = new Size(500, 23);
+            nombreDestinatarioTXT.TabIndex = 12;
+            // 
+            // nombreDestinatarioLBL
+            // 
+            nombreDestinatarioLBL.Location = new Point(9, 153);
+            nombreDestinatarioLBL.Name = "nombreDestinatarioLBL";
+            nombreDestinatarioLBL.Size = new Size(120, 31);
+            nombreDestinatarioLBL.TabIndex = 11;
+            nombreDestinatarioLBL.Text = "Nombre Destinatario:";
+            nombreDestinatarioLBL.TextAlign = ContentAlignment.MiddleRight;
+            // 
             // cdRDB
             // 
-            cdRDB.Location = new Point(10, 28);
+            cdRDB.Location = new Point(54, 22);
             cdRDB.Name = "cdRDB";
             cdRDB.Size = new Size(41, 23);
             cdRDB.TabIndex = 0;
@@ -109,7 +172,7 @@ namespace TP_CAI_1C2026
             // 
             // agenciaRDB
             // 
-            agenciaRDB.Location = new Point(330, 28);
+            agenciaRDB.Location = new Point(54, 56);
             agenciaRDB.Name = "agenciaRDB";
             agenciaRDB.Size = new Size(70, 23);
             agenciaRDB.TabIndex = 1;
@@ -117,9 +180,9 @@ namespace TP_CAI_1C2026
             // 
             // domicilioRDB
             // 
-            domicilioRDB.Location = new Point(10, 86);
+            domicilioRDB.Location = new Point(53, 87);
             domicilioRDB.Name = "domicilioRDB";
-            domicilioRDB.Size = new Size(85, 23);
+            domicilioRDB.Size = new Size(76, 26);
             domicilioRDB.TabIndex = 2;
             domicilioRDB.Text = "Domicilio";
             // 
@@ -127,31 +190,31 @@ namespace TP_CAI_1C2026
             // 
             destinoCDCMB.DropDownStyle = ComboBoxStyle.DropDownList;
             destinoCDCMB.Enabled = false;
-            destinoCDCMB.Location = new Point(330, 57);
+            destinoCDCMB.Location = new Point(135, 56);
             destinoCDCMB.Name = "destinoCDCMB";
-            destinoCDCMB.Size = new Size(305, 23);
+            destinoCDCMB.Size = new Size(500, 23);
             destinoCDCMB.TabIndex = 4;
             // 
             // destinoAgenciaCMB
             // 
             destinoAgenciaCMB.DropDownStyle = ComboBoxStyle.DropDownList;
             destinoAgenciaCMB.Enabled = false;
-            destinoAgenciaCMB.Location = new Point(10, 57);
+            destinoAgenciaCMB.Location = new Point(135, 22);
             destinoAgenciaCMB.Name = "destinoAgenciaCMB";
-            destinoAgenciaCMB.Size = new Size(305, 23);
+            destinoAgenciaCMB.Size = new Size(500, 23);
             destinoAgenciaCMB.TabIndex = 6;
             // 
             // destinoDomicilioTXT
             // 
             destinoDomicilioTXT.Enabled = false;
-            destinoDomicilioTXT.Location = new Point(10, 115);
+            destinoDomicilioTXT.Location = new Point(134, 90);
             destinoDomicilioTXT.Name = "destinoDomicilioTXT";
-            destinoDomicilioTXT.Size = new Size(625, 23);
+            destinoDomicilioTXT.Size = new Size(500, 23);
             destinoDomicilioTXT.TabIndex = 8;
             // 
             // dniDestinatarioLBL
             // 
-            dniDestinatarioLBL.Location = new Point(32, 160);
+            dniDestinatarioLBL.Location = new Point(32, 124);
             dniDestinatarioLBL.Name = "dniDestinatarioLBL";
             dniDestinatarioLBL.Size = new Size(97, 23);
             dniDestinatarioLBL.TabIndex = 9;
@@ -161,10 +224,10 @@ namespace TP_CAI_1C2026
             // dniDestinatarioTXT
             // 
             dniDestinatarioTXT.Enabled = false;
-            dniDestinatarioTXT.Location = new Point(135, 160);
+            dniDestinatarioTXT.Location = new Point(135, 124);
             dniDestinatarioTXT.MaxLength = 11;
             dniDestinatarioTXT.Name = "dniDestinatarioTXT";
-            dniDestinatarioTXT.Size = new Size(184, 23);
+            dniDestinatarioTXT.Size = new Size(500, 23);
             dniDestinatarioTXT.TabIndex = 10;
             // 
             // encomiendaGBX
@@ -176,10 +239,10 @@ namespace TP_CAI_1C2026
             encomiendaGBX.Controls.Add(agregarBTN);
             encomiendaGBX.Controls.Add(encomiendaLST);
             encomiendaGBX.Controls.Add(quitarItemBTN);
-            encomiendaGBX.Location = new Point(12, 310);
+            encomiendaGBX.Location = new Point(12, 376);
             encomiendaGBX.Name = "encomiendaGBX";
-            encomiendaGBX.Size = new Size(649, 248);
-            encomiendaGBX.TabIndex = 2;
+            encomiendaGBX.Size = new Size(649, 244);
+            encomiendaGBX.TabIndex = 3;
             encomiendaGBX.TabStop = false;
             encomiendaGBX.Text = "Detalle de Encomienda";
             // 
@@ -257,24 +320,25 @@ namespace TP_CAI_1C2026
             // 
             // confirmarBTN
             // 
-            confirmarBTN.Location = new Point(495, 590);
+            confirmarBTN.Location = new Point(486, 654);
             confirmarBTN.Name = "confirmarBTN";
             confirmarBTN.Size = new Size(80, 32);
-            confirmarBTN.TabIndex = 3;
+            confirmarBTN.TabIndex = 4;
             confirmarBTN.Text = "Confirmar";
             // 
             // cancelarBTN
             // 
-            cancelarBTN.Location = new Point(581, 590);
+            cancelarBTN.Location = new Point(581, 654);
             cancelarBTN.Name = "cancelarBTN";
             cancelarBTN.Size = new Size(80, 32);
-            cancelarBTN.TabIndex = 4;
+            cancelarBTN.TabIndex = 5;
             cancelarBTN.Text = "Cancelar";
             // 
             // ImposicionCDFRM
             // 
-            ClientSize = new Size(675, 640);
+            ClientSize = new Size(672, 700);
             Controls.Add(clienteGBX);
+            Controls.Add(cdOrigenGBX);
             Controls.Add(destinatarioGBX);
             Controls.Add(encomiendaGBX);
             Controls.Add(confirmarBTN);
@@ -283,6 +347,7 @@ namespace TP_CAI_1C2026
             Text = "Imposición de Encomienda - Centro de Distribución";
             clienteGBX.ResumeLayout(false);
             clienteGBX.PerformLayout();
+            cdOrigenGBX.ResumeLayout(false);
             destinatarioGBX.ResumeLayout(false);
             destinatarioGBX.PerformLayout();
             encomiendaGBX.ResumeLayout(false);
@@ -294,6 +359,11 @@ namespace TP_CAI_1C2026
         private Label idClienteLBL;
         private TextBox idClienteTXT;
         private Button buscarClienteBTN;
+        private Label nombreClienteLBL;
+
+        private GroupBox cdOrigenGBX;
+        private Label cdOrigenLBL;
+        private ComboBox cdOrigenCMB;
 
         private GroupBox destinatarioGBX;
         private RadioButton cdRDB;
@@ -304,6 +374,8 @@ namespace TP_CAI_1C2026
         private TextBox destinoDomicilioTXT;
         private Label dniDestinatarioLBL;
         private TextBox dniDestinatarioTXT;
+        private TextBox nombreDestinatarioTXT;
+        private Label nombreDestinatarioLBL;
 
         private GroupBox encomiendaGBX;
         private Label tipoCajaLBL;

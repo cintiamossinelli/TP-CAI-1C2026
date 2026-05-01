@@ -55,7 +55,7 @@
             guiasGBX.Controls.Add(guiasLST);
             guiasGBX.Location = new Point(12, 55);
             guiasGBX.Name = "guiasGBX";
-            guiasGBX.Size = new Size(649, 300);
+            guiasGBX.Size = new Size(589, 300);
             guiasGBX.TabIndex = 3;
             guiasGBX.TabStop = false;
             guiasGBX.Text = "Guías Asociadas";
@@ -65,9 +65,12 @@
             guiasLST.Columns.AddRange(new ColumnHeader[] { colNGuia, colEstado, colTipoPaquete });
             guiasLST.FullRowSelect = true;
             guiasLST.GridLines = true;
+            guiasLST.CheckBoxes = true;
+            guiasLST.FullRowSelect = true;
+            guiasLST.GridLines = true;
             guiasLST.Location = new Point(10, 25);
             guiasLST.Name = "guiasLST";
-            guiasLST.Size = new Size(625, 260);
+            guiasLST.Size = new Size(566, 260);
             guiasLST.TabIndex = 0;
             guiasLST.UseCompatibleStateImageBehavior = false;
             guiasLST.View = View.Details;
@@ -89,7 +92,7 @@
             // 
             // retirarBTN
             // 
-            retirarBTN.Location = new Point(495, 370);
+            retirarBTN.Location = new Point(435, 376);
             retirarBTN.Name = "retirarBTN";
             retirarBTN.Size = new Size(80, 32);
             retirarBTN.TabIndex = 4;
@@ -97,7 +100,7 @@
             // 
             // cancelarBTN
             // 
-            cancelarBTN.Location = new Point(581, 370);
+            cancelarBTN.Location = new Point(521, 376);
             cancelarBTN.Name = "cancelarBTN";
             cancelarBTN.Size = new Size(80, 32);
             cancelarBTN.TabIndex = 5;
@@ -105,7 +108,7 @@
             // 
             // EntregaCDFRM
             // 
-            ClientSize = new Size(675, 420);
+            ClientSize = new Size(614, 420);
             Controls.Add(dniLBL);
             Controls.Add(dniTXT);
             Controls.Add(buscarBTN);

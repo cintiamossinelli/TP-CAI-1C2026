@@ -84,7 +84,7 @@
             // 
             mostrarEstadoLBL.AutoSize = true;
             mostrarEstadoLBL.BackColor = SystemColors.ActiveCaption;
-            mostrarEstadoLBL.Location = new Point(22, 127);
+            mostrarEstadoLBL.Location = new Point(22, 118);
             mostrarEstadoLBL.Name = "mostrarEstadoLBL";
             mostrarEstadoLBL.Size = new Size(127, 15);
             mostrarEstadoLBL.TabIndex = 6;
