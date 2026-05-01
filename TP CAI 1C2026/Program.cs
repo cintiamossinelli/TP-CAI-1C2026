@@ -1,3 +1,6 @@
+using System;
+using System.Windows.Forms;
+
 namespace TP_CAI_1C2026
 {
     internal static class Program
@@ -11,7 +14,7 @@ namespace TP_CAI_1C2026
             // To customize application configuration such as set high DPI settings or default font,
             // see https://aka.ms/applicationconfiguration.
             ApplicationConfiguration.Initialize();
-            Application.Run(new FormPrincipal());
+            Application.Run(new ImposicionCallCenterFRM());
         }
     }
 }

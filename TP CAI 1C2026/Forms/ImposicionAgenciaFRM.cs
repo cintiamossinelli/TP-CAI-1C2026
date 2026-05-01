@@ -6,18 +6,13 @@ using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
 
-namespace TP_CAI_1C2026.Forms
+namespace TP_CAI_1C2026
 {
-    public partial class RendicionDelFletero : Form
+    public partial class ImposicionAgenciaFRM : Form
     {
-        public RendicionDelFletero()
+        public ImposicionAgenciaFRM()
         {
             InitializeComponent();
-        }
-
-        private void RendicionDelFletero_Load(object sender, EventArgs e)
-        {
-
         }
     }
 }
