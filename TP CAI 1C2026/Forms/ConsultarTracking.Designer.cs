@@ -32,14 +32,14 @@
             buscarBTN = new Button();
             guiaTXT = new TextBox();
             estadoEncomiendaLBL = new Label();
-            estadoEncomiendaTXT = new TextBox();
-            cancelarBTN = new Button();
+            salirBTN = new Button();
+            mostrarEstadoLBL = new Label();
             SuspendLayout();
             // 
             // guiaLBL
             // 
             guiaLBL.AutoSize = true;
-            guiaLBL.Location = new Point(34, 50);
+            guiaLBL.Location = new Point(22, 21);
             guiaLBL.Name = "guiaLBL";
             guiaLBL.Size = new Size(31, 15);
             guiaLBL.TabIndex = 0;
@@ -48,7 +48,7 @@
             // 
             // buscarBTN
             // 
-            buscarBTN.Location = new Point(314, 65);
+            buscarBTN.Location = new Point(324, 39);
             buscarBTN.Name = "buscarBTN";
             buscarBTN.Size = new Size(93, 26);
             buscarBTN.TabIndex = 1;
@@ -57,43 +57,46 @@
             // 
             // guiaTXT
             // 
-            guiaTXT.Location = new Point(34, 68);
+            guiaTXT.Location = new Point(22, 39);
             guiaTXT.Name = "guiaTXT";
-            guiaTXT.Size = new Size(248, 23);
+            guiaTXT.Size = new Size(288, 23);
             guiaTXT.TabIndex = 2;
             // 
             // estadoEncomiendaLBL
             // 
             estadoEncomiendaLBL.AutoSize = true;
-            estadoEncomiendaLBL.Location = new Point(34, 125);
+            estadoEncomiendaLBL.Location = new Point(22, 91);
             estadoEncomiendaLBL.Name = "estadoEncomiendaLBL";
             estadoEncomiendaLBL.Size = new Size(127, 15);
             estadoEncomiendaLBL.TabIndex = 3;
             estadoEncomiendaLBL.Text = "Estado de Encomienda";
             // 
-            // estadoEncomiendaTXT
+            // salirBTN
             // 
-            estadoEncomiendaTXT.Location = new Point(34, 159);
-            estadoEncomiendaTXT.Name = "estadoEncomiendaTXT";
-            estadoEncomiendaTXT.Size = new Size(248, 23);
-            estadoEncomiendaTXT.TabIndex = 4;
+            salirBTN.Location = new Point(324, 154);
+            salirBTN.Name = "salirBTN";
+            salirBTN.Size = new Size(93, 26);
+            salirBTN.TabIndex = 5;
+            salirBTN.Text = "Salir";
+            salirBTN.UseVisualStyleBackColor = true;
             // 
-            // cancelarBTN
+            // mostrarEstadoLBL
             // 
-            cancelarBTN.Location = new Point(314, 210);
-            cancelarBTN.Name = "cancelarBTN";
-            cancelarBTN.Size = new Size(93, 26);
-            cancelarBTN.TabIndex = 5;
-            cancelarBTN.Text = "Cancelar";
-            cancelarBTN.UseVisualStyleBackColor = true;
+            mostrarEstadoLBL.AutoSize = true;
+            mostrarEstadoLBL.BackColor = SystemColors.ActiveCaption;
+            mostrarEstadoLBL.Location = new Point(22, 127);
+            mostrarEstadoLBL.Name = "mostrarEstadoLBL";
+            mostrarEstadoLBL.Size = new Size(127, 15);
+            mostrarEstadoLBL.TabIndex = 6;
+            mostrarEstadoLBL.Text = "Estado de Encomienda";
             // 
             // ConsultarTracking
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(439, 257);
-            Controls.Add(cancelarBTN);
-            Controls.Add(estadoEncomiendaTXT);
+            ClientSize = new Size(439, 195);
+            Controls.Add(mostrarEstadoLBL);
+            Controls.Add(salirBTN);
             Controls.Add(estadoEncomiendaLBL);
             Controls.Add(guiaTXT);
             Controls.Add(buscarBTN);
@@ -111,6 +114,7 @@
         private TextBox guiaTXT;
         private Label estadoEncomiendaLBL;
         private TextBox estadoEncomiendaTXT;
-        private Button cancelarBTN;
+        private Button salirBTN;
+        private Label mostrarEstadoLBL;
     }
 }

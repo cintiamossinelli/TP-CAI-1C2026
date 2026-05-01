@@ -42,6 +42,9 @@
             quitarItemBTN = new Button();
             confirmarBTN = new Button();
             cancelarBTN = new Button();
+            nombreClienteLBL = new Label();
+            nombreDestinatarioLBL = new Label();
+            nombreDestinatarioTXT = new TextBox();
             clienteGBX.SuspendLayout();
             retiroGBX.SuspendLayout();
             destinatarioGBX.SuspendLayout();
@@ -50,12 +53,13 @@
             // 
             // clienteGBX
             // 
+            clienteGBX.Controls.Add(nombreClienteLBL);
             clienteGBX.Controls.Add(idClienteLBL);
             clienteGBX.Controls.Add(idClienteTXT);
             clienteGBX.Controls.Add(buscarClienteBTN);
             clienteGBX.Location = new Point(12, 12);
             clienteGBX.Name = "clienteGBX";
-            clienteGBX.Size = new Size(649, 60);
+            clienteGBX.Size = new Size(649, 75);
             clienteGBX.TabIndex = 0;
             clienteGBX.TabStop = false;
             clienteGBX.Text = "Cliente";
@@ -71,15 +75,15 @@
             // 
             // idClienteTXT
             // 
-            idClienteTXT.Location = new Point(135, 23);
+            idClienteTXT.Location = new Point(135, 22);
             idClienteTXT.MaxLength = 11;
             idClienteTXT.Name = "idClienteTXT";
-            idClienteTXT.Size = new Size(180, 23);
+            idClienteTXT.Size = new Size(380, 23);
             idClienteTXT.TabIndex = 1;
             // 
             // buscarClienteBTN
             // 
-            buscarClienteBTN.Location = new Point(321, 21);
+            buscarClienteBTN.Location = new Point(521, 21);
             buscarClienteBTN.Name = "buscarClienteBTN";
             buscarClienteBTN.Size = new Size(110, 27);
             buscarClienteBTN.TabIndex = 2;
@@ -134,6 +138,8 @@
             // 
             // destinatarioGBX
             // 
+            destinatarioGBX.Controls.Add(nombreDestinatarioTXT);
+            destinatarioGBX.Controls.Add(nombreDestinatarioLBL);
             destinatarioGBX.Controls.Add(cdRDB);
             destinatarioGBX.Controls.Add(agenciaRDB);
             destinatarioGBX.Controls.Add(domicilioRDB);
@@ -142,17 +148,17 @@
             destinatarioGBX.Controls.Add(destinoDomicilioTXT);
             destinatarioGBX.Controls.Add(dniDestinatarioLBL);
             destinatarioGBX.Controls.Add(dniDestinatarioTXT);
-            destinatarioGBX.Location = new Point(12, 193);
+            destinatarioGBX.Location = new Point(12, 186);
             destinatarioGBX.Name = "destinatarioGBX";
-            destinatarioGBX.Size = new Size(649, 213);
+            destinatarioGBX.Size = new Size(649, 200);
             destinatarioGBX.TabIndex = 2;
             destinatarioGBX.TabStop = false;
             destinatarioGBX.Text = "Destinatario";
-            destinatarioGBX.Enter += this.destinatarioGBX_Enter;
+            destinatarioGBX.Enter += destinatarioGBX_Enter;
             // 
             // cdRDB
             // 
-            cdRDB.Location = new Point(10, 28);
+            cdRDB.Location = new Point(10, 26);
             cdRDB.Name = "cdRDB";
             cdRDB.Size = new Size(41, 23);
             cdRDB.TabIndex = 0;
@@ -160,7 +166,7 @@
             // 
             // agenciaRDB
             // 
-            agenciaRDB.Location = new Point(330, 28);
+            agenciaRDB.Location = new Point(10, 55);
             agenciaRDB.Name = "agenciaRDB";
             agenciaRDB.Size = new Size(70, 23);
             agenciaRDB.TabIndex = 1;
@@ -168,9 +174,9 @@
             // 
             // domicilioRDB
             // 
-            domicilioRDB.Location = new Point(10, 86);
+            domicilioRDB.Location = new Point(10, 84);
             domicilioRDB.Name = "domicilioRDB";
-            domicilioRDB.Size = new Size(85, 23);
+            domicilioRDB.Size = new Size(85, 26);
             domicilioRDB.TabIndex = 2;
             domicilioRDB.Text = "Domicilio";
             // 
@@ -178,44 +184,44 @@
             // 
             destinoCDCMB.DropDownStyle = ComboBoxStyle.DropDownList;
             destinoCDCMB.Enabled = false;
-            destinoCDCMB.Location = new Point(330, 57);
+            destinoCDCMB.Location = new Point(135, 58);
             destinoCDCMB.Name = "destinoCDCMB";
-            destinoCDCMB.Size = new Size(305, 23);
+            destinoCDCMB.Size = new Size(500, 23);
             destinoCDCMB.TabIndex = 4;
             // 
             // destinoAgenciaCMB
             // 
             destinoAgenciaCMB.DropDownStyle = ComboBoxStyle.DropDownList;
             destinoAgenciaCMB.Enabled = false;
-            destinoAgenciaCMB.Location = new Point(10, 57);
+            destinoAgenciaCMB.Location = new Point(135, 22);
             destinoAgenciaCMB.Name = "destinoAgenciaCMB";
-            destinoAgenciaCMB.Size = new Size(305, 23);
+            destinoAgenciaCMB.Size = new Size(500, 23);
             destinoAgenciaCMB.TabIndex = 6;
             // 
             // destinoDomicilioTXT
             // 
             destinoDomicilioTXT.Enabled = false;
-            destinoDomicilioTXT.Location = new Point(10, 115);
+            destinoDomicilioTXT.Location = new Point(135, 87);
             destinoDomicilioTXT.Name = "destinoDomicilioTXT";
-            destinoDomicilioTXT.Size = new Size(625, 23);
+            destinoDomicilioTXT.Size = new Size(500, 23);
             destinoDomicilioTXT.TabIndex = 8;
             // 
             // dniDestinatarioLBL
             // 
-            dniDestinatarioLBL.Location = new Point(32, 160);
+            dniDestinatarioLBL.Location = new Point(10, 123);
             dniDestinatarioLBL.Name = "dniDestinatarioLBL";
             dniDestinatarioLBL.Size = new Size(97, 23);
             dniDestinatarioLBL.TabIndex = 9;
             dniDestinatarioLBL.Text = "DNI Destinatario:";
-            dniDestinatarioLBL.TextAlign = ContentAlignment.MiddleRight;            
+            dniDestinatarioLBL.TextAlign = ContentAlignment.MiddleRight;
             // 
             // dniDestinatarioTXT
             // 
             dniDestinatarioTXT.Enabled = false;
-            dniDestinatarioTXT.Location = new Point(135, 160);
+            dniDestinatarioTXT.Location = new Point(135, 124);
             dniDestinatarioTXT.MaxLength = 11;
             dniDestinatarioTXT.Name = "dniDestinatarioTXT";
-            dniDestinatarioTXT.Size = new Size(184, 23);
+            dniDestinatarioTXT.Size = new Size(500, 23);
             dniDestinatarioTXT.TabIndex = 10;
             // 
             // encomiendaGBX
@@ -227,9 +233,9 @@
             encomiendaGBX.Controls.Add(agregarBTN);
             encomiendaGBX.Controls.Add(encomiendaLST);
             encomiendaGBX.Controls.Add(quitarItemBTN);
-            encomiendaGBX.Location = new Point(12, 426);
+            encomiendaGBX.Location = new Point(12, 392);
             encomiendaGBX.Name = "encomiendaGBX";
-            encomiendaGBX.Size = new Size(649, 248);
+            encomiendaGBX.Size = new Size(649, 244);
             encomiendaGBX.TabIndex = 3;
             encomiendaGBX.TabStop = false;
             encomiendaGBX.Text = "Detalle de Encomienda";
@@ -308,7 +314,7 @@
             // 
             // confirmarBTN
             // 
-            confirmarBTN.Location = new Point(495, 706);
+            confirmarBTN.Location = new Point(463, 652);
             confirmarBTN.Name = "confirmarBTN";
             confirmarBTN.Size = new Size(80, 32);
             confirmarBTN.TabIndex = 4;
@@ -316,15 +322,44 @@
             // 
             // cancelarBTN
             // 
-            cancelarBTN.Location = new Point(581, 706);
+            cancelarBTN.Location = new Point(567, 652);
             cancelarBTN.Name = "cancelarBTN";
             cancelarBTN.Size = new Size(80, 32);
             cancelarBTN.TabIndex = 5;
             cancelarBTN.Text = "Cancelar";
             // 
+            // nombreClienteLBL
+            // 
+            nombreClienteLBL.AutoSize = true;
+            nombreClienteLBL.BackColor = SystemColors.ActiveCaption;
+            nombreClienteLBL.Location = new Point(135, 55);
+            nombreClienteLBL.Name = "nombreClienteLBL";
+            nombreClienteLBL.Size = new Size(107, 15);
+            nombreClienteLBL.TabIndex = 3;
+            nombreClienteLBL.Text = "Nombre de Cliente";
+            nombreClienteLBL.Click += label1_Click;
+            // 
+            // nombreDestinatarioLBL
+            // 
+            nombreDestinatarioLBL.Location = new Point(10, 155);
+            nombreDestinatarioLBL.Name = "nombreDestinatarioLBL";
+            nombreDestinatarioLBL.Size = new Size(120, 31);
+            nombreDestinatarioLBL.TabIndex = 11;
+            nombreDestinatarioLBL.Text = "Nombre Destinatario:";
+            nombreDestinatarioLBL.TextAlign = ContentAlignment.MiddleRight;
+            // 
+            // nombreDestinatarioTXT
+            // 
+            nombreDestinatarioTXT.Enabled = false;
+            nombreDestinatarioTXT.Location = new Point(135, 155);
+            nombreDestinatarioTXT.MaxLength = 11;
+            nombreDestinatarioTXT.Name = "nombreDestinatarioTXT";
+            nombreDestinatarioTXT.Size = new Size(500, 23);
+            nombreDestinatarioTXT.TabIndex = 12;
+            // 
             // ImposicionCallCenterFRM
             // 
-            ClientSize = new Size(675, 756);
+            ClientSize = new Size(675, 685);
             Controls.Add(clienteGBX);
             Controls.Add(retiroGBX);
             Controls.Add(destinatarioGBX);
@@ -378,5 +413,8 @@
 
         private Button confirmarBTN;
         private Button cancelarBTN;
+        private Label nombreClienteLBL;
+        private TextBox nombreDestinatarioTXT;
+        private Label nombreDestinatarioLBL;
     }
 }
