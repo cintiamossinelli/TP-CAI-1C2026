@@ -145,5 +145,15 @@ namespace TP_CAI_1C2026
         {
             // Intentionally left blank - required by designer event hookup
         }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void clienteGBX_Enter(object sender, EventArgs e)
+        {
+
+        }
     }
 }
