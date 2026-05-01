@@ -1,6 +1,6 @@
-﻿namespace TP_CAI_1C2026.Forms
+﻿namespace TP_CAI_1C2026
 {
-    partial class ConsultarTracking
+    partial class ConsultarTrackingFRM
     {
         /// <summary>
         /// Required designer variable.
@@ -112,8 +112,7 @@
         private Label guiaLBL;
         private Button buscarBTN;
         private TextBox guiaTXT;
-        private Label estadoEncomiendaLBL;
-        private TextBox estadoEncomiendaTXT;
+        private Label estadoEncomiendaLBL;        
         private Button salirBTN;
         private Label mostrarEstadoLBL;
     }

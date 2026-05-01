@@ -6,11 +6,11 @@ using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
 
-namespace TP_CAI_1C2026.Forms
+namespace TP_CAI_1C2026
 {
-    public partial class ConsultarTracking : Form
+    public partial class ConsultarTrackingFRM : Form
     {
-        public ConsultarTracking()
+        public ConsultarTrackingFRM()
         {
             InitializeComponent();
         }
