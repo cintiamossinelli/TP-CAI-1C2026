@@ -19,5 +19,10 @@ namespace TP_CAI_1C2026
         {
 
         }
+
+        private void ResultadoCostosVentasFRM_Load_1(object sender, EventArgs e)
+        {
+
+        }
     }
 }

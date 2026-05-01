@@ -2,15 +2,8 @@
 {
     partial class ConsultarTrackingFRM
     {
-        /// <summary>
-        /// Required designer variable.
-        /// </summary>
         private System.ComponentModel.IContainer components = null;
 
-        /// <summary>
-        /// Clean up any resources being used.
-        /// </summary>
-        /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
         protected override void Dispose(bool disposing)
         {
             if (disposing && (components != null))
@@ -20,20 +13,19 @@
             base.Dispose(disposing);
         }
 
-        #region Windows Form Designer generated code
-
-        /// <summary>
-        /// Required method for Designer support - do not modify
-        /// the contents of this method with the code editor.
-        /// </summary>
         private void InitializeComponent()
         {
             guiaLBL = new Label();
             buscarBTN = new Button();
             guiaTXT = new TextBox();
-            estadoEncomiendaLBL = new Label();
-            salirBTN = new Button();
-            mostrarEstadoLBL = new Label();
+            historialLBL = new Label();
+            historialLST = new ListView();
+            colNGuia = new ColumnHeader();
+            colEstado = new ColumnHeader();
+            colTipoPaquete = new ColumnHeader();
+            colIdCliente = new ColumnHeader();
+            colDniAutorizado = new ColumnHeader();
+            cancelarBTN = new Button();
             SuspendLayout();
             // 
             // guiaLBL
@@ -44,76 +36,104 @@
             guiaLBL.Size = new Size(31, 15);
             guiaLBL.TabIndex = 0;
             guiaLBL.Text = "Guía";
-            guiaLBL.Click += label1_Click;
             // 
             // buscarBTN
             // 
-            buscarBTN.Location = new Point(324, 39);
+            buscarBTN.Location = new Point(324, 37);
             buscarBTN.Name = "buscarBTN";
             buscarBTN.Size = new Size(93, 26);
-            buscarBTN.TabIndex = 1;
+            buscarBTN.TabIndex = 2;
             buscarBTN.Text = "Buscar";
-            buscarBTN.UseVisualStyleBackColor = true;
             // 
             // guiaTXT
             // 
             guiaTXT.Location = new Point(22, 39);
             guiaTXT.Name = "guiaTXT";
             guiaTXT.Size = new Size(288, 23);
-            guiaTXT.TabIndex = 2;
+            guiaTXT.TabIndex = 1;
             // 
-            // estadoEncomiendaLBL
+            // historialLBL
             // 
-            estadoEncomiendaLBL.AutoSize = true;
-            estadoEncomiendaLBL.Location = new Point(22, 91);
-            estadoEncomiendaLBL.Name = "estadoEncomiendaLBL";
-            estadoEncomiendaLBL.Size = new Size(127, 15);
-            estadoEncomiendaLBL.TabIndex = 3;
-            estadoEncomiendaLBL.Text = "Estado de Encomienda";
+            historialLBL.AutoSize = true;
+            historialLBL.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
+            historialLBL.Location = new Point(22, 80);
+            historialLBL.Name = "historialLBL";
+            historialLBL.Size = new Size(104, 15);
+            historialLBL.TabIndex = 5;
+            historialLBL.Text = "Detalle de la Guía";
             // 
-            // salirBTN
+            // historialLST
             // 
-            salirBTN.Location = new Point(324, 154);
-            salirBTN.Name = "salirBTN";
-            salirBTN.Size = new Size(93, 26);
-            salirBTN.TabIndex = 5;
-            salirBTN.Text = "Salir";
-            salirBTN.UseVisualStyleBackColor = true;
+            historialLST.Columns.AddRange(new ColumnHeader[] { colNGuia, colEstado, colTipoPaquete, colIdCliente, colDniAutorizado });
+            historialLST.FullRowSelect = true;
+            historialLST.GridLines = true;
+            historialLST.Location = new Point(22, 100);
+            historialLST.Name = "historialLST";
+            historialLST.Size = new Size(570, 300);
+            historialLST.TabIndex = 6;
+            historialLST.UseCompatibleStateImageBehavior = false;
+            historialLST.View = View.Details;
             // 
-            // mostrarEstadoLBL
+            // colNGuia
             // 
-            mostrarEstadoLBL.AutoSize = true;
-            mostrarEstadoLBL.BackColor = SystemColors.ActiveCaption;
-            mostrarEstadoLBL.Location = new Point(22, 118);
-            mostrarEstadoLBL.Name = "mostrarEstadoLBL";
-            mostrarEstadoLBL.Size = new Size(127, 15);
-            mostrarEstadoLBL.TabIndex = 6;
-            mostrarEstadoLBL.Text = "Estado de Encomienda";
+            colNGuia.Text = "N° Guía";
+            colNGuia.Width = 100;
             // 
-            // ConsultarTracking
+            // colEstado
+            // 
+            colEstado.Text = "Estado de Encomienda";
+            colEstado.Width = 135;
+            // 
+            // colTipoPaquete
+            // 
+            colTipoPaquete.Text = "Tipo de paquete";
+            colTipoPaquete.Width = 100;
+            // 
+            // colIdCliente
+            // 
+            colIdCliente.Text = "CUIT/DNI/CUIL";
+            colIdCliente.Width = 100;
+            // 
+            // colDniAutorizado
+            // 
+            colDniAutorizado.Text = "DNI autorizado a retirar";
+            colDniAutorizado.Width = 150;
+            // 
+            // cancelarBTN
+            // 
+            cancelarBTN.Location = new Point(499, 450);
+            cancelarBTN.Name = "cancelarBTN";
+            cancelarBTN.Size = new Size(93, 26);
+            cancelarBTN.TabIndex = 7;
+            cancelarBTN.Text = "Cancelar";
+            // 
+            // ConsultarTrackingFRM
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(439, 195);
-            Controls.Add(mostrarEstadoLBL);
-            Controls.Add(salirBTN);
-            Controls.Add(estadoEncomiendaLBL);
+            ClientSize = new Size(613, 488);
+            Controls.Add(guiaLBL);
             Controls.Add(guiaTXT);
             Controls.Add(buscarBTN);
-            Controls.Add(guiaLBL);
-            Name = "ConsultarTracking";
+            Controls.Add(historialLBL);
+            Controls.Add(historialLST);
+            Controls.Add(cancelarBTN);
+            Name = "ConsultarTrackingFRM";
             Text = "Consultar Tracking";
             ResumeLayout(false);
             PerformLayout();
         }
 
-        #endregion
-
         private Label guiaLBL;
         private Button buscarBTN;
         private TextBox guiaTXT;
-        private Label estadoEncomiendaLBL;        
-        private Button salirBTN;
-        private Label mostrarEstadoLBL;
+        private Label historialLBL;
+        private ListView historialLST;
+        private ColumnHeader colNGuia;
+        private ColumnHeader colEstado;
+        private ColumnHeader colTipoPaquete;
+        private ColumnHeader colIdCliente;
+        private ColumnHeader colDniAutorizado;
+        private Button cancelarBTN;
     }
 }

@@ -23,6 +23,9 @@
             domicilioRemitenteLBL = new Label();
             domicilioRemitenteTXT = new TextBox();
             destinatarioGBX = new GroupBox();
+            direccionDestinatarioLBL = new Label();
+            ciudadDestinatarioLBL = new Label();
+            ciudadDestinatarioCMB = new ComboBox();
             nombreDestinatarioTXT = new TextBox();
             nombreDestinatarioLBL = new Label();
             cdRDB = new RadioButton();
@@ -30,7 +33,7 @@
             domicilioRDB = new RadioButton();
             destinoCDCMB = new ComboBox();
             destinoAgenciaCMB = new ComboBox();
-            destinoDomicilioTXT = new TextBox();
+            direccionDestinatarioTXT = new TextBox();
             dniDestinatarioLBL = new Label();
             dniDestinatarioTXT = new TextBox();
             encomiendaGBX = new GroupBox();
@@ -63,6 +66,7 @@
             clienteGBX.TabIndex = 0;
             clienteGBX.TabStop = false;
             clienteGBX.Text = "Cliente";
+            clienteGBX.Enter += clienteGBX_Enter_1;
             // 
             // nombreClienteLBL
             // 
@@ -149,6 +153,9 @@
             // 
             // destinatarioGBX
             // 
+            destinatarioGBX.Controls.Add(direccionDestinatarioLBL);
+            destinatarioGBX.Controls.Add(ciudadDestinatarioLBL);
+            destinatarioGBX.Controls.Add(ciudadDestinatarioCMB);
             destinatarioGBX.Controls.Add(nombreDestinatarioTXT);
             destinatarioGBX.Controls.Add(nombreDestinatarioLBL);
             destinatarioGBX.Controls.Add(cdRDB);
@@ -156,21 +163,48 @@
             destinatarioGBX.Controls.Add(domicilioRDB);
             destinatarioGBX.Controls.Add(destinoCDCMB);
             destinatarioGBX.Controls.Add(destinoAgenciaCMB);
-            destinatarioGBX.Controls.Add(destinoDomicilioTXT);
+            destinatarioGBX.Controls.Add(direccionDestinatarioTXT);
             destinatarioGBX.Controls.Add(dniDestinatarioLBL);
             destinatarioGBX.Controls.Add(dniDestinatarioTXT);
             destinatarioGBX.Location = new Point(12, 207);
             destinatarioGBX.Name = "destinatarioGBX";
-            destinatarioGBX.Size = new Size(649, 198);
+            destinatarioGBX.Size = new Size(649, 257);
             destinatarioGBX.TabIndex = 2;
             destinatarioGBX.TabStop = false;
             destinatarioGBX.Text = "Destinatario";
             destinatarioGBX.Enter += destinatarioGBX_Enter;
             // 
+            // direccionDestinatarioLBL
+            // 
+            direccionDestinatarioLBL.Location = new Point(133, 125);
+            direccionDestinatarioLBL.Name = "direccionDestinatarioLBL";
+            direccionDestinatarioLBL.Size = new Size(66, 23);
+            direccionDestinatarioLBL.TabIndex = 15;
+            direccionDestinatarioLBL.Text = "Dirección:";
+            direccionDestinatarioLBL.TextAlign = ContentAlignment.MiddleRight;
+            direccionDestinatarioLBL.Click += label2_Click;
+            // 
+            // ciudadDestinatarioLBL
+            // 
+            ciudadDestinatarioLBL.Location = new Point(149, 90);
+            ciudadDestinatarioLBL.Name = "ciudadDestinatarioLBL";
+            ciudadDestinatarioLBL.Size = new Size(50, 23);
+            ciudadDestinatarioLBL.TabIndex = 13;
+            ciudadDestinatarioLBL.Text = "Ciudad:";
+            ciudadDestinatarioLBL.TextAlign = ContentAlignment.MiddleRight;
+            // 
+            // ciudadDestinatarioCMB
+            // 
+            ciudadDestinatarioCMB.DropDownStyle = ComboBoxStyle.DropDownList;
+            ciudadDestinatarioCMB.Location = new Point(205, 91);
+            ciudadDestinatarioCMB.Name = "ciudadDestinatarioCMB";
+            ciudadDestinatarioCMB.Size = new Size(430, 23);
+            ciudadDestinatarioCMB.TabIndex = 14;
+            // 
             // nombreDestinatarioTXT
             // 
             nombreDestinatarioTXT.Enabled = false;
-            nombreDestinatarioTXT.Location = new Point(135, 158);
+            nombreDestinatarioTXT.Location = new Point(135, 194);
             nombreDestinatarioTXT.MaxLength = 11;
             nombreDestinatarioTXT.Name = "nombreDestinatarioTXT";
             nombreDestinatarioTXT.Size = new Size(500, 23);
@@ -178,7 +212,7 @@
             // 
             // nombreDestinatarioLBL
             // 
-            nombreDestinatarioLBL.Location = new Point(9, 153);
+            nombreDestinatarioLBL.Location = new Point(9, 189);
             nombreDestinatarioLBL.Name = "nombreDestinatarioLBL";
             nombreDestinatarioLBL.Size = new Size(120, 31);
             nombreDestinatarioLBL.TabIndex = 11;
@@ -187,7 +221,7 @@
             // 
             // cdRDB
             // 
-            cdRDB.Location = new Point(54, 22);
+            cdRDB.Location = new Point(43, 22);
             cdRDB.Name = "cdRDB";
             cdRDB.Size = new Size(41, 23);
             cdRDB.TabIndex = 0;
@@ -195,7 +229,7 @@
             // 
             // agenciaRDB
             // 
-            agenciaRDB.Location = new Point(54, 56);
+            agenciaRDB.Location = new Point(43, 56);
             agenciaRDB.Name = "agenciaRDB";
             agenciaRDB.Size = new Size(70, 23);
             agenciaRDB.TabIndex = 1;
@@ -203,11 +237,12 @@
             // 
             // domicilioRDB
             // 
-            domicilioRDB.Location = new Point(53, 87);
+            domicilioRDB.Location = new Point(43, 88);
             domicilioRDB.Name = "domicilioRDB";
-            domicilioRDB.Size = new Size(76, 26);
+            domicilioRDB.Size = new Size(87, 26);
             domicilioRDB.TabIndex = 2;
-            domicilioRDB.Text = "Domicilio";
+            domicilioRDB.Text = "A domicilio";
+            domicilioRDB.CheckedChanged += domicilioRDB_CheckedChanged_2;
             // 
             // destinoCDCMB
             // 
@@ -227,17 +262,17 @@
             destinoAgenciaCMB.Size = new Size(500, 23);
             destinoAgenciaCMB.TabIndex = 6;
             // 
-            // destinoDomicilioTXT
+            // direccionDestinatarioTXT
             // 
-            destinoDomicilioTXT.Enabled = false;
-            destinoDomicilioTXT.Location = new Point(134, 90);
-            destinoDomicilioTXT.Name = "destinoDomicilioTXT";
-            destinoDomicilioTXT.Size = new Size(500, 23);
-            destinoDomicilioTXT.TabIndex = 8;
+            direccionDestinatarioTXT.Enabled = false;
+            direccionDestinatarioTXT.Location = new Point(205, 125);
+            direccionDestinatarioTXT.Name = "direccionDestinatarioTXT";
+            direccionDestinatarioTXT.Size = new Size(430, 23);
+            direccionDestinatarioTXT.TabIndex = 8;
             // 
             // dniDestinatarioLBL
             // 
-            dniDestinatarioLBL.Location = new Point(32, 124);
+            dniDestinatarioLBL.Location = new Point(32, 160);
             dniDestinatarioLBL.Name = "dniDestinatarioLBL";
             dniDestinatarioLBL.Size = new Size(97, 23);
             dniDestinatarioLBL.TabIndex = 9;
@@ -247,7 +282,7 @@
             // dniDestinatarioTXT
             // 
             dniDestinatarioTXT.Enabled = false;
-            dniDestinatarioTXT.Location = new Point(135, 124);
+            dniDestinatarioTXT.Location = new Point(135, 160);
             dniDestinatarioTXT.MaxLength = 11;
             dniDestinatarioTXT.Name = "dniDestinatarioTXT";
             dniDestinatarioTXT.Size = new Size(500, 23);
@@ -262,7 +297,7 @@
             encomiendaGBX.Controls.Add(agregarBTN);
             encomiendaGBX.Controls.Add(encomiendaLST);
             encomiendaGBX.Controls.Add(quitarItemBTN);
-            encomiendaGBX.Location = new Point(12, 411);
+            encomiendaGBX.Location = new Point(12, 470);
             encomiendaGBX.Name = "encomiendaGBX";
             encomiendaGBX.Size = new Size(649, 244);
             encomiendaGBX.TabIndex = 3;
@@ -343,7 +378,7 @@
             // 
             // confirmarBTN
             // 
-            confirmarBTN.Location = new Point(486, 689);
+            confirmarBTN.Location = new Point(486, 749);
             confirmarBTN.Name = "confirmarBTN";
             confirmarBTN.Size = new Size(80, 32);
             confirmarBTN.TabIndex = 4;
@@ -351,7 +386,7 @@
             // 
             // cancelarBTN
             // 
-            cancelarBTN.Location = new Point(581, 689);
+            cancelarBTN.Location = new Point(581, 749);
             cancelarBTN.Name = "cancelarBTN";
             cancelarBTN.Size = new Size(80, 32);
             cancelarBTN.TabIndex = 5;
@@ -359,7 +394,7 @@
             // 
             // ImposicionCallCenterFRM
             // 
-            ClientSize = new Size(672, 733);
+            ClientSize = new Size(674, 796);
             Controls.Add(clienteGBX);
             Controls.Add(retiroGBX);
             Controls.Add(destinatarioGBX);
@@ -396,7 +431,7 @@
         private RadioButton domicilioRDB;
         private ComboBox destinoCDCMB;
         private ComboBox destinoAgenciaCMB;
-        private TextBox destinoDomicilioTXT;
+        private TextBox direccionDestinatarioTXT;
         private Label dniDestinatarioLBL;
         private TextBox dniDestinatarioTXT;
 
@@ -416,5 +451,8 @@
         private Label nombreClienteLBL;
         private TextBox nombreDestinatarioTXT;
         private Label nombreDestinatarioLBL;
+        private ComboBox ciudadDestinatarioCMB;
+        private Label ciudadDestinatarioLBL;
+        private Label direccionDestinatarioLBL;
     }
 }
