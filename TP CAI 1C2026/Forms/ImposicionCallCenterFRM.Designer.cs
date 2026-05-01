@@ -191,7 +191,6 @@
             destinoAgenciaCMB.Name = "destinoAgenciaCMB";
             destinoAgenciaCMB.Size = new Size(305, 23);
             destinoAgenciaCMB.TabIndex = 6;
-            destinoAgenciaCMB.SelectedIndexChanged += this.destinoAgenciaCMB_SelectedIndexChanged;
             // 
             // destinoDomicilioTXT
             // 
@@ -208,8 +207,7 @@
             dniDestinatarioLBL.Size = new Size(97, 23);
             dniDestinatarioLBL.TabIndex = 9;
             dniDestinatarioLBL.Text = "DNI Destinatario:";
-            dniDestinatarioLBL.TextAlign = ContentAlignment.MiddleRight;
-            dniDestinatarioLBL.Click += this.dniDestinatarioLBL_Click;
+            dniDestinatarioLBL.TextAlign = ContentAlignment.MiddleRight;            
             // 
             // dniDestinatarioTXT
             // 

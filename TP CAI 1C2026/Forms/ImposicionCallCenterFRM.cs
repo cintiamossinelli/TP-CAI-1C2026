@@ -2,6 +2,11 @@ namespace TP_CAI_1C2026
 {
     public partial class ImposicionCallCenterFRM : Form
     {
+        private void destinatarioGBX_Enter(object sender, EventArgs e)
+        {
+            // Manejador vacío para evitar CS1061.
+            // Añada aquí la lógica necesaria si quiere reaccionar al Enter del GroupBox.
+        }
         public ImposicionCallCenterFRM()
         {
             InitializeComponent();
@@ -127,6 +132,13 @@ namespace TP_CAI_1C2026
             tipoCajaCMB.SelectedIndex = -1;
             cantidadTXT.Clear();
             encomiendaLST.Items.Clear();
+        }
+
+        // Added missing handler referenced by designer to fix CS1061
+        private void dniDestinatarioLBL_Click(object sender, EventArgs e)
+        {
+            // Comportamiento razonable: pasar el foco al campo de texto del DNI
+            dniDestinatarioTXT.Focus();
         }
 
         private void retiroGBX_Enter(object sender, EventArgs e)
