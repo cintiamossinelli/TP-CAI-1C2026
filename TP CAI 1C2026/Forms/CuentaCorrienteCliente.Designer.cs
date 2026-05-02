@@ -44,34 +44,36 @@
             // 
             nombreClienteLBL.AutoSize = true;
             nombreClienteLBL.BackColor = SystemColors.ActiveCaption;
-            nombreClienteLBL.Location = new Point(149, 60);
+            nombreClienteLBL.Location = new Point(130, 45);
             nombreClienteLBL.Name = "nombreClienteLBL";
-            nombreClienteLBL.Size = new Size(139, 20);
+            nombreClienteLBL.Size = new Size(110, 15);
             nombreClienteLBL.TabIndex = 7;
             nombreClienteLBL.Text = "Nombre del Cliente";
             // 
             // idClienteLBL
             // 
-            idClienteLBL.Location = new Point(22, 30);
+            idClienteLBL.Location = new Point(19, 22);
             idClienteLBL.Name = "idClienteLBL";
-            idClienteLBL.Size = new Size(129, 23);
+            idClienteLBL.Size = new Size(113, 17);
             idClienteLBL.TabIndex = 4;
             idClienteLBL.Text = "CUIT / DNI / CUIL:";
             idClienteLBL.TextAlign = ContentAlignment.MiddleRight;
             // 
             // idClienteTXT
             // 
-            idClienteTXT.Location = new Point(149, 27);
+            idClienteTXT.Location = new Point(130, 20);
+            idClienteTXT.Margin = new Padding(3, 2, 3, 2);
             idClienteTXT.MaxLength = 11;
             idClienteTXT.Name = "idClienteTXT";
-            idClienteTXT.Size = new Size(160, 27);
+            idClienteTXT.Size = new Size(140, 23);
             idClienteTXT.TabIndex = 5;
             // 
             // buscarClienteBTN
             // 
-            buscarClienteBTN.Location = new Point(326, 26);
+            buscarClienteBTN.Location = new Point(285, 20);
+            buscarClienteBTN.Margin = new Padding(3, 2, 3, 2);
             buscarClienteBTN.Name = "buscarClienteBTN";
-            buscarClienteBTN.Size = new Size(114, 27);
+            buscarClienteBTN.Size = new Size(100, 20);
             buscarClienteBTN.TabIndex = 6;
             buscarClienteBTN.Text = "Buscar";
             // 
@@ -79,9 +81,10 @@
             // 
             CuentaCorrienteLST.Columns.AddRange(new ColumnHeader[] { FechaCol, NumeroCol, ImporteCol, SaldoCol });
             CuentaCorrienteLST.GridLines = true;
-            CuentaCorrienteLST.Location = new Point(22, 95);
+            CuentaCorrienteLST.Location = new Point(19, 71);
+            CuentaCorrienteLST.Margin = new Padding(3, 2, 3, 2);
             CuentaCorrienteLST.Name = "CuentaCorrienteLST";
-            CuentaCorrienteLST.Size = new Size(418, 267);
+            CuentaCorrienteLST.Size = new Size(504, 219);
             CuentaCorrienteLST.TabIndex = 8;
             CuentaCorrienteLST.UseCompatibleStateImageBehavior = false;
             CuentaCorrienteLST.View = View.Details;
@@ -110,23 +113,25 @@
             // 
             // salirBTN
             // 
-            salirBTN.Location = new Point(360, 376);
+            salirBTN.Location = new Point(453, 303);
+            salirBTN.Margin = new Padding(3, 2, 3, 2);
             salirBTN.Name = "salirBTN";
-            salirBTN.Size = new Size(80, 32);
+            salirBTN.Size = new Size(70, 24);
             salirBTN.TabIndex = 9;
             salirBTN.Text = "Salir";
             // 
             // CuentaCorrienteCliente
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(479, 427);
+            ClientSize = new Size(551, 356);
             Controls.Add(salirBTN);
             Controls.Add(CuentaCorrienteLST);
             Controls.Add(nombreClienteLBL);
             Controls.Add(idClienteLBL);
             Controls.Add(idClienteTXT);
             Controls.Add(buscarClienteBTN);
+            Margin = new Padding(3, 2, 3, 2);
             Name = "CuentaCorrienteCliente";
             Text = "Cuenta Corriente Cliente";
             ResumeLayout(false);

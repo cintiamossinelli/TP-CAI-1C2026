@@ -33,7 +33,8 @@
             colNGuia = new ColumnHeader();
             colTipoEncomienda = new ColumnHeader();
             admitirBTN = new Button();
-            cancelarBTN = new Button();
+            textBox1 = new TextBox();
+            button1 = new Button();
             SuspendLayout();
             // 
             // selecGuiasAdmLBL
@@ -53,9 +54,9 @@
             historialLST.Columns.AddRange(new ColumnHeader[] { colNGuia, colTipoEncomienda });
             historialLST.FullRowSelect = true;
             historialLST.GridLines = true;
-            historialLST.Location = new Point(12, 45);
+            historialLST.Location = new Point(12, 36);
             historialLST.Name = "historialLST";
-            historialLST.Size = new Size(472, 261);
+            historialLST.Size = new Size(472, 136);
             historialLST.TabIndex = 7;
             historialLST.UseCompatibleStateImageBehavior = false;
             historialLST.View = View.Details;
@@ -72,28 +73,36 @@
             // 
             // admitirBTN
             // 
-            admitirBTN.Location = new Point(249, 323);
+            admitirBTN.Location = new Point(12, 255);
             admitirBTN.Name = "admitirBTN";
-            admitirBTN.Size = new Size(109, 30);
+            admitirBTN.Size = new Size(232, 30);
             admitirBTN.TabIndex = 8;
             admitirBTN.Text = "Admitir";
             admitirBTN.UseVisualStyleBackColor = true;
             // 
-            // cancelarBTN
+            // textBox1
             // 
-            cancelarBTN.Location = new Point(375, 323);
-            cancelarBTN.Name = "cancelarBTN";
-            cancelarBTN.Size = new Size(109, 30);
-            cancelarBTN.TabIndex = 9;
-            cancelarBTN.Text = "Cancelar";
-            cancelarBTN.UseVisualStyleBackColor = true;
+            textBox1.Location = new Point(12, 226);
+            textBox1.Name = "textBox1";
+            textBox1.Size = new Size(472, 23);
+            textBox1.TabIndex = 10;
+            // 
+            // button1
+            // 
+            button1.Location = new Point(250, 255);
+            button1.Name = "button1";
+            button1.Size = new Size(232, 30);
+            button1.TabIndex = 11;
+            button1.Text = "Rechazar";
+            button1.UseVisualStyleBackColor = true;
             // 
             // AdmisionCDFRM
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(499, 365);
-            Controls.Add(cancelarBTN);
+            ClientSize = new Size(499, 336);
+            Controls.Add(button1);
+            Controls.Add(textBox1);
             Controls.Add(admitirBTN);
             Controls.Add(historialLST);
             Controls.Add(selecGuiasAdmLBL);
@@ -109,6 +118,7 @@
         private ColumnHeader colNGuia;
         private ColumnHeader colTipoEncomienda;
         private Button admitirBTN;
-        private Button cancelarBTN;
+        private TextBox textBox1;
+        private Button button1;
     }
 }

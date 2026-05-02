@@ -34,18 +34,18 @@
             colNHdrEntregar = new ColumnHeader();
             colDomicilioEntregar = new ColumnHeader();
             colCantEntregar = new ColumnHeader();
-            hdrEntregarLBL = new Label();
             hdrRetirarGBX = new GroupBox();
             hdrRetirarLST = new ListView();
             colNHdrRetirar = new ColumnHeader();
             colDomicilioRetirar = new ColumnHeader();
             colCantRetirar = new ColumnHeader();
-            hdrRetirarLBL = new Label();
             generarResumenBTN = new Button();
             dniFleteroLBL = new Label();
             dniFleteroTXT = new TextBox();
             buscarFleteroBTN = new Button();
             nombreFleteroLBL = new Label();
+            hdrRetirarLBL = new Label();
+            hdrEntregarLBL = new Label();
             hdrEntregarGBX.SuspendLayout();
             hdrRetirarGBX.SuspendLayout();
             SuspendLayout();
@@ -53,9 +53,9 @@
             // fleteroLBL
             // 
             fleteroLBL.AutoSize = true;
-            fleteroLBL.Location = new Point(15, 25);
+            fleteroLBL.Location = new Point(13, 19);
             fleteroLBL.Name = "fleteroLBL";
-            fleteroLBL.Size = new Size(0, 20);
+            fleteroLBL.Size = new Size(0, 15);
             fleteroLBL.TabIndex = 0;
             fleteroLBL.TextAlign = ContentAlignment.MiddleRight;
             // 
@@ -64,9 +64,11 @@
             hdrEntregarGBX.Controls.Add(hdrEntregarLST);
             hdrEntregarGBX.Controls.Add(hdrEntregarLBL);
             hdrEntregarGBX.Enabled = false;
-            hdrEntregarGBX.Location = new Point(12, 67);
+            hdrEntregarGBX.Location = new Point(10, 50);
+            hdrEntregarGBX.Margin = new Padding(3, 2, 3, 2);
             hdrEntregarGBX.Name = "hdrEntregarGBX";
-            hdrEntregarGBX.Size = new Size(660, 218);
+            hdrEntregarGBX.Padding = new Padding(3, 2, 3, 2);
+            hdrEntregarGBX.Size = new Size(578, 164);
             hdrEntregarGBX.TabIndex = 2;
             hdrEntregarGBX.TabStop = false;
             hdrEntregarGBX.Text = "HDR a Entregar";
@@ -77,9 +79,10 @@
             hdrEntregarLST.Columns.AddRange(new ColumnHeader[] { colNHdrEntregar, colDomicilioEntregar, colCantEntregar });
             hdrEntregarLST.FullRowSelect = true;
             hdrEntregarLST.GridLines = true;
-            hdrEntregarLST.Location = new Point(9, 61);
+            hdrEntregarLST.Location = new Point(8, 46);
+            hdrEntregarLST.Margin = new Padding(3, 2, 3, 2);
             hdrEntregarLST.Name = "hdrEntregarLST";
-            hdrEntregarLST.Size = new Size(635, 150);
+            hdrEntregarLST.Size = new Size(556, 114);
             hdrEntregarLST.TabIndex = 1;
             hdrEntregarLST.UseCompatibleStateImageBehavior = false;
             hdrEntregarLST.View = View.Details;
@@ -101,26 +104,16 @@
             colCantEntregar.TextAlign = HorizontalAlignment.Center;
             colCantEntregar.Width = 160;
             // 
-            // hdrEntregarLBL
-            // 
-            hdrEntregarLBL.AutoSize = true;
-            hdrEntregarLBL.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            hdrEntregarLBL.ForeColor = Color.Green;
-            hdrEntregarLBL.Location = new Point(9, 26);
-            hdrEntregarLBL.Name = "hdrEntregarLBL";
-            hdrEntregarLBL.Size = new Size(357, 20);
-            hdrEntregarLBL.TabIndex = 0;
-            hdrEntregarLBL.Text = "Seleccione HDR de entrega a incluir en el resumen";
-            hdrEntregarLBL.Click += hdrEntregarLBL_Click;
-            // 
             // hdrRetirarGBX
             // 
             hdrRetirarGBX.Controls.Add(hdrRetirarLST);
             hdrRetirarGBX.Controls.Add(hdrRetirarLBL);
             hdrRetirarGBX.Enabled = false;
-            hdrRetirarGBX.Location = new Point(12, 291);
+            hdrRetirarGBX.Location = new Point(10, 218);
+            hdrRetirarGBX.Margin = new Padding(3, 2, 3, 2);
             hdrRetirarGBX.Name = "hdrRetirarGBX";
-            hdrRetirarGBX.Size = new Size(660, 216);
+            hdrRetirarGBX.Padding = new Padding(3, 2, 3, 2);
+            hdrRetirarGBX.Size = new Size(578, 162);
             hdrRetirarGBX.TabIndex = 3;
             hdrRetirarGBX.TabStop = false;
             hdrRetirarGBX.Text = "HDR a Retirar";
@@ -131,9 +124,10 @@
             hdrRetirarLST.Columns.AddRange(new ColumnHeader[] { colNHdrRetirar, colDomicilioRetirar, colCantRetirar });
             hdrRetirarLST.FullRowSelect = true;
             hdrRetirarLST.GridLines = true;
-            hdrRetirarLST.Location = new Point(9, 62);
+            hdrRetirarLST.Location = new Point(8, 46);
+            hdrRetirarLST.Margin = new Padding(3, 2, 3, 2);
             hdrRetirarLST.Name = "hdrRetirarLST";
-            hdrRetirarLST.Size = new Size(635, 147);
+            hdrRetirarLST.Size = new Size(556, 111);
             hdrRetirarLST.TabIndex = 1;
             hdrRetirarLST.UseCompatibleStateImageBehavior = false;
             hdrRetirarLST.View = View.Details;
@@ -155,23 +149,13 @@
             colCantRetirar.TextAlign = HorizontalAlignment.Center;
             colCantRetirar.Width = 160;
             // 
-            // hdrRetirarLBL
-            // 
-            hdrRetirarLBL.AutoSize = true;
-            hdrRetirarLBL.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            hdrRetirarLBL.ForeColor = SystemColors.HotTrack;
-            hdrRetirarLBL.Location = new Point(9, 25);
-            hdrRetirarLBL.Name = "hdrRetirarLBL";
-            hdrRetirarLBL.Size = new Size(342, 20);
-            hdrRetirarLBL.TabIndex = 0;
-            hdrRetirarLBL.Text = "Seleccione HDR de retiro a incluir en el resumen";
-            // 
             // generarResumenBTN
             // 
             generarResumenBTN.Enabled = false;
-            generarResumenBTN.Location = new Point(545, 513);
+            generarResumenBTN.Location = new Point(477, 385);
+            generarResumenBTN.Margin = new Padding(3, 2, 3, 2);
             generarResumenBTN.Name = "generarResumenBTN";
-            generarResumenBTN.Size = new Size(111, 30);
+            generarResumenBTN.Size = new Size(97, 22);
             generarResumenBTN.TabIndex = 2;
             generarResumenBTN.Text = "Generar";
             generarResumenBTN.UseVisualStyleBackColor = true;
@@ -179,9 +163,9 @@
             // dniFleteroLBL
             // 
             dniFleteroLBL.AutoSize = true;
-            dniFleteroLBL.Location = new Point(19, 18);
+            dniFleteroLBL.Location = new Point(17, 14);
             dniFleteroLBL.Name = "dniFleteroLBL";
-            dniFleteroLBL.Size = new Size(88, 20);
+            dniFleteroLBL.Size = new Size(69, 15);
             dniFleteroLBL.TabIndex = 5;
             dniFleteroLBL.Text = "DNI Fletero:";
             dniFleteroLBL.TextAlign = ContentAlignment.MiddleRight;
@@ -189,16 +173,18 @@
             // 
             // dniFleteroTXT
             // 
-            dniFleteroTXT.Location = new Point(144, 15);
+            dniFleteroTXT.Location = new Point(126, 11);
+            dniFleteroTXT.Margin = new Padding(3, 2, 3, 2);
             dniFleteroTXT.Name = "dniFleteroTXT";
-            dniFleteroTXT.Size = new Size(157, 27);
+            dniFleteroTXT.Size = new Size(138, 23);
             dniFleteroTXT.TabIndex = 6;
             // 
             // buscarFleteroBTN
             // 
-            buscarFleteroBTN.Location = new Point(326, 15);
+            buscarFleteroBTN.Location = new Point(285, 11);
+            buscarFleteroBTN.Margin = new Padding(3, 2, 3, 2);
             buscarFleteroBTN.Name = "buscarFleteroBTN";
-            buscarFleteroBTN.Size = new Size(97, 29);
+            buscarFleteroBTN.Size = new Size(85, 22);
             buscarFleteroBTN.TabIndex = 7;
             buscarFleteroBTN.Text = "Buscar ";
             buscarFleteroBTN.UseVisualStyleBackColor = true;
@@ -207,17 +193,40 @@
             // 
             nombreFleteroLBL.AutoSize = true;
             nombreFleteroLBL.BackColor = SystemColors.ActiveCaption;
-            nombreFleteroLBL.Location = new Point(469, 22);
+            nombreFleteroLBL.Location = new Point(410, 16);
             nombreFleteroLBL.Name = "nombreFleteroLBL";
-            nombreFleteroLBL.Size = new Size(139, 20);
+            nombreFleteroLBL.Size = new Size(109, 15);
             nombreFleteroLBL.TabIndex = 8;
             nombreFleteroLBL.Text = "Nombre del Fletero";
             // 
+            // hdrRetirarLBL
+            // 
+            hdrRetirarLBL.AutoSize = true;
+            hdrRetirarLBL.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            hdrRetirarLBL.ForeColor = SystemColors.HotTrack;
+            hdrRetirarLBL.Location = new Point(8, 19);
+            hdrRetirarLBL.Name = "hdrRetirarLBL";
+            hdrRetirarLBL.Size = new Size(276, 15);
+            hdrRetirarLBL.TabIndex = 0;
+            hdrRetirarLBL.Text = "Seleccione HDR de retiro a incluir en el resumen";
+            // 
+            // hdrEntregarLBL
+            // 
+            hdrEntregarLBL.AutoSize = true;
+            hdrEntregarLBL.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            hdrEntregarLBL.ForeColor = Color.Green;
+            hdrEntregarLBL.Location = new Point(8, 20);
+            hdrEntregarLBL.Name = "hdrEntregarLBL";
+            hdrEntregarLBL.Size = new Size(288, 15);
+            hdrEntregarLBL.TabIndex = 0;
+            hdrEntregarLBL.Text = "Seleccione HDR de entrega a incluir en el resumen";
+            hdrEntregarLBL.Click += hdrEntregarLBL_Click;
+            // 
             // EmisionResumenHDRFRM
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(682, 556);
+            ClientSize = new Size(597, 435);
             Controls.Add(nombreFleteroLBL);
             Controls.Add(buscarFleteroBTN);
             Controls.Add(dniFleteroTXT);
@@ -226,6 +235,7 @@
             Controls.Add(hdrRetirarGBX);
             Controls.Add(hdrEntregarGBX);
             Controls.Add(fleteroLBL);
+            Margin = new Padding(3, 2, 3, 2);
             Name = "EmisionResumenHDRFRM";
             Text = "Emisión de Resumen de HDR";
             hdrEntregarGBX.ResumeLayout(false);
@@ -240,13 +250,11 @@
 
         private Label fleteroLBL;
         private GroupBox hdrEntregarGBX;
-        private Label hdrEntregarLBL;
         private ListView hdrEntregarLST;
         private ColumnHeader colNHdrEntregar;
         private ColumnHeader colDomicilioEntregar;
         private ColumnHeader colCantEntregar;
         private GroupBox hdrRetirarGBX;
-        private Label hdrRetirarLBL;
         private Button generarResumenBTN;
         private ListView hdrRetirarLST;
         private ColumnHeader colNHdrRetirar;
@@ -256,5 +264,7 @@
         private TextBox dniFleteroTXT;
         private Button buscarFleteroBTN;
         private Label nombreFleteroLBL;
+        private Label hdrEntregarLBL;
+        private Label hdrRetirarLBL;
     }
 }

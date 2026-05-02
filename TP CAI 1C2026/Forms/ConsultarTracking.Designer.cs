@@ -20,12 +20,12 @@
             guiaTXT = new TextBox();
             historialLBL = new Label();
             historialLST = new ListView();
-            colNGuia = new ColumnHeader();
             colEstado = new ColumnHeader();
             colTipoPaquete = new ColumnHeader();
             colIdCliente = new ColumnHeader();
             colDniAutorizado = new ColumnHeader();
             cancelarBTN = new Button();
+            colNGuia = new ColumnHeader();
             SuspendLayout();
             // 
             // guiaLBL
@@ -67,17 +67,12 @@
             historialLST.Columns.AddRange(new ColumnHeader[] { colNGuia, colEstado, colTipoPaquete, colIdCliente, colDniAutorizado });
             historialLST.FullRowSelect = true;
             historialLST.GridLines = true;
-            historialLST.Location = new Point(22, 100);
+            historialLST.Location = new Point(22, 98);
             historialLST.Name = "historialLST";
-            historialLST.Size = new Size(570, 300);
+            historialLST.Size = new Size(646, 214);
             historialLST.TabIndex = 6;
             historialLST.UseCompatibleStateImageBehavior = false;
             historialLST.View = View.Details;
-            // 
-            // colNGuia
-            // 
-            colNGuia.Text = "N° Guía";
-            colNGuia.Width = 100;
             // 
             // colEstado
             // 
@@ -107,11 +102,16 @@
             cancelarBTN.TabIndex = 7;
             cancelarBTN.Text = "Cancelar";
             // 
+            // colNGuia
+            // 
+            colNGuia.Text = "Fecha";
+            colNGuia.Width = 135;
+            // 
             // ConsultarTrackingFRM
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(613, 488);
+            ClientSize = new Size(722, 582);
             Controls.Add(guiaLBL);
             Controls.Add(guiaTXT);
             Controls.Add(buscarBTN);
@@ -129,11 +129,11 @@
         private TextBox guiaTXT;
         private Label historialLBL;
         private ListView historialLST;
-        private ColumnHeader colNGuia;
         private ColumnHeader colEstado;
         private ColumnHeader colTipoPaquete;
         private ColumnHeader colIdCliente;
         private ColumnHeader colDniAutorizado;
         private Button cancelarBTN;
+        private ColumnHeader colNGuia;
     }
 }

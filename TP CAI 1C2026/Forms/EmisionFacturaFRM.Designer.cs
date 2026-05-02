@@ -154,16 +154,16 @@
             seleccionarGuiasLBL.ForeColor = SystemColors.HotTrack;
             seleccionarGuiasLBL.Location = new Point(12, 86);
             seleccionarGuiasLBL.Name = "seleccionarGuiasLBL";
-            seleccionarGuiasLBL.Size = new Size(164, 23);
+            seleccionarGuiasLBL.Size = new Size(105, 23);
             seleccionarGuiasLBL.TabIndex = 13;
-            seleccionarGuiasLBL.Text = "Seleccione Guías a Facturar";
+            seleccionarGuiasLBL.Text = " Guías a Facturar";
             seleccionarGuiasLBL.TextAlign = ContentAlignment.MiddleRight;
             // 
             // EmisionFacturaFRM
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(564, 391);
+            ClientSize = new Size(564, 415);
             Controls.Add(seleccionarGuiasLBL);
             Controls.Add(guiasEntregadasPendientesLST);
             Controls.Add(nombreClienteLBL);
