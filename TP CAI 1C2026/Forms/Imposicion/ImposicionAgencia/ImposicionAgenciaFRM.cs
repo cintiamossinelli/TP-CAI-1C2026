@@ -6,11 +6,11 @@ using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
 
-namespace TP_CAI_1C2026.Forms
+namespace TP_CAI_1C2026.Forms.Imposicion.ImposicionAgencia
 {
-    public partial class EmisionHDRTransporteFRM : Form
+    public partial class ImposicionAgenciaFRM : Form
     {
-        public EmisionHDRTransporteFRM()
+        public ImposicionAgenciaFRM()
         {
             InitializeComponent();
         }

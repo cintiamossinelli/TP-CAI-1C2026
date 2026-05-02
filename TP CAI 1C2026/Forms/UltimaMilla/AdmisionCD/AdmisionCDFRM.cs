@@ -6,18 +6,13 @@ using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
 
-namespace TP_CAI_1C2026
+namespace TP_CAI_1C2026.Forms.UltimaMilla.AdmisionCD
 {
-    public partial class EmisionHDRRetiroFRM : Form
+    public partial class AdmisionCDFRM : Form
     {
-        public EmisionHDRRetiroFRM()
+        public AdmisionCDFRM()
         {
             InitializeComponent();
-        }
-
-        private void EmisionHDRRetiroFRM_Load(object sender, EventArgs e)
-        {
-
         }
     }
 }

@@ -6,11 +6,11 @@ using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
 
-namespace TP_CAI_1C2026.Forms
+namespace TP_CAI_1C2026.Forms.Troncal.EmisionHDRTransporte
 {
-    public partial class RecepcionHDRAgenciaFRM : Form
+    public partial class EmisionHDRTransporteFRM : Form
     {
-        public RecepcionHDRAgenciaFRM()
+        public EmisionHDRTransporteFRM()
         {
             InitializeComponent();
         }

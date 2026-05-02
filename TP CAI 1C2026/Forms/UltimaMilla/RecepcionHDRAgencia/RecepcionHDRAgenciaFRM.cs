@@ -6,11 +6,11 @@ using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
 
-namespace TP_CAI_1C2026.Forms
+namespace TP_CAI_1C2026.Forms.UltimaMilla.RecepcionHDRAgencia
 {
-    public partial class AdmisionCDFRM : Form
+    public partial class RecepcionHDRAgenciaFRM : Form
     {
-        public AdmisionCDFRM()
+        public RecepcionHDRAgenciaFRM()
         {
             InitializeComponent();
         }

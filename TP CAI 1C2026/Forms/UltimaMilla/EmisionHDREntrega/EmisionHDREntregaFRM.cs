@@ -6,11 +6,11 @@ using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
 
-namespace TP_CAI_1C2026.Forms
+namespace TP_CAI_1C2026.Forms.UltimaMilla.EmisionHDREntrega
 {
-    public partial class RecepcionHDRTransporteFRM : Form
+    public partial class EmisionHDREntregaFRM : Form
     {
-        public RecepcionHDRTransporteFRM()
+        public EmisionHDREntregaFRM()
         {
             InitializeComponent();
         }

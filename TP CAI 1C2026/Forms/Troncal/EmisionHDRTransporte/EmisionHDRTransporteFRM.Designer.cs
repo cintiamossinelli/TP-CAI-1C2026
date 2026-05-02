@@ -1,4 +1,4 @@
-﻿namespace TP_CAI_1C2026.Forms
+﻿namespace TP_CAI_1C2026.Forms.Troncal.EmisionHDRTransporte
 {
     partial class EmisionHDRTransporteFRM
     {

@@ -6,16 +6,16 @@ using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
 
-namespace TP_CAI_1C2026
+namespace TP_CAI_1C2026.Forms.UltimaMilla.EmisionHDRRetiro
 {
-    public partial class ImposicionCDFRM : Form
+    public partial class EmisionHDRRetiroFRM : Form
     {
-        public ImposicionCDFRM()
+        public EmisionHDRRetiroFRM()
         {
             InitializeComponent();
         }
 
-        private void ImposicionCDFRM_Load(object sender, EventArgs e)
+        private void EmisionHDRRetiroFRM_Load(object sender, EventArgs e)
         {
 
         }

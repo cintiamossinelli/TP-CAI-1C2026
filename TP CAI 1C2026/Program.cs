@@ -1,7 +1,7 @@
 using System;
 using System.Windows.Forms;
 
-namespace TP_CAI_1C2026
+namespace TP_CAI_1C2026.Forms.Imposicion.ImposicionCallCenter
 {
     internal static class Program
     {

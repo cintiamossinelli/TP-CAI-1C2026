@@ -6,13 +6,18 @@ using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
 
-namespace TP_CAI_1C2026
+namespace TP_CAI_1C2026.Forms.Imposicion.ImposicionCD
 {
-    public partial class ImposicionAgenciaFRM : Form
+    public partial class ImposicionCDFRM : Form
     {
-        public ImposicionAgenciaFRM()
+        public ImposicionCDFRM()
         {
             InitializeComponent();
+        }
+
+        private void ImposicionCDFRM_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

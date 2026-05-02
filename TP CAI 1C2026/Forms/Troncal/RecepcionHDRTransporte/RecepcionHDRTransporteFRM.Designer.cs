@@ -1,6 +1,6 @@
-﻿namespace TP_CAI_1C2026.Forms
+﻿namespace TP_CAI_1C2026.Forms.Troncal.RecepcionHDRTransporte
 {
-    partial class RecepcionHDRAgenciaFRM
+    partial class RecepcionHDRTransporteFRM
     {
         /// <summary>
         /// Required designer variable.
@@ -33,34 +33,39 @@
             GuiasLST = new ListView();
             TipoEncomiendaCol = new ColumnHeader();
             NumGuiaCol = new ColumnHeader();
+            DestinoCol = new ColumnHeader();
             HDRnumCMB = new ComboBox();
             HDRnumLBL = new Label();
+            label1 = new Label();
             SuspendLayout();
             // 
             // recibirHDRBTN
             // 
-            recibirHDRBTN.Location = new Point(177, 315);
+            recibirHDRBTN.Location = new Point(345, 243);
+            recibirHDRBTN.Margin = new Padding(3, 2, 3, 2);
             recibirHDRBTN.Name = "recibirHDRBTN";
-            recibirHDRBTN.Size = new Size(107, 32);
-            recibirHDRBTN.TabIndex = 16;
+            recibirHDRBTN.Size = new Size(94, 24);
+            recibirHDRBTN.TabIndex = 11;
             recibirHDRBTN.Text = "Recibir HDR";
             // 
             // cancelarBTN
             // 
-            cancelarBTN.Location = new Point(302, 315);
+            cancelarBTN.Location = new Point(454, 243);
+            cancelarBTN.Margin = new Padding(3, 2, 3, 2);
             cancelarBTN.Name = "cancelarBTN";
-            cancelarBTN.Size = new Size(80, 32);
-            cancelarBTN.TabIndex = 17;
+            cancelarBTN.Size = new Size(70, 24);
+            cancelarBTN.TabIndex = 12;
             cancelarBTN.Text = "Cancelar";
             // 
             // GuiasLST
             // 
-            GuiasLST.Columns.AddRange(new ColumnHeader[] { TipoEncomiendaCol, NumGuiaCol });
+            GuiasLST.Columns.AddRange(new ColumnHeader[] { TipoEncomiendaCol, NumGuiaCol, DestinoCol });
             GuiasLST.GridLines = true;
-            GuiasLST.Location = new Point(34, 76);
+            GuiasLST.Location = new Point(38, 64);
+            GuiasLST.Margin = new Padding(3, 2, 3, 2);
             GuiasLST.Name = "GuiasLST";
-            GuiasLST.Size = new Size(348, 223);
-            GuiasLST.TabIndex = 15;
+            GuiasLST.Size = new Size(486, 164);
+            GuiasLST.TabIndex = 10;
             GuiasLST.UseCompatibleStateImageBehavior = false;
             GuiasLST.View = View.Details;
             // 
@@ -78,35 +83,53 @@
             NumGuiaCol.TextAlign = HorizontalAlignment.Center;
             NumGuiaCol.Width = 100;
             // 
+            // DestinoCol
+            // 
+            DestinoCol.Text = "Destino";
+            DestinoCol.TextAlign = HorizontalAlignment.Center;
+            DestinoCol.Width = 300;
+            // 
             // HDRnumCMB
             // 
             HDRnumCMB.FormattingEnabled = true;
-            HDRnumCMB.Location = new Point(160, 28);
+            HDRnumCMB.Location = new Point(134, 27);
+            HDRnumCMB.Margin = new Padding(3, 2, 3, 2);
             HDRnumCMB.Name = "HDRnumCMB";
-            HDRnumCMB.Size = new Size(222, 28);
-            HDRnumCMB.TabIndex = 14;
+            HDRnumCMB.Size = new Size(376, 23);
+            HDRnumCMB.TabIndex = 9;
             // 
             // HDRnumLBL
             // 
             HDRnumLBL.AutoSize = true;
-            HDRnumLBL.Location = new Point(34, 31);
+            HDRnumLBL.Location = new Point(38, 30);
             HDRnumLBL.Name = "HDRnumLBL";
-            HDRnumLBL.Size = new Size(120, 20);
-            HDRnumLBL.TabIndex = 13;
-            HDRnumLBL.Text = "N° Hoja de Ruta:";
+            HDRnumLBL.Size = new Size(90, 15);
+            HDRnumLBL.TabIndex = 8;
+            HDRnumLBL.Text = "Servicio (micro)";
             // 
-            // RecepcionHDRAgenciaFRM
+            // label1
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            label1.AutoSize = true;
+            label1.Location = new Point(140, 10);
+            label1.Name = "label1";
+            label1.Size = new Size(370, 15);
+            label1.TabIndex = 13;
+            label1.Text = "(lista todos los micros que están viniendo hacia el CD actual AHORA)";
+            // 
+            // RecepcionHDRTransporteFRM
+            // 
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(427, 371);
+            ClientSize = new Size(564, 283);
+            Controls.Add(label1);
             Controls.Add(recibirHDRBTN);
             Controls.Add(cancelarBTN);
             Controls.Add(GuiasLST);
             Controls.Add(HDRnumCMB);
             Controls.Add(HDRnumLBL);
-            Name = "RecepcionHDRAgenciaFRM";
-            Text = "Recepción de Hoja de Ruta en Agencia";
+            Margin = new Padding(3, 2, 3, 2);
+            Name = "RecepcionHDRTransporteFRM";
+            Text = "Recepción de Hoja de Ruta de Ómnibus";
             ResumeLayout(false);
             PerformLayout();
         }
@@ -120,5 +143,7 @@
         private ColumnHeader NumGuiaCol;
         private ComboBox HDRnumCMB;
         private Label HDRnumLBL;
+        private ColumnHeader DestinoCol;
+        private Label label1;
     }
 }
