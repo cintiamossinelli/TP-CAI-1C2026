@@ -1,4 +1,4 @@
-﻿namespace TP_CAI_1C2026
+﻿namespace TP_CAI_1C2026.Forms.Entregas.EntregaAgencia
 {
     partial class EntregaAgenciaFRM
     {
