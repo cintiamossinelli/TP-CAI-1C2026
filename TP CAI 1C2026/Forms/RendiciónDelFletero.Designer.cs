@@ -37,9 +37,9 @@
             encomiendasEntrantesLST = new ListView();
             colNGuiaEntrante = new ColumnHeader();
             colEstadoEntrante = new ColumnHeader();
-            colTipoPaqueteEntrante = new ColumnHeader();
             colIdClienteEntrante = new ColumnHeader();
             colDniAutorizadoEntrante = new ColumnHeader();
+            colTipoPaqueteEntrante = new ColumnHeader();
             encomiendasEntregadasLBL = new Label();
             encomiendasEntregadasLST = new ListView();
             colNGuiaEntregada = new ColumnHeader();
@@ -100,7 +100,7 @@
             // 
             // encomiendasEntrantesLST
             // 
-            encomiendasEntrantesLST.Columns.AddRange(new ColumnHeader[] { colNGuiaEntrante, colEstadoEntrante, colEstadoEntrante, colIdClienteEntrante, colDniAutorizadoEntrante });
+            encomiendasEntrantesLST.Columns.AddRange(new ColumnHeader[] { colNGuiaEntrante, colEstadoEntrante });
             encomiendasEntrantesLST.GridLines = true;
             encomiendasEntrantesLST.Location = new Point(12, 113);
             encomiendasEntrantesLST.Name = "encomiendasEntrantesLST";
@@ -120,11 +120,6 @@
             colEstadoEntrante.Text = "Estado de Encomienda";
             colEstadoEntrante.Width = 135;
             // 
-            // colTipoPaqueteEntrante
-            // 
-            colTipoPaqueteEntrante.Text = "Tipo de paquete";
-            colTipoPaqueteEntrante.Width = 100;
-            // 
             // colIdClienteEntrante
             // 
             colIdClienteEntrante.Text = "CUIT/DNI/CUIL";
@@ -134,6 +129,11 @@
             // 
             colDniAutorizadoEntrante.Text = "DNI autorizado a retirar";
             colDniAutorizadoEntrante.Width = 150;
+            // 
+            // colTipoPaqueteEntrante
+            // 
+            colTipoPaqueteEntrante.Text = "Tipo de paquete";
+            colTipoPaqueteEntrante.Width = 100;
             // 
             // encomiendasEntregadasLBL
             // 
@@ -200,7 +200,7 @@
             salirBTN.Text = "Salir";
             salirBTN.UseVisualStyleBackColor = true;
             // 
-            // RendiciónDelFletero
+            // RendicionDelFleteroFRM
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
@@ -215,7 +215,7 @@
             Controls.Add(buscarGuiasBTN);
             Controls.Add(dniFleteroTXT);
             Controls.Add(dniFleteroLBL);
-            Name = "RendiciónDelFletero";
+            Name = "RendicionDelFleteroFRM";
             Text = "Rendicion del Fletero";
             ResumeLayout(false);
             PerformLayout();
