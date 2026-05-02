@@ -12,13 +12,13 @@
 
         private void InitializeComponent()
         {
-            desdeLBL = new Label();
-            desdeDTP = new DateTimePicker();
-            hastaLBL = new Label();
-            hastaDTP = new DateTimePicker();
+            mesLBL = new Label();
+            mesTXT = new TextBox();
+            anioLBL = new Label();
+            anioTXT = new TextBox();
             buscarBTN = new Button();
             resultadosLST = new ListView();
-            colCliente = new ColumnHeader();
+            colEmpresaTransporte = new ColumnHeader();
             colEnvios = new ColumnHeader();
             colCostoTotal = new ColumnHeader();
             colVentasTotal = new ColumnHeader();
@@ -38,51 +38,51 @@
             resultadoPanel.SuspendLayout();
             SuspendLayout();
             // 
-            // desdeLBL
+            // mesLBL
             // 
-            desdeLBL.Location = new Point(12, 18);
-            desdeLBL.Name = "desdeLBL";
-            desdeLBL.Size = new Size(55, 23);
-            desdeLBL.TabIndex = 0;
-            desdeLBL.Text = "Desde:";
-            desdeLBL.TextAlign = ContentAlignment.MiddleRight;
+            mesLBL.Location = new Point(12, 17);
+            mesLBL.Name = "mesLBL";
+            mesLBL.Size = new Size(34, 23);
+            mesLBL.TabIndex = 0;
+            mesLBL.Text = "Mes:";
+            mesLBL.TextAlign = ContentAlignment.MiddleRight;
             // 
-            // desdeDTP
+            // mesTXT
             // 
-            desdeDTP.Format = DateTimePickerFormat.Short;
-            desdeDTP.Location = new Point(72, 16);
-            desdeDTP.Name = "desdeDTP";
-            desdeDTP.Size = new Size(130, 23);
-            desdeDTP.TabIndex = 1;
+            mesTXT.Location = new Point(49, 16);
+            mesTXT.MaxLength = 2;
+            mesTXT.Name = "mesTXT";
+            mesTXT.Size = new Size(141, 23);
+            mesTXT.TabIndex = 1;
             // 
-            // hastaLBL
+            // anioLBL
             // 
-            hastaLBL.Location = new Point(215, 18);
-            hastaLBL.Name = "hastaLBL";
-            hastaLBL.Size = new Size(45, 23);
-            hastaLBL.TabIndex = 2;
-            hastaLBL.Text = "Hasta:";
-            hastaLBL.TextAlign = ContentAlignment.MiddleRight;
+            anioLBL.Location = new Point(196, 17);
+            anioLBL.Name = "anioLBL";
+            anioLBL.Size = new Size(40, 23);
+            anioLBL.TabIndex = 2;
+            anioLBL.Text = "Año:";
+            anioLBL.TextAlign = ContentAlignment.MiddleRight;
             // 
-            // hastaDTP
+            // anioTXT
             // 
-            hastaDTP.Format = DateTimePickerFormat.Short;
-            hastaDTP.Location = new Point(265, 16);
-            hastaDTP.Name = "hastaDTP";
-            hastaDTP.Size = new Size(130, 23);
-            hastaDTP.TabIndex = 3;
+            anioTXT.Location = new Point(242, 15);
+            anioTXT.MaxLength = 4;
+            anioTXT.Name = "anioTXT";
+            anioTXT.Size = new Size(141, 23);
+            anioTXT.TabIndex = 3;
             // 
             // buscarBTN
             // 
-            buscarBTN.Location = new Point(423, 14);
+            buscarBTN.Location = new Point(407, 12);
             buscarBTN.Name = "buscarBTN";
-            buscarBTN.Size = new Size(80, 27);
+            buscarBTN.Size = new Size(100, 27);
             buscarBTN.TabIndex = 4;
             buscarBTN.Text = "Buscar";
             // 
             // resultadosLST
             // 
-            resultadosLST.Columns.AddRange(new ColumnHeader[] { colCliente, colEnvios, colCostoTotal, colVentasTotal, colResultado });
+            resultadosLST.Columns.AddRange(new ColumnHeader[] { colEmpresaTransporte, colEnvios, colCostoTotal, colVentasTotal, colResultado });
             resultadosLST.FullRowSelect = true;
             resultadosLST.GridLines = true;
             resultadosLST.Location = new Point(12, 55);
@@ -92,10 +92,10 @@
             resultadosLST.UseCompatibleStateImageBehavior = false;
             resultadosLST.View = View.Details;
             // 
-            // colCliente
+            // colEmpresaTransporte
             // 
-            colCliente.Text = "Cliente";
-            colCliente.Width = 200;
+            colEmpresaTransporte.Text = "Empresa de Transporte";
+            colEmpresaTransporte.Width = 200;
             // 
             // colEnvios
             // 
@@ -215,10 +215,10 @@
             // ResultadoCostosVentasFRM
             // 
             ClientSize = new Size(784, 490);
-            Controls.Add(desdeLBL);
-            Controls.Add(desdeDTP);
-            Controls.Add(hastaLBL);
-            Controls.Add(hastaDTP);
+            Controls.Add(mesLBL);
+            Controls.Add(mesTXT);
+            Controls.Add(anioLBL);
+            Controls.Add(anioTXT);
             Controls.Add(buscarBTN);
             Controls.Add(resultadosLST);
             Controls.Add(totalCostosPanel);
@@ -227,19 +227,21 @@
             Controls.Add(cancelarBTN);
             Name = "ResultadoCostosVentasFRM";
             Text = "Resultado de Costos vs Ventas";
+            Load += ResultadoCostosVentasFRM_Load_1;
             totalCostosPanel.ResumeLayout(false);
             totalVentasPanel.ResumeLayout(false);
             resultadoPanel.ResumeLayout(false);
             ResumeLayout(false);
+            PerformLayout();
         }
 
-        private Label desdeLBL;
-        private DateTimePicker desdeDTP;
-        private Label hastaLBL;
-        private DateTimePicker hastaDTP;
+        private Label mesLBL;
+        private TextBox mesTXT;
+        private Label anioLBL;
+        private TextBox anioTXT;
         private Button buscarBTN;
         private ListView resultadosLST;
-        private ColumnHeader colCliente;
+        private ColumnHeader colEmpresaTransporte;
         private ColumnHeader colEnvios;
         private ColumnHeader colCostoTotal;
         private ColumnHeader colVentasTotal;

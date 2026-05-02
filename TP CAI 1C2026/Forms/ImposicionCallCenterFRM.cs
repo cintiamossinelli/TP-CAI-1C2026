@@ -16,25 +16,25 @@ namespace TP_CAI_1C2026
         {
             destinoCDCMB.Enabled = true;
             destinoAgenciaCMB.Enabled = false;
-            destinoDomicilioTXT.Enabled = false;
+            direccionDestinatarioTXT.Enabled = false;
             destinoAgenciaCMB.SelectedIndex = -1;
-            destinoDomicilioTXT.Clear();
+            direccionDestinatarioTXT.Clear();
         }
 
         private void agenciaRDB_CheckedChanged(object sender, EventArgs e)
         {
             destinoCDCMB.Enabled = false;
             destinoAgenciaCMB.Enabled = true;
-            destinoDomicilioTXT.Enabled = false;
+            direccionDestinatarioTXT.Enabled = false;
             destinoCDCMB.SelectedIndex = -1;
-            destinoDomicilioTXT.Clear();
+            direccionDestinatarioTXT.Clear();
         }
 
         private void domicilioRDB_CheckedChanged(object sender, EventArgs e)
         {
             destinoCDCMB.Enabled = false;
             destinoAgenciaCMB.Enabled = false;
-            destinoDomicilioTXT.Enabled = true;
+            direccionDestinatarioTXT.Enabled = true;
             destinoCDCMB.SelectedIndex = -1;
             destinoAgenciaCMB.SelectedIndex = -1;
         }
@@ -126,8 +126,8 @@ namespace TP_CAI_1C2026
             destinoCDCMB.Enabled = false;
             destinoAgenciaCMB.SelectedIndex = -1;
             destinoAgenciaCMB.Enabled = false;
-            destinoDomicilioTXT.Clear();
-            destinoDomicilioTXT.Enabled = false;
+            direccionDestinatarioTXT.Clear();
+            direccionDestinatarioTXT.Enabled = false;
             dniDestinatarioTXT.Clear();
             tipoCajaCMB.SelectedIndex = -1;
             cantidadTXT.Clear();
@@ -152,6 +152,31 @@ namespace TP_CAI_1C2026
         }
 
         private void clienteGBX_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void domicilioRDB_CheckedChanged_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label1_Click_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void domicilioRDB_CheckedChanged_2(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void clienteGBX_Enter_1(object sender, EventArgs e)
         {
 
         }

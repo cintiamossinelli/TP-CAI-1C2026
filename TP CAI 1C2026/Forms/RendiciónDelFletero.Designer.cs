@@ -1,6 +1,6 @@
-﻿namespace TP_CAI_1C2026.Forms
+﻿namespace TP_CAI_1C2026
 {
-    partial class RendiciónDelFletero
+    partial class RendicionDelFleteroFRM
     {
         
         /// <summary>
@@ -30,24 +30,24 @@
         private void InitializeComponent()
         {
             dniFleteroLBL = new Label();
-            textBox1 = new TextBox();
+            dniFleteroTXT = new TextBox();
             buscarGuiasBTN = new Button();
             encomiendasEntrantesLBL = new Label();
             detalleGuiaLBL = new Label();
-            encomiendasEntrantesLVW = new ListView();
-            columnHeader1 = new ColumnHeader();
-            columnHeader2 = new ColumnHeader();
-            columnHeader3 = new ColumnHeader();
-            columnHeader4 = new ColumnHeader();
-            columnHeader5 = new ColumnHeader();
+            encomiendasEntrantesLST = new ListView();
+            colNGuiaEntrante = new ColumnHeader();
+            colEstadoEntrante = new ColumnHeader();
+            colIdClienteEntrante = new ColumnHeader();
+            colDniAutorizadoEntrante = new ColumnHeader();
+            colTipoPaqueteEntrante = new ColumnHeader();
             encomiendasEntregadasLBL = new Label();
-            encomiendasEntregadasLVW = new ListView();
-            columnHeader6 = new ColumnHeader();
-            columnHeader7 = new ColumnHeader();
-            columnHeader8 = new ColumnHeader();
-            columnHeader9 = new ColumnHeader();
-            columnHeader10 = new ColumnHeader();
-            label1 = new Label();
+            encomiendasEntregadasLST = new ListView();
+            colNGuiaEntregada = new ColumnHeader();
+            colEstadoEntregada = new ColumnHeader();
+            colTipoPaqueteEntregada = new ColumnHeader();
+            colIdClienteEntregada = new ColumnHeader();
+            colDniAutorizadoEntregada = new ColumnHeader();
+            detalleGuiaEntregadasLBL = new Label();
             salirBTN = new Button();
             SuspendLayout();
             // 
@@ -60,12 +60,12 @@
             dniFleteroLBL.TabIndex = 0;
             dniFleteroLBL.Text = "DNI del Fletero";
             // 
-            // textBox1
+            // dniFleteroTXT
             // 
-            textBox1.Location = new Point(12, 27);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(148, 23);
-            textBox1.TabIndex = 1;
+            dniFleteroTXT.Location = new Point(12, 27);
+            dniFleteroTXT.Name = "dniFleteroTXT";
+            dniFleteroTXT.Size = new Size(148, 23);
+            dniFleteroTXT.TabIndex = 1;
             // 
             // buscarGuiasBTN
             // 
@@ -86,7 +86,7 @@
             encomiendasEntrantesLBL.Size = new Size(136, 15);
             encomiendasEntrantesLBL.TabIndex = 3;
             encomiendasEntrantesLBL.Text = "Encomiendas entrantes";
-            encomiendasEntrantesLBL.Click += label1_Click;
+            encomiendasEntrantesLBL.Click += detalleGuiaEntregadasLBL_Click;
             // 
             // detalleGuiaLBL
             // 
@@ -98,42 +98,42 @@
             detalleGuiaLBL.Text = "Detallle de Guía";
             detalleGuiaLBL.Click += detalleGuiaLBL_Click;
             // 
-            // encomiendasEntrantesLVW
+            // encomiendasEntrantesLST
             // 
-            encomiendasEntrantesLVW.Columns.AddRange(new ColumnHeader[] { columnHeader1, columnHeader2, columnHeader3, columnHeader4, columnHeader5 });
-            encomiendasEntrantesLVW.GridLines = true;
-            encomiendasEntrantesLVW.Location = new Point(12, 113);
-            encomiendasEntrantesLVW.Name = "encomiendasEntrantesLVW";
-            encomiendasEntrantesLVW.Size = new Size(579, 115);
-            encomiendasEntrantesLVW.TabIndex = 5;
-            encomiendasEntrantesLVW.UseCompatibleStateImageBehavior = false;
-            encomiendasEntrantesLVW.View = View.Details;
-            encomiendasEntrantesLVW.SelectedIndexChanged += listView1_SelectedIndexChanged;
+            encomiendasEntrantesLST.Columns.AddRange(new ColumnHeader[] { colNGuiaEntrante, colEstadoEntrante });
+            encomiendasEntrantesLST.GridLines = true;
+            encomiendasEntrantesLST.Location = new Point(12, 113);
+            encomiendasEntrantesLST.Name = "encomiendasEntrantesLST";
+            encomiendasEntrantesLST.Size = new Size(579, 115);
+            encomiendasEntrantesLST.TabIndex = 5;
+            encomiendasEntrantesLST.UseCompatibleStateImageBehavior = false;
+            encomiendasEntrantesLST.View = View.Details;
+            encomiendasEntrantesLST.SelectedIndexChanged += listView1_SelectedIndexChanged;
             // 
-            // columnHeader1
+            // colNGuiaEntrante
             // 
-            columnHeader1.Text = "N° Guía";
-            columnHeader1.Width = 100;
+            colNGuiaEntrante.Text = "N° Guía";
+            colNGuiaEntrante.Width = 100;
             // 
-            // columnHeader2
+            // colEstadoEntrante
             // 
-            columnHeader2.Text = "Estado de Encomienda";
-            columnHeader2.Width = 135;
+            colEstadoEntrante.Text = "Estado de Encomienda";
+            colEstadoEntrante.Width = 135;
             // 
-            // columnHeader3
+            // colIdClienteEntrante
             // 
-            columnHeader3.Text = "Tipo de paquete";
-            columnHeader3.Width = 100;
+            colIdClienteEntrante.Text = "CUIT/DNI/CUIL";
+            colIdClienteEntrante.Width = 100;
             // 
-            // columnHeader4
+            // colDniAutorizadoEntrante
             // 
-            columnHeader4.Text = "CUIT/DNI/CUIL";
-            columnHeader4.Width = 100;
+            colDniAutorizadoEntrante.Text = "DNI autorizado a retirar";
+            colDniAutorizadoEntrante.Width = 150;
             // 
-            // columnHeader5
+            // colTipoPaqueteEntrante
             // 
-            columnHeader5.Text = "DNI autorizado a retirar";
-            columnHeader5.Width = 150;
+            colTipoPaqueteEntrante.Text = "Tipo de paquete";
+            colTipoPaqueteEntrante.Width = 100;
             // 
             // encomiendasEntregadasLBL
             // 
@@ -146,50 +146,50 @@
             encomiendasEntregadasLBL.TabIndex = 6;
             encomiendasEntregadasLBL.Text = "Encomiendas entregadas";
             // 
-            // encomiendasEntregadasLVW
+            // encomiendasEntregadasLST
             // 
-            encomiendasEntregadasLVW.Columns.AddRange(new ColumnHeader[] { columnHeader6, columnHeader7, columnHeader8, columnHeader9, columnHeader10 });
-            encomiendasEntregadasLVW.GridLines = true;
-            encomiendasEntregadasLVW.Location = new Point(12, 300);
-            encomiendasEntregadasLVW.Name = "encomiendasEntregadasLVW";
-            encomiendasEntregadasLVW.Size = new Size(579, 115);
-            encomiendasEntregadasLVW.TabIndex = 7;
-            encomiendasEntregadasLVW.UseCompatibleStateImageBehavior = false;
-            encomiendasEntregadasLVW.View = View.Details;
+            encomiendasEntregadasLST.Columns.AddRange(new ColumnHeader[] { colNGuiaEntregada, colEstadoEntregada, colTipoPaqueteEntregada, colIdClienteEntregada, colDniAutorizadoEntregada });
+            encomiendasEntregadasLST.GridLines = true;
+            encomiendasEntregadasLST.Location = new Point(12, 300);
+            encomiendasEntregadasLST.Name = "encomiendasEntregadasLST";
+            encomiendasEntregadasLST.Size = new Size(579, 115);
+            encomiendasEntregadasLST.TabIndex = 7;
+            encomiendasEntregadasLST.UseCompatibleStateImageBehavior = false;
+            encomiendasEntregadasLST.View = View.Details;
             // 
-            // columnHeader6
+            // colNGuiaEntregada
             // 
-            columnHeader6.Text = "N° Guía";
-            columnHeader6.Width = 100;
+            colNGuiaEntregada.Text = "N° Guía";
+            colNGuiaEntregada.Width = 100;
             // 
-            // columnHeader7
+            // colEstadoEntregada
             // 
-            columnHeader7.Text = "Estado de Encomienda";
-            columnHeader7.Width = 135;
+            colEstadoEntregada.Text = "Estado de Encomienda";
+            colEstadoEntregada.Width = 135;
             // 
-            // columnHeader8
+            // colTipoPaqueteEntregada
             // 
-            columnHeader8.Text = "Tipo de paquete";
-            columnHeader8.Width = 100;
+            colTipoPaqueteEntregada.Text = "Tipo de paquete";
+            colTipoPaqueteEntregada.Width = 100;
             // 
-            // columnHeader9
+            // colIdClienteEntregada
             // 
-            columnHeader9.Text = "CUIT/DNI/CUIL";
-            columnHeader9.Width = 100;
+            colIdClienteEntregada.Text = "CUIT/DNI/CUIL";
+            colIdClienteEntregada.Width = 100;
             // 
-            // columnHeader10
+            // colDniAutorizadoEntregada
             // 
-            columnHeader10.Text = "DNI autorizado a retirar";
-            columnHeader10.Width = 150;
+            colDniAutorizadoEntregada.Text = "DNI autorizado a retirar";
+            colDniAutorizadoEntregada.Width = 150;
             // 
-            // label1
+            // detalleGuiaEntregadasLBL
             // 
-            label1.AutoSize = true;
-            label1.Location = new Point(12, 282);
-            label1.Name = "label1";
-            label1.Size = new Size(89, 15);
-            label1.TabIndex = 8;
-            label1.Text = "Detallle de Guía";
+            detalleGuiaEntregadasLBL.AutoSize = true;
+            detalleGuiaEntregadasLBL.Location = new Point(12, 282);
+            detalleGuiaEntregadasLBL.Name = "detalleGuiaEntregadasLBL";
+            detalleGuiaEntregadasLBL.Size = new Size(89, 15);
+            detalleGuiaEntregadasLBL.TabIndex = 8;
+            detalleGuiaEntregadasLBL.Text = "Detallle de Guía";
             // 
             // salirBTN
             // 
@@ -200,22 +200,22 @@
             salirBTN.Text = "Salir";
             salirBTN.UseVisualStyleBackColor = true;
             // 
-            // RendiciónDelFletero
+            // RendicionDelFleteroFRM
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(603, 477);
             Controls.Add(salirBTN);
-            Controls.Add(label1);
-            Controls.Add(encomiendasEntregadasLVW);
+            Controls.Add(detalleGuiaEntregadasLBL);
+            Controls.Add(encomiendasEntregadasLST);
             Controls.Add(encomiendasEntregadasLBL);
-            Controls.Add(encomiendasEntrantesLVW);
+            Controls.Add(encomiendasEntrantesLST);
             Controls.Add(detalleGuiaLBL);
             Controls.Add(encomiendasEntrantesLBL);
             Controls.Add(buscarGuiasBTN);
-            Controls.Add(textBox1);
+            Controls.Add(dniFleteroTXT);
             Controls.Add(dniFleteroLBL);
-            Name = "RendiciónDelFletero";
+            Name = "RendicionDelFleteroFRM";
             Text = "Rendicion del Fletero";
             ResumeLayout(false);
             PerformLayout();
@@ -224,24 +224,24 @@
         #endregion
 
         private Label dniFleteroLBL;
-        private TextBox textBox1;
+        private TextBox dniFleteroTXT;
         private Button buscarGuiasBTN;
         private Label encomiendasEntrantesLBL;
         private Label detalleGuiaLBL;
-        private ListView encomiendasEntrantesLVW;
-        private ColumnHeader columnHeader1;
-        private ColumnHeader columnHeader2;
-        private ColumnHeader columnHeader3;
-        private ColumnHeader columnHeader4;
-        private ColumnHeader columnHeader5;
+        private ListView encomiendasEntrantesLST;
+        private ColumnHeader colNGuiaEntrante;
+        private ColumnHeader colEstadoEntrante;
+        private ColumnHeader colTipoPaqueteEntrante;
+        private ColumnHeader colIdClienteEntrante;
+        private ColumnHeader colDniAutorizadoEntrante;
         private Label encomiendasEntregadasLBL;
-        private ListView encomiendasEntregadasLVW;
-        private ColumnHeader columnHeader6;
-        private ColumnHeader columnHeader7;
-        private ColumnHeader columnHeader8;
-        private ColumnHeader columnHeader9;
-        private ColumnHeader columnHeader10;
-        private Label label1;
+        private ListView encomiendasEntregadasLST;
+        private ColumnHeader colNGuiaEntregada;
+        private ColumnHeader colEstadoEntregada;
+        private ColumnHeader colTipoPaqueteEntregada;
+        private ColumnHeader colIdClienteEntregada;
+        private ColumnHeader colDniAutorizadoEntregada;
+        private Label detalleGuiaEntregadasLBL;
         private Button salirBTN;
     }
 }

@@ -6,16 +6,26 @@ using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
 
-namespace TP_CAI_1C2026
+namespace TP_CAI_1C2026.Forms
 {
-    public partial class ConsultarTrackingFRM : Form
+    public partial class EmisionResumenHDRFRM : Form
     {
-        public ConsultarTrackingFRM()
+        public EmisionResumenHDRFRM()
         {
             InitializeComponent();
         }
 
+        private void fleteroCMB_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
         private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void hdrEntregarLBL_Click(object sender, EventArgs e)
         {
 
         }

@@ -6,18 +6,13 @@ using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
 
-namespace TP_CAI_1C2026
+namespace TP_CAI_1C2026.Forms
 {
-    public partial class ConsultarTrackingFRM : Form
+    public partial class AdmisionCDFRM : Form
     {
-        public ConsultarTrackingFRM()
+        public AdmisionCDFRM()
         {
             InitializeComponent();
-        }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-
         }
     }
 }
