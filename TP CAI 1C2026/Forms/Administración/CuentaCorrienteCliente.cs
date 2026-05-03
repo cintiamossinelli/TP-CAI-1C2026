@@ -6,11 +6,11 @@ using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
 
-namespace TP_CAI_1C2026.Forms
+namespace TP_CAI_1C2026.Forms.Administracion.CuentaCorrienteCliente
 {
-    public partial class CuentaCorrienteCliente : Form
+    public partial class CuentaCorrienteClienteFRM : Form
     {
-        public CuentaCorrienteCliente()
+        public CuentaCorrienteClienteFRM()
         {
             InitializeComponent();
         }

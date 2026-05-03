@@ -2,15 +2,8 @@
 {
     partial class AdmisionCDFRM
     {
-        /// <summary>
-        /// Required designer variable.
-        /// </summary>
         private System.ComponentModel.IContainer components = null;
 
-        /// <summary>
-        /// Clean up any resources being used.
-        /// </summary>
-        /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
         protected override void Dispose(bool disposing)
         {
             if (disposing && (components != null))
@@ -20,105 +13,113 @@
             base.Dispose(disposing);
         }
 
-        #region Windows Form Designer generated code
-
-        /// <summary>
-        /// Required method for Designer support - do not modify
-        /// the contents of this method with the code editor.
-        /// </summary>
         private void InitializeComponent()
         {
-            selecGuiasAdmLBL = new Label();
-            historialLST = new ListView();
+            nGuiaLBL = new Label();
+            nGuiaTXT = new TextBox();
+            buscarBTN = new Button();
+            guiasLST = new ListView();
             colNGuia = new ColumnHeader();
-            colTipoEncomienda = new ColumnHeader();
+            colTipoCaja = new ColumnHeader();
             admitirBTN = new Button();
-            textBox1 = new TextBox();
-            button1 = new Button();
+            rechazarBTN = new Button();
+            cancelarBTN = new Button();
             SuspendLayout();
             // 
-            // selecGuiasAdmLBL
+            // nGuiaLBL
             // 
-            selecGuiasAdmLBL.AutoSize = true;
-            selecGuiasAdmLBL.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            selecGuiasAdmLBL.ForeColor = SystemColors.HotTrack;
-            selecGuiasAdmLBL.Location = new Point(12, 18);
-            selecGuiasAdmLBL.Name = "selecGuiasAdmLBL";
-            selecGuiasAdmLBL.Size = new Size(154, 15);
-            selecGuiasAdmLBL.TabIndex = 5;
-            selecGuiasAdmLBL.Text = "Seleccione Guías a Admitir";
+            nGuiaLBL.Location = new Point(16, 15);
+            nGuiaLBL.Name = "nGuiaLBL";
+            nGuiaLBL.Size = new Size(51, 23);
+            nGuiaLBL.TabIndex = 0;
+            nGuiaLBL.Text = "N° Guía:";
+            nGuiaLBL.TextAlign = ContentAlignment.MiddleRight;
             // 
-            // historialLST
+            // nGuiaTXT
             // 
-            historialLST.CheckBoxes = true;
-            historialLST.Columns.AddRange(new ColumnHeader[] { colNGuia, colTipoEncomienda });
-            historialLST.FullRowSelect = true;
-            historialLST.GridLines = true;
-            historialLST.Location = new Point(12, 36);
-            historialLST.Name = "historialLST";
-            historialLST.Size = new Size(472, 136);
-            historialLST.TabIndex = 7;
-            historialLST.UseCompatibleStateImageBehavior = false;
-            historialLST.View = View.Details;
+            nGuiaTXT.Location = new Point(69, 16);
+            nGuiaTXT.Name = "nGuiaTXT";
+            nGuiaTXT.Size = new Size(363, 23);
+            nGuiaTXT.TabIndex = 1;
+            // 
+            // buscarBTN
+            // 
+            buscarBTN.Location = new Point(438, 14);
+            buscarBTN.Name = "buscarBTN";
+            buscarBTN.Size = new Size(80, 27);
+            buscarBTN.TabIndex = 2;
+            buscarBTN.Text = "Buscar";
+            // 
+            // guiasLST
+            // 
+            guiasLST.Columns.AddRange(new ColumnHeader[] { colNGuia, colTipoCaja });
+            guiasLST.FullRowSelect = true;
+            guiasLST.GridLines = true;
+            guiasLST.Location = new Point(12, 55);
+            guiasLST.Name = "guiasLST";
+            guiasLST.Size = new Size(506, 200);
+            guiasLST.TabIndex = 3;
+            guiasLST.UseCompatibleStateImageBehavior = false;
+            guiasLST.View = View.Details;
             // 
             // colNGuia
             // 
             colNGuia.Text = "N° Guía";
-            colNGuia.Width = 100;
+            colNGuia.Width = 200;
             // 
-            // colTipoEncomienda
+            // colTipoCaja
             // 
-            colTipoEncomienda.Text = "Tipo de Encomienda";
-            colTipoEncomienda.Width = 120;
+            colTipoCaja.Text = "Tipo de Caja";
+            colTipoCaja.Width = 200;
             // 
             // admitirBTN
             // 
-            admitirBTN.Location = new Point(12, 255);
+            admitirBTN.Location = new Point(12, 261);
             admitirBTN.Name = "admitirBTN";
-            admitirBTN.Size = new Size(232, 30);
-            admitirBTN.TabIndex = 8;
+            admitirBTN.Size = new Size(248, 32);
+            admitirBTN.TabIndex = 4;
             admitirBTN.Text = "Admitir";
-            admitirBTN.UseVisualStyleBackColor = true;
             // 
-            // textBox1
+            // rechazarBTN
             // 
-            textBox1.Location = new Point(12, 226);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(472, 23);
-            textBox1.TabIndex = 10;
+            rechazarBTN.Location = new Point(270, 261);
+            rechazarBTN.Name = "rechazarBTN";
+            rechazarBTN.Size = new Size(248, 32);
+            rechazarBTN.TabIndex = 5;
+            rechazarBTN.Text = "Rechazar";
             // 
-            // button1
+            // cancelarBTN
             // 
-            button1.Location = new Point(250, 255);
-            button1.Name = "button1";
-            button1.Size = new Size(232, 30);
-            button1.TabIndex = 11;
-            button1.Text = "Rechazar";
-            button1.UseVisualStyleBackColor = true;
+            cancelarBTN.Location = new Point(438, 315);
+            cancelarBTN.Name = "cancelarBTN";
+            cancelarBTN.Size = new Size(80, 32);
+            cancelarBTN.TabIndex = 6;
+            cancelarBTN.Text = "Cancelar";
             // 
             // AdmisionCDFRM
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
-            AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(499, 336);
-            Controls.Add(button1);
-            Controls.Add(textBox1);
+            ClientSize = new Size(530, 358);
+            Controls.Add(nGuiaLBL);
+            Controls.Add(nGuiaTXT);
+            Controls.Add(buscarBTN);
+            Controls.Add(guiasLST);
             Controls.Add(admitirBTN);
-            Controls.Add(historialLST);
-            Controls.Add(selecGuiasAdmLBL);
+            Controls.Add(rechazarBTN);
+            Controls.Add(cancelarBTN);
             Name = "AdmisionCDFRM";
             Text = "Admisión en Centro de Distribución";
             ResumeLayout(false);
             PerformLayout();
         }
 
-        #endregion
-        private Label selecGuiasAdmLBL;
-        private ListView historialLST;
+        private Label nGuiaLBL;
+        private TextBox nGuiaTXT;
+        private Button buscarBTN;
+        private ListView guiasLST;
         private ColumnHeader colNGuia;
-        private ColumnHeader colTipoEncomienda;
+        private ColumnHeader colTipoCaja;
         private Button admitirBTN;
-        private TextBox textBox1;
-        private Button button1;
+        private Button rechazarBTN;
+        private Button cancelarBTN;
     }
 }
