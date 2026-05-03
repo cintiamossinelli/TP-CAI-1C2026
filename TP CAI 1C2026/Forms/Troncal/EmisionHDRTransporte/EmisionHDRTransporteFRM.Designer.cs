@@ -34,34 +34,49 @@
             TipoEncomiendaCol = new ColumnHeader();
             DestinoCol = new ColumnHeader();
             NumGuiaCol = new ColumnHeader();
+            transportesLST = new ListView();
+            transporteGBX = new GroupBox();
             generarHDRBTN = new Button();
             cancelarBTN = new Button();
-            seleccionarLBL = new Label();
-            listView1 = new ListView();
-            columnHeader1 = new ColumnHeader();
-            columnHeader2 = new ColumnHeader();
-            columnHeader3 = new ColumnHeader();
-            groupBox1 = new GroupBox();
-            label1 = new Label();
-            groupBox1.SuspendLayout();
+            agregarBTN = new Button();
+            nGuiaLBL = new Label();
+            quitarBTN = new Button();
+            nGuiaTXT = new TextBox();
+            guiasAgregadasLST = new ListView();
+            nguiaAgregadaCol = new ColumnHeader();
+            tipoEncomiendaAgregadaCol = new ColumnHeader();
+            lugarEntregaAgregadaCol = new ColumnHeader();
+            buscarGuiaBTN = new Button();
+            columnHeader4 = new ColumnHeader();
+            columnHeader5 = new ColumnHeader();
+            columnHeader6 = new ColumnHeader();
+            columnHeader7 = new ColumnHeader();
+            fechaDTP = new DateTimePicker();
+            fechaLBL = new Label();
+            buscarFechaBTN = new Button();
+            transporteLBL = new Label();
+            buscarTransporteBTN = new Button();
+            transporteCMB = new ComboBox();
+            guiasGBX = new GroupBox();
+            transporteGBX.SuspendLayout();
+            guiasGBX.SuspendLayout();
             SuspendLayout();
             // 
             // CDdestinoLBL
             // 
             CDdestinoLBL.AutoSize = true;
-            CDdestinoLBL.Location = new Point(33, 29);
+            CDdestinoLBL.Location = new Point(39, 36);
             CDdestinoLBL.Name = "CDdestinoLBL";
-            CDdestinoLBL.Size = new Size(69, 15);
+            CDdestinoLBL.Size = new Size(216, 20);
             CDdestinoLBL.TabIndex = 0;
-            CDdestinoLBL.Text = "CD Destino:";
+            CDdestinoLBL.Text = "Centro de Distribución Destino:";
             // 
             // CDdestinoCMB
             // 
             CDdestinoCMB.FormattingEnabled = true;
-            CDdestinoCMB.Location = new Point(122, 27);
-            CDdestinoCMB.Margin = new Padding(3, 2, 3, 2);
+            CDdestinoCMB.Location = new Point(264, 33);
             CDdestinoCMB.Name = "CDdestinoCMB";
-            CDdestinoCMB.Size = new Size(399, 23);
+            CDdestinoCMB.Size = new Size(817, 28);
             CDdestinoCMB.TabIndex = 1;
             // 
             // GuiasLST
@@ -69,10 +84,9 @@
             GuiasLST.CheckBoxes = true;
             GuiasLST.Columns.AddRange(new ColumnHeader[] { TipoEncomiendaCol, DestinoCol, NumGuiaCol });
             GuiasLST.GridLines = true;
-            GuiasLST.Location = new Point(33, 336);
-            GuiasLST.Margin = new Padding(3, 2, 3, 2);
+            GuiasLST.Location = new Point(14, 77);
             GuiasLST.Name = "GuiasLST";
-            GuiasLST.Size = new Size(488, 193);
+            GuiasLST.Size = new Size(465, 296);
             GuiasLST.TabIndex = 2;
             GuiasLST.UseCompatibleStateImageBehavior = false;
             GuiasLST.View = View.Details;
@@ -89,115 +103,235 @@
             DestinoCol.DisplayIndex = 2;
             DestinoCol.Text = "Destino";
             DestinoCol.TextAlign = HorizontalAlignment.Center;
-            DestinoCol.Width = 300;
+            DestinoCol.Width = 200;
             // 
             // NumGuiaCol
             // 
             NumGuiaCol.DisplayIndex = 0;
             NumGuiaCol.Text = "N° Guía";
-            NumGuiaCol.TextAlign = HorizontalAlignment.Center;
             NumGuiaCol.Width = 100;
+            // 
+            // transportesLST
+            // 
+            transportesLST.Columns.AddRange(new ColumnHeader[] { columnHeader4, columnHeader5, columnHeader6, columnHeader7 });
+            transportesLST.GridLines = true;
+            transportesLST.Location = new Point(14, 81);
+            transportesLST.Name = "transportesLST";
+            transportesLST.Size = new Size(1042, 172);
+            transportesLST.TabIndex = 11;
+            transportesLST.UseCompatibleStateImageBehavior = false;
+            transportesLST.View = View.Details;
+            // 
+            // transporteGBX
+            // 
+            transporteGBX.Controls.Add(transporteCMB);
+            transporteGBX.Controls.Add(transporteLBL);
+            transporteGBX.Controls.Add(buscarFechaBTN);
+            transporteGBX.Controls.Add(buscarTransporteBTN);
+            transporteGBX.Controls.Add(fechaLBL);
+            transporteGBX.Controls.Add(fechaDTP);
+            transporteGBX.Controls.Add(transportesLST);
+            transporteGBX.Location = new Point(25, 77);
+            transporteGBX.Margin = new Padding(3, 4, 3, 4);
+            transporteGBX.Name = "transporteGBX";
+            transporteGBX.Padding = new Padding(3, 4, 3, 4);
+            transporteGBX.Size = new Size(1070, 273);
+            transporteGBX.TabIndex = 12;
+            transporteGBX.TabStop = false;
+            transporteGBX.Text = "Transportes";
             // 
             // generarHDRBTN
             // 
-            generarHDRBTN.Location = new Point(335, 538);
-            generarHDRBTN.Margin = new Padding(3, 2, 3, 2);
+            generarHDRBTN.Location = new Point(851, 783);
             generarHDRBTN.Name = "generarHDRBTN";
-            generarHDRBTN.Size = new Size(94, 24);
+            generarHDRBTN.Size = new Size(107, 32);
             generarHDRBTN.TabIndex = 6;
             generarHDRBTN.Text = "Generar HDR";
             // 
             // cancelarBTN
             // 
-            cancelarBTN.Location = new Point(451, 538);
-            cancelarBTN.Margin = new Padding(3, 2, 3, 2);
+            cancelarBTN.Location = new Point(977, 783);
             cancelarBTN.Name = "cancelarBTN";
-            cancelarBTN.Size = new Size(70, 24);
-            cancelarBTN.TabIndex = 7;
+            cancelarBTN.Size = new Size(107, 32);
+            cancelarBTN.TabIndex = 13;
             cancelarBTN.Text = "Cancelar";
             // 
-            // seleccionarLBL
+            // agregarBTN
             // 
-            seleccionarLBL.AutoSize = true;
-            seleccionarLBL.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            seleccionarLBL.ForeColor = SystemColors.HotTrack;
-            seleccionarLBL.Location = new Point(33, 311);
-            seleccionarLBL.Name = "seleccionarLBL";
-            seleccionarLBL.Size = new Size(148, 15);
-            seleccionarLBL.TabIndex = 10;
-            seleccionarLBL.Text = "Seleccione guías a enviar:";
+            agregarBTN.Location = new Point(488, 161);
+            agregarBTN.Name = "agregarBTN";
+            agregarBTN.Size = new Size(109, 32);
+            agregarBTN.TabIndex = 35;
+            agregarBTN.Text = "Agregar >>>";
             // 
-            // listView1
+            // nGuiaLBL
             // 
-            listView1.CheckBoxes = true;
-            listView1.Columns.AddRange(new ColumnHeader[] { columnHeader1, columnHeader2, columnHeader3 });
-            listView1.GridLines = true;
-            listView1.Location = new Point(10, 52);
-            listView1.Margin = new Padding(3, 2, 3, 2);
-            listView1.Name = "listView1";
-            listView1.Size = new Size(488, 130);
-            listView1.TabIndex = 11;
-            listView1.UseCompatibleStateImageBehavior = false;
-            listView1.View = View.Details;
+            nGuiaLBL.Location = new Point(17, 33);
+            nGuiaLBL.Name = "nGuiaLBL";
+            nGuiaLBL.Size = new Size(66, 23);
+            nGuiaLBL.TabIndex = 36;
+            nGuiaLBL.Text = "Nº Guía:";
+            nGuiaLBL.TextAlign = ContentAlignment.MiddleRight;
             // 
-            // columnHeader1
+            // quitarBTN
             // 
-            columnHeader1.DisplayIndex = 1;
-            columnHeader1.Text = "Tipo de Encomienda";
-            columnHeader1.TextAlign = HorizontalAlignment.Center;
-            columnHeader1.Width = 150;
+            quitarBTN.Location = new Point(488, 216);
+            quitarBTN.Name = "quitarBTN";
+            quitarBTN.Size = new Size(109, 32);
+            quitarBTN.TabIndex = 34;
+            quitarBTN.Text = "Quitar <<<";
             // 
-            // columnHeader2
+            // nGuiaTXT
             // 
-            columnHeader2.DisplayIndex = 2;
-            columnHeader2.Text = "Destino";
-            columnHeader2.TextAlign = HorizontalAlignment.Center;
-            columnHeader2.Width = 300;
+            nGuiaTXT.Location = new Point(89, 31);
+            nGuiaTXT.MaxLength = 11;
+            nGuiaTXT.Name = "nGuiaTXT";
+            nGuiaTXT.Size = new Size(295, 27);
+            nGuiaTXT.TabIndex = 37;
             // 
-            // columnHeader3
+            // guiasAgregadasLST
             // 
-            columnHeader3.DisplayIndex = 0;
-            columnHeader3.Text = "N° Guía";
-            columnHeader3.TextAlign = HorizontalAlignment.Center;
-            columnHeader3.Width = 100;
+            guiasAgregadasLST.CheckBoxes = true;
+            guiasAgregadasLST.Columns.AddRange(new ColumnHeader[] { nguiaAgregadaCol, tipoEncomiendaAgregadaCol, lugarEntregaAgregadaCol });
+            guiasAgregadasLST.FullRowSelect = true;
+            guiasAgregadasLST.GridLines = true;
+            guiasAgregadasLST.Location = new Point(603, 77);
+            guiasAgregadasLST.Name = "guiasAgregadasLST";
+            guiasAgregadasLST.Size = new Size(456, 296);
+            guiasAgregadasLST.TabIndex = 33;
+            guiasAgregadasLST.UseCompatibleStateImageBehavior = false;
+            guiasAgregadasLST.View = View.Details;
             // 
-            // groupBox1
+            // nguiaAgregadaCol
             // 
-            groupBox1.Controls.Add(label1);
-            groupBox1.Controls.Add(listView1);
-            groupBox1.Location = new Point(23, 64);
-            groupBox1.Name = "groupBox1";
-            groupBox1.Size = new Size(508, 205);
-            groupBox1.TabIndex = 12;
-            groupBox1.TabStop = false;
-            groupBox1.Text = "Transportes";
+            nguiaAgregadaCol.Text = "Nº Guía";
+            nguiaAgregadaCol.Width = 100;
             // 
-            // label1
+            // tipoEncomiendaAgregadaCol
             // 
-            label1.AutoSize = true;
-            label1.Location = new Point(10, 19);
-            label1.Name = "label1";
-            label1.Size = new Size(340, 15);
-            label1.TabIndex = 0;
-            label1.Text = "Filtros x empresa fecha, lista todos los que hay, selecciona UNO";
+            tipoEncomiendaAgregadaCol.Text = "Tipo de Encomienda";
+            tipoEncomiendaAgregadaCol.TextAlign = HorizontalAlignment.Center;
+            tipoEncomiendaAgregadaCol.Width = 150;
+            // 
+            // lugarEntregaAgregadaCol
+            // 
+            lugarEntregaAgregadaCol.Text = "Destino";
+            lugarEntregaAgregadaCol.TextAlign = HorizontalAlignment.Center;
+            lugarEntregaAgregadaCol.Width = 200;
+            // 
+            // buscarGuiaBTN
+            // 
+            buscarGuiaBTN.Location = new Point(402, 31);
+            buscarGuiaBTN.Name = "buscarGuiaBTN";
+            buscarGuiaBTN.Size = new Size(80, 27);
+            buscarGuiaBTN.TabIndex = 38;
+            buscarGuiaBTN.Text = "Buscar";
+            // 
+            // columnHeader4
+            // 
+            columnHeader4.Text = "Fecha";
+            columnHeader4.Width = 100;
+            // 
+            // columnHeader5
+            // 
+            columnHeader5.Text = "Hora";
+            columnHeader5.TextAlign = HorizontalAlignment.Center;
+            columnHeader5.Width = 100;
+            // 
+            // columnHeader6
+            // 
+            columnHeader6.Text = "Empresa";
+            columnHeader6.TextAlign = HorizontalAlignment.Center;
+            columnHeader6.Width = 373;
+            // 
+            // columnHeader7
+            // 
+            columnHeader7.Text = "Destino";
+            columnHeader7.TextAlign = HorizontalAlignment.Center;
+            columnHeader7.Width = 460;
+            // 
+            // fechaDTP
+            // 
+            fechaDTP.Format = DateTimePickerFormat.Short;
+            fechaDTP.Location = new Point(78, 37);
+            fechaDTP.Name = "fechaDTP";
+            fechaDTP.Size = new Size(137, 27);
+            fechaDTP.TabIndex = 12;
+            // 
+            // fechaLBL
+            // 
+            fechaLBL.Location = new Point(6, 36);
+            fechaLBL.Name = "fechaLBL";
+            fechaLBL.Size = new Size(66, 23);
+            fechaLBL.TabIndex = 42;
+            fechaLBL.Text = "Fecha:";
+            fechaLBL.TextAlign = ContentAlignment.MiddleRight;
+            // 
+            // buscarFechaBTN
+            // 
+            buscarFechaBTN.Location = new Point(230, 37);
+            buscarFechaBTN.Name = "buscarFechaBTN";
+            buscarFechaBTN.Size = new Size(80, 27);
+            buscarFechaBTN.TabIndex = 42;
+            buscarFechaBTN.Text = "Buscar";
+            // 
+            // transporteLBL
+            // 
+            transporteLBL.Location = new Point(368, 39);
+            transporteLBL.Name = "transporteLBL";
+            transporteLBL.Size = new Size(172, 23);
+            transporteLBL.TabIndex = 42;
+            transporteLBL.Text = "Empresa de Transporte:";
+            transporteLBL.TextAlign = ContentAlignment.MiddleRight;
+            // 
+            // buscarTransporteBTN
+            // 
+            buscarTransporteBTN.Location = new Point(976, 37);
+            buscarTransporteBTN.Name = "buscarTransporteBTN";
+            buscarTransporteBTN.Size = new Size(80, 27);
+            buscarTransporteBTN.TabIndex = 43;
+            buscarTransporteBTN.Text = "Buscar";
+            // 
+            // transporteCMB
+            // 
+            transporteCMB.FormattingEnabled = true;
+            transporteCMB.Location = new Point(551, 37);
+            transporteCMB.Name = "transporteCMB";
+            transporteCMB.Size = new Size(409, 28);
+            transporteCMB.TabIndex = 42;
+            // 
+            // guiasGBX
+            // 
+            guiasGBX.Controls.Add(agregarBTN);
+            guiasGBX.Controls.Add(nGuiaLBL);
+            guiasGBX.Controls.Add(quitarBTN);
+            guiasGBX.Controls.Add(nGuiaTXT);
+            guiasGBX.Controls.Add(guiasAgregadasLST);
+            guiasGBX.Controls.Add(buscarGuiaBTN);
+            guiasGBX.Controls.Add(GuiasLST);
+            guiasGBX.Location = new Point(25, 373);
+            guiasGBX.Name = "guiasGBX";
+            guiasGBX.Size = new Size(1070, 395);
+            guiasGBX.TabIndex = 42;
+            guiasGBX.TabStop = false;
+            guiasGBX.Text = "Guías de encomienda a enviar";
             // 
             // EmisionHDRTransporteFRM
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(553, 576);
-            Controls.Add(groupBox1);
-            Controls.Add(seleccionarLBL);
-            Controls.Add(generarHDRBTN);
+            ClientSize = new Size(1120, 833);
+            Controls.Add(guiasGBX);
             Controls.Add(cancelarBTN);
-            Controls.Add(GuiasLST);
+            Controls.Add(transporteGBX);
+            Controls.Add(generarHDRBTN);
             Controls.Add(CDdestinoCMB);
             Controls.Add(CDdestinoLBL);
-            Margin = new Padding(3, 2, 3, 2);
             Name = "EmisionHDRTransporteFRM";
             Text = "Emisión de Hoja de Ruta de Ómnibus";
-            groupBox1.ResumeLayout(false);
-            groupBox1.PerformLayout();
+            transporteGBX.ResumeLayout(false);
+            guiasGBX.ResumeLayout(false);
+            guiasGBX.PerformLayout();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -210,14 +344,29 @@
         private ColumnHeader TipoEncomiendaCol;
         private ColumnHeader DestinoCol;
         private ColumnHeader NumGuiaCol;
+        private ListView transportesLST;
+        private GroupBox transporteGBX;
+        private ColumnHeader columnHeader4;
+        private ColumnHeader columnHeader5;
+        private ColumnHeader columnHeader6;
+        private ColumnHeader columnHeader7;
         private Button generarHDRBTN;
         private Button cancelarBTN;
-        private Label seleccionarLBL;
-        private ListView listView1;
-        private ColumnHeader columnHeader1;
-        private ColumnHeader columnHeader2;
-        private ColumnHeader columnHeader3;
-        private GroupBox groupBox1;
-        private Label label1;
+        private Button agregarBTN;
+        private Label nGuiaLBL;
+        private Button quitarBTN;
+        private TextBox nGuiaTXT;
+        private ListView guiasAgregadasLST;
+        private ColumnHeader nguiaAgregadaCol;
+        private ColumnHeader tipoEncomiendaAgregadaCol;
+        private ColumnHeader lugarEntregaAgregadaCol;
+        private Button buscarGuiaBTN;
+        private Label transporteLBL;
+        private Button buscarFechaBTN;
+        private Button buscarTransporteBTN;
+        private Label fechaLBL;
+        private DateTimePicker fechaDTP;
+        private ComboBox transporteCMB;
+        private GroupBox guiasGBX;
     }
 }
