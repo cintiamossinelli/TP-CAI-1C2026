@@ -1,20 +1,17 @@
 using System;
 using System.Windows.Forms;
+using TP_CAI_1C2026.Forms.Imposicion.ImposicionCallCenter;
+using TP_CAI_1C2026.Forms.UltimaMilla.EmisionHDREntrega;
 
-namespace TP_CAI_1C2026.Forms.Imposicion.ImposicionCallCenter
+namespace TP_CAI_1C2026
 {
     internal static class Program
     {
-        /// <summary>
-        ///  The main entry point for the application.
-        /// </summary>
         [STAThread]
         static void Main()
         {
-            // To customize application configuration such as set high DPI settings or default font,
-            // see https://aka.ms/applicationconfiguration.
             ApplicationConfiguration.Initialize();
-            Application.Run(new ImposicionCallCenterFRM());
+            Application.Run(new EmisionHDREntregaFRM());
         }
     }
 }
