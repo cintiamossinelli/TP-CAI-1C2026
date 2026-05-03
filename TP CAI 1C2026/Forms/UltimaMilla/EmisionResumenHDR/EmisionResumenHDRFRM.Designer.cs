@@ -2,15 +2,8 @@
 {
     partial class EmisionResumenHDRFRM
     {
-        /// <summary>
-        /// Required designer variable.
-        /// </summary>
         private System.ComponentModel.IContainer components = null;
 
-        /// <summary>
-        /// Clean up any resources being used.
-        /// </summary>
-        /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
         protected override void Dispose(bool disposing)
         {
             if (disposing && (components != null))
@@ -20,15 +13,12 @@
             base.Dispose(disposing);
         }
 
-        #region Windows Form Designer generated code
-
-        /// <summary>
-        /// Required method for Designer support - do not modify
-        /// the contents of this method with the code editor.
-        /// </summary>
         private void InitializeComponent()
         {
-            fleteroLBL = new Label();
+            dniFleteroLBL = new Label();
+            dniFleteroTXT = new TextBox();
+            buscarFleteroBTN = new Button();
+            nombreFleteroLBL = new Label();
             hdrEntregarGBX = new GroupBox();
             hdrEntregarLST = new ListView();
             colNHdrEntregar = new ColumnHeader();
@@ -40,50 +30,64 @@
             colDomicilioRetirar = new ColumnHeader();
             colCantRetirar = new ColumnHeader();
             generarResumenBTN = new Button();
-            dniFleteroLBL = new Label();
-            dniFleteroTXT = new TextBox();
-            buscarFleteroBTN = new Button();
-            nombreFleteroLBL = new Label();
-            hdrRetirarLBL = new Label();
-            hdrEntregarLBL = new Label();
+            cancelarBTN = new Button();
             hdrEntregarGBX.SuspendLayout();
             hdrRetirarGBX.SuspendLayout();
             SuspendLayout();
             // 
-            // fleteroLBL
+            // dniFleteroLBL
             // 
-            fleteroLBL.AutoSize = true;
-            fleteroLBL.Location = new Point(13, 19);
-            fleteroLBL.Name = "fleteroLBL";
-            fleteroLBL.Size = new Size(0, 15);
-            fleteroLBL.TabIndex = 0;
-            fleteroLBL.TextAlign = ContentAlignment.MiddleRight;
+            dniFleteroLBL.Location = new Point(12, 18);
+            dniFleteroLBL.Name = "dniFleteroLBL";
+            dniFleteroLBL.Size = new Size(80, 23);
+            dniFleteroLBL.TabIndex = 0;
+            dniFleteroLBL.Text = "DNI Fletero:";
+            dniFleteroLBL.TextAlign = ContentAlignment.MiddleRight;
+            // 
+            // dniFleteroTXT
+            // 
+            dniFleteroTXT.Location = new Point(97, 16);
+            dniFleteroTXT.MaxLength = 11;
+            dniFleteroTXT.Name = "dniFleteroTXT";
+            dniFleteroTXT.Size = new Size(150, 23);
+            dniFleteroTXT.TabIndex = 1;
+            // 
+            // buscarFleteroBTN
+            // 
+            buscarFleteroBTN.Location = new Point(253, 14);
+            buscarFleteroBTN.Name = "buscarFleteroBTN";
+            buscarFleteroBTN.Size = new Size(80, 27);
+            buscarFleteroBTN.TabIndex = 2;
+            buscarFleteroBTN.Text = "Buscar";
+            // 
+            // nombreFleteroLBL
+            // 
+            nombreFleteroLBL.BackColor = SystemColors.ActiveCaption;
+            nombreFleteroLBL.Location = new Point(339, 16);
+            nombreFleteroLBL.Name = "nombreFleteroLBL";
+            nombreFleteroLBL.Size = new Size(340, 25);
+            nombreFleteroLBL.TabIndex = 3;
+            nombreFleteroLBL.Text = "Nombre del Fletero";
             // 
             // hdrEntregarGBX
             // 
             hdrEntregarGBX.Controls.Add(hdrEntregarLST);
-            hdrEntregarGBX.Controls.Add(hdrEntregarLBL);
-            hdrEntregarGBX.Enabled = false;
-            hdrEntregarGBX.Location = new Point(10, 50);
-            hdrEntregarGBX.Margin = new Padding(3, 2, 3, 2);
+            hdrEntregarGBX.Location = new Point(12, 57);
             hdrEntregarGBX.Name = "hdrEntregarGBX";
-            hdrEntregarGBX.Padding = new Padding(3, 2, 3, 2);
-            hdrEntregarGBX.Size = new Size(578, 164);
-            hdrEntregarGBX.TabIndex = 2;
+            hdrEntregarGBX.Size = new Size(681, 220);
+            hdrEntregarGBX.TabIndex = 4;
             hdrEntregarGBX.TabStop = false;
             hdrEntregarGBX.Text = "HDR a Entregar";
             // 
             // hdrEntregarLST
             // 
-            hdrEntregarLST.CheckBoxes = true;
             hdrEntregarLST.Columns.AddRange(new ColumnHeader[] { colNHdrEntregar, colDomicilioEntregar, colCantEntregar });
             hdrEntregarLST.FullRowSelect = true;
             hdrEntregarLST.GridLines = true;
-            hdrEntregarLST.Location = new Point(8, 46);
-            hdrEntregarLST.Margin = new Padding(3, 2, 3, 2);
+            hdrEntregarLST.Location = new Point(10, 25);
             hdrEntregarLST.Name = "hdrEntregarLST";
-            hdrEntregarLST.Size = new Size(556, 114);
-            hdrEntregarLST.TabIndex = 1;
+            hdrEntregarLST.Size = new Size(657, 183);
+            hdrEntregarLST.TabIndex = 0;
             hdrEntregarLST.UseCompatibleStateImageBehavior = false;
             hdrEntregarLST.View = View.Details;
             // 
@@ -95,40 +99,32 @@
             // colDomicilioEntregar
             // 
             colDomicilioEntregar.Text = "Domicilio / Agencia";
-            colDomicilioEntregar.TextAlign = HorizontalAlignment.Center;
             colDomicilioEntregar.Width = 350;
             // 
             // colCantEntregar
             // 
             colCantEntregar.Text = "Cant. Encomiendas";
-            colCantEntregar.TextAlign = HorizontalAlignment.Center;
             colCantEntregar.Width = 160;
             // 
             // hdrRetirarGBX
             // 
             hdrRetirarGBX.Controls.Add(hdrRetirarLST);
-            hdrRetirarGBX.Controls.Add(hdrRetirarLBL);
-            hdrRetirarGBX.Enabled = false;
-            hdrRetirarGBX.Location = new Point(10, 218);
-            hdrRetirarGBX.Margin = new Padding(3, 2, 3, 2);
+            hdrRetirarGBX.Location = new Point(12, 287);
             hdrRetirarGBX.Name = "hdrRetirarGBX";
-            hdrRetirarGBX.Padding = new Padding(3, 2, 3, 2);
-            hdrRetirarGBX.Size = new Size(578, 162);
-            hdrRetirarGBX.TabIndex = 3;
+            hdrRetirarGBX.Size = new Size(681, 220);
+            hdrRetirarGBX.TabIndex = 5;
             hdrRetirarGBX.TabStop = false;
             hdrRetirarGBX.Text = "HDR a Retirar";
             // 
             // hdrRetirarLST
             // 
-            hdrRetirarLST.CheckBoxes = true;
             hdrRetirarLST.Columns.AddRange(new ColumnHeader[] { colNHdrRetirar, colDomicilioRetirar, colCantRetirar });
             hdrRetirarLST.FullRowSelect = true;
             hdrRetirarLST.GridLines = true;
-            hdrRetirarLST.Location = new Point(8, 46);
-            hdrRetirarLST.Margin = new Padding(3, 2, 3, 2);
+            hdrRetirarLST.Location = new Point(10, 25);
             hdrRetirarLST.Name = "hdrRetirarLST";
-            hdrRetirarLST.Size = new Size(556, 111);
-            hdrRetirarLST.TabIndex = 1;
+            hdrRetirarLST.Size = new Size(657, 183);
+            hdrRetirarLST.TabIndex = 0;
             hdrRetirarLST.UseCompatibleStateImageBehavior = false;
             hdrRetirarLST.View = View.Details;
             // 
@@ -140,131 +136,63 @@
             // colDomicilioRetirar
             // 
             colDomicilioRetirar.Text = "Domicilio / Agencia";
-            colDomicilioRetirar.TextAlign = HorizontalAlignment.Center;
             colDomicilioRetirar.Width = 350;
             // 
             // colCantRetirar
             // 
             colCantRetirar.Text = "Cant. Encomiendas";
-            colCantRetirar.TextAlign = HorizontalAlignment.Center;
             colCantRetirar.Width = 160;
             // 
             // generarResumenBTN
             // 
-            generarResumenBTN.Enabled = false;
-            generarResumenBTN.Location = new Point(477, 385);
-            generarResumenBTN.Margin = new Padding(3, 2, 3, 2);
+            generarResumenBTN.Location = new Point(508, 522);
             generarResumenBTN.Name = "generarResumenBTN";
-            generarResumenBTN.Size = new Size(97, 22);
-            generarResumenBTN.TabIndex = 2;
+            generarResumenBTN.Size = new Size(80, 32);
+            generarResumenBTN.TabIndex = 6;
             generarResumenBTN.Text = "Generar";
-            generarResumenBTN.UseVisualStyleBackColor = true;
             // 
-            // dniFleteroLBL
+            // cancelarBTN
             // 
-            dniFleteroLBL.AutoSize = true;
-            dniFleteroLBL.Location = new Point(17, 14);
-            dniFleteroLBL.Name = "dniFleteroLBL";
-            dniFleteroLBL.Size = new Size(69, 15);
-            dniFleteroLBL.TabIndex = 5;
-            dniFleteroLBL.Text = "DNI Fletero:";
-            dniFleteroLBL.TextAlign = ContentAlignment.MiddleRight;
-            dniFleteroLBL.Click += label1_Click;
-            // 
-            // dniFleteroTXT
-            // 
-            dniFleteroTXT.Location = new Point(126, 11);
-            dniFleteroTXT.Margin = new Padding(3, 2, 3, 2);
-            dniFleteroTXT.Name = "dniFleteroTXT";
-            dniFleteroTXT.Size = new Size(138, 23);
-            dniFleteroTXT.TabIndex = 6;
-            // 
-            // buscarFleteroBTN
-            // 
-            buscarFleteroBTN.Location = new Point(285, 11);
-            buscarFleteroBTN.Margin = new Padding(3, 2, 3, 2);
-            buscarFleteroBTN.Name = "buscarFleteroBTN";
-            buscarFleteroBTN.Size = new Size(85, 22);
-            buscarFleteroBTN.TabIndex = 7;
-            buscarFleteroBTN.Text = "Buscar ";
-            buscarFleteroBTN.UseVisualStyleBackColor = true;
-            // 
-            // nombreFleteroLBL
-            // 
-            nombreFleteroLBL.AutoSize = true;
-            nombreFleteroLBL.BackColor = SystemColors.ActiveCaption;
-            nombreFleteroLBL.Location = new Point(410, 16);
-            nombreFleteroLBL.Name = "nombreFleteroLBL";
-            nombreFleteroLBL.Size = new Size(109, 15);
-            nombreFleteroLBL.TabIndex = 8;
-            nombreFleteroLBL.Text = "Nombre del Fletero";
-            // 
-            // hdrRetirarLBL
-            // 
-            hdrRetirarLBL.AutoSize = true;
-            hdrRetirarLBL.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            hdrRetirarLBL.ForeColor = SystemColors.HotTrack;
-            hdrRetirarLBL.Location = new Point(8, 19);
-            hdrRetirarLBL.Name = "hdrRetirarLBL";
-            hdrRetirarLBL.Size = new Size(276, 15);
-            hdrRetirarLBL.TabIndex = 0;
-            hdrRetirarLBL.Text = "Seleccione HDR de retiro a incluir en el resumen";
-            // 
-            // hdrEntregarLBL
-            // 
-            hdrEntregarLBL.AutoSize = true;
-            hdrEntregarLBL.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            hdrEntregarLBL.ForeColor = Color.Green;
-            hdrEntregarLBL.Location = new Point(8, 20);
-            hdrEntregarLBL.Name = "hdrEntregarLBL";
-            hdrEntregarLBL.Size = new Size(288, 15);
-            hdrEntregarLBL.TabIndex = 0;
-            hdrEntregarLBL.Text = "Seleccione HDR de entrega a incluir en el resumen";
-            hdrEntregarLBL.Click += hdrEntregarLBL_Click;
+            cancelarBTN.Location = new Point(603, 522);
+            cancelarBTN.Name = "cancelarBTN";
+            cancelarBTN.Size = new Size(80, 32);
+            cancelarBTN.TabIndex = 7;
+            cancelarBTN.Text = "Cancelar";
             // 
             // EmisionResumenHDRFRM
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
-            AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(597, 435);
-            Controls.Add(nombreFleteroLBL);
-            Controls.Add(buscarFleteroBTN);
-            Controls.Add(dniFleteroTXT);
+            ClientSize = new Size(706, 565);
             Controls.Add(dniFleteroLBL);
-            Controls.Add(generarResumenBTN);
-            Controls.Add(hdrRetirarGBX);
+            Controls.Add(dniFleteroTXT);
+            Controls.Add(buscarFleteroBTN);
+            Controls.Add(nombreFleteroLBL);
             Controls.Add(hdrEntregarGBX);
-            Controls.Add(fleteroLBL);
-            Margin = new Padding(3, 2, 3, 2);
+            Controls.Add(hdrRetirarGBX);
+            Controls.Add(generarResumenBTN);
+            Controls.Add(cancelarBTN);
             Name = "EmisionResumenHDRFRM";
             Text = "Emisión de Resumen de HDR";
             hdrEntregarGBX.ResumeLayout(false);
-            hdrEntregarGBX.PerformLayout();
             hdrRetirarGBX.ResumeLayout(false);
-            hdrRetirarGBX.PerformLayout();
             ResumeLayout(false);
             PerformLayout();
         }
 
-        #endregion
-
-        private Label fleteroLBL;
+        private Label dniFleteroLBL;
+        private TextBox dniFleteroTXT;
+        private Button buscarFleteroBTN;
+        private Label nombreFleteroLBL;
         private GroupBox hdrEntregarGBX;
         private ListView hdrEntregarLST;
         private ColumnHeader colNHdrEntregar;
         private ColumnHeader colDomicilioEntregar;
         private ColumnHeader colCantEntregar;
         private GroupBox hdrRetirarGBX;
-        private Button generarResumenBTN;
         private ListView hdrRetirarLST;
         private ColumnHeader colNHdrRetirar;
         private ColumnHeader colDomicilioRetirar;
         private ColumnHeader colCantRetirar;
-        private Label dniFleteroLBL;
-        private TextBox dniFleteroTXT;
-        private Button buscarFleteroBTN;
-        private Label nombreFleteroLBL;
-        private Label hdrEntregarLBL;
-        private Label hdrRetirarLBL;
+        private Button generarResumenBTN;
+        private Button cancelarBTN;
     }
 }

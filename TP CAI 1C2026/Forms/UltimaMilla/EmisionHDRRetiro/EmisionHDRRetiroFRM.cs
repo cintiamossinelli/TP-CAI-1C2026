@@ -19,5 +19,10 @@ namespace TP_CAI_1C2026.Forms.UltimaMilla.EmisionHDRRetiro
         {
 
         }
+
+        private void dniFleteroLBL_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

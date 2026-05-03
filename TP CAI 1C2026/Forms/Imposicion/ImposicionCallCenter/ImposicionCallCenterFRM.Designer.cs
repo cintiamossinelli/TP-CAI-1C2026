@@ -74,7 +74,7 @@
             nombreClienteLBL.BackColor = SystemColors.ActiveCaption;
             nombreClienteLBL.Location = new Point(135, 55);
             nombreClienteLBL.Name = "nombreClienteLBL";
-            nombreClienteLBL.Size = new Size(139, 20);
+            nombreClienteLBL.Size = new Size(110, 15);
             nombreClienteLBL.TabIndex = 3;
             nombreClienteLBL.Text = "Nombre del Cliente";
             nombreClienteLBL.Click += label1_Click;
@@ -93,7 +93,7 @@
             idClienteTXT.Location = new Point(135, 22);
             idClienteTXT.MaxLength = 11;
             idClienteTXT.Name = "idClienteTXT";
-            idClienteTXT.Size = new Size(380, 27);
+            idClienteTXT.Size = new Size(380, 23);
             idClienteTXT.TabIndex = 1;
             // 
             // buscarClienteBTN
@@ -103,6 +103,7 @@
             buscarClienteBTN.Size = new Size(114, 27);
             buscarClienteBTN.TabIndex = 2;
             buscarClienteBTN.Text = "Buscar";
+            buscarClienteBTN.Click += buscarClienteBTN_Click;
             // 
             // retiroGBX
             // 
@@ -132,8 +133,9 @@
             ciudadCMB.DropDownStyle = ComboBoxStyle.DropDownList;
             ciudadCMB.Location = new Point(135, 23);
             ciudadCMB.Name = "ciudadCMB";
-            ciudadCMB.Size = new Size(500, 28);
+            ciudadCMB.Size = new Size(500, 23);
             ciudadCMB.TabIndex = 1;
+            ciudadCMB.SelectedIndexChanged += ciudadCMB_SelectedIndexChanged;
             // 
             // domicilioRemitenteLBL
             // 
@@ -148,8 +150,9 @@
             // 
             domicilioRemitenteTXT.Location = new Point(135, 52);
             domicilioRemitenteTXT.Name = "domicilioRemitenteTXT";
-            domicilioRemitenteTXT.Size = new Size(500, 27);
+            domicilioRemitenteTXT.Size = new Size(500, 23);
             domicilioRemitenteTXT.TabIndex = 3;
+            domicilioRemitenteTXT.TextChanged += domicilioRemitenteTXT_TextChanged;
             // 
             // destinatarioGBX
             // 
@@ -198,16 +201,16 @@
             ciudadDestinatarioCMB.DropDownStyle = ComboBoxStyle.DropDownList;
             ciudadDestinatarioCMB.Location = new Point(205, 91);
             ciudadDestinatarioCMB.Name = "ciudadDestinatarioCMB";
-            ciudadDestinatarioCMB.Size = new Size(430, 28);
+            ciudadDestinatarioCMB.Size = new Size(430, 23);
             ciudadDestinatarioCMB.TabIndex = 14;
             // 
             // nombreDestinatarioTXT
             // 
             nombreDestinatarioTXT.Enabled = false;
             nombreDestinatarioTXT.Location = new Point(135, 194);
-            nombreDestinatarioTXT.MaxLength = 11;
+            nombreDestinatarioTXT.MaxLength = 100;
             nombreDestinatarioTXT.Name = "nombreDestinatarioTXT";
-            nombreDestinatarioTXT.Size = new Size(500, 27);
+            nombreDestinatarioTXT.Size = new Size(500, 23);
             nombreDestinatarioTXT.TabIndex = 12;
             // 
             // nombreDestinatarioLBL
@@ -226,6 +229,7 @@
             cdRDB.Size = new Size(41, 23);
             cdRDB.TabIndex = 0;
             cdRDB.Text = "CD";
+            cdRDB.CheckedChanged += cdRDB_CheckedChanged;
             // 
             // agenciaRDB
             // 
@@ -234,6 +238,7 @@
             agenciaRDB.Size = new Size(70, 23);
             agenciaRDB.TabIndex = 1;
             agenciaRDB.Text = "Agencia";
+            agenciaRDB.CheckedChanged += agenciaRDB_CheckedChanged;
             // 
             // domicilioRDB
             // 
@@ -248,27 +253,30 @@
             // 
             destinoCDCMB.DropDownStyle = ComboBoxStyle.DropDownList;
             destinoCDCMB.Enabled = false;
-            destinoCDCMB.Location = new Point(135, 56);
+            destinoCDCMB.Location = new Point(133, 22);
             destinoCDCMB.Name = "destinoCDCMB";
-            destinoCDCMB.Size = new Size(500, 28);
+            destinoCDCMB.Size = new Size(500, 23);
             destinoCDCMB.TabIndex = 4;
+            destinoCDCMB.SelectedIndexChanged += destinoCDCMB_SelectedIndexChanged;
             // 
             // destinoAgenciaCMB
             // 
             destinoAgenciaCMB.DropDownStyle = ComboBoxStyle.DropDownList;
             destinoAgenciaCMB.Enabled = false;
-            destinoAgenciaCMB.Location = new Point(135, 22);
+            destinoAgenciaCMB.Location = new Point(135, 56);
             destinoAgenciaCMB.Name = "destinoAgenciaCMB";
-            destinoAgenciaCMB.Size = new Size(500, 28);
+            destinoAgenciaCMB.Size = new Size(500, 23);
             destinoAgenciaCMB.TabIndex = 6;
+            destinoAgenciaCMB.SelectedIndexChanged += destinoAgenciaCMB_SelectedIndexChanged;
             // 
             // direccionDestinatarioTXT
             // 
             direccionDestinatarioTXT.Enabled = false;
             direccionDestinatarioTXT.Location = new Point(205, 125);
             direccionDestinatarioTXT.Name = "direccionDestinatarioTXT";
-            direccionDestinatarioTXT.Size = new Size(430, 27);
+            direccionDestinatarioTXT.Size = new Size(430, 23);
             direccionDestinatarioTXT.TabIndex = 8;
+            direccionDestinatarioTXT.TextChanged += direccionDestinatarioTXT_TextChanged;
             // 
             // dniDestinatarioLBL
             // 
@@ -285,8 +293,9 @@
             dniDestinatarioTXT.Location = new Point(135, 160);
             dniDestinatarioTXT.MaxLength = 11;
             dniDestinatarioTXT.Name = "dniDestinatarioTXT";
-            dniDestinatarioTXT.Size = new Size(500, 27);
+            dniDestinatarioTXT.Size = new Size(500, 23);
             dniDestinatarioTXT.TabIndex = 10;
+            dniDestinatarioTXT.TextChanged += dniDestinatarioTXT_TextChanged;
             // 
             // encomiendaGBX
             // 
@@ -319,7 +328,7 @@
             tipoCajaCMB.Items.AddRange(new object[] { "S", "M", "L", "XL" });
             tipoCajaCMB.Location = new Point(135, 35);
             tipoCajaCMB.Name = "tipoCajaCMB";
-            tipoCajaCMB.Size = new Size(150, 28);
+            tipoCajaCMB.Size = new Size(150, 23);
             tipoCajaCMB.TabIndex = 1;
             // 
             // cantidadLBL
@@ -335,7 +344,7 @@
             // 
             cantidadTXT.Location = new Point(375, 36);
             cantidadTXT.Name = "cantidadTXT";
-            cantidadTXT.Size = new Size(140, 27);
+            cantidadTXT.Size = new Size(140, 23);
             cantidadTXT.TabIndex = 3;
             // 
             // agregarBTN
@@ -345,6 +354,7 @@
             agregarBTN.Size = new Size(80, 27);
             agregarBTN.TabIndex = 4;
             agregarBTN.Text = "Agregar";
+            agregarBTN.Click += agregarBTN_Click;
             // 
             // encomiendaLST
             // 
@@ -375,6 +385,7 @@
             quitarItemBTN.Size = new Size(80, 27);
             quitarItemBTN.TabIndex = 6;
             quitarItemBTN.Text = "Quitar Item";
+            quitarItemBTN.Click += quitarItemBTN_Click;
             // 
             // confirmarBTN
             // 
@@ -383,6 +394,7 @@
             confirmarBTN.Size = new Size(80, 32);
             confirmarBTN.TabIndex = 4;
             confirmarBTN.Text = "Confirmar";
+            confirmarBTN.Click += confirmarBTN_Click;
             // 
             // cancelarBTN
             // 
@@ -391,6 +403,7 @@
             cancelarBTN.Size = new Size(80, 32);
             cancelarBTN.TabIndex = 5;
             cancelarBTN.Text = "Cancelar";
+            cancelarBTN.Click += cancelarBTN_Click;
             // 
             // ImposicionCallCenterFRM
             // 
@@ -403,6 +416,7 @@
             Controls.Add(cancelarBTN);
             Name = "ImposicionCallCenterFRM";
             Text = "Imposición de Encomienda - Call Center";
+            Load += ImposicionCallCenterFRM_Load;
             clienteGBX.ResumeLayout(false);
             clienteGBX.PerformLayout();
             retiroGBX.ResumeLayout(false);
