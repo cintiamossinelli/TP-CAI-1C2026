@@ -6,7 +6,7 @@ using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
 
-namespace TP_CAI_1C2026
+namespace TP_CAI_1C2026.Forms.Administracion.ResultadoCostoVentas
 {
     public partial class ResultadoCostosVentasFRM : Form
     {

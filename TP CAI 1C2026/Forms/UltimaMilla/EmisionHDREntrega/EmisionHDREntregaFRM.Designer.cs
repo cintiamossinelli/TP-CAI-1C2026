@@ -40,7 +40,7 @@
             // 
             // generarBTN
             // 
-            generarBTN.Location = new Point(769, 540);
+            generarBTN.Location = new Point(920, 545);
             generarBTN.Name = "generarBTN";
             generarBTN.Size = new Size(107, 32);
             generarBTN.TabIndex = 33;
@@ -55,7 +55,7 @@
             fleteroGBX.Controls.Add(nombreFleteroLBL);
             fleteroGBX.Location = new Point(28, 16);
             fleteroGBX.Name = "fleteroGBX";
-            fleteroGBX.Size = new Size(973, 70);
+            fleteroGBX.Size = new Size(1124, 70);
             fleteroGBX.TabIndex = 32;
             fleteroGBX.TabStop = false;
             fleteroGBX.Text = "Fletero";
@@ -74,7 +74,7 @@
             dniFleteroTXT.Location = new Point(100, 27);
             dniFleteroTXT.MaxLength = 11;
             dniFleteroTXT.Name = "dniFleteroTXT";
-            dniFleteroTXT.Size = new Size(209, 23);
+            dniFleteroTXT.Size = new Size(209, 27);
             dniFleteroTXT.TabIndex = 1;
             // 
             // buscarFleteroTBN
@@ -91,7 +91,7 @@
             nombreFleteroLBL.BackColor = SystemColors.ActiveCaption;
             nombreFleteroLBL.Location = new Point(424, 26);
             nombreFleteroLBL.Name = "nombreFleteroLBL";
-            nombreFleteroLBL.Size = new Size(533, 27);
+            nombreFleteroLBL.Size = new Size(680, 27);
             nombreFleteroLBL.TabIndex = 3;
             nombreFleteroLBL.Text = "Nombre del Fletero";
             // 
@@ -101,7 +101,7 @@
             localidadCMB.FormattingEnabled = true;
             localidadCMB.Location = new Point(128, 111);
             localidadCMB.Name = "localidadCMB";
-            localidadCMB.Size = new Size(209, 23);
+            localidadCMB.Size = new Size(209, 28);
             localidadCMB.TabIndex = 31;
             // 
             // localidadLBL
@@ -124,7 +124,7 @@
             // 
             // agregarBTN
             // 
-            agregarBTN.Location = new Point(452, 314);
+            agregarBTN.Location = new Point(535, 314);
             agregarBTN.Name = "agregarBTN";
             agregarBTN.Size = new Size(109, 32);
             agregarBTN.TabIndex = 25;
@@ -133,7 +133,7 @@
             // 
             // nGuiaLBL
             // 
-            nGuiaLBL.Location = new Point(56, 144);
+            nGuiaLBL.Location = new Point(56, 148);
             nGuiaLBL.Name = "nGuiaLBL";
             nGuiaLBL.Size = new Size(66, 23);
             nGuiaLBL.TabIndex = 26;
@@ -142,7 +142,7 @@
             // 
             // quitarBTN
             // 
-            quitarBTN.Location = new Point(452, 369);
+            quitarBTN.Location = new Point(535, 369);
             quitarBTN.Name = "quitarBTN";
             quitarBTN.Size = new Size(109, 32);
             quitarBTN.TabIndex = 24;
@@ -151,10 +151,10 @@
             // 
             // nGuiaTXT
             // 
-            nGuiaTXT.Location = new Point(128, 142);
+            nGuiaTXT.Location = new Point(128, 146);
             nGuiaTXT.MaxLength = 11;
             nGuiaTXT.Name = "nGuiaTXT";
-            nGuiaTXT.Size = new Size(209, 23);
+            nGuiaTXT.Size = new Size(209, 27);
             nGuiaTXT.TabIndex = 27;
             // 
             // guiasAgregadasLST
@@ -163,9 +163,9 @@
             guiasAgregadasLST.Columns.AddRange(new ColumnHeader[] { nguiaAgregadaCol, tipoCajaAgregadaCol, lugarEntregaAgregadaCol });
             guiasAgregadasLST.FullRowSelect = true;
             guiasAgregadasLST.GridLines = true;
-            guiasAgregadasLST.Location = new Point(569, 189);
+            guiasAgregadasLST.Location = new Point(652, 189);
             guiasAgregadasLST.Name = "guiasAgregadasLST";
-            guiasAgregadasLST.Size = new Size(432, 337);
+            guiasAgregadasLST.Size = new Size(500, 337);
             guiasAgregadasLST.TabIndex = 23;
             guiasAgregadasLST.UseCompatibleStateImageBehavior = false;
             guiasAgregadasLST.View = View.Details;
@@ -178,7 +178,7 @@
             // tipoCajaAgregadaCol
             // 
             tipoCajaAgregadaCol.Text = "Tipo de Caja";
-            tipoCajaAgregadaCol.Width = 120;
+            tipoCajaAgregadaCol.Width = 100;
             // 
             // lugarEntregaAgregadaCol
             // 
@@ -187,7 +187,7 @@
             // 
             // buscarGuiaBTN
             // 
-            buscarGuiaBTN.Location = new Point(354, 144);
+            buscarGuiaBTN.Location = new Point(354, 148);
             buscarGuiaBTN.Name = "buscarGuiaBTN";
             buscarGuiaBTN.Size = new Size(80, 27);
             buscarGuiaBTN.TabIndex = 28;
@@ -202,7 +202,7 @@
             guiasSinAgregarLST.GridLines = true;
             guiasSinAgregarLST.Location = new Point(28, 189);
             guiasSinAgregarLST.Name = "guiasSinAgregarLST";
-            guiasSinAgregarLST.Size = new Size(415, 337);
+            guiasSinAgregarLST.Size = new Size(498, 337);
             guiasSinAgregarLST.TabIndex = 21;
             guiasSinAgregarLST.UseCompatibleStateImageBehavior = false;
             guiasSinAgregarLST.View = View.Details;
@@ -215,7 +215,7 @@
             // colTipoCaja
             // 
             colTipoCaja.Text = "Tipo de Caja";
-            colTipoCaja.Width = 120;
+            colTipoCaja.Width = 100;
             // 
             // colLugarEntrega
             // 
@@ -224,7 +224,7 @@
             // 
             // cancelarBTN
             // 
-            cancelarBTN.Location = new Point(894, 540);
+            cancelarBTN.Location = new Point(1045, 545);
             cancelarBTN.Name = "cancelarBTN";
             cancelarBTN.Size = new Size(107, 32);
             cancelarBTN.TabIndex = 22;
@@ -233,7 +233,7 @@
             // 
             // EmisionHDREntregaFRM
             // 
-            ClientSize = new Size(1036, 589);
+            ClientSize = new Size(1177, 593);
             Controls.Add(generarBTN);
             Controls.Add(fleteroGBX);
             Controls.Add(localidadCMB);

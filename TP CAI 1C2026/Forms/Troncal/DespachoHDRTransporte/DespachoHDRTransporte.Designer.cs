@@ -1,4 +1,4 @@
-﻿namespace TP_CAI_1C2026.Forms.Troncal
+﻿namespace TP_CAI_1C2026.Forms.Troncal.DespachoHDRTransporte
 {
     partial class DespachoHDRTransporte
     {

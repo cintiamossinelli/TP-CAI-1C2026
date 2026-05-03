@@ -1,4 +1,4 @@
-﻿namespace TP_CAI_1C2026
+﻿namespace TP_CAI_1C2026.Forms.Administracion.ResultadoCostoVentas
 {
     partial class ResultadoCostosVentasFRM
     {
