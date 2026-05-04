@@ -93,7 +93,7 @@
             // 
             // buscarClienteBTN
             // 
-            buscarClienteBTN.Location = new Point(521, 21);
+            buscarClienteBTN.Location = new Point(520, 21);
             buscarClienteBTN.Name = "buscarClienteBTN";
             buscarClienteBTN.Size = new Size(114, 27);
             buscarClienteBTN.TabIndex = 2;
