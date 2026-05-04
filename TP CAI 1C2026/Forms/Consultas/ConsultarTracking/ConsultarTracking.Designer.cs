@@ -42,27 +42,25 @@
             // guiaLBL
             // 
             guiaLBL.AutoSize = true;
-            guiaLBL.Location = new Point(32, 37);
+            guiaLBL.Location = new Point(28, 28);
             guiaLBL.Name = "guiaLBL";
-            guiaLBL.Size = new Size(42, 20);
+            guiaLBL.Size = new Size(34, 15);
             guiaLBL.TabIndex = 0;
             guiaLBL.Text = "Guía:";
             // 
             // buscarBTN
             // 
-            buscarBTN.Location = new Point(416, 30);
-            buscarBTN.Margin = new Padding(3, 4, 3, 4);
+            buscarBTN.Location = new Point(364, 25);
             buscarBTN.Name = "buscarBTN";
-            buscarBTN.Size = new Size(106, 35);
+            buscarBTN.Size = new Size(93, 26);
             buscarBTN.TabIndex = 2;
             buscarBTN.Text = "Buscar";
             // 
             // guiaTXT
             // 
-            guiaTXT.Location = new Point(80, 34);
-            guiaTXT.Margin = new Padding(3, 4, 3, 4);
+            guiaTXT.Location = new Point(70, 26);
             guiaTXT.Name = "guiaTXT";
-            guiaTXT.Size = new Size(320, 27);
+            guiaTXT.Size = new Size(280, 23);
             guiaTXT.TabIndex = 1;
             // 
             // historialLST
@@ -70,10 +68,9 @@
             historialLST.Columns.AddRange(new ColumnHeader[] { colNGuia, colEstado });
             historialLST.FullRowSelect = true;
             historialLST.GridLines = true;
-            historialLST.Location = new Point(25, 369);
-            historialLST.Margin = new Padding(3, 4, 3, 4);
+            historialLST.Location = new Point(22, 277);
             historialLST.Name = "historialLST";
-            historialLST.Size = new Size(497, 244);
+            historialLST.Size = new Size(435, 184);
             historialLST.TabIndex = 6;
             historialLST.UseCompatibleStateImageBehavior = false;
             historialLST.View = View.Details;
@@ -90,10 +87,9 @@
             // 
             // cancelarBTN
             // 
-            cancelarBTN.Location = new Point(416, 629);
-            cancelarBTN.Margin = new Padding(3, 4, 3, 4);
+            cancelarBTN.Location = new Point(364, 472);
             cancelarBTN.Name = "cancelarBTN";
-            cancelarBTN.Size = new Size(106, 35);
+            cancelarBTN.Size = new Size(93, 26);
             cancelarBTN.TabIndex = 7;
             cancelarBTN.Text = "Cancelar";
             // 
@@ -101,54 +97,54 @@
             // 
             historialLBL.AutoSize = true;
             historialLBL.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
-            historialLBL.Location = new Point(25, 345);
+            historialLBL.Location = new Point(22, 259);
             historialLBL.Name = "historialLBL";
-            historialLBL.Size = new Size(68, 20);
+            historialLBL.Size = new Size(53, 15);
             historialLBL.TabIndex = 9;
             historialLBL.Text = "Historial";
             // 
             // cuitDniCuilLBL
             // 
             cuitDniCuilLBL.BackColor = SystemColors.ActiveCaption;
-            cuitDniCuilLBL.Location = new Point(143, 26);
+            cuitDniCuilLBL.Location = new Point(125, 20);
             cuitDniCuilLBL.Name = "cuitDniCuilLBL";
-            cuitDniCuilLBL.Size = new Size(339, 27);
+            cuitDniCuilLBL.Size = new Size(297, 20);
             cuitDniCuilLBL.TabIndex = 12;
             cuitDniCuilLBL.Text = "CUIT/DNI/CUIL";
             // 
             // origenLBL
             // 
             origenLBL.BackColor = SystemColors.ActiveCaption;
-            origenLBL.Location = new Point(143, 60);
+            origenLBL.Location = new Point(125, 45);
             origenLBL.Name = "origenLBL";
-            origenLBL.Size = new Size(339, 27);
+            origenLBL.Size = new Size(297, 20);
             origenLBL.TabIndex = 13;
             origenLBL.Text = "Origen";
             // 
             // destinoLBL
             // 
             destinoLBL.BackColor = SystemColors.ActiveCaption;
-            destinoLBL.Location = new Point(143, 95);
+            destinoLBL.Location = new Point(125, 71);
             destinoLBL.Name = "destinoLBL";
-            destinoLBL.Size = new Size(339, 27);
+            destinoLBL.Size = new Size(297, 20);
             destinoLBL.TabIndex = 14;
             destinoLBL.Text = "Destino";
             // 
             // tipoCajaLBL
             // 
             tipoCajaLBL.BackColor = SystemColors.ActiveCaption;
-            tipoCajaLBL.Location = new Point(143, 33);
+            tipoCajaLBL.Location = new Point(125, 25);
             tipoCajaLBL.Name = "tipoCajaLBL";
-            tipoCajaLBL.Size = new Size(339, 27);
+            tipoCajaLBL.Size = new Size(297, 20);
             tipoCajaLBL.TabIndex = 15;
             tipoCajaLBL.Text = "Tipo de Caja";
             // 
             // cantidadLBL
             // 
             cantidadLBL.BackColor = SystemColors.ActiveCaption;
-            cantidadLBL.Location = new Point(143, 71);
+            cantidadLBL.Location = new Point(125, 53);
             cantidadLBL.Name = "cantidadLBL";
-            cantidadLBL.Size = new Size(339, 27);
+            cantidadLBL.Size = new Size(297, 20);
             cantidadLBL.TabIndex = 16;
             cantidadLBL.Text = "Cantidad";
             // 
@@ -156,9 +152,9 @@
             // 
             tipoDeCajaLBL.AutoSize = true;
             tipoDeCajaLBL.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
-            tipoDeCajaLBL.Location = new Point(39, 33);
+            tipoDeCajaLBL.Location = new Point(34, 25);
             tipoDeCajaLBL.Name = "tipoDeCajaLBL";
-            tipoDeCajaLBL.Size = new Size(98, 20);
+            tipoDeCajaLBL.Size = new Size(76, 15);
             tipoDeCajaLBL.TabIndex = 19;
             tipoDeCajaLBL.Text = "Tipo de Caja:";
             // 
@@ -166,9 +162,9 @@
             // 
             cantidadCajaLBL.AutoSize = true;
             cantidadCajaLBL.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
-            cantidadCajaLBL.Location = new Point(62, 71);
+            cantidadCajaLBL.Location = new Point(54, 53);
             cantidadCajaLBL.Name = "cantidadCajaLBL";
-            cantidadCajaLBL.Size = new Size(75, 20);
+            cantidadCajaLBL.Size = new Size(58, 15);
             cantidadCajaLBL.TabIndex = 20;
             cantidadCajaLBL.Text = "Cantidad:";
             // 
@@ -176,9 +172,9 @@
             // 
             dniCuitCuilLBL.AutoSize = true;
             dniCuitCuilLBL.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            dniCuitCuilLBL.Location = new Point(15, 33);
+            dniCuitCuilLBL.Location = new Point(13, 25);
             dniCuitCuilLBL.Name = "dniCuitCuilLBL";
-            dniCuitCuilLBL.Size = new Size(122, 20);
+            dniCuitCuilLBL.Size = new Size(95, 15);
             dniCuitCuilLBL.TabIndex = 21;
             dniCuitCuilLBL.Text = "CUIT/DNI/CUIL:";
             // 
@@ -186,9 +182,9 @@
             // 
             origenGuiaLBL.AutoSize = true;
             origenGuiaLBL.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
-            origenGuiaLBL.Location = new Point(77, 60);
+            origenGuiaLBL.Location = new Point(67, 45);
             origenGuiaLBL.Name = "origenGuiaLBL";
-            origenGuiaLBL.Size = new Size(60, 20);
+            origenGuiaLBL.Size = new Size(48, 15);
             origenGuiaLBL.TabIndex = 22;
             origenGuiaLBL.Text = "Origen:";
             // 
@@ -196,9 +192,9 @@
             // 
             destinoGuiaLBL.AutoSize = true;
             destinoGuiaLBL.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
-            destinoGuiaLBL.Location = new Point(70, 95);
+            destinoGuiaLBL.Location = new Point(61, 71);
             destinoGuiaLBL.Name = "destinoGuiaLBL";
-            destinoGuiaLBL.Size = new Size(67, 20);
+            destinoGuiaLBL.Size = new Size(53, 15);
             destinoGuiaLBL.TabIndex = 23;
             destinoGuiaLBL.Text = "Destino:";
             // 
@@ -210,11 +206,9 @@
             datosYdetalleGuiaGBX.Controls.Add(destinoLBL);
             datosYdetalleGuiaGBX.Controls.Add(cuitDniCuilLBL);
             datosYdetalleGuiaGBX.Controls.Add(origenLBL);
-            datosYdetalleGuiaGBX.Location = new Point(25, 76);
-            datosYdetalleGuiaGBX.Margin = new Padding(3, 4, 3, 4);
+            datosYdetalleGuiaGBX.Location = new Point(22, 57);
             datosYdetalleGuiaGBX.Name = "datosYdetalleGuiaGBX";
-            datosYdetalleGuiaGBX.Padding = new Padding(3, 4, 3, 4);
-            datosYdetalleGuiaGBX.Size = new Size(497, 138);
+            datosYdetalleGuiaGBX.Size = new Size(435, 104);
             datosYdetalleGuiaGBX.TabIndex = 24;
             datosYdetalleGuiaGBX.TabStop = false;
             datosYdetalleGuiaGBX.Text = "Datos";
@@ -225,18 +219,20 @@
             detalleGBX.Controls.Add(tipoDeCajaLBL);
             detalleGBX.Controls.Add(cantidadLBL);
             detalleGBX.Controls.Add(tipoCajaLBL);
-            detalleGBX.Location = new Point(25, 221);
+            detalleGBX.Location = new Point(22, 166);
+            detalleGBX.Margin = new Padding(3, 2, 3, 2);
             detalleGBX.Name = "detalleGBX";
-            detalleGBX.Size = new Size(497, 110);
+            detalleGBX.Padding = new Padding(3, 2, 3, 2);
+            detalleGBX.Size = new Size(435, 82);
             detalleGBX.TabIndex = 25;
             detalleGBX.TabStop = false;
             detalleGBX.Text = "Detalle";
             // 
             // ConsultarTrackingFRM
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(550, 679);
+            ClientSize = new Size(481, 509);
             Controls.Add(detalleGBX);
             Controls.Add(datosYdetalleGuiaGBX);
             Controls.Add(historialLBL);
@@ -245,7 +241,6 @@
             Controls.Add(buscarBTN);
             Controls.Add(historialLST);
             Controls.Add(cancelarBTN);
-            Margin = new Padding(3, 4, 3, 4);
             Name = "ConsultarTrackingFRM";
             Text = "Consultar Tracking";
             datosYdetalleGuiaGBX.ResumeLayout(false);

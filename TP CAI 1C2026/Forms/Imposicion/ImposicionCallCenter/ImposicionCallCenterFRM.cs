@@ -60,8 +60,8 @@ namespace TP_CAI_1C2026.Forms.Imposicion.ImposicionCallCenter
                 destinoCDCMB.Items.Add(cd);
 
             destinoCDCMB.Enabled = true;
-            destinoAgenciaCMB.Enabled = false;
-            destinoAgenciaCMB.SelectedIndex = -1;
+            ciudadAgenciaCMB.Enabled = false;
+            ciudadAgenciaCMB.SelectedIndex = -1;
             direccionDestinatarioTXT.Enabled = false;
             direccionDestinatarioTXT.Clear();
 
@@ -71,11 +71,11 @@ namespace TP_CAI_1C2026.Forms.Imposicion.ImposicionCallCenter
 
         private void agenciaRDB_CheckedChanged(object sender, EventArgs e)
         {
-            destinoAgenciaCMB.Items.Clear();
+            ciudadAgenciaCMB.Items.Clear();
             foreach (string agencia in modelo.ObtenerAgencias())
-                destinoAgenciaCMB.Items.Add(agencia);
+                ciudadAgenciaCMB.Items.Add(agencia);
 
-            destinoAgenciaCMB.Enabled = true;
+            ciudadAgenciaCMB.Enabled = true;
             destinoCDCMB.Enabled = false;
             destinoCDCMB.SelectedIndex = -1;
             direccionDestinatarioTXT.Enabled = false;
@@ -90,8 +90,8 @@ namespace TP_CAI_1C2026.Forms.Imposicion.ImposicionCallCenter
             direccionDestinatarioTXT.Enabled = true;
             destinoCDCMB.Enabled = false;
             destinoCDCMB.SelectedIndex = -1;
-            destinoAgenciaCMB.Enabled = false;
-            destinoAgenciaCMB.SelectedIndex = -1;
+            ciudadAgenciaCMB.Enabled = false;
+            ciudadAgenciaCMB.SelectedIndex = -1;
             ciudadDestinatarioCMB.Items.Clear();
             foreach (string ciudad in modelo.ObtenerCiudades())
                 ciudadDestinatarioCMB.Items.Add(ciudad);
@@ -106,7 +106,7 @@ namespace TP_CAI_1C2026.Forms.Imposicion.ImposicionCallCenter
 
         private void destinoAgenciaCMB_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (destinoAgenciaCMB.SelectedIndex != -1)
+            if (ciudadAgenciaCMB.SelectedIndex != -1)
                 dniDestinatarioTXT.Enabled = true;
         }
 
@@ -226,8 +226,8 @@ namespace TP_CAI_1C2026.Forms.Imposicion.ImposicionCallCenter
             domicilioRDB.Checked = false;
             destinoCDCMB.SelectedIndex = -1;
             destinoCDCMB.Enabled = false;
-            destinoAgenciaCMB.SelectedIndex = -1;
-            destinoAgenciaCMB.Enabled = false;
+            ciudadAgenciaCMB.SelectedIndex = -1;
+            ciudadAgenciaCMB.Enabled = false;
             direccionDestinatarioTXT.Clear();
             direccionDestinatarioTXT.Enabled = false;
             ciudadDestinatarioCMB.SelectedIndex = -1;

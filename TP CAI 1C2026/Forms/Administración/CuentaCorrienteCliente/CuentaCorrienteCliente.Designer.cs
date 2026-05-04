@@ -29,7 +29,7 @@ namespace TP_CAI_1C2026.Forms.Administracion.CuentaCorrienteCliente
             buscarBTN = new Button();
             cuentaCorrienteLST = new ListView();
             colFecha = new ColumnHeader();
-            colNumero = new ColumnHeader();
+            colDescripcion = new ColumnHeader();
             colImporte = new ColumnHeader();
             colSaldo = new ColumnHeader();
             cancelarBTN = new Button();
@@ -113,7 +113,7 @@ namespace TP_CAI_1C2026.Forms.Administracion.CuentaCorrienteCliente
             // 
             // cuentaCorrienteLST
             // 
-            cuentaCorrienteLST.Columns.AddRange(new ColumnHeader[] { colFecha, colNumero, colImporte, colSaldo });
+            cuentaCorrienteLST.Columns.AddRange(new ColumnHeader[] { colFecha, colDescripcion, colImporte, colSaldo });
             cuentaCorrienteLST.FullRowSelect = true;
             cuentaCorrienteLST.GridLines = true;
             cuentaCorrienteLST.Location = new Point(12, 103);
@@ -128,10 +128,10 @@ namespace TP_CAI_1C2026.Forms.Administracion.CuentaCorrienteCliente
             colFecha.Text = "Fecha";
             colFecha.Width = 100;
             // 
-            // colNumero
+            // colDescripcion
             // 
-            colNumero.Text = "Número";
-            colNumero.Width = 200;
+            colDescripcion.Text = "Descripción";
+            colDescripcion.Width = 200;
             // 
             // colImporte
             // 
@@ -184,7 +184,7 @@ namespace TP_CAI_1C2026.Forms.Administracion.CuentaCorrienteCliente
         private Button buscarBTN;
         private ListView cuentaCorrienteLST;
         private ColumnHeader colFecha;
-        private ColumnHeader colNumero;
+        private ColumnHeader colDescripcion;
         private ColumnHeader colImporte;
         private ColumnHeader colSaldo;
         private Button cancelarBTN;
