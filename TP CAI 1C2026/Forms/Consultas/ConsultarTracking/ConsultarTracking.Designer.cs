@@ -242,7 +242,7 @@
             Controls.Add(historialLST);
             Controls.Add(cancelarBTN);
             Name = "ConsultarTrackingFRM";
-            Text = "Consultar Tracking";
+            Text = "Consulta de Estado de la Guía";
             datosYdetalleGuiaGBX.ResumeLayout(false);
             datosYdetalleGuiaGBX.PerformLayout();
             detalleGBX.ResumeLayout(false);
