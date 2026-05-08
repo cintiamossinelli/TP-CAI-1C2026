@@ -1,7 +1,4 @@
-using System;
-using System.Windows.Forms;
-using TP_CAI_1C2026.Forms.Imposicion.ImposicionCallCenter;
-using TP_CAI_1C2026.Forms.UltimaMilla.EmisionHDREntrega;
+using TP_CAI_1C2026.Forms.Imposicion.ImposicionCD;
 
 namespace TP_CAI_1C2026
 {
@@ -11,7 +8,7 @@ namespace TP_CAI_1C2026
         static void Main()
         {
             ApplicationConfiguration.Initialize();
-            Application.Run(new ImposicionCallCenterFRM());
+            Application.Run(new ImposicionCDFRM());
         }
     }
 }
