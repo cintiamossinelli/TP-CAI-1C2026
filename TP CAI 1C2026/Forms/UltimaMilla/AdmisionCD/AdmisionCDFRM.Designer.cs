@@ -39,7 +39,7 @@
             // 
             nGuiaTXT.Location = new Point(69, 16);
             nGuiaTXT.Name = "nGuiaTXT";
-            nGuiaTXT.Size = new Size(363, 23);
+            nGuiaTXT.Size = new Size(363, 27);
             nGuiaTXT.TabIndex = 1;
             // 
             // buscarBTN
@@ -49,6 +49,7 @@
             buscarBTN.Size = new Size(80, 27);
             buscarBTN.TabIndex = 2;
             buscarBTN.Text = "Buscar";
+            buscarBTN.Click += buscarBTN_Click;
             // 
             // guiasLST
             // 
@@ -79,6 +80,7 @@
             admitirBTN.Size = new Size(248, 32);
             admitirBTN.TabIndex = 4;
             admitirBTN.Text = "Admitir";
+            admitirBTN.Click += admitirBTN_Click;
             // 
             // rechazarBTN
             // 
@@ -87,6 +89,7 @@
             rechazarBTN.Size = new Size(248, 32);
             rechazarBTN.TabIndex = 5;
             rechazarBTN.Text = "Rechazar";
+            rechazarBTN.Click += rechazarBTN_Click;
             // 
             // cancelarBTN
             // 
@@ -95,6 +98,7 @@
             cancelarBTN.Size = new Size(80, 32);
             cancelarBTN.TabIndex = 6;
             cancelarBTN.Text = "Cancelar";
+            cancelarBTN.Click += cancelarBTN_Click;
             // 
             // AdmisionCDFRM
             // 
