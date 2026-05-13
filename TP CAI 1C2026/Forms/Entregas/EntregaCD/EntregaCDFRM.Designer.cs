@@ -62,10 +62,8 @@
             // 
             // guiasLST
             // 
-            guiasLST.Columns.AddRange(new ColumnHeader[] { colNGuia, colEstado, colTipoPaquete });
-            guiasLST.FullRowSelect = true;
-            guiasLST.GridLines = true;
             guiasLST.CheckBoxes = true;
+            guiasLST.Columns.AddRange(new ColumnHeader[] { colNGuia, colEstado, colTipoPaquete });
             guiasLST.FullRowSelect = true;
             guiasLST.GridLines = true;
             guiasLST.Location = new Point(10, 25);
@@ -117,7 +115,11 @@
             Controls.Add(cancelarBTN);
             Name = "EntregaCDFRM";
             Text = "Entrega de Encomienda - Centro de Distribución";
+            Load += EntregaCDFRM_Load_1;
             guiasGBX.ResumeLayout(false);
+            buscarBTN.Click += new EventHandler(buscarBTN_Click);
+            retirarBTN.Click += new EventHandler(retirarBTN_Click);
+            cancelarBTN.Click += new EventHandler(cancelarBTN_Click);
             ResumeLayout(false);
             PerformLayout();
         }

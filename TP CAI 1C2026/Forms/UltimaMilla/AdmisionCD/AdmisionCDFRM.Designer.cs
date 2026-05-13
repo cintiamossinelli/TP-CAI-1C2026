@@ -39,7 +39,7 @@
             // 
             nGuiaTXT.Location = new Point(69, 16);
             nGuiaTXT.Name = "nGuiaTXT";
-            nGuiaTXT.Size = new Size(363, 27);
+            nGuiaTXT.Size = new Size(363, 23);
             nGuiaTXT.TabIndex = 1;
             // 
             // buscarBTN
@@ -112,6 +112,7 @@
             Controls.Add(cancelarBTN);
             Name = "AdmisionCDFRM";
             Text = "Admisión en Centro de Distribución";
+            Load += AdmisionCDFRM_Load;
             ResumeLayout(false);
             PerformLayout();
         }

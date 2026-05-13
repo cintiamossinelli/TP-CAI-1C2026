@@ -37,7 +37,7 @@
             // dniTXT
             // 
             dniTXT.Location = new Point(120, 18);
-            dniTXT.MaxLength = 11;
+            dniTXT.MaxLength = 8;
             dniTXT.Name = "dniTXT";
             dniTXT.Size = new Size(180, 23);
             dniTXT.TabIndex = 1;
@@ -49,6 +49,7 @@
             buscarBTN.Size = new Size(80, 27);
             buscarBTN.TabIndex = 2;
             buscarBTN.Text = "Buscar";
+            buscarBTN.Click += buscarBTN_Click;
             // 
             // guiasGBX
             // 
@@ -95,6 +96,7 @@
             retirarBTN.Size = new Size(80, 32);
             retirarBTN.TabIndex = 4;
             retirarBTN.Text = "Retirar";
+            retirarBTN.Click += retirarBTN_Click;
             // 
             // cancelarBTN
             // 
@@ -103,6 +105,7 @@
             cancelarBTN.Size = new Size(80, 32);
             cancelarBTN.TabIndex = 5;
             cancelarBTN.Text = "Cancelar";
+            cancelarBTN.Click += cancelarBTN_Click;
             // 
             // EntregaAgenciaFRM
             // 
@@ -115,6 +118,7 @@
             Controls.Add(cancelarBTN);
             Name = "EntregaAgenciaFRM";
             Text = "Entrega de Encomienda - Agencia";
+            Load += EntregaAgenciaFRM_Load_1;
             guiasGBX.ResumeLayout(false);
             ResumeLayout(false);
             PerformLayout();

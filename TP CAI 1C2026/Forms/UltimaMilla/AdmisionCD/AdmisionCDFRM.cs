@@ -6,7 +6,6 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
-using TP_CAI_1C2026.Forms.Imposicion.ImposicionCD;
 
 namespace TP_CAI_1C2026.Forms.UltimaMilla.AdmisionCD
 {
@@ -82,6 +81,11 @@ namespace TP_CAI_1C2026.Forms.UltimaMilla.AdmisionCD
                 MessageBox.Show("Las guías han sido rechazadas exitosamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 guiasLST.Items.Clear();
             }
+        }
+
+        private void AdmisionCDFRM_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }
