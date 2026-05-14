@@ -19,7 +19,7 @@
             buscarBTN = new Button();
             guiaTXT = new TextBox();
             historialLST = new ListView();
-            colNGuia = new ColumnHeader();
+            fechaGuia = new ColumnHeader();
             colEstado = new ColumnHeader();
             cancelarBTN = new Button();
             historialLBL = new Label();
@@ -27,9 +27,7 @@
             origenLBL = new Label();
             destinoLBL = new Label();
             tipoCajaLBL = new Label();
-            cantidadLBL = new Label();
             tipoDeCajaLBL = new Label();
-            cantidadCajaLBL = new Label();
             dniCuitCuilLBL = new Label();
             origenGuiaLBL = new Label();
             destinoGuiaLBL = new Label();
@@ -55,30 +53,32 @@
             buscarBTN.Size = new Size(93, 26);
             buscarBTN.TabIndex = 2;
             buscarBTN.Text = "Buscar";
+            buscarBTN.Click += buscarBTN_Click;
             // 
             // guiaTXT
             // 
             guiaTXT.Location = new Point(70, 26);
+            guiaTXT.MaxLength = 15;
             guiaTXT.Name = "guiaTXT";
             guiaTXT.Size = new Size(280, 23);
             guiaTXT.TabIndex = 1;
             // 
             // historialLST
             // 
-            historialLST.Columns.AddRange(new ColumnHeader[] { colNGuia, colEstado });
+            historialLST.Columns.AddRange(new ColumnHeader[] { fechaGuia, colEstado });
             historialLST.FullRowSelect = true;
             historialLST.GridLines = true;
-            historialLST.Location = new Point(22, 277);
+            historialLST.Location = new Point(22, 256);
             historialLST.Name = "historialLST";
             historialLST.Size = new Size(435, 184);
             historialLST.TabIndex = 6;
             historialLST.UseCompatibleStateImageBehavior = false;
             historialLST.View = View.Details;
             // 
-            // colNGuia
+            // fechaGuia
             // 
-            colNGuia.Text = "Fecha";
-            colNGuia.Width = 135;
+            fechaGuia.Text = "Fecha";
+            fechaGuia.Width = 135;
             // 
             // colEstado
             // 
@@ -87,17 +87,18 @@
             // 
             // cancelarBTN
             // 
-            cancelarBTN.Location = new Point(364, 472);
+            cancelarBTN.Location = new Point(364, 451);
             cancelarBTN.Name = "cancelarBTN";
             cancelarBTN.Size = new Size(93, 26);
             cancelarBTN.TabIndex = 7;
             cancelarBTN.Text = "Cancelar";
+            cancelarBTN.Click += cancelarBTN_Click;
             // 
             // historialLBL
             // 
             historialLBL.AutoSize = true;
             historialLBL.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
-            historialLBL.Location = new Point(22, 259);
+            historialLBL.Location = new Point(22, 238);
             historialLBL.Name = "historialLBL";
             historialLBL.Size = new Size(53, 15);
             historialLBL.TabIndex = 9;
@@ -139,15 +140,6 @@
             tipoCajaLBL.TabIndex = 15;
             tipoCajaLBL.Text = "Tipo de Caja";
             // 
-            // cantidadLBL
-            // 
-            cantidadLBL.BackColor = SystemColors.ActiveCaption;
-            cantidadLBL.Location = new Point(125, 53);
-            cantidadLBL.Name = "cantidadLBL";
-            cantidadLBL.Size = new Size(297, 20);
-            cantidadLBL.TabIndex = 16;
-            cantidadLBL.Text = "Cantidad";
-            // 
             // tipoDeCajaLBL
             // 
             tipoDeCajaLBL.AutoSize = true;
@@ -157,16 +149,6 @@
             tipoDeCajaLBL.Size = new Size(76, 15);
             tipoDeCajaLBL.TabIndex = 19;
             tipoDeCajaLBL.Text = "Tipo de Caja:";
-            // 
-            // cantidadCajaLBL
-            // 
-            cantidadCajaLBL.AutoSize = true;
-            cantidadCajaLBL.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
-            cantidadCajaLBL.Location = new Point(54, 53);
-            cantidadCajaLBL.Name = "cantidadCajaLBL";
-            cantidadCajaLBL.Size = new Size(58, 15);
-            cantidadCajaLBL.TabIndex = 20;
-            cantidadCajaLBL.Text = "Cantidad:";
             // 
             // dniCuitCuilLBL
             // 
@@ -215,15 +197,13 @@
             // 
             // detalleGBX
             // 
-            detalleGBX.Controls.Add(cantidadCajaLBL);
             detalleGBX.Controls.Add(tipoDeCajaLBL);
-            detalleGBX.Controls.Add(cantidadLBL);
             detalleGBX.Controls.Add(tipoCajaLBL);
             detalleGBX.Location = new Point(22, 166);
             detalleGBX.Margin = new Padding(3, 2, 3, 2);
             detalleGBX.Name = "detalleGBX";
             detalleGBX.Padding = new Padding(3, 2, 3, 2);
-            detalleGBX.Size = new Size(435, 82);
+            detalleGBX.Size = new Size(435, 63);
             detalleGBX.TabIndex = 25;
             detalleGBX.TabStop = false;
             detalleGBX.Text = "Detalle";
@@ -232,7 +212,7 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(481, 509);
+            ClientSize = new Size(477, 493);
             Controls.Add(detalleGBX);
             Controls.Add(datosYdetalleGuiaGBX);
             Controls.Add(historialLBL);
@@ -243,6 +223,7 @@
             Controls.Add(cancelarBTN);
             Name = "ConsultarTrackingFRM";
             Text = "Consulta de Estado de la Guía";
+            Load += ConsultarTrackingFRM_Load;
             datosYdetalleGuiaGBX.ResumeLayout(false);
             datosYdetalleGuiaGBX.PerformLayout();
             detalleGBX.ResumeLayout(false);
@@ -257,15 +238,13 @@
         private ListView historialLST;
         private ColumnHeader colEstado;
         private Button cancelarBTN;
-        private ColumnHeader colNGuia;
+        private ColumnHeader fechaGuia;
         private Label historialLBL;
         private Label cuitDniCuilLBL;
         private Label origenLBL;
         private Label destinoLBL;
         private Label tipoCajaLBL;
-        private Label cantidadLBL;
         private Label tipoDeCajaLBL;
-        private Label cantidadCajaLBL;
         private Label dniCuitCuilLBL;
         private Label origenGuiaLBL;
         private Label destinoGuiaLBL;

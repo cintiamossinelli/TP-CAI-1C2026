@@ -10,14 +10,51 @@ namespace TP_CAI_1C2026.Forms.Consultas.ConsultarTracking
 {
     public partial class ConsultarTrackingFRM : Form
     {
+        private readonly ConsultarTrackingModelo modelo = new ConsultarTrackingModelo();
+
         public ConsultarTrackingFRM()
         {
             InitializeComponent();
         }
 
-        private void label1_Click(object sender, EventArgs e)
+        private void ConsultarTrackingFRM_Load(object sender, EventArgs e)
         {
+            LimpiarCampos();
+        }
 
+        private void buscarBTN_Click(object sender, EventArgs e)
+        {
+            var guia = modelo.BuscarGuia(guiaTXT.Text);
+            if (guia == null)
+                return;
+
+            cuitDniCuilLBL.Text = guia.CuitDniCuil;
+            origenLBL.Text = guia.Origen;
+            destinoLBL.Text = guia.Destino;
+            tipoCajaLBL.Text = guia.TipoCaja;            
+
+            historialLST.Items.Clear();
+            foreach (var historial in guia.Historial)
+            {
+                var item = new ListViewItem(historial.Fecha);
+                item.SubItems.Add(historial.Estado);
+                historialLST.Items.Add(item);
+            }
+        }
+
+        private void cancelarBTN_Click(object sender, EventArgs e)
+        {
+            LimpiarCampos();
+        }
+
+        private void LimpiarCampos()
+        {
+            guiaTXT.Clear();
+            cuitDniCuilLBL.Text = "CUIT/DNI/CUIL";
+            origenLBL.Text = "Origen";
+            destinoLBL.Text = "Destino";
+            tipoCajaLBL.Text = "Tipo de Caja";            
+            historialLST.Items.Clear();
         }
     }
 }
