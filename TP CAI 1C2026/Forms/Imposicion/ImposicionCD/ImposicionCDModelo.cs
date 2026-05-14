@@ -1,5 +1,7 @@
 ﻿namespace TP_CAI_1C2026.Forms.Imposicion.ImposicionCD;
 
+using System.Linq;
+
 public class ImposicionCDModelo
 {
     List<DetalleEncomienda> detallesAgregados = new();
@@ -44,7 +46,18 @@ public class ImposicionCDModelo
 
     internal List<CentroDeDistribucion> ObtenerCDS()
     {
-        return new List<CentroDeDistribucion>();
+        return new List<CentroDeDistribucion>
+        {
+            new CentroDeDistribucion { Id = 1, Nombre = "Rosario" },
+            new CentroDeDistribucion { Id = 2, Nombre = "Santa Fe" },
+            new CentroDeDistribucion { Id = 3, Nombre = "Buenos Aires" },
+            new CentroDeDistribucion { Id = 4, Nombre = "Córdoba" },
+            new CentroDeDistribucion { Id = 5, Nombre = "Mendoza" },
+            new CentroDeDistribucion { Id = 6, Nombre = "San Miguel de Tucumán" },
+            new CentroDeDistribucion { Id = 7, Nombre = "Neuquén" },
+            new CentroDeDistribucion { Id = 8, Nombre = "Salta" },
+            new CentroDeDistribucion { Id = 9, Nombre = "San Salvador de Jujuy" }
+        };
     }
 
     internal List<Ciudad> ObtenerCiudades()
@@ -71,6 +84,48 @@ public class ImposicionCDModelo
                 new() { Id = 10, Nombre = "Palermo" },
                 new() { Id = 11, Nombre = "Belgrano" },
                 new() { Id = 12, Nombre = "San Telmo" }
+            }},            
+            new Ciudad { Id = 4, Nombre = "Córdoba", Agencias = new List<Agencia>
+            {
+                new() { Id = 10,  Nombre = "Córdoba Centro" },
+                new() { Id = 11, Nombre = "Córdoba Norte" },
+                new() { Id = 12, Nombre = "Córdoba Sur" },
+                new() { Id = 13, Nombre = "Córdoba Oeste" }
+            }},
+            new Ciudad { Id = 5, Nombre = "Mendoza", Agencias = new List<Agencia>
+            {
+                new() { Id = 14,  Nombre = "Mendoza Centro" },
+                new() { Id = 15, Nombre = "Mendoza Norte" },
+                new() { Id = 16, Nombre = "Mendoza Sur" },
+                new() { Id = 17, Nombre = "Mendoza Oeste" }
+            }},
+            new Ciudad { Id = 6, Nombre = "San Miguel de Tucumán", Agencias = new List<Agencia>
+            {
+                new() { Id = 18,  Nombre = "San Miguel de Tucumán Centro" },
+                new() { Id = 19, Nombre = "San Miguel de Tucumán Norte" },
+                new() { Id = 20, Nombre = "San Miguel de Tucumán Sur" },
+                new() { Id = 21, Nombre = "San Miguel de Tucumán Oeste" }
+            }},
+            new Ciudad { Id = 7, Nombre = "Neuquén", Agencias = new List<Agencia>
+            {
+                new() { Id = 22,  Nombre = "Neuquén Centro" },
+                new() { Id = 23, Nombre = "Neuquén Norte" },
+                new() { Id = 24, Nombre = "Neuquén Sur" },
+                new() { Id = 25, Nombre = "Neuquén Oeste" }
+            }},
+            new Ciudad { Id = 8, Nombre = "Salta", Agencias = new List<Agencia>
+            {
+                new() { Id = 26,  Nombre = "Salta Centro" },
+                new() { Id = 27, Nombre = "Salta Norte" },
+                new() { Id = 28, Nombre = "Salta Sur" },
+                new() { Id = 29, Nombre = "Salta Oeste" }
+            }},
+            new Ciudad { Id = 9, Nombre = "San Salvador de Jujuy", Agencias = new List<Agencia>
+            {
+                new() { Id = 30,  Nombre = "San Salvador de Jujuy Centro" },
+                new() { Id = 31, Nombre = "San Salvador de Jujuy Norte" },
+                new() { Id = 32, Nombre = "San Salvador de Jujuy Sur" },
+                new() { Id = 33, Nombre = "San Salvador de Jujuy Oeste" }
             }}
         };
     }
@@ -140,12 +195,25 @@ public class ImposicionCDModelo
     internal DetalleEncomienda AgregarCaja(TamañoEnvio? tamaño, int cantidad)
     {
         //validaciones
+        if (tamaño == null)
+        {
+            MessageBox.Show("Seleccione un tamaño de caja.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            return null;
+        }
+
         if (cantidad <= 0)
         {
             MessageBox.Show("La cantidad debe ser un número entero positivo.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             return null;
         }
 
+        // Si ya existe un detalle con el mismo tamaño, sumar las cantidades
+        var existente = detallesAgregados.FirstOrDefault(d => string.Equals(d.LetraTamaño, tamaño.Letra, StringComparison.OrdinalIgnoreCase));
+        if (existente != null)
+        {
+            existente.Cantidad += cantidad;
+            return existente;
+        }
 
         var nuevoDetalle = new DetalleEncomienda { LetraTamaño = tamaño.Letra, Cantidad = cantidad };
         detallesAgregados.Add(nuevoDetalle);
@@ -155,6 +223,133 @@ public class ImposicionCDModelo
     internal bool EliminarDetalle(DetalleEncomienda? detalleEncomienda)
     {
         detallesAgregados.Remove(detalleEncomienda);
+        return true;
+    }
+
+    internal List<string> GenerarNumerosGuias(
+        bool cdChecked,
+        CentroDeDistribucion? cdSelected,
+        bool agenciaChecked,
+        Agencia? agenciaSelected,
+        bool domicilioChecked)
+    {
+        var resultado = new List<string>();
+
+        // prefijos
+        string tipo = "";
+        string codigo = "";
+
+        // Genero código segun si es CD, Agencia o Domicilio. Para CD y Agencia uso el ID, para domicilio un código fijo.
+        if (cdChecked && cdSelected != null)
+        {
+            tipo = "CD";
+            codigo = cdSelected.Id.ToString();
+            //var letters = new string(cdSelected.Nombre.Where(char.IsLetter).ToArray()).ToUpper();
+            //codigo = letters.Length <= 3 ? letters : letters.Substring(0, 3);
+        }
+        else if (agenciaChecked && agenciaSelected != null)
+        {
+            tipo = "AG";
+            codigo = agenciaSelected.Id.ToString();
+            //var letters = new string(agenciaSelected.Nombre.Where(char.IsLetter).ToArray()).ToUpper();
+            //codigo = letters.Length <= 3 ? letters : letters.Substring(0, 3);
+        }
+        else if (domicilioChecked != null)
+        {
+            tipo = "CC";
+            codigo = "1";
+        }
+
+        // Genero números de guía con formato: TIPO-CODIGO-XXX, donde XXX es un número secuencial para cada encomienda agregada.
+        int contador = 1;
+        foreach (var det in detallesAgregados)
+        {
+            for (int i = 0; i < det.Cantidad; i++)
+            {
+                if (cdChecked)
+                {
+                    resultado.Add($"{tipo}-{codigo}-{contador}");
+                }
+                else if (agenciaChecked)
+                {
+                    resultado.Add($"{tipo}-{codigo}-{contador}");
+                }
+                else // domicilio
+                {
+                    resultado.Add($"{tipo}-{codigo}-{contador}");
+                }
+                contador++;
+            }
+        }
+
+        return resultado;
+    }
+
+    internal bool ValidarConfirmacion(
+        bool cdChecked,
+        CentroDeDistribucion? cdSelected,
+        bool agenciaChecked,
+        Ciudad? ciudadAgenciaSelected,
+        Agencia? agenciaSelected,
+        bool domicilioChecked,
+        object? ciudadDestSelected,
+        string direccionDest,
+        string dniDest,
+        string nombreDest)
+    {
+        if (cdChecked)
+        {
+            if (cdSelected == null)
+            {
+                MessageBox.Show("Debe seleccionar un CD destino.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+        }
+
+        if (agenciaChecked)
+        {
+            if (ciudadAgenciaSelected == null || agenciaSelected == null)
+            {
+                MessageBox.Show("Debe seleccionar una ciudad y una agencia.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+        }
+
+        if (domicilioChecked)
+        {
+            if (ciudadDestSelected is null || string.IsNullOrWhiteSpace(direccionDest))
+            {
+                MessageBox.Show("Debe seleccionar una ciudad e ingresar un domicilio destino.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+        }
+
+        // Validar DNI: numérico positivo y al menos 6 caracteres
+        if (string.IsNullOrWhiteSpace(dniDest) || dniDest.Length < 6 || !dniDest.All(char.IsDigit) || !long.TryParse(dniDest, out long dniVal) || dniVal <= 0)
+        {
+            MessageBox.Show("Debe ingresar un DNI válido.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            return false;
+        }
+
+        // Validar nombre: no vacío y sin números
+        if (string.IsNullOrWhiteSpace(nombreDest))
+        {
+            MessageBox.Show("El nombre del destinatario no puede estar vacío.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            return false;
+        }
+        if (nombreDest.Any(char.IsDigit))
+        {
+            MessageBox.Show("Ha ingresado un número en el nombre del destinatario.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            return false;
+        }
+
+        // Debe existir al menos una encomienda agregada
+        if (!detallesAgregados.Any())
+        {
+            MessageBox.Show("Debe ingresar al menos una encomienda en la lista.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            return false;
+        }
+
         return true;
     }
 }
