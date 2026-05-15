@@ -1,12 +1,10 @@
-﻿// EmisionHDREntregaFRM.cs
-namespace TP_CAI_1C2026.Forms.UltimaMilla.EmisionHDREntrega
+﻿namespace TP_CAI_1C2026.Forms.UltimaMilla.EmisionHDREntrega
 {
     public partial class EmisionHDREntregaFRM : Form
     {
-        private EmisionHDREntregaModelo modelo = new EmisionHDREntregaModelo();
+        private readonly EmisionHDREntregaModelo modelo = new EmisionHDREntregaModelo();
         private List<Guia> guiasAgregadas = new List<Guia>();
         private Fletero? fleteroSeleccionado = null;
-        private bool limpiando = false;
 
         public EmisionHDREntregaFRM()
         {
@@ -20,19 +18,9 @@ namespace TP_CAI_1C2026.Forms.UltimaMilla.EmisionHDREntrega
 
         private void buscarFleteroTBN_Click(object sender, EventArgs e)
         {
-            if (string.IsNullOrWhiteSpace(dniFleteroTXT.Text) || !int.TryParse(dniFleteroTXT.Text, out _) || dniFleteroTXT.Text.Length != 8)
-            {
-                MessageBox.Show("El DNI debe ser numérico, positivo y de 8 dígitos.", "Aviso");
-                return;
-            }
-
             fleteroSeleccionado = modelo.BuscarFletero(dniFleteroTXT.Text);
-
             if (fleteroSeleccionado == null)
-            {
-                MessageBox.Show("No se encontró ningún fletero con ese DNI.", "Aviso");
                 return;
-            }
 
             nombreFleteroLBL.Text = fleteroSeleccionado.Nombre;
             CargarGuiasPendientes();
@@ -59,19 +47,9 @@ namespace TP_CAI_1C2026.Forms.UltimaMilla.EmisionHDREntrega
 
         private void buscarGuiaBTN_Click(object sender, EventArgs e)
         {
-            if (string.IsNullOrWhiteSpace(nGuiaTXT.Text))
-            {
-                MessageBox.Show("Debe ingresar un número de guía.", "Aviso");
-                return;
-            }
-
             Guia? guia = modelo.BuscarGuia(nGuiaTXT.Text);
-
             if (guia == null)
-            {
-                MessageBox.Show("No se encontró ninguna guía con ese número.", "Aviso");
                 return;
-            }
 
             guiasSinAgregarLST.Items.Clear();
             ListViewItem item = new ListViewItem(guia.NGuia);
@@ -84,7 +62,7 @@ namespace TP_CAI_1C2026.Forms.UltimaMilla.EmisionHDREntrega
         {
             if (localidadCMB.SelectedIndex == -1)
             {
-                MessageBox.Show("Debe seleccionar una localidad.", "Aviso");
+                MessageBox.Show("Debe seleccionar una localidad.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 
@@ -110,7 +88,7 @@ namespace TP_CAI_1C2026.Forms.UltimaMilla.EmisionHDREntrega
 
             if (guiasAgregar.Count == 0)
             {
-                MessageBox.Show("Debe seleccionar al menos una guía para agregar.", "Aviso");
+                MessageBox.Show("Debe seleccionar al menos una guía para agregar.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 
@@ -134,7 +112,7 @@ namespace TP_CAI_1C2026.Forms.UltimaMilla.EmisionHDREntrega
 
             if (guiasQuitar.Count == 0)
             {
-                MessageBox.Show("Debe seleccionar al menos una guía para quitar.", "Aviso");
+                MessageBox.Show("Debe seleccionar al menos una guía para quitar.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 
@@ -153,25 +131,24 @@ namespace TP_CAI_1C2026.Forms.UltimaMilla.EmisionHDREntrega
         {
             if (fleteroSeleccionado == null)
             {
-                MessageBox.Show("Debe buscar y seleccionar un fletero.", "Aviso");
+                MessageBox.Show("Debe buscar y seleccionar un fletero.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 
             bool resultado = modelo.GenerarHDR(fleteroSeleccionado, guiasAgregadas, out string mensajeExito, out string error);
-
             if (!resultado)
             {
-                MessageBox.Show(error, "Aviso");
+                MessageBox.Show(error, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 
-            MessageBox.Show(mensajeExito, "Operación exitosa");
+            MessageBox.Show(mensajeExito, "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
             LimpiarCampos();
         }
 
         private void cancelarBTN_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Operación cancelada.", "Aviso");
+            MessageBox.Show("Operación cancelada.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
             LimpiarCampos();
         }
 
@@ -189,7 +166,6 @@ namespace TP_CAI_1C2026.Forms.UltimaMilla.EmisionHDREntrega
 
         private void LimpiarCampos()
         {
-            limpiando = true;
             dniFleteroTXT.Clear();
             nombreFleteroLBL.Text = "Nombre del Fletero";
             fleteroSeleccionado = null;
@@ -197,8 +173,8 @@ namespace TP_CAI_1C2026.Forms.UltimaMilla.EmisionHDREntrega
             guiasSinAgregarLST.Items.Clear();
             guiasAgregadasLST.Items.Clear();
             nGuiaTXT.Clear();
+            localidadCMB.Items.Clear();
             localidadCMB.SelectedIndex = -1;
-            limpiando = false;
         }
     }
 }

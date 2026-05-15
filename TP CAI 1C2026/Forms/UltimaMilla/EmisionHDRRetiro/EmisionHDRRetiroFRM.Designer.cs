@@ -244,6 +244,13 @@
             Text = "Emisión de HDR de Retiro";
             Load += EmisionHDRRetiroFRM_Load;
             fleteroGBX.ResumeLayout(false);
+            buscarFleteroTBN.Click += new EventHandler(buscarFleteroTBN_Click);
+            buscarGuiaBTN.Click += new EventHandler(buscarGuiaBTN_Click);
+            buscarLocalidadBTN.Click += new EventHandler(buscarLocalidadBTN_Click);
+            agregarBTN.Click += new EventHandler(agregarBTN_Click);
+            quitarBTN.Click += new EventHandler(quitarBTN_Click);
+            generarBTN.Click += new EventHandler(generarBTN_Click);
+            cancelarBTN.Click += new EventHandler(cancelarBTN_Click);
             fleteroGBX.PerformLayout();
             ResumeLayout(false);
             PerformLayout();

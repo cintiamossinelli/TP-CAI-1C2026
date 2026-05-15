@@ -4,17 +4,17 @@ internal class EntregaAgenciaModelo
 {
     private List<Guia> guias = new List<Guia>
     {
-    new Guia { NGuia = "CD-COR-111", Estado = "Admitida", TipoPaquete = "S" },
-    new Guia { NGuia = "AG-TUC-12", Estado = "Admitida", TipoPaquete = "M" },
-    new Guia { NGuia = "AG-SAL-56", Estado = "Admitida", TipoPaquete = "L" },
-    new Guia { NGuia = "AG-CAT-1236", Estado = "Admitida", TipoPaquete = "XL" }
+        new Guia { NGuia = "CD-3-1", Estado = "Pendiente de entrega", TipoPaquete = "S" },
+        new Guia { NGuia = "CD-3-2", Estado = "Pendiente de entrega", TipoPaquete = "M" },
+        new Guia { NGuia = "AG-5-1", Estado = "Pendiente de entrega", TipoPaquete = "L" },
+        new Guia { NGuia = "AG-9-1", Estado = "Pendiente de entrega", TipoPaquete = "XL" }
     };
 
     private List<Destinatario> destinatarios = new List<Destinatario>
     {
-    new Destinatario { Dni = "22334455", Nombre = "Juan Pérez" },
-    new Destinatario { Dni = "33445566", Nombre = "María García" },
-    new Destinatario { Dni = "44556677", Nombre = "Pedro Martínez" }
+        new Destinatario { Dni = "22334455", Nombre = "Juan Pérez" },
+        new Destinatario { Dni = "33445566", Nombre = "María García" },
+        new Destinatario { Dni = "44556677", Nombre = "Pedro Martínez" }
     };
 
     internal Destinatario? BuscarDestinatario(string dni)
@@ -43,7 +43,7 @@ internal class EntregaAgenciaModelo
 
     internal List<Guia> ObtenerGuiasPorDestinatario(string dni)
     {
-        return guias.Where(g => g.Estado == "Admitida").ToList();
+        return guias.Where(g => g.Estado == "Pendiente de entrega").ToList();
     }
 
     internal bool RegistrarEntrega(List<Guia> guiasAEntregar)

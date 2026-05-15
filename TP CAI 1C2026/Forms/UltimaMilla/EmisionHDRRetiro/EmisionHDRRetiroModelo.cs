@@ -1,6 +1,6 @@
-﻿namespace TP_CAI_1C2026.Forms.UltimaMilla.EmisionHDREntrega;
+﻿namespace TP_CAI_1C2026.Forms.UltimaMilla.EmisionHDRRetiro;
 
-internal class EmisionHDREntregaModelo
+internal class EmisionHDRRetiroModelo
 {
     private List<Fletero> fleteros = new List<Fletero>
     {
@@ -11,11 +11,11 @@ internal class EmisionHDREntregaModelo
 
     private List<Guia> guias = new List<Guia>
     {
-        new Guia { NGuia = "CD-3-1", TipoCaja = "S", LugarEntrega = "Av. Corrientes 1234, Buenos Aires" },
-        new Guia { NGuia = "CD-3-2", TipoCaja = "M", LugarEntrega = "Agencia Microcentro" },
-        new Guia { NGuia = "AG-5-1", TipoCaja = "L", LugarEntrega = "Av. Santa Fe 567, Rosario" },
-        new Guia { NGuia = "AG-9-1", TipoCaja = "XL", LugarEntrega = "Agencia Palermo" },
-        new Guia { NGuia = "CD-4-1", TipoCaja = "S", LugarEntrega = "Av. Colón 890, Córdoba" }
+        new Guia { NGuia = "CD-3-1", TipoCaja = "S", LugarRetiro = "Av. Corrientes 1234, Buenos Aires" },
+        new Guia { NGuia = "CD-3-2", TipoCaja = "M", LugarRetiro = "Agencia Microcentro" },
+        new Guia { NGuia = "AG-5-1", TipoCaja = "L", LugarRetiro = "Av. Santa Fe 567, Rosario" },
+        new Guia { NGuia = "AG-9-1", TipoCaja = "XL", LugarRetiro = "Agencia Palermo" },
+        new Guia { NGuia = "CD-4-1", TipoCaja = "S", LugarRetiro = "Av. Colón 890, Córdoba" }
     };
 
     private List<string> localidades = new List<string>

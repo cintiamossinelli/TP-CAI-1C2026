@@ -6,7 +6,7 @@ internal class ConsultarTrackingModelo
     {
         new Guia
         {
-            NGuia = "CD-CAB-123",
+            NGuia = "CD-3-1",
             CuitDniCuil = "33-63761744-9",
             Origen = "CD Buenos Aires",
             Destino = "CD Córdoba",
@@ -19,11 +19,11 @@ internal class ConsultarTrackingModelo
         },
         new Guia
         {
-            NGuia = "AG-ROS-333",
+            NGuia = "AG-5-1",
             CuitDniCuil = "30-64621216-9",
             Origen = "Agencia Rosario Norte",
             Destino = "Agencia Santa Fe Centro",
-            TipoCaja = "M",            
+            TipoCaja = "M",
             Historial = new List<HistorialGuia>
             {
                 new HistorialGuia { Fecha = "03/05/2026", Estado = "Impuesta pero no admitida" },
@@ -33,11 +33,11 @@ internal class ConsultarTrackingModelo
         },
         new Guia
         {
-            NGuia = "CD-COR-111",
+            NGuia = "CD-4-1",
             CuitDniCuil = "30-67337754-4",
             Origen = "CD Córdoba",
             Destino = "CD Rosario",
-            TipoCaja = "L",           
+            TipoCaja = "L",
             Historial = new List<HistorialGuia>
             {
                 new HistorialGuia { Fecha = "06/05/2026", Estado = "Impuesta pero no admitida" }

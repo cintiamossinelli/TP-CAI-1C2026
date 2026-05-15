@@ -1,4 +1,4 @@
-﻿namespace TP_CAI_1C2026.Forms.UltimaMilla.EmisionHDREntrega;
+﻿namespace TP_CAI_1C2026.Forms.UltimaMilla.EmisionHDRRetiro;
 
 internal class Fletero
 {
