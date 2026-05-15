@@ -226,58 +226,21 @@ public class ImposicionCDModelo
         return true;
     }
 
-    internal List<string> GenerarNumerosGuias(
-        bool cdChecked,
-        CentroDeDistribucion? cdSelected,
-        bool agenciaChecked,
-        Agencia? agenciaSelected,
-        bool domicilioChecked)
+    internal List<string> GenerarNumerosGuias()
+
     {
         var resultado = new List<string>();
 
-        // prefijos
-        string tipo = "";
-        string codigo = "";
-
-        // Genero código segun si es CD, Agencia o Domicilio. Para CD y Agencia uso el ID, para domicilio un código fijo.
-        if (cdChecked && cdSelected != null)
-        {
-            tipo = "CD";
-            codigo = cdSelected.Id.ToString();
-            //var letters = new string(cdSelected.Nombre.Where(char.IsLetter).ToArray()).ToUpper();
-            //codigo = letters.Length <= 3 ? letters : letters.Substring(0, 3);
-        }
-        else if (agenciaChecked && agenciaSelected != null)
-        {
-            tipo = "AG";
-            codigo = agenciaSelected.Id.ToString();
-            //var letters = new string(agenciaSelected.Nombre.Where(char.IsLetter).ToArray()).ToUpper();
-            //codigo = letters.Length <= 3 ? letters : letters.Substring(0, 3);
-        }
-        else if (domicilioChecked != null)
-        {
-            tipo = "CC";
-            codigo = "1";
-        }
 
         // Genero números de guía con formato: TIPO-CODIGO-XXX, donde XXX es un número secuencial para cada encomienda agregada.
+        
+        // CUANDO TENGAMOS USUARIOS, ACÁ HAY QUE CAMBIAR EL TIPO Y CODIGO POR LO QUE CORRESPONDA SEGÚN EL USUARIO Y SU SEDE O LO QUE SEA.
         int contador = 1;
         foreach (var det in detallesAgregados)
         {
             for (int i = 0; i < det.Cantidad; i++)
             {
-                if (cdChecked)
-                {
-                    resultado.Add($"{tipo}-{codigo}-{contador}");
-                }
-                else if (agenciaChecked)
-                {
-                    resultado.Add($"{tipo}-{codigo}-{contador}");
-                }
-                else // domicilio
-                {
-                    resultado.Add($"{tipo}-{codigo}-{contador}");
-                }
+                resultado.Add($"CD-1-{contador}");
                 contador++;
             }
         }

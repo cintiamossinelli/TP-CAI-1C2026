@@ -209,12 +209,7 @@ namespace TP_CAI_1C2026.Forms.Imposicion.ImposicionCD
             }
 
             // Generar números de guía y mostrarlos
-            var guias = modelo.GenerarNumerosGuias(
-                cdRDB.Checked,
-                cdSelected,
-                agenciaRDB.Checked,
-                agenciaSelected,
-                domicilioRDB.Checked);
+            var guias = modelo.GenerarNumerosGuias();
 
             var sb = new StringBuilder();
             sb.AppendLine("Las siguientes guías fueron impuestas correctamente:");
