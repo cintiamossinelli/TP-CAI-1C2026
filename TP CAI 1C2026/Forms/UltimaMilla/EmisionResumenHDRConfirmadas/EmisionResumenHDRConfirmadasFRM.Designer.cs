@@ -35,7 +35,7 @@
             colCantEncomiendas = new ColumnHeader();
             hojasDeRutaEnTransitoLBL = new Label();
             GenerarResumenBTN = new Button();
-            buscarFleteroBTN = new Button();
+            buscarBTN = new Button();
             dniFleteroTXT = new TextBox();
             dniFleteroLBL = new Label();
             nombreFleteroLBL = new Label();
@@ -49,7 +49,7 @@
             cancelarBTN.TabIndex = 0;
             cancelarBTN.Text = "Cancelar";
             cancelarBTN.UseVisualStyleBackColor = true;
-            cancelarBTN.Click += cancelarBTN_Click;
+            cancelarBTN.Click += button1_Click;
             // 
             // hdrEnTransitoLSVT
             // 
@@ -101,20 +101,18 @@
             GenerarResumenBTN.TabIndex = 5;
             GenerarResumenBTN.Text = "Generar Resumen de HDR Confirmadas";
             GenerarResumenBTN.UseVisualStyleBackColor = true;
-            GenerarResumenBTN.Click += GenerarResumenBTN_Click;
             // 
-            // buscarFleteroBTN
+            // buscarBTN
             // 
-            buscarFleteroBTN.Location = new Point(250, 29);
-            buscarFleteroBTN.Name = "buscarFleteroBTN";
-            buscarFleteroBTN.Size = new Size(114, 27);
-            buscarFleteroBTN.TabIndex = 2;
-            buscarFleteroBTN.Text = "Buscar";
-            buscarFleteroBTN.Click += buscarBTN_Click;
+            buscarBTN.Location = new Point(250, 29);
+            buscarBTN.Name = "buscarBTN";
+            buscarBTN.Size = new Size(114, 27);
+            buscarBTN.TabIndex = 2;
+            buscarBTN.Text = "Buscar";
             // 
             // dniFleteroTXT
             // 
-            dniFleteroTXT.Location = new Point(118, 35);
+            dniFleteroTXT.Location = new Point(114, 31);
             dniFleteroTXT.MaxLength = 11;
             dniFleteroTXT.Name = "dniFleteroTXT";
             dniFleteroTXT.Size = new Size(130, 23);
@@ -148,7 +146,7 @@
             Controls.Add(nombreFleteroLBL);
             Controls.Add(dniFleteroLBL);
             Controls.Add(GenerarResumenBTN);
-            Controls.Add(buscarFleteroBTN);
+            Controls.Add(buscarBTN);
             Controls.Add(dniFleteroTXT);
             Controls.Add(hojasDeRutaEnTransitoLBL);
             Controls.Add(hdrEnTransitoLSVT);
@@ -169,7 +167,7 @@
         private ColumnHeader colCantEncomiendas;
         private Label hojasDeRutaEnTransitoLBL;
         private Button GenerarResumenBTN;
-        private Button buscarFleteroBTN;
+        private Button buscarBTN;
         private TextBox dniFleteroTXT;
         private Label dniFleteroLBL;
         private Label nombreFleteroLBL;
