@@ -71,7 +71,6 @@
             clienteGBX.TabIndex = 0;
             clienteGBX.TabStop = false;
             clienteGBX.Text = "Cliente";
-            // clienteGBX.Enter removed
             // 
             // nombreClienteLBL
             // 
@@ -82,7 +81,6 @@
             nombreClienteLBL.Size = new Size(110, 15);
             nombreClienteLBL.TabIndex = 3;
             nombreClienteLBL.Text = "Nombre del Cliente";
-            // nombreClienteLBL.Click removed
             // 
             // idClienteLBL
             // 
@@ -122,7 +120,6 @@
             retiroGBX.TabIndex = 1;
             retiroGBX.TabStop = false;
             retiroGBX.Text = "Datos de Retiro";
-            // retiroGBX.Enter removed
             // 
             // ciudadLBL
             // 
@@ -141,7 +138,6 @@
             ciudadCMB.Size = new Size(498, 23);
             ciudadCMB.Sorted = true;
             ciudadCMB.TabIndex = 1;
-            // ciudadCMB.SelectedIndexChanged removed
             // 
             // domicilioRemitenteLBL
             // 
@@ -158,7 +154,6 @@
             domicilioRemitenteTXT.Name = "domicilioRemitenteTXT";
             domicilioRemitenteTXT.Size = new Size(498, 23);
             domicilioRemitenteTXT.TabIndex = 3;
-            // domicilioRemitenteTXT.TextChanged removed
             // 
             // destinatarioGBX
             // 
@@ -184,7 +179,6 @@
             destinatarioGBX.TabIndex = 2;
             destinatarioGBX.TabStop = false;
             destinatarioGBX.Text = "Destinatario";
-            // destinatarioGBX.Enter removed
             // 
             // nombreAgenciaLBL
             // 
@@ -222,7 +216,6 @@
             direccionDestinatarioLBL.TabIndex = 15;
             direccionDestinatarioLBL.Text = "Dirección:";
             direccionDestinatarioLBL.TextAlign = ContentAlignment.MiddleRight;
-            // direccionDestinatarioLBL.Click removed
             // 
             // ciudadDestinatarioLBL
             // 
@@ -297,7 +290,6 @@
             destinoCDCMB.Size = new Size(498, 23);
             destinoCDCMB.Sorted = true;
             destinoCDCMB.TabIndex = 4;
-            // destinoCDCMB.SelectedIndexChanged removed
             // 
             // ciudadAgenciaCMB
             // 
@@ -317,7 +309,6 @@
             direccionDestinatarioTXT.Name = "direccionDestinatarioTXT";
             direccionDestinatarioTXT.Size = new Size(430, 23);
             direccionDestinatarioTXT.TabIndex = 8;
-            // direccionDestinatarioTXT.TextChanged removed
             // 
             // dniDestinatarioLBL
             // 
@@ -335,7 +326,6 @@
             dniDestinatarioTXT.Name = "dniDestinatarioTXT";
             dniDestinatarioTXT.Size = new Size(498, 23);
             dniDestinatarioTXT.TabIndex = 10;
-            // dniDestinatarioTXT.TextChanged removed
             // 
             // encomiendaGBX
             // 
@@ -434,7 +424,6 @@
             confirmarBTN.Size = new Size(80, 32);
             confirmarBTN.TabIndex = 4;
             confirmarBTN.Text = "Confirmar";
-            // confirmarBTN.Click removed
             // 
             // cancelarBTN
             // 
@@ -443,7 +432,6 @@
             cancelarBTN.Size = new Size(80, 32);
             cancelarBTN.TabIndex = 5;
             cancelarBTN.Text = "Cancelar";
-            // cancelarBTN.Click removed
             // 
             // confirmarImpBTN
             // 
