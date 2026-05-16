@@ -1,18 +1,17 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Text;
-using System.Windows.Forms;
+﻿using System.Text;
+using System.Linq;
 
 namespace TP_CAI_1C2026.Forms.Imposicion.ImposicionAgencia
 {
     public partial class ImposicionAgenciaFRM : Form
     {
+        //private readonly ImposicionAgenciaModelo modelo = new ImposicionAgenciaModelo();
+
         public ImposicionAgenciaFRM()
         {
             InitializeComponent();
         }
+
+
     }
 }

@@ -46,7 +46,7 @@ namespace TP_CAI_1C2026.Forms.Administracion.EmisionFactura
             idClienteTXT.Location = new Point(123, 18);
             idClienteTXT.MaxLength = 11;
             idClienteTXT.Name = "idClienteTXT";
-            idClienteTXT.Size = new Size(130, 23);
+            idClienteTXT.Size = new Size(130, 31);
             idClienteTXT.TabIndex = 1;
             // 
             // buscarClienteBTN
@@ -56,6 +56,7 @@ namespace TP_CAI_1C2026.Forms.Administracion.EmisionFactura
             buscarClienteBTN.Size = new Size(65, 27);
             buscarClienteBTN.TabIndex = 2;
             buscarClienteBTN.Text = "Buscar Cliente";
+            buscarClienteBTN.Click += buscarClienteBTN_Click;
             // 
             // nombreClienteLBL
             // 
@@ -101,7 +102,7 @@ namespace TP_CAI_1C2026.Forms.Administracion.EmisionFactura
             totalLBL.Font = new System.Drawing.Font("Segoe UI", 12F, FontStyle.Bold);
             totalLBL.Location = new Point(438, 285);
             totalLBL.Name = "totalLBL";
-            totalLBL.Size = new Size(52, 21);
+            totalLBL.Size = new Size(77, 32);
             totalLBL.TabIndex = 5;
             totalLBL.Text = "Total:";
             // 
@@ -111,7 +112,7 @@ namespace TP_CAI_1C2026.Forms.Administracion.EmisionFactura
             totalFacturarLBL.Font = new System.Drawing.Font("Segoe UI", 12F, FontStyle.Bold);
             totalFacturarLBL.Location = new Point(496, 285);
             totalFacturarLBL.Name = "totalFacturarLBL";
-            totalFacturarLBL.Size = new Size(54, 21);
+            totalFacturarLBL.Size = new Size(84, 32);
             totalFacturarLBL.TabIndex = 6;
             totalFacturarLBL.Text = "$ 0,00";
             // 
@@ -122,6 +123,7 @@ namespace TP_CAI_1C2026.Forms.Administracion.EmisionFactura
             emitirFacturaBTN.Size = new Size(96, 32);
             emitirFacturaBTN.TabIndex = 7;
             emitirFacturaBTN.Text = "Emitir Factura";
+            emitirFacturaBTN.Click += emitirBTN_Click;
             // 
             // cancelarBTN
             // 
@@ -130,6 +132,7 @@ namespace TP_CAI_1C2026.Forms.Administracion.EmisionFactura
             cancelarBTN.Size = new Size(96, 32);
             cancelarBTN.TabIndex = 8;
             cancelarBTN.Text = "Cancelar";
+            cancelarBTN.Click += cancelarBTN_Click;
             // 
             // EmisionFacturaFRM
             // 

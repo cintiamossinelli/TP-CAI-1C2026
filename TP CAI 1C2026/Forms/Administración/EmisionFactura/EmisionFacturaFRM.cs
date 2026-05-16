@@ -1,26 +1,165 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Text;
+using System.Linq;
 using System.Windows.Forms;
+using TP_CAI_1C2026.Forms.Administración.EmisionFactura;
 
 namespace TP_CAI_1C2026.Forms.Administracion.EmisionFactura
 {
     public partial class EmisionFacturaFRM : Form
     {
+        // Instancia del modelo
+        private readonly EmisionFacturaModelo modelo = new EmisionFacturaModelo();
+        // Cliente actual seleccionado
+        private Cliente clienteActual;
+        // Guías pendientes actuales
+        private List<GuiasAFacturar> guiasActuales = new List<GuiasAFacturar>();
+        // Constructor
         public EmisionFacturaFRM()
         {
             InitializeComponent();
         }
-
+        // Evento de carga del formulario
         private void EmisionFacturaFRM_Load(object sender, EventArgs e)
         {
+            guiasEntregadasPendientesLST.Items.Clear();
 
+            totalFacturarLBL.Text = "0,00";
+
+            nombreClienteLBL.Text = string.Empty;
         }
+        // Evento del botón de búsqueda de cliente
+        private void buscarClienteBTN_Click(object sender, EventArgs e)
+        {
+            // Busco el cliente y valido el CUIT
+            var cliente = modelo.BuscarCliente(idClienteTXT.Text);
 
-        private void guiasEntregadasPendientesLST_SelectedIndexChanged(object sender, EventArgs e)
+            if (cliente == null)
+            {
+                nombreClienteLBL.Text = string.Empty;
+
+                guiasEntregadasPendientesLST.Items.Clear();
+
+                totalFacturarLBL.Text = "0,00";
+
+                return;
+            }
+
+            clienteActual = cliente;
+
+            nombreClienteLBL.Text = cliente.RazonSocial;
+
+            // Obtengo guías pendientes
+            guiasActuales =
+                modelo.ObtenerGuiasPendientes(cliente);
+
+            if (guiasActuales == null ||
+                !guiasActuales.Any())
+            {
+                MessageBox.Show(
+                    "El cliente no posee guías pendientes de facturación.",
+                    "Información",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Information);
+
+                guiasEntregadasPendientesLST.Items.Clear();
+
+                totalFacturarLBL.Text = "0,00";
+
+                return;
+            }
+
+            // Cargo la grilla
+            CargarGuias(guiasActuales);
+
+            // Calculo total
+            var total =
+                modelo.CalcularTotal(guiasActuales);
+
+            totalFacturarLBL.Text =
+                total.ToString("N2");
+        }
+        // Evento del botón de emisión de factura
+        private void emitirBTN_Click(object sender, EventArgs e)
+        {
+            if (guiasActuales == null ||
+                !guiasActuales.Any())
+            {
+                MessageBox.Show(
+                    "No existen guías pendientes para facturar.",
+                    "Error",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Error);
+
+                return;
+            }
+            // Confirmación de emisión
+            var confirmacion = MessageBox.Show(
+                "¿Desea emitir la factura?",
+                "Confirmación",
+                MessageBoxButtons.YesNo,
+                MessageBoxIcon.Question);
+
+            if (confirmacion == DialogResult.No)
+            {
+                return;
+            }
+            // Emisión de la factura
+            var factura =
+                modelo.EmitirFactura(
+                    clienteActual,
+                    guiasActuales);
+
+            MessageBox.Show(
+                $"Factura {factura.Numero} emitida correctamente.",
+                "Información",
+                MessageBoxButtons.OK,
+                MessageBoxIcon.Information);
+
+            LimpiarPantalla();
+        }
+        // Evento del botón de cancelación
+        private void cancelarBTN_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+        // Método para cargar las guías en la lista
+        private void CargarGuias(
+        List<GuiasAFacturar> guias)
+        {
+            guiasEntregadasPendientesLST.Items.Clear();
+
+            foreach (var guia in guias)
+            {
+                ListViewItem item =
+                    new ListViewItem(guia.Id);
+
+                item.SubItems.Add(
+                    guia.Fecha.ToShortDateString());
+
+                item.SubItems.Add(
+                    guia.Monto.ToString("N2"));
+
+                guiasEntregadasPendientesLST.Items.Add(item);
+            }
+        }
+        // Método para limpiar la pantalla después de emitir la factura
+        private void LimpiarPantalla()
+        {
+            idClienteTXT.Clear();
+
+            nombreClienteLBL.Text = string.Empty;
+
+            totalFacturarLBL.Text = "0,00";
+
+            guiasEntregadasPendientesLST.Items.Clear();
+
+            clienteActual = null;
+
+            guiasActuales.Clear();
+        }
+        // Evento de selección de una guía en la lista (si se desea implementar alguna acción al seleccionar una guía)
+        /*private void guiasEntregadasPendientesLST_SelectedIndexChanged(object sender, EventArgs e)
         {
 
         }
@@ -38,6 +177,6 @@ namespace TP_CAI_1C2026.Forms.Administracion.EmisionFactura
         private void guiasEntregadasPendientesLST_SelectedIndexChanged_1(object sender, EventArgs e)
         {
 
-        }
+        }*/
     }
 }
