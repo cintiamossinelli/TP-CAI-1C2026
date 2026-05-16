@@ -119,7 +119,7 @@ namespace TP_CAI_1C2026.Forms.Imposicion.ImposicionCD
             }
             if (!int.TryParse(cantidadTXT.Text, out int cantidad))
             {
-                MessageBox.Show("Ingrese un número entero positivo.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("En cantidad ingrese un número entero positivo.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 
@@ -185,7 +185,12 @@ namespace TP_CAI_1C2026.Forms.Imposicion.ImposicionCD
         private void confirmarBTN_Click(object sender, EventArgs e)
         {
             var cliente = modelo.BuscarCliente(idClienteTXT.Text);
-
+            if (cliente == null)
+            {
+                //salgo directo porque dejo que el modelo muestre el error.
+                nombreClienteLBL.Text = string.Empty;
+                return;
+            }
             var cdSelected = destinoCDCMB.SelectedIndex == -1 ? null : (CentroDeDistribucion)destinoCDCMB.SelectedItem;
             var ciudadAgSelected = ciudadAgenciaCMB.SelectedIndex == -1 ? null : (Ciudad)ciudadAgenciaCMB.SelectedItem;
             var agenciaSelected = agenciaCMB.SelectedIndex == -1 ? null : (Agencia)agenciaCMB.SelectedItem;

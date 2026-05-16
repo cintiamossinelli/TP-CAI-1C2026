@@ -47,7 +47,7 @@ namespace TP_CAI_1C2026.Forms.Administracion.CuentaCorrienteCliente
             // idClienteTXT
             // 
             idClienteTXT.Location = new Point(124, 16);
-            idClienteTXT.MaxLength = 11;
+            idClienteTXT.MaxLength = 13;
             idClienteTXT.Name = "idClienteTXT";
             idClienteTXT.Size = new Size(150, 23);
             idClienteTXT.TabIndex = 1;
@@ -59,6 +59,7 @@ namespace TP_CAI_1C2026.Forms.Administracion.CuentaCorrienteCliente
             buscarClienteBTN.Size = new Size(99, 27);
             buscarClienteBTN.TabIndex = 2;
             buscarClienteBTN.Text = "Buscar Cliente";
+            buscarClienteBTN.Click += buscarClienteBTN_Click;
             // 
             // nombreClienteLBL
             // 
@@ -152,6 +153,7 @@ namespace TP_CAI_1C2026.Forms.Administracion.CuentaCorrienteCliente
             cancelarBTN.Size = new Size(80, 32);
             cancelarBTN.TabIndex = 10;
             cancelarBTN.Text = "Cancelar";
+            cancelarBTN.Click += cancelarBTN_Click;
             // 
             // CuentaCorrienteClienteFRM
             // 

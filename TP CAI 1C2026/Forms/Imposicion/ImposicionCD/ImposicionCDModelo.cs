@@ -26,13 +26,15 @@ public class ImposicionCDModelo
         {
             new Cliente { Cuit = "33-63761744-9", RazonSocial = "Empresa A" },
             new Cliente { Cuit = "30-64621216-9", RazonSocial = "Empresa B" },
-            new Cliente { Cuit = "30-67337754-4", RazonSocial = "Empresa C" }
+            new Cliente { Cuit = "30-67337754-4", RazonSocial = "Empresa C" },
+            new Cliente { Cuit = "33078369", RazonSocial = "Empresa D" },
+            new Cliente { Cuit = "9123456", RazonSocial = "Empresa E" }
         };
 
         var clienteEncontrado = clientesSimulados.FirstOrDefault(c => c.Cuit == cuitFormateado);
         if (clienteEncontrado == null)
         {
-            MessageBox.Show($"No se encontró un cliente con CUIT {cuitFormateado}.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            MessageBox.Show($"No se encontró un cliente con CUIT, CUIL o DNI {cuitFormateado}.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             return null;
         }
 
@@ -56,7 +58,8 @@ public class ImposicionCDModelo
             new CentroDeDistribucion { Id = 6, Nombre = "San Miguel de Tucumán" },
             new CentroDeDistribucion { Id = 7, Nombre = "Neuquén" },
             new CentroDeDistribucion { Id = 8, Nombre = "Salta" },
-            new CentroDeDistribucion { Id = 9, Nombre = "San Salvador de Jujuy" }
+            new CentroDeDistribucion { Id = 9, Nombre = "San Salvador de Jujuy" },
+            new CentroDeDistribucion { Id = 10, Nombre = "Mar del Plata" }
         };
     }
 
@@ -126,6 +129,13 @@ public class ImposicionCDModelo
                 new() { Id = 31, Nombre = "San Salvador de Jujuy Norte" },
                 new() { Id = 32, Nombre = "San Salvador de Jujuy Sur" },
                 new() { Id = 33, Nombre = "San Salvador de Jujuy Oeste" }
+            }},
+            new Ciudad { Id = 10, Nombre = "Mar del Plata", Agencias = new List<Agencia>
+            {
+                new() { Id = 34,  Nombre = "Mar del Plata Centro" },
+                new() { Id = 35, Nombre = "Mar del Plata Norte" },
+                new() { Id = 36, Nombre = "Mar del Plata Sur" },
+                new() { Id = 37, Nombre = "Mar del Plata Oeste" }
             }}
         };
     }
@@ -152,40 +162,45 @@ public class ImposicionCDModelo
         string cuit = new string(texto.Where(char.IsDigit).ToArray());
 
         // Debe tener 11 dígitos
-        if (cuit.Length != 11)
-        {
-            return null;
-        }
 
         if (!long.TryParse(cuit, out _))
         {
             return null;
         }
 
-        int[] multiplicadores = { 5, 4, 3, 2, 7, 6, 5, 4, 3, 2 };
-
-        int suma = 0;
-
-        for (int i = 0; i < 10; i++)
+        if (cuit.Length == 11)
         {
-            suma += (cuit[i] - '0') * multiplicadores[i];
-        }
+            int[] multiplicadores = { 5, 4, 3, 2, 7, 6, 5, 4, 3, 2 };
 
-        int resto = suma % 11;
-        int digitoVerificador = 11 - resto;
+            int suma = 0;
 
-        if (digitoVerificador == 11)
-        {
-            digitoVerificador = 0;
-        }
-        else if (digitoVerificador == 10)
-        {
-            digitoVerificador = 9;
-        }
+            for (int i = 0; i < 10; i++)
+            {
+                suma += (cuit[i] - '0') * multiplicadores[i];
+            }
 
-        if (digitoVerificador != (cuit[10] - '0'))
+            int resto = suma % 11;
+            int digitoVerificador = 11 - resto;
+
+            if (digitoVerificador == 11)
+            {
+                digitoVerificador = 0;
+            }
+            else if (digitoVerificador == 10)
+            {
+                digitoVerificador = 9;
+            }
+
+            if (digitoVerificador != (cuit[10] - '0'))
+            {
+                return null;
+            }
+        } else if (cuit.Length != 7 && cuit.Length != 8) 
         {
             return null;
+        } else
+        {
+            return cuit;
         }
 
         // Formato XX-XXXXXXXX-X
@@ -260,6 +275,7 @@ public class ImposicionCDModelo
         string dniDest,
         string nombreDest)
     {
+
         if (cdChecked)
         {
             if (cdSelected == null)
