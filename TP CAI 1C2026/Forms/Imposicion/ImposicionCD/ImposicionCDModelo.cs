@@ -10,14 +10,14 @@ public class ImposicionCDModelo
     {
         if (string.IsNullOrWhiteSpace(text))
         {
-            MessageBox.Show("El cuit del cliente no puede estar vacío.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            MessageBox.Show("El CUIT, CUIL o DNI del cliente no puede estar vacío.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             return null;
         }
 
         var cuitFormateado = NormalizarCuit(text);
         if (cuitFormateado == null) //es que no es valido.
         {
-            MessageBox.Show("El cuit del cliente debe ser un número válido.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            MessageBox.Show("El CUIT, CUIL o DNI del cliente debe ser un número válido.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             return null;
         }
 
