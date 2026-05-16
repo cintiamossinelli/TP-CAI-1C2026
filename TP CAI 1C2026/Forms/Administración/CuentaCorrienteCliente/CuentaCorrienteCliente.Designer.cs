@@ -86,7 +86,6 @@ namespace TP_CAI_1C2026.Forms.Administracion.CuentaCorrienteCliente
             desdeDTP.Name = "desdeDTP";
             desdeDTP.Size = new Size(130, 23);
             desdeDTP.TabIndex = 5;
-            desdeDTP.ValueChanged += desdeDTP_ValueChanged;
             // 
             // hastaLBL
             // 
@@ -112,7 +111,6 @@ namespace TP_CAI_1C2026.Forms.Administracion.CuentaCorrienteCliente
             buscarBTN.Size = new Size(92, 27);
             buscarBTN.TabIndex = 8;
             buscarBTN.Text = "Buscar";
-            buscarBTN.Click += buscarBTN_Click;
             // 
             // cuentaCorrienteLST
             // 
@@ -125,7 +123,6 @@ namespace TP_CAI_1C2026.Forms.Administracion.CuentaCorrienteCliente
             cuentaCorrienteLST.TabIndex = 9;
             cuentaCorrienteLST.UseCompatibleStateImageBehavior = false;
             cuentaCorrienteLST.View = View.Details;
-            cuentaCorrienteLST.SelectedIndexChanged += cuentaCorrienteLST_SelectedIndexChanged;
             // 
             // colFecha
             // 
