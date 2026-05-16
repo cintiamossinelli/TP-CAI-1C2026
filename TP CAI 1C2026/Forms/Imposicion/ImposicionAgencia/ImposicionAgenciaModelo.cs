@@ -1,14 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
-using System.Xml.Linq;
-using TP_CAI_1C2026.Forms.Imposicion.ImposicionCallCenter;
-using TP_CAI_1C2026.Forms.Imposicion.ImposicionCD;
-using static System.Net.Mime.MediaTypeNames;
 
-namespace TP_CAI_1C2026.Forms.Imposicion.ImposicionCallCenter
+namespace TP_CAI_1C2026.Forms.Imposicion.ImposicionAgencia
 {
-    internal class ImposicionCallCenterModelo
+    using System.Linq;
+    internal class ImposicionAgenciaModelo
     {
         List<DetalleEncomienda> detallesAgregados = new();
 
@@ -248,15 +245,17 @@ namespace TP_CAI_1C2026.Forms.Imposicion.ImposicionCallCenter
             detallesAgregados.Remove(detalleEncomienda);
             return true;
         }
-
         internal void LimpiarDetalles()
         {
             detallesAgregados.Clear();
         }
 
         internal List<string> GenerarNumerosGuias()
+
         {
             var resultado = new List<string>();
+
+
             // Genero números de guía con formato: TIPO-CODIGO-XXX, donde XXX es un número secuencial para cada encomienda agregada.
 
             // CUANDO TENGAMOS USUARIOS, ACÁ HAY QUE CAMBIAR EL TIPO Y CODIGO POR LO QUE CORRESPONDA SEGÚN EL USUARIO Y SU SEDE O LO QUE SEA.
@@ -265,7 +264,7 @@ namespace TP_CAI_1C2026.Forms.Imposicion.ImposicionCallCenter
             {
                 for (int i = 0; i < det.Cantidad; i++)
                 {
-                    resultado.Add($"CC-1-{contador}");
+                    resultado.Add($"AG-1-{contador}");
                     contador++;
                 }
             }
@@ -274,8 +273,6 @@ namespace TP_CAI_1C2026.Forms.Imposicion.ImposicionCallCenter
         }
 
         internal bool ValidarConfirmacion(
-            CentroDeDistribucion? ciudadRetiroSelected,
-            string direccionCliente,
             bool cdChecked,
             CentroDeDistribucion? cdSelected,
             bool agenciaChecked,
@@ -288,16 +285,6 @@ namespace TP_CAI_1C2026.Forms.Imposicion.ImposicionCallCenter
             string nombreDest)
         {
 
-            if (ciudadRetiroSelected == null)
-            {
-                MessageBox.Show("Debe seleccionar una ciudad de retiro de la encomienda.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return false;
-            }
-            if (string.IsNullOrWhiteSpace(direccionCliente))
-            {
-                MessageBox.Show("La dirección de retiro de la encomienda no puede estar vacía.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return false;
-            }
             if (cdChecked)
             {
                 if (cdSelected == null)
@@ -306,6 +293,7 @@ namespace TP_CAI_1C2026.Forms.Imposicion.ImposicionCallCenter
                     return false;
                 }
             }
+
             if (agenciaChecked)
             {
                 if (ciudadAgenciaSelected == null || agenciaSelected == null)
@@ -325,7 +313,7 @@ namespace TP_CAI_1C2026.Forms.Imposicion.ImposicionCallCenter
             }
 
             // Validar DNI: numérico positivo y con 7 u 8 caracteres
-            if (string.IsNullOrWhiteSpace(dniDest)) 
+            if (string.IsNullOrWhiteSpace(dniDest))
             {
                 MessageBox.Show("El DNI del destinatario no puede estar vacío.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
