@@ -1,11 +1,10 @@
-using System.Text;
-using TP_CAI_1C2026.Forms.Imposicion.ImposicionCallCenter;
-
 namespace TP_CAI_1C2026.Forms.Imposicion.ImposicionCallCenter
 {
     public partial class ImposicionCallCenterFRM : Form
     {
-        private readonly ImposicionCallCenterModelo modelo = new ImposicionCallCenterModelo();
+        private ImposicionCallCenterModelo modelo = new ImposicionCallCenterModelo();
+        private List<Encomienda> encomiendas = new List<Encomienda>();
+        private bool limpiando = false;
 
         public ImposicionCallCenterFRM()
         {
@@ -14,258 +13,242 @@ namespace TP_CAI_1C2026.Forms.Imposicion.ImposicionCallCenter
 
         private void ImposicionCallCenterFRM_Load(object sender, EventArgs e)
         {
-            //Lleno los combos con datos del modelo
-            var tamañosEnvio = modelo.ObtenerTamañosEnvio();
-            tipoCajaCMB.DisplayMember = "Letra";
-            tipoCajaCMB.ValueMember = "Letra";
-            tipoCajaCMB.DataSource = tamañosEnvio;
-            tipoCajaCMB.SelectedIndex = -1;
-
-            List<CentroDeDistribucion> cds = modelo.ObtenerCDS();
-            ciudadCMB.Items.Clear();
-            destinoCDCMB.Items.Clear();
-            ciudadDestinatarioCMB.Items.Clear();
-            foreach (var c in cds)
-            {
-                ciudadCMB.Items.Add(c);
-                destinoCDCMB.Items.Add(c);
-                ciudadDestinatarioCMB.Items.Add(c);
-            }
-            ciudadCMB.DisplayMember = "Nombre";
-            ciudadCMB.ValueMember = "Id";
-            destinoCDCMB.DisplayMember = "Nombre";
-            destinoCDCMB.ValueMember = "Id";
-            ciudadDestinatarioCMB.DisplayMember = "Nombre";
-            ciudadDestinatarioCMB.ValueMember = "Id";
-
-
-            List<Ciudad> ciudades = modelo.ObtenerCiudades();
-            ciudadAgenciaCMB.Items.Clear();
-            foreach (var c in ciudades)
-            {
-                ciudadAgenciaCMB.Items.Add(c);
-            }
-            ciudadAgenciaCMB.DisplayMember = "Nombre";
-            ciudadAgenciaCMB.ValueMember = "Id";
-            ciudadAgenciaCMB.SelectedIndex = -1;
-        }
-
-        private void ciudadAgenciaCMB_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            // Si no hay una ciudad seleccionada, limpio el combo de agencias y salgo
-            if (ciudadAgenciaCMB.SelectedIndex == -1)
-            {
-                agenciaCMB.DataSource = null;
-                agenciaCMB.Items.Clear();
-                return;
-            }
-
-            // Obtengo la ciudad seleccionada y lleno el combo de agencias con las agencias de esa ciudad
-            var ciudadSeleccionada = (Ciudad)ciudadAgenciaCMB.SelectedItem;
-            var agencias = ciudadSeleccionada.Agencias
-                .OrderBy(a => a.Nombre, StringComparer.CurrentCultureIgnoreCase)
-                .ToList();
-
-            // Aseguro que el binding se recree correctamente
-            agenciaCMB.DataSource = null;
-            agenciaCMB.Items.Clear();
-            // Desactivo el ordenamiento automático para que DisplayMember funcione correctamente
-            agenciaCMB.Sorted = false;
-            agenciaCMB.DisplayMember = "Nombre";
-            agenciaCMB.ValueMember = "Id";
-            agenciaCMB.DataSource = agencias;
-            agenciaCMB.SelectedIndex = -1;
+            LimpiarCampos();
         }
 
         private void buscarClienteBTN_Click(object sender, EventArgs e)
         {
-            // Busco el cliente y valido el CUIT en el modelo
-            var cliente = modelo.BuscarCliente(idClienteTXT.Text);
-            if (cliente == null)
+            if (string.IsNullOrWhiteSpace(idClienteTXT.Text) || !long.TryParse(idClienteTXT.Text, out long id) || id <= 0)
             {
-                //salgo directo porque dejo que el modelo muestre el error.
-                nombreClienteLBL.Text = string.Empty;
+                MessageBox.Show("El dato ingresado debe ser numérico y positivo.", "Aviso");
                 return;
             }
 
-            nombreClienteLBL.Text = cliente.RazonSocial;
+            Cliente? cliente = modelo.BuscarCliente(idClienteTXT.Text);
+
+            if (cliente == null)
+            {
+                MessageBox.Show("No se encontró ningún cliente con ese dato ingresado.", "Aviso");
+                return;
+            }
+
+            nombreClienteLBL.Text = cliente.Nombre;
+
+            ciudadCMB.Items.Clear();
+            foreach (string ciudad in modelo.ObtenerCiudades())
+                ciudadCMB.Items.Add(ciudad);
+
+            retiroGBX.Enabled = true;
         }
 
-        // destinoAgenciaCMB handler removed; event bound to ciudadAgenciaCMB_SelectedIndexChanged instead.
+        private void ciudadCMB_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            domicilioRemitenteTXT.Enabled = true;
+        }
+
+        private void domicilioRemitenteTXT_TextChanged(object sender, EventArgs e)
+        {
+            if (limpiando) return;
+            if (!string.IsNullOrWhiteSpace(domicilioRemitenteTXT.Text))
+                destinatarioGBX.Enabled = true;
+        }
 
         private void cdRDB_CheckedChanged(object sender, EventArgs e)
         {
-            // Habilito combos de CD y deshabilito los de agencia y domicilio, además de limpiar selecciones y texto de destinatario
-            destinoCDCMB.Enabled = cdRDB.Checked;
-            agenciaCMB.SelectedIndex = -1;
+            destinoCDCMB.Items.Clear();
+            foreach (string cd in modelo.ObtenerCDs())
+                destinoCDCMB.Items.Add(cd);
+
+            destinoCDCMB.Enabled = true;
+            ciudadAgenciaCMB.Enabled = false;
             ciudadAgenciaCMB.SelectedIndex = -1;
+            direccionDestinatarioTXT.Enabled = false;
+            direccionDestinatarioTXT.Clear();
+
             ciudadDestinatarioCMB.SelectedIndex = -1;
-            direccionDestinatarioTXT.Text = string.Empty;
+            ciudadDestinatarioCMB.Enabled = false;
         }
 
         private void agenciaRDB_CheckedChanged(object sender, EventArgs e)
         {
-            // Habilito combos de agencia y deshabilito los de CD y domicilio, además de limpiar selecciones y texto de destinatario
-            ciudadAgenciaCMB.Enabled = agenciaRDB.Checked;
-            agenciaCMB.Enabled = agenciaRDB.Checked;
+            ciudadAgenciaCMB.Items.Clear();
+            foreach (string agencia in modelo.ObtenerAgencias())
+                ciudadAgenciaCMB.Items.Add(agencia);
+
+            ciudadAgenciaCMB.Enabled = true;
+            destinoCDCMB.Enabled = false;
             destinoCDCMB.SelectedIndex = -1;
+            direccionDestinatarioTXT.Enabled = false;
+            direccionDestinatarioTXT.Clear();
+
             ciudadDestinatarioCMB.SelectedIndex = -1;
-            direccionDestinatarioTXT.Text = string.Empty;
+            ciudadDestinatarioCMB.Enabled = false;
         }
 
         private void domicilioRDB_CheckedChanged_2(object sender, EventArgs e)
         {
-            // Habilito combos de domicilio y deshabilito los de CD y agencia, además de limpiar selecciones
-            ciudadDestinatarioCMB.Enabled = domicilioRDB.Checked;
-            direccionDestinatarioTXT.Enabled = domicilioRDB.Checked;
+            direccionDestinatarioTXT.Enabled = true;
+            destinoCDCMB.Enabled = false;
             destinoCDCMB.SelectedIndex = -1;
+            ciudadAgenciaCMB.Enabled = false;
             ciudadAgenciaCMB.SelectedIndex = -1;
-            ciudadDestinatarioCMB.SelectedIndex = -1;
+            ciudadDestinatarioCMB.Items.Clear();
+            foreach (string ciudad in modelo.ObtenerCiudades())
+                ciudadDestinatarioCMB.Items.Add(ciudad);
+            ciudadDestinatarioCMB.Enabled = true;
+        }
+
+        private void destinoCDCMB_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (destinoCDCMB.SelectedIndex != -1)
+                dniDestinatarioTXT.Enabled = true;
+        }
+
+        private void destinoAgenciaCMB_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (ciudadAgenciaCMB.SelectedIndex != -1)
+                dniDestinatarioTXT.Enabled = true;
+        }
+
+        private void direccionDestinatarioTXT_TextChanged(object sender, EventArgs e)
+        {
+            if (limpiando) return;
+            if (!string.IsNullOrWhiteSpace(direccionDestinatarioTXT.Text))
+                dniDestinatarioTXT.Enabled = true;
+        }
+
+        private void dniDestinatarioTXT_TextChanged(object sender, EventArgs e)
+        {
+            if (limpiando) return;
+            if (!string.IsNullOrWhiteSpace(dniDestinatarioTXT.Text))
+            {
+                nombreDestinatarioTXT.Enabled = true;
+                encomiendaGBX.Enabled = true;
+            }
         }
 
         private void agregarBTN_Click(object sender, EventArgs e)
         {
-            var tamaño = (TamañoEnvio)tipoCajaCMB.SelectedItem;
-
-            if (tamaño == null)
+            if (tipoCajaCMB.SelectedIndex == -1)
             {
-                MessageBox.Show("Seleccione un tamaño de caja.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
-            }
-            if (!int.TryParse(cantidadTXT.Text, out int cantidad))
-            {
-                MessageBox.Show("La cantidad debe ser un número entero positivo.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
-            } else if (cantidad <= 0)
-            {
-                MessageBox.Show("La cantidad debe ser mayor a cero.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Debe seleccionar un tipo de caja.", "Aviso");
                 return;
             }
 
-            var detalleEncomienda = modelo.AgregarCaja(tamaño, cantidad);
-            if (detalleEncomienda != null) //agregarlo a la lista o actualizar existente
+            bool resultado = modelo.AgregarEncomienda(
+                tipoCajaCMB.SelectedItem.ToString()!,
+                cantidadTXT.Text,
+                encomiendas,
+                out string error);
+
+            if (!resultado)
             {
-                // Buscar si ya hay un item con la misma letra de tamaño
-                var letra = detalleEncomienda.LetraTamaño;
-                var existente = encomiendaLST.Items.Cast<ListViewItem>().FirstOrDefault(i => string.Equals(i.Text, letra, StringComparison.OrdinalIgnoreCase));
-                if (existente != null)
-                {
-                    // Actualizar la cantidad en la segunda columna
-                    if (existente.SubItems.Count > 1)
-                    {
-                        existente.SubItems[1].Text = detalleEncomienda.Cantidad.ToString();
-                    }
-                    else
-                    {
-                        existente.SubItems.Add(detalleEncomienda.Cantidad.ToString());
-                    }
-                    existente.Tag = detalleEncomienda;
-                }
-                else
-                {
-                    var item = new ListViewItem(detalleEncomienda.LetraTamaño);
-                    item.SubItems.Add(detalleEncomienda.Cantidad.ToString());
-                    item.Tag = detalleEncomienda;
-                    encomiendaLST.Items.Add(item);
-                }
+                MessageBox.Show(error, "Aviso");
+                return;
             }
+
+            ActualizarListView();
             tipoCajaCMB.SelectedIndex = -1;
-            tipoCajaCMB.SelectedItem = null;
-            cantidadTXT.Text = string.Empty;
+            cantidadTXT.Clear();
+
+            quitarItemBTN.Enabled = true;
+            confirmarBTN.Enabled = true;
+            cancelarBTN.Enabled = true;
         }
 
         private void quitarItemBTN_Click(object sender, EventArgs e)
         {
-            if (encomiendaLST.SelectedItems.Count != 1)
+            if (encomiendaLST.SelectedItems.Count == 0)
             {
-                MessageBox.Show("Seleccione un (y solo un) item para quitar.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Debe seleccionar un item para quitar.", "Aviso");
                 return;
             }
 
-            var item = encomiendaLST.SelectedItems[0];
-            var detalleEncomienda = (DetalleEncomienda)item.Tag;
-
-            // El modelo devuelve true si la eliminación fue exitosa
-            if (modelo.EliminarDetalle(detalleEncomienda))
-            {
-                encomiendaLST.Items.Remove(item);
-            }
-            else
-            {
-                MessageBox.Show("No se pudo eliminar el item.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
+            int index = encomiendaLST.SelectedIndices[0];
+            encomiendas.RemoveAt(index);
+            ActualizarListView();
+            MessageBox.Show("Se ha quitado el item seleccionado.", "Aviso");
         }
 
-        private void confirmarImpBTN_Click(object sender, EventArgs e)
+        private void confirmarBTN_Click(object sender, EventArgs e)
         {
-            var cliente = modelo.BuscarCliente(idClienteTXT.Text);
-            if (cliente == null)
+            if (!cdRDB.Checked && !agenciaRDB.Checked && !domicilioRDB.Checked)
             {
-                //salgo directo porque dejo que el modelo muestre el error.
-                nombreClienteLBL.Text = string.Empty;
+                MessageBox.Show("Debe seleccionar una modalidad de entrega.", "Aviso");
                 return;
             }
-            var ciudadRetiroSelected = ciudadCMB.SelectedIndex == -1 ? null : (CentroDeDistribucion)ciudadCMB.SelectedItem;
-            var cdSelected = destinoCDCMB.SelectedIndex == -1 ? null : (CentroDeDistribucion)destinoCDCMB.SelectedItem;
-            var ciudadAgSelected = ciudadAgenciaCMB.SelectedIndex == -1 ? null : (Ciudad)ciudadAgenciaCMB.SelectedItem;
-            var agenciaSelected = agenciaCMB.SelectedIndex == -1 ? null : (Agencia)agenciaCMB.SelectedItem;
-            var ciudadDestSelected = ciudadDestinatarioCMB.SelectedIndex == -1 ? null : ciudadDestinatarioCMB.SelectedItem;
 
-            bool valido = modelo.ValidarConfirmacion(
-                ciudadRetiroSelected,
-                domicilioRemitenteTXT.Text,
-                cdRDB.Checked,
-                cdSelected,
-                agenciaRDB.Checked,
-                ciudadAgSelected,
-                agenciaSelected,
-                domicilioRDB.Checked,
-                ciudadDestSelected,
-                direccionDestinatarioTXT.Text,
+            bool resultado = modelo.Confirmar(
                 dniDestinatarioTXT.Text,
-                nombreDestinatarioTXT.Text);
+                encomiendas,
+                out string mensajeExito,
+                out string error);
 
-            if (!valido)
+            if (!resultado)
             {
+                MessageBox.Show(error, "Aviso");
                 return;
             }
 
-            // Generar números de guía y mostrarlos
-            var guias = modelo.GenerarNumerosGuias();
-
-            var sb = new StringBuilder();
-            sb.AppendLine("Las siguientes guías fueron impuestas correctamente:");
-            foreach (var g in guias)
-            {
-                sb.AppendLine(g);
-            }
-
-            //AL GRABAR, SACARLE CARACTERES ESPECIALES Y LETRAS AL CUIT DEL CLIENTE Y DNI DEL DESTINATARIO
-
-            MessageBox.Show(sb.ToString(), "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            ciudadCMB.SelectedIndex = -1;
-            domicilioRemitenteTXT.Text = string.Empty;
-            idClienteTXT.Text = string.Empty;
-            nombreClienteLBL.Text = string.Empty;
-            cdRDB.Checked = true;
-            destinoCDCMB.SelectedIndex = -1;
-            ciudadAgenciaCMB.SelectedIndex = -1;
-            agenciaCMB.SelectedIndex = -1;
-            ciudadDestinatarioCMB.SelectedIndex = -1;
-            direccionDestinatarioTXT.Text = string.Empty;
-            dniDestinatarioTXT.Text = string.Empty;
-            nombreDestinatarioTXT.Text = string.Empty;
-            tipoCajaCMB.SelectedIndex = -1;
-            cantidadTXT.Text = string.Empty;
-            encomiendaLST.Items.Clear();
-            modelo.LimpiarDetalles(); // Limpio los detalles del modelo para la próxima imposición
+            MessageBox.Show(mensajeExito, "Operación exitosa");
+            LimpiarCampos();
         }
-        private void cancelarImpBTN_Click(object sender, EventArgs e)
+
+        private void cancelarBTN_Click(object sender, EventArgs e)
         {
-            this.Close();
+            MessageBox.Show("Operación cancelada.", "Aviso");
+            LimpiarCampos();
         }
-        
-        // Removed unused event handlers that are no longer referenced by the Designer.
 
+        private void ActualizarListView()
+        {
+            encomiendaLST.Items.Clear();
+            foreach (Encomienda enc in encomiendas)
+            {
+                ListViewItem item = new ListViewItem(enc.TipoCaja);
+                item.SubItems.Add(enc.Cantidad.ToString());
+                encomiendaLST.Items.Add(item);
+            }
+        }
+
+        private void LimpiarCampos()
+        {
+            limpiando = true;
+            idClienteTXT.Clear();
+            nombreClienteLBL.Text = "Nombre del Cliente";
+            retiroGBX.Enabled = false;
+            ciudadCMB.SelectedIndex = -1;
+            domicilioRemitenteTXT.Clear();
+            domicilioRemitenteTXT.Enabled = false;
+            destinatarioGBX.Enabled = false;
+            cdRDB.Checked = false;
+            agenciaRDB.Checked = false;
+            domicilioRDB.Checked = false;
+            destinoCDCMB.SelectedIndex = -1;
+            destinoCDCMB.Enabled = false;
+            ciudadAgenciaCMB.SelectedIndex = -1;
+            ciudadAgenciaCMB.Enabled = false;
+            direccionDestinatarioTXT.Clear();
+            direccionDestinatarioTXT.Enabled = false;
+            ciudadDestinatarioCMB.SelectedIndex = -1;
+            dniDestinatarioTXT.Clear();
+            dniDestinatarioTXT.Enabled = false;
+            nombreDestinatarioTXT.Clear();
+            encomiendaGBX.Enabled = false;
+            tipoCajaCMB.SelectedIndex = -1;
+            cantidadTXT.Clear();
+            encomiendas.Clear();
+            encomiendaLST.Items.Clear();
+            quitarItemBTN.Enabled = false;
+            confirmarBTN.Enabled = false;
+            cancelarBTN.Enabled = false;
+            limpiando = false;
+        }
+
+        private void clienteGBX_Enter_1(object sender, EventArgs e) { }
+        private void retiroGBX_Enter(object sender, EventArgs e) { }
+        private void destinatarioGBX_Enter(object sender, EventArgs e) { }
+        private void label1_Click(object sender, EventArgs e) { }
+        private void label2_Click(object sender, EventArgs e) { }
     }
 }

@@ -1,7 +1,14 @@
-﻿namespace TP_CAI_1C2026.Forms.Imposicion.ImposicionCallCenter;
-
-internal class Cliente
+﻿namespace TP_CAI_1C2026.Forms.Imposicion.ImposicionCallCenter
 {
-    public string Cuit { get; set; }
-    public string RazonSocial { get; set; }
+    internal class Cliente
+    {
+        public long Id { get; set; }
+        public string Nombre { get; set; }
+
+        public Cliente(long id, string nombre)
+        {
+            Id = id;
+            Nombre = nombre;
+        }
+    }
 }

@@ -16,14 +16,14 @@ namespace TP_CAI_1C2026.Forms.Imposicion.ImposicionCallCenter
         {
             if (string.IsNullOrWhiteSpace(text))
             {
-                MessageBox.Show("El cuit del cliente no puede estar vacío.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("El CUIT, CUIL o DNI del cliente no puede estar vacío.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return null;
             }
 
             var cuitFormateado = NormalizarCuit(text);
             if (cuitFormateado == null) //es que no es valido.
             {
-                MessageBox.Show("El cuit del cliente debe ser un número válido.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("El CUIT, CUIL o DNI del cliente debe ser un número válido.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return null;
             }
 
@@ -34,7 +34,7 @@ namespace TP_CAI_1C2026.Forms.Imposicion.ImposicionCallCenter
             new Cliente { Cuit = "30-64621216-9", RazonSocial = "Empresa B" },
             new Cliente { Cuit = "30-67337754-4", RazonSocial = "Empresa C" },
             new Cliente { Cuit = "33078369", RazonSocial = "José Perez" },
-            new Cliente { Cuit = "9123456", RazonSocial = "Juan Gonzalez" }
+            new Cliente { Cuit = "12346578", RazonSocial = "Juan Gonzalez" }
         };
 
             var clienteEncontrado = clientesSimulados.FirstOrDefault(c => c.Cuit == cuitFormateado);

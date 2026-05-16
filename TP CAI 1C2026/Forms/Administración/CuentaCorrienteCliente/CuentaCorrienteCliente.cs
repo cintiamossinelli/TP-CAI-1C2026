@@ -17,7 +17,7 @@ namespace TP_CAI_1C2026.Forms.Administracion.CuentaCorrienteCliente
     public partial class CuentaCorrienteClienteFRM : Form
     {
         private readonly CuentaCorrienteClienteModelo modelo = new CuentaCorrienteClienteModelo();
-        
+
 
         public CuentaCorrienteClienteFRM()
         {
@@ -26,9 +26,9 @@ namespace TP_CAI_1C2026.Forms.Administracion.CuentaCorrienteCliente
 
         private void CuentaCorrienteClienteFRM_Load(object sender, EventArgs e)
         {
-            
+
         }
-                
+
         private void buscarClienteBTN_Click(object sender, EventArgs e)
         {
             // Busco el cliente y valido el CUIT en el modelo
@@ -46,6 +46,21 @@ namespace TP_CAI_1C2026.Forms.Administracion.CuentaCorrienteCliente
         private void cancelarBTN_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void cuentaCorrienteLST_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void desdeDTP_ValueChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void buscarBTN_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
