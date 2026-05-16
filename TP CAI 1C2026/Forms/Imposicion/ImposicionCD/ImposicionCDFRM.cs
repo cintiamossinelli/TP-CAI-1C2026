@@ -119,12 +119,7 @@ namespace TP_CAI_1C2026.Forms.Imposicion.ImposicionCD
             }
             if (!int.TryParse(cantidadTXT.Text, out int cantidad))
             {
-                MessageBox.Show("La cantidad debe ser un número entero positivo.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
-            }
-            else if (cantidad <= 0)
-            {
-                MessageBox.Show("La cantidad debe ser mayor a cero.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("En cantidad ingrese un número entero positivo.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 
@@ -228,8 +223,6 @@ namespace TP_CAI_1C2026.Forms.Imposicion.ImposicionCD
                 sb.AppendLine(g);
             }
 
-            //AL GRABAR, SACARLE CARACTERES ESPECIALES Y LETRAS AL CUIT DEL CLIENTE Y DNI DEL DESTINATARIO
-
             MessageBox.Show(sb.ToString(), "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
             idClienteTXT.Text = string.Empty;
             nombreClienteLBL.Text = string.Empty;
@@ -244,7 +237,6 @@ namespace TP_CAI_1C2026.Forms.Imposicion.ImposicionCD
             tipoCajaCMB.SelectedIndex = -1;
             cantidadTXT.Text = string.Empty;
             encomiendaLST.Items.Clear();
-            modelo.LimpiarDetalles(); // Limpio los detalles del modelo para la próxima imposición
         }
     }
 }
