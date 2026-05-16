@@ -22,14 +22,14 @@ namespace TP_CAI_1C2026.Forms.UltimaMilla.AdmisionCD
                 // Simulación de búsqueda en una base de datos o servicio
                 var numGuiasSimulados = new List<GuiasImpuestas>
                 {
-                    new GuiasImpuestas { Id = "CD-CAB-123", Tamaño = "S" },
-                    new GuiasImpuestas { Id = "AG-ROS-333", Tamaño = "M" },
-                    new GuiasImpuestas { Id = "AG-CAB-103", Tamaño = "L" },
-                    new GuiasImpuestas { Id = "AG-REC-123", Tamaño = "XL" },
-                    new GuiasImpuestas { Id = "CD-COR-111", Tamaño = "S" },
-                    new GuiasImpuestas { Id = "AG-TUC-12", Tamaño = "M" },
-                    new GuiasImpuestas { Id = "AG-SAL-56", Tamaño = "L" },
-                    new GuiasImpuestas { Id = "AG-CAT-1236", Tamaño = "XL" },
+                    new GuiasImpuestas { Id = "CD-1-123", Tamaño = "S" },
+                    new GuiasImpuestas { Id = "AG-1-333", Tamaño = "M" },
+                    new GuiasImpuestas { Id = "AG-2-103", Tamaño = "L" },
+                    new GuiasImpuestas { Id = "AG-1-123", Tamaño = "XL" },
+                    new GuiasImpuestas { Id = "CD-3-111", Tamaño = "S" },
+                    new GuiasImpuestas { Id = "AG-4-12", Tamaño = "M" },
+                    new GuiasImpuestas { Id = "AG-2-56", Tamaño = "L" },
+                    new GuiasImpuestas { Id = "AG-1-1236", Tamaño = "XL" },
                 };
 
                 var guiaEncontrada = numGuiasSimulados.FirstOrDefault(g => g.Id == text);

@@ -23,6 +23,9 @@
             domicilioRemitenteLBL = new Label();
             domicilioRemitenteTXT = new TextBox();
             destinatarioGBX = new GroupBox();
+            nombreAgenciaLBL = new Label();
+            agenciaCMB = new ComboBox();
+            label1 = new Label();
             direccionDestinatarioLBL = new Label();
             ciudadDestinatarioLBL = new Label();
             ciudadDestinatarioCMB = new ComboBox();
@@ -48,9 +51,6 @@
             quitarItemBTN = new Button();
             confirmarBTN = new Button();
             cancelarBTN = new Button();
-            label1 = new Label();
-            agenciaCMB = new ComboBox();
-            nombreAgenciaLBL = new Label();
             confirmarImpBTN = new Button();
             cancelarImpBTN = new Button();
             clienteGBX.SuspendLayout();
@@ -71,7 +71,7 @@
             clienteGBX.TabIndex = 0;
             clienteGBX.TabStop = false;
             clienteGBX.Text = "Cliente";
-            clienteGBX.Enter += clienteGBX_Enter_1;
+            // clienteGBX.Enter removed
             // 
             // nombreClienteLBL
             // 
@@ -82,7 +82,7 @@
             nombreClienteLBL.Size = new Size(110, 15);
             nombreClienteLBL.TabIndex = 3;
             nombreClienteLBL.Text = "Nombre del Cliente";
-            nombreClienteLBL.Click += label1_Click;
+            // nombreClienteLBL.Click removed
             // 
             // idClienteLBL
             // 
@@ -96,7 +96,7 @@
             // idClienteTXT
             // 
             idClienteTXT.Location = new Point(135, 22);
-            idClienteTXT.MaxLength = 11;
+            idClienteTXT.MaxLength = 13;
             idClienteTXT.Name = "idClienteTXT";
             idClienteTXT.Size = new Size(380, 23);
             idClienteTXT.TabIndex = 1;
@@ -122,7 +122,7 @@
             retiroGBX.TabIndex = 1;
             retiroGBX.TabStop = false;
             retiroGBX.Text = "Datos de Retiro";
-            retiroGBX.Enter += retiroGBX_Enter;
+            // retiroGBX.Enter removed
             // 
             // ciudadLBL
             // 
@@ -139,8 +139,9 @@
             ciudadCMB.Location = new Point(135, 23);
             ciudadCMB.Name = "ciudadCMB";
             ciudadCMB.Size = new Size(498, 23);
+            ciudadCMB.Sorted = true;
             ciudadCMB.TabIndex = 1;
-            ciudadCMB.SelectedIndexChanged += ciudadCMB_SelectedIndexChanged;
+            // ciudadCMB.SelectedIndexChanged removed
             // 
             // domicilioRemitenteLBL
             // 
@@ -157,7 +158,7 @@
             domicilioRemitenteTXT.Name = "domicilioRemitenteTXT";
             domicilioRemitenteTXT.Size = new Size(498, 23);
             domicilioRemitenteTXT.TabIndex = 3;
-            domicilioRemitenteTXT.TextChanged += domicilioRemitenteTXT_TextChanged;
+            // domicilioRemitenteTXT.TextChanged removed
             // 
             // destinatarioGBX
             // 
@@ -183,7 +184,35 @@
             destinatarioGBX.TabIndex = 2;
             destinatarioGBX.TabStop = false;
             destinatarioGBX.Text = "Destinatario";
-            destinatarioGBX.Enter += destinatarioGBX_Enter;
+            // destinatarioGBX.Enter removed
+            // 
+            // nombreAgenciaLBL
+            // 
+            nombreAgenciaLBL.Location = new Point(34, 89);
+            nombreAgenciaLBL.Name = "nombreAgenciaLBL";
+            nombreAgenciaLBL.Size = new Size(166, 23);
+            nombreAgenciaLBL.TabIndex = 18;
+            nombreAgenciaLBL.Text = "Agencia:";
+            nombreAgenciaLBL.TextAlign = ContentAlignment.MiddleRight;
+            // 
+            // agenciaCMB
+            // 
+            agenciaCMB.DropDownStyle = ComboBoxStyle.DropDownList;
+            agenciaCMB.Enabled = false;
+            agenciaCMB.Location = new Point(203, 89);
+            agenciaCMB.Name = "agenciaCMB";
+            agenciaCMB.Size = new Size(430, 23);
+            agenciaCMB.Sorted = true;
+            agenciaCMB.TabIndex = 17;
+            // 
+            // label1
+            // 
+            label1.Location = new Point(151, 59);
+            label1.Name = "label1";
+            label1.Size = new Size(50, 23);
+            label1.TabIndex = 16;
+            label1.Text = "Ciudad:";
+            label1.TextAlign = ContentAlignment.MiddleRight;
             // 
             // direccionDestinatarioLBL
             // 
@@ -193,7 +222,7 @@
             direccionDestinatarioLBL.TabIndex = 15;
             direccionDestinatarioLBL.Text = "Dirección:";
             direccionDestinatarioLBL.TextAlign = ContentAlignment.MiddleRight;
-            direccionDestinatarioLBL.Click += label2_Click;
+            // direccionDestinatarioLBL.Click removed
             // 
             // ciudadDestinatarioLBL
             // 
@@ -207,14 +236,15 @@
             // ciudadDestinatarioCMB
             // 
             ciudadDestinatarioCMB.DropDownStyle = ComboBoxStyle.DropDownList;
+            ciudadDestinatarioCMB.Enabled = false;
             ciudadDestinatarioCMB.Location = new Point(203, 127);
             ciudadDestinatarioCMB.Name = "ciudadDestinatarioCMB";
             ciudadDestinatarioCMB.Size = new Size(430, 23);
+            ciudadDestinatarioCMB.Sorted = true;
             ciudadDestinatarioCMB.TabIndex = 14;
             // 
             // nombreDestinatarioTXT
             // 
-            nombreDestinatarioTXT.Enabled = false;
             nombreDestinatarioTXT.Location = new Point(135, 222);
             nombreDestinatarioTXT.MaxLength = 100;
             nombreDestinatarioTXT.Name = "nombreDestinatarioTXT";
@@ -232,10 +262,12 @@
             // 
             // cdRDB
             // 
+            cdRDB.Checked = true;
             cdRDB.Location = new Point(43, 22);
             cdRDB.Name = "cdRDB";
             cdRDB.Size = new Size(41, 23);
             cdRDB.TabIndex = 0;
+            cdRDB.TabStop = true;
             cdRDB.Text = "CD";
             cdRDB.CheckedChanged += cdRDB_CheckedChanged;
             // 
@@ -260,12 +292,12 @@
             // destinoCDCMB
             // 
             destinoCDCMB.DropDownStyle = ComboBoxStyle.DropDownList;
-            destinoCDCMB.Enabled = false;
             destinoCDCMB.Location = new Point(135, 22);
             destinoCDCMB.Name = "destinoCDCMB";
             destinoCDCMB.Size = new Size(498, 23);
+            destinoCDCMB.Sorted = true;
             destinoCDCMB.TabIndex = 4;
-            destinoCDCMB.SelectedIndexChanged += destinoCDCMB_SelectedIndexChanged;
+            // destinoCDCMB.SelectedIndexChanged removed
             // 
             // ciudadAgenciaCMB
             // 
@@ -274,8 +306,9 @@
             ciudadAgenciaCMB.Location = new Point(203, 58);
             ciudadAgenciaCMB.Name = "ciudadAgenciaCMB";
             ciudadAgenciaCMB.Size = new Size(430, 23);
+            ciudadAgenciaCMB.Sorted = true;
             ciudadAgenciaCMB.TabIndex = 6;
-            ciudadAgenciaCMB.SelectedIndexChanged += destinoAgenciaCMB_SelectedIndexChanged;
+            ciudadAgenciaCMB.SelectedIndexChanged += ciudadAgenciaCMB_SelectedIndexChanged;
             // 
             // direccionDestinatarioTXT
             // 
@@ -284,7 +317,7 @@
             direccionDestinatarioTXT.Name = "direccionDestinatarioTXT";
             direccionDestinatarioTXT.Size = new Size(430, 23);
             direccionDestinatarioTXT.TabIndex = 8;
-            direccionDestinatarioTXT.TextChanged += direccionDestinatarioTXT_TextChanged;
+            // direccionDestinatarioTXT.TextChanged removed
             // 
             // dniDestinatarioLBL
             // 
@@ -297,13 +330,12 @@
             // 
             // dniDestinatarioTXT
             // 
-            dniDestinatarioTXT.Enabled = false;
             dniDestinatarioTXT.Location = new Point(135, 192);
             dniDestinatarioTXT.MaxLength = 11;
             dniDestinatarioTXT.Name = "dniDestinatarioTXT";
             dniDestinatarioTXT.Size = new Size(498, 23);
             dniDestinatarioTXT.TabIndex = 10;
-            dniDestinatarioTXT.TextChanged += dniDestinatarioTXT_TextChanged;
+            // dniDestinatarioTXT.TextChanged removed
             // 
             // encomiendaGBX
             // 
@@ -402,7 +434,7 @@
             confirmarBTN.Size = new Size(80, 32);
             confirmarBTN.TabIndex = 4;
             confirmarBTN.Text = "Confirmar";
-            confirmarBTN.Click += confirmarBTN_Click;
+            // confirmarBTN.Click removed
             // 
             // cancelarBTN
             // 
@@ -411,34 +443,7 @@
             cancelarBTN.Size = new Size(80, 32);
             cancelarBTN.TabIndex = 5;
             cancelarBTN.Text = "Cancelar";
-            cancelarBTN.Click += cancelarBTN_Click;
-            // 
-            // label1
-            // 
-            label1.Location = new Point(151, 59);
-            label1.Name = "label1";
-            label1.Size = new Size(50, 23);
-            label1.TabIndex = 16;
-            label1.Text = "Ciudad:";
-            label1.TextAlign = ContentAlignment.MiddleRight;
-            // 
-            // agenciaCMB
-            // 
-            agenciaCMB.DropDownStyle = ComboBoxStyle.DropDownList;
-            agenciaCMB.Enabled = false;
-            agenciaCMB.Location = new Point(203, 89);
-            agenciaCMB.Name = "agenciaCMB";
-            agenciaCMB.Size = new Size(430, 23);
-            agenciaCMB.TabIndex = 17;
-            // 
-            // nombreAgenciaLBL
-            // 
-            nombreAgenciaLBL.Location = new Point(34, 89);
-            nombreAgenciaLBL.Name = "nombreAgenciaLBL";
-            nombreAgenciaLBL.Size = new Size(166, 23);
-            nombreAgenciaLBL.TabIndex = 18;
-            nombreAgenciaLBL.Text = "Agencia:";
-            nombreAgenciaLBL.TextAlign = ContentAlignment.MiddleRight;
+            // cancelarBTN.Click removed
             // 
             // confirmarImpBTN
             // 
@@ -447,6 +452,7 @@
             confirmarImpBTN.Size = new Size(80, 32);
             confirmarImpBTN.TabIndex = 6;
             confirmarImpBTN.Text = "Confirmar";
+            confirmarImpBTN.Click += confirmarImpBTN_Click;
             // 
             // cancelarImpBTN
             // 
@@ -455,6 +461,7 @@
             cancelarImpBTN.Size = new Size(80, 32);
             cancelarImpBTN.TabIndex = 7;
             cancelarImpBTN.Text = "Cancelar";
+            cancelarImpBTN.Click += cancelarImpBTN_Click;
             // 
             // ImposicionCallCenterFRM
             // 

@@ -27,8 +27,8 @@ public class ImposicionCDModelo
             new Cliente { Cuit = "33-63761744-9", RazonSocial = "Empresa A" },
             new Cliente { Cuit = "30-64621216-9", RazonSocial = "Empresa B" },
             new Cliente { Cuit = "30-67337754-4", RazonSocial = "Empresa C" },
-            new Cliente { Cuit = "33078369", RazonSocial = "Empresa D" },
-            new Cliente { Cuit = "9123456", RazonSocial = "Empresa E" }
+            new Cliente { Cuit = "33078369", RazonSocial = "José Perez" },
+            new Cliente { Cuit = "9123456", RazonSocial = "Juan Gonzalez" }
         };
 
         var clienteEncontrado = clientesSimulados.FirstOrDefault(c => c.Cuit == cuitFormateado);
@@ -240,6 +240,10 @@ public class ImposicionCDModelo
         detallesAgregados.Remove(detalleEncomienda);
         return true;
     }
+    internal void LimpiarDetalles()
+    {
+        detallesAgregados.Clear();
+    }
 
     internal List<string> GenerarNumerosGuias()
 
@@ -303,8 +307,13 @@ public class ImposicionCDModelo
             }
         }
 
-        // Validar DNI: numérico positivo y al menos 6 caracteres
-        if (string.IsNullOrWhiteSpace(dniDest) || dniDest.Length < 6 || !dniDest.All(char.IsDigit) || !long.TryParse(dniDest, out long dniVal) || dniVal <= 0)
+        // Validar DNI: numérico positivo y con 7 u 8 caracteres
+        if (string.IsNullOrWhiteSpace(dniDest))
+        {
+            MessageBox.Show("El DNI del destinatario no puede estar vacío.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            return false;
+        }
+        if (dniDest.Length <= 6 || dniDest.Length > 8 || !dniDest.All(char.IsDigit) || !long.TryParse(dniDest, out long dniVal) || dniVal <= 0)
         {
             MessageBox.Show("Debe ingresar un DNI válido.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             return false;
