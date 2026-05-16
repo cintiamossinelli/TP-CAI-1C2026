@@ -5,6 +5,7 @@ using TP_CAI_1C2026.Forms.Entregas.EntregaCD;
 using TP_CAI_1C2026.Forms.Imposicion.ImposicionCallCenter;
 using TP_CAI_1C2026.Forms.Imposicion.ImposicionCD;
 using TP_CAI_1C2026.Forms.UltimaMilla.AdmisionCD;
+using TP_CAI_1C2026.Forms.UltimaMilla.EmisionResumenHDRConfirmadas;
 using TP_CAI_1C2026.Forms.Administracion.EmisionFactura;
 
 namespace TP_CAI_1C2026
@@ -15,7 +16,7 @@ namespace TP_CAI_1C2026
         static void Main()
         {
             ApplicationConfiguration.Initialize();
-            Application.Run(new EmisionFacturaFRM());
+            Application.Run(new EmisionResumenHDRConfirmadasFRM());
         }
     }
 }
