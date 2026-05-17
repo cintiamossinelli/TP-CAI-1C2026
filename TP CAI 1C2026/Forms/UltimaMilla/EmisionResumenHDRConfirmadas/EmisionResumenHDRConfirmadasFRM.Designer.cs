@@ -49,7 +49,7 @@
             cancelarBTN.TabIndex = 0;
             cancelarBTN.Text = "Cancelar";
             cancelarBTN.UseVisualStyleBackColor = true;
-            cancelarBTN.Click += button1_Click;
+            cancelarBTN.Click += cancelarBTN_Click;
             // 
             // hdrEnTransitoLSVT
             // 
@@ -109,6 +109,7 @@
             buscarBTN.Size = new Size(114, 27);
             buscarBTN.TabIndex = 2;
             buscarBTN.Text = "Buscar";
+            buscarBTN.Click += buscarBTN_Click_1;
             // 
             // dniFleteroTXT
             // 
