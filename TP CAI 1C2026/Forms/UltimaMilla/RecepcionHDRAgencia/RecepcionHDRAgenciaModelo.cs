@@ -10,58 +10,45 @@ namespace TP_CAI_1C2026.Forms.UltimaMilla.RecepcionHDRAgencia
         {
             return new List<HDR>
             {
-                new HDR
-                {
-                    NumeroHDR = "HDR001"
-                },
-
-                new HDR
-                {
-                    NumeroHDR = "HDR002"
-                },
-
-                new HDR
-                {
-                    NumeroHDR = "HDR003"
-                }
+                new HDR { NumeroHDR = "1001" },
+                new HDR { NumeroHDR = "1002" },
+                new HDR { NumeroHDR = "1003" },
+                new HDR { NumeroHDR = "1004" }
             };
         }
 
-        internal List<Encomienda>
-            ObtenerEncomiendasHDR(HDR hdr)
+        internal List<Encomienda> ObtenerEncomiendasHDR(HDR hdr)
         {
-            return new List<Encomienda>
+            if (hdr == null)
+                return new List<Encomienda>();
+
+            return hdr.NumeroHDR switch
             {
-                new Encomienda
+                "1001" => new List<Encomienda>
                 {
-                    NumeroGuia = "GUIA001",
-                    TipoEncomienda = "S"
-                },
+                    new Encomienda { NumeroGuia = "CD-2-111", TipoEncomienda = "S" }
 
-                new Encomienda
-                {
-                    NumeroGuia = "GUIA002",
-                    TipoEncomienda = "L"
                 },
-
-                new Encomienda
+                "1002" => new List<Encomienda>
                 {
-                    NumeroGuia = "GUIA003",
-                    TipoEncomienda = "M"
+                    new Encomienda { NumeroGuia = "AG-2-123", TipoEncomienda = "L" }
                 },
-
-                new Encomienda
+                "1003" => new List<Encomienda>
                 {
-                    NumeroGuia = "GUIA004",
-                    TipoEncomienda = "XL"
-                }
+                    new Encomienda { NumeroGuia = "CC-3-21", TipoEncomienda = "M" }
+                },
+                "1004" => new List<Encomienda>
+                {
+                    new Encomienda { NumeroGuia = "AG-1-333", TipoEncomienda = "XL" },
+                    new Encomienda { NumeroGuia = "AG-3-56", TipoEncomienda = "S" }
+                },
+                _ => new List<Encomienda>()
             };
         }
 
         internal void RecepcionarHDR(HDR hdr)
         {
             // Simulación de recepción
-
             // Más adelante:
             // - actualizar estado HDR
             // - actualizar encomiendas
