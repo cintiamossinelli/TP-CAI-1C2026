@@ -1,0 +1,11 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Text;
+
+namespace TP_CAI_1C2026.Forms.Administración.CuentaCorrienteCliente
+{
+    internal class Descripcion
+    {
+        public string TipoDeComprobanteYNumero { get; set; }
+    }
+}

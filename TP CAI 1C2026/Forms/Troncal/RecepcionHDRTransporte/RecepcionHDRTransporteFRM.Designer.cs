@@ -31,8 +31,8 @@
             recibirHDRBTN = new Button();
             cancelarBTN = new Button();
             GuiasLST = new ListView();
-            TipoEncomiendaCol = new ColumnHeader();
             NumGuiaCol = new ColumnHeader();
+            TipoEncomiendaCol = new ColumnHeader();
             DestinoCol = new ColumnHeader();
             servicioOmnibusBTN = new ComboBox();
             servicioOmnibusLBL = new Label();
@@ -45,6 +45,7 @@
             recibirHDRBTN.Size = new Size(107, 32);
             recibirHDRBTN.TabIndex = 11;
             recibirHDRBTN.Text = "Recibir HDR";
+            recibirHDRBTN.Click += recibirHDRBTN_Click;
             // 
             // cancelarBTN
             // 
@@ -53,10 +54,11 @@
             cancelarBTN.Size = new Size(80, 32);
             cancelarBTN.TabIndex = 12;
             cancelarBTN.Text = "Cancelar";
+            cancelarBTN.Click += cancelarBTN_Click;
             // 
             // GuiasLST
             // 
-            GuiasLST.Columns.AddRange(new ColumnHeader[] { TipoEncomiendaCol, NumGuiaCol, DestinoCol });
+            GuiasLST.Columns.AddRange(new ColumnHeader[] { NumGuiaCol, TipoEncomiendaCol, DestinoCol });
             GuiasLST.GridLines = true;
             GuiasLST.Location = new Point(43, 85);
             GuiasLST.Name = "GuiasLST";
@@ -65,19 +67,17 @@
             GuiasLST.UseCompatibleStateImageBehavior = false;
             GuiasLST.View = View.Details;
             // 
-            // TipoEncomiendaCol
-            // 
-            TipoEncomiendaCol.DisplayIndex = 1;
-            TipoEncomiendaCol.Text = "Tipo de Encomienda";
-            TipoEncomiendaCol.TextAlign = HorizontalAlignment.Center;
-            TipoEncomiendaCol.Width = 150;
-            // 
             // NumGuiaCol
             // 
-            NumGuiaCol.DisplayIndex = 0;
             NumGuiaCol.Text = "N° Guía";
             NumGuiaCol.TextAlign = HorizontalAlignment.Center;
             NumGuiaCol.Width = 100;
+            // 
+            // TipoEncomiendaCol
+            // 
+            TipoEncomiendaCol.Text = "Tipo de Encomienda";
+            TipoEncomiendaCol.TextAlign = HorizontalAlignment.Center;
+            TipoEncomiendaCol.Width = 150;
             // 
             // DestinoCol
             // 
@@ -92,6 +92,7 @@
             servicioOmnibusBTN.Name = "servicioOmnibusBTN";
             servicioOmnibusBTN.Size = new Size(485, 28);
             servicioOmnibusBTN.TabIndex = 9;
+            servicioOmnibusBTN.SelectedIndexChanged += servicioOmnibusBTN_SelectedIndexChanged;
             // 
             // servicioOmnibusLBL
             // 

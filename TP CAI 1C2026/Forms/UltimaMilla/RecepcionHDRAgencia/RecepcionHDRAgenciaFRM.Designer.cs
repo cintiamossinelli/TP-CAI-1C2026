@@ -59,7 +59,7 @@
             // 
             // GuiasLST
             // 
-            GuiasLST.Columns.AddRange(new ColumnHeader[] { TipoEncomiendaCol, NumGuiaCol });
+            GuiasLST.Columns.AddRange(new ColumnHeader[] { NumGuiaCol, TipoEncomiendaCol });
             GuiasLST.GridLines = true;
             GuiasLST.Location = new Point(42, 95);
             GuiasLST.Margin = new Padding(4);
