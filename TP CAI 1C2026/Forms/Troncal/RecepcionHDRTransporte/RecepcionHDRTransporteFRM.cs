@@ -57,11 +57,7 @@ namespace TP_CAI_1C2026.Forms.Troncal.RecepcionHDRTransporte
                 servicioOmnibusBTN.Focus();
                 return;
             }
-            if (GuiasLST.Items.Count == 0)
-            {   //pruebo que haya guías asociadas al servicio seleccionado
-                MessageBox.Show("No hay guías asociadas a este servicio.", "Validación", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return;
-            }
+           
             //Un doble chequeo para asegurarme que el usuario no confirme la recepción sin haber seleccionado un servicio o sin haber guías asociadas al servicio seleccionado
             DialogResult confirmacion = MessageBox.Show(
             "¿Está seguro que desea confirmar la recepción de " + GuiasLST.Items.Count + " guía/s para el servicio seleccionado?",
