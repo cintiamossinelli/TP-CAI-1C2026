@@ -77,11 +77,13 @@
             // HDRnumCMB
             // 
             HDRnumCMB.FormattingEnabled = true;
+            HDRnumCMB.Items.AddRange(new object[] { "HDR-9999" });
             HDRnumCMB.Location = new Point(144, 32);
             HDRnumCMB.Margin = new Padding(3, 2, 3, 2);
             HDRnumCMB.Name = "HDRnumCMB";
             HDRnumCMB.Size = new Size(376, 23);
             HDRnumCMB.TabIndex = 10;
+            HDRnumCMB.SelectedIndexChanged += HDRnumCMB_SelectedIndexChanged;
             // 
             // despacharHDRBTN
             // 
@@ -91,6 +93,7 @@
             despacharHDRBTN.Size = new Size(117, 24);
             despacharHDRBTN.TabIndex = 12;
             despacharHDRBTN.Text = "Despachar HDR";
+            despacharHDRBTN.Click += despacharHDRBTN_Click;
             // 
             // cancelarBTN
             // 
@@ -100,6 +103,7 @@
             cancelarBTN.Size = new Size(70, 24);
             cancelarBTN.TabIndex = 13;
             cancelarBTN.Text = "Cancelar";
+            cancelarBTN.Click += cancelarBTN_Click;
             // 
             // DespachoHDRTransporte
             // 
