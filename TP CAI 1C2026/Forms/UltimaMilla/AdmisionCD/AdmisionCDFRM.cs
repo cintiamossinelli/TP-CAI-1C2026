@@ -51,7 +51,8 @@ namespace TP_CAI_1C2026.Forms.UltimaMilla.AdmisionCD
 
         private void cancelarBTN_Click(object sender, EventArgs e)
         {
-            this.Close();
+            nGuiaTXT.Text = string.Empty;
+            guiasLST.Items.Clear();
         }
 
         private void admitirBTN_Click(object sender, EventArgs e)
