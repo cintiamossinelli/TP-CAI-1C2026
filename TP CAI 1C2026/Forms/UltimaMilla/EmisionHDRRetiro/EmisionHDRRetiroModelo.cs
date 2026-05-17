@@ -12,10 +12,16 @@ internal class EmisionHDRRetiroModelo
     private List<Guia> guias = new List<Guia>
     {
         new Guia { NGuia = "CD-3-1", TipoCaja = "S", LugarRetiro = "Av. Corrientes 1234, Buenos Aires" },
-        new Guia { NGuia = "CD-3-2", TipoCaja = "M", LugarRetiro = "Agencia Microcentro" },
+        new Guia { NGuia = "CD-3-2", TipoCaja = "M", LugarRetiro = "Agencia Microcentro, Buenos Aires" },
+        new Guia { NGuia = "AG-9-1", TipoCaja = "XL", LugarRetiro = "Agencia Palermo, Buenos Aires" },
         new Guia { NGuia = "AG-5-1", TipoCaja = "L", LugarRetiro = "Av. Santa Fe 567, Rosario" },
-        new Guia { NGuia = "AG-9-1", TipoCaja = "XL", LugarRetiro = "Agencia Palermo" },
-        new Guia { NGuia = "CD-4-1", TipoCaja = "S", LugarRetiro = "Av. Colón 890, Córdoba" }
+        new Guia { NGuia = "AG-5-2", TipoCaja = "S", LugarRetiro = "Agencia Rosario Norte, Rosario" },
+        new Guia { NGuia = "CD-4-1", TipoCaja = "S", LugarRetiro = "Av. Colón 890, Córdoba" },
+        new Guia { NGuia = "CD-4-2", TipoCaja = "M", LugarRetiro = "Agencia Córdoba Centro, Córdoba" },
+        new Guia { NGuia = "CD-5-1", TipoCaja = "L", LugarRetiro = "Av. San Martín 123, Mendoza" },
+        new Guia { NGuia = "CD-5-2", TipoCaja = "XL", LugarRetiro = "Agencia Mendoza Centro, Mendoza" },
+        new Guia { NGuia = "CD-6-1", TipoCaja = "S", LugarRetiro = "Av. Alem 456, Tucumán" },
+        new Guia { NGuia = "CD-6-2", TipoCaja = "M", LugarRetiro = "Agencia San Miguel de Tucumán Centro, Tucumán" }
     };
 
     private List<string> localidades = new List<string>

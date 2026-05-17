@@ -40,9 +40,9 @@
             // 
             // dniFleteroLBL
             // 
-            dniFleteroLBL.Location = new Point(2, 29);
+            dniFleteroLBL.Location = new Point(2, 25);
             dniFleteroLBL.Name = "dniFleteroLBL";
-            dniFleteroLBL.Size = new Size(94, 23);
+            dniFleteroLBL.Size = new Size(86, 23);
             dniFleteroLBL.TabIndex = 0;
             dniFleteroLBL.Text = "DNI Fletero:";
             dniFleteroLBL.TextAlign = ContentAlignment.MiddleRight;
@@ -53,7 +53,7 @@
             dniFleteroTXT.Location = new Point(94, 26);
             dniFleteroTXT.MaxLength = 11;
             dniFleteroTXT.Name = "dniFleteroTXT";
-            dniFleteroTXT.Size = new Size(235, 27);
+            dniFleteroTXT.Size = new Size(235, 23);
             dniFleteroTXT.TabIndex = 1;
             // 
             // buscarFleteroTBN
@@ -63,6 +63,7 @@
             buscarFleteroTBN.Size = new Size(80, 27);
             buscarFleteroTBN.TabIndex = 2;
             buscarFleteroTBN.Text = "Buscar";
+            buscarFleteroTBN.Click += buscarFleteroTBN_Click;
             // 
             // nombreFleteroLBL
             // 
@@ -108,6 +109,7 @@
             cancelarBTN.Size = new Size(107, 32);
             cancelarBTN.TabIndex = 6;
             cancelarBTN.Text = "Cancelar";
+            cancelarBTN.Click += cancelarBTN_Click;
             // 
             // guiasAgregadasLST
             // 
@@ -144,6 +146,7 @@
             quitarBTN.Size = new Size(109, 32);
             quitarBTN.TabIndex = 9;
             quitarBTN.Text = "Quitar <<<";
+            quitarBTN.Click += quitarBTN_Click;
             // 
             // agregarBTN
             // 
@@ -152,6 +155,7 @@
             agregarBTN.Size = new Size(109, 32);
             agregarBTN.TabIndex = 10;
             agregarBTN.Text = "Agregar >>>";
+            agregarBTN.Click += agregarBTN_Click;
             // 
             // nGuiaLBL
             // 
@@ -167,7 +171,7 @@
             nGuiaTXT.Location = new Point(114, 143);
             nGuiaTXT.MaxLength = 11;
             nGuiaTXT.Name = "nGuiaTXT";
-            nGuiaTXT.Size = new Size(233, 27);
+            nGuiaTXT.Size = new Size(233, 23);
             nGuiaTXT.TabIndex = 13;
             // 
             // buscarGuiaBTN
@@ -177,6 +181,7 @@
             buscarGuiaBTN.Size = new Size(80, 27);
             buscarGuiaBTN.TabIndex = 14;
             buscarGuiaBTN.Text = "Buscar";
+            buscarGuiaBTN.Click += buscarGuiaBTN_Click;
             // 
             // localidadLBL
             // 
@@ -194,13 +199,15 @@
             buscarLocalidadBTN.Size = new Size(80, 27);
             buscarLocalidadBTN.TabIndex = 17;
             buscarLocalidadBTN.Text = "Buscar";
+            buscarLocalidadBTN.Click += buscarLocalidadBTN_Click;
             // 
             // localidadCMB
             // 
             localidadCMB.FormattingEnabled = true;
+            localidadCMB.DropDownStyle = ComboBoxStyle.DropDownList;
             localidadCMB.Location = new Point(114, 108);
             localidadCMB.Name = "localidadCMB";
-            localidadCMB.Size = new Size(233, 28);
+            localidadCMB.Size = new Size(233, 23);
             localidadCMB.TabIndex = 18;
             // 
             // fleteroGBX
@@ -223,6 +230,7 @@
             generarBTN.Size = new Size(107, 32);
             generarBTN.TabIndex = 20;
             generarBTN.Text = "Generar HDR";
+            generarBTN.Click += generarBTN_Click;
             // 
             // EmisionHDRRetiroFRM
             // 
@@ -244,13 +252,6 @@
             Text = "Emisión de HDR de Retiro";
             Load += EmisionHDRRetiroFRM_Load;
             fleteroGBX.ResumeLayout(false);
-            buscarFleteroTBN.Click += new EventHandler(buscarFleteroTBN_Click);
-            buscarGuiaBTN.Click += new EventHandler(buscarGuiaBTN_Click);
-            buscarLocalidadBTN.Click += new EventHandler(buscarLocalidadBTN_Click);
-            agregarBTN.Click += new EventHandler(agregarBTN_Click);
-            quitarBTN.Click += new EventHandler(quitarBTN_Click);
-            generarBTN.Click += new EventHandler(generarBTN_Click);
-            cancelarBTN.Click += new EventHandler(cancelarBTN_Click);
             fleteroGBX.PerformLayout();
             ResumeLayout(false);
             PerformLayout();
