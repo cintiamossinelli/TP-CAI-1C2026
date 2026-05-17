@@ -7,6 +7,10 @@ using TP_CAI_1C2026.Forms.Imposicion.ImposicionCD;
 using TP_CAI_1C2026.Forms.UltimaMilla.AdmisionCD;
 using TP_CAI_1C2026.Forms.UltimaMilla.EmisionResumenHDRConfirmadas;
 using TP_CAI_1C2026.Forms.Administracion.EmisionFactura;
+using TP_CAI_1C2026.Forms.UltimaMilla.EmisionHDREntrega;
+using TP_CAI_1C2026.Forms.UltimaMilla.RecepcionHDRAgencia;
+using TP_CAI_1C2026.Forms.UltimaMilla.EmisionHDRRetiro;
+using TP_CAI_1C2026.Forms.Troncal.RecepcionHDRTransporte;
 
 namespace TP_CAI_1C2026
 {

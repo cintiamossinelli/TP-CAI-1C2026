@@ -23,8 +23,7 @@ namespace TP_CAI_1C2026.Forms.UltimaMilla.AdmisionCD
 
             if (guia == null)
             {
-                // El modelo ya mostró el error, limpio el campo y salgo
-                nGuiaTXT.Text = string.Empty;
+                // El modelo ya mostró el error, salgo
                 return;
             }
 
@@ -57,30 +56,28 @@ namespace TP_CAI_1C2026.Forms.UltimaMilla.AdmisionCD
 
         private void admitirBTN_Click(object sender, EventArgs e)
         {
-            if (guiasLST.Items.Count == 0)
-            {
-                MessageBox.Show("No hay guías para admitir. Por favor, agregue al menos una guía.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            var guias = guiasLST.Items.Cast<ListViewItem>().Select(i => (GuiasImpuestas)i.Tag).ToList();
+
+            if (!modelo.ValidarHayGuiasParaAdmitir(guias))
                 return;
-            }
-            else
-            {
-                MessageBox.Show("Las guías han sido admitidas exitosamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                guiasLST.Items.Clear();
-            }
+
+            modelo.CambiarEstadoDeGuias(guias, "Admitida");
+
+            MessageBox.Show("Las guías han sido admitidas exitosamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            guiasLST.Items.Clear();
         }
 
         private void rechazarBTN_Click(object sender, EventArgs e)
         {
-            if (guiasLST.Items.Count == 0)
-            {
-                MessageBox.Show("No hay guías para rechazar. Por favor, agregue al menos una guía.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            var guias = guiasLST.Items.Cast<ListViewItem>().Select(i => (GuiasImpuestas)i.Tag).ToList();
+
+            if (!modelo.ValidarHayGuiasParaRechazar(guias))
                 return;
-            }
-            else
-            {
-                MessageBox.Show("Las guías han sido rechazadas exitosamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                guiasLST.Items.Clear();
-            }
+
+            modelo.CambiarEstadoDeGuias(guias, "Rechazada");
+
+            MessageBox.Show("Las guías han sido rechazadas exitosamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            guiasLST.Items.Clear();
         }
 
         private void AdmisionCDFRM_Load(object sender, EventArgs e)
