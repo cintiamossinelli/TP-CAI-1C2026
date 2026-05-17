@@ -8,6 +8,7 @@ namespace TP_CAI_1C2026.Forms.UltimaMilla.AdmisionCD
     {
         public string Id { get; set; }
         public string Tamaño { get; set; }
+        public string Estado { get; set; }
     }
 
 }
