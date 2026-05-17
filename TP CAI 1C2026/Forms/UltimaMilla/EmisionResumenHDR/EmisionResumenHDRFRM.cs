@@ -9,68 +9,107 @@ namespace TP_CAI_1C2026.Forms.UltimaMilla.EmisionResumenHDR
     {
         private FleteroNegocio negocio = new FleteroNegocio();
         private Fletero fleteroActual;
+        private readonly EmisionResumenHDRModelo modelo = new EmisionResumenHDRModelo();
 
         public EmisionResumenHDRFRM()
         {
             InitializeComponent();
         }
 
-        private void buscarFleteroTBN_Click(object sender, EventArgs e)
+        private void buscarFleteroBTN_Click(object sender, EventArgs e)
         {
-            try
+            // Busco el cliente y valido el CUIT en el modelo
+            var fletero = modelo.BuscarFletero(dniFleteroTXT.Text);
+            if (fletero == null)
             {
-                // Buscar fletero usando los controles reales
-                fleteroActual = negocio.ValidarYBuscarFletero(dniFleteroTXT.Text);
-                nombreFleteroLBL.Text = fleteroActual.Nombre;
+                // Salgo directo porque dejo que el modelo muestre el error
+                nombreFleteroLBL.Text = string.Empty;
+                hdrEntregarLST.Items.Clear();
+                hdrRetirarLST.Items.Clear();
+                return;
             }
-            catch (ArgumentException ex)
+
+            nombreFleteroLBL.Text = fletero.Nombre;
+
+            // 1. Limpiamos las tablas antes de cargar los datos nuevos
+            hdrEntregarLST.Items.Clear();
+            hdrRetirarLST.Items.Clear();
+
+            // 2. Buscamos los datos mockeados en el modelo mediante el DNI
+            List<HDREntrega> entregasFiltradas = modelo.BuscarEntregasPorDni(fletero.Dni);
+            List<HDRRetiro> retirosFiltrados = modelo.BuscarRetirosPorDni(fletero.Dni);
+
+            // 3. Llenamos la tabla de Entregas (hdrEntregarLST)
+            foreach (var entrega in entregasFiltradas)
             {
-                MessageBox.Show(ex.Message, "Validación", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                dniFleteroTXT.Focus();
+                ListViewItem item = new ListViewItem(entrega.NroHojaRuta.ToString());
+                item.SubItems.Add(entrega.Domicilio);
+                item.SubItems.Add(entrega.CantEncomiendas.ToString());
+                // Guardamos el DNI del fletero asignado en el Tag para validaciones posteriores
+                item.Tag = entrega.DniFleteroAsignado;
+                hdrEntregarLST.Items.Add(item);
             }
-            catch (InvalidOperationException ex)
+
+            // 4. Llenamos la tabla de Retiros (hdrRetirarLST)
+            foreach (var retiro in retirosFiltrados)
             {
-                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                dniFleteroTXT.Clear();
-                dniFleteroTXT.Focus();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Error inesperado: " + ex.Message, "Error Crítico", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                ListViewItem item = new ListViewItem(retiro.NroHojaRuta.ToString());
+                item.SubItems.Add(retiro.Domicilio);
+                item.SubItems.Add(retiro.CantEncomiendas.ToString());
+                // Guardamos el DNI del fletero asignado en el Tag para validaciones posteriores
+                item.Tag = retiro.DniFleteroAsignado;
+                hdrRetirarLST.Items.Add(item);
             }
         }
 
         private void emitirResumenBTN_Click(object sender, EventArgs e)
         {
-            if (fleteroActual == null)
+            // 1. Validamos que haya alguna hoja de ruta cargada en las listas antes de avanzar
+            if (hdrEntregarLST.Items.Count == 0 && hdrRetirarLST.Items.Count == 0)
             {
-                MessageBox.Show("Debe seleccionar un fletero.", "Validación", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("No hay Hojas de Ruta cargadas para procesar la emisión de este fletero.", "Error de Validación", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
-            DialogResult confirmacion = MessageBox.Show(
-                "¿Desea emitir el Resumen B.4 para este fletero?",
-                "Confirmar",
-                MessageBoxButtons.YesNo,
-                MessageBoxIcon.Question
-            );
-
-            if (confirmacion == DialogResult.No) return;
-
-            try
+            // 1.b Validamos que el DNI ingresado corresponda a las HDR listadas
+            var dniNormalizado = EmisionResumenHDRModelo.NormalizarCuit(dniFleteroTXT.Text);
+            if (dniNormalizado == null)
             {
-                // Procesar emision usando las filas de tus listas/grillas reales
-                negocio.ProcesarEmisionResumen(fleteroActual, hdrEntregarLST.Items.Count, hdrRetirarLST.Items.Count);
-                MessageBox.Show("¡Resumen B.4 emitido con éxito!", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("El DNI ingresado no es válido.", "Error de Validación", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            // Verificamos cada item en Entregas
+            foreach (ListViewItem item in hdrEntregarLST.Items)
+            {
+                var tagDni = item.Tag as string;
+                if (string.IsNullOrWhiteSpace(tagDni) || tagDni != dniNormalizado)
+                {
+                    MessageBox.Show($"El DNI ingresado no coincide con la HDR N° {item.Text} en la lista de Entregas.", "Error de Validación", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+            }
+
+            // Verificamos cada item en Retiros
+            foreach (ListViewItem item in hdrRetirarLST.Items)
+            {
+                var tagDni = item.Tag as string;
+                if (string.IsNullOrWhiteSpace(tagDni) || tagDni != dniNormalizado)
+                {
+                    MessageBox.Show($"El DNI ingresado no coincide con la HDR N° {item.Text} en la lista de Retiros.", "Error de Validación", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+            }
+
+            // 2. Cuadro de confirmación al usuario
+            DialogResult confirmacion = MessageBox.Show("¿Está seguro de que desea generar y emitir el resumen de HDR para este fletero?", "Confirmar Emisión", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+            if (confirmacion == DialogResult.Yes)
+            {
+                MessageBox.Show("¡Resumen de Emisión HDR generado con éxito! Se registró la orden de despacho.", "Operación Exitosa", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                // 3. Reutilizamos el método LimpiarPantalla que tenías hecho abajo
                 LimpiarPantalla();
-            }
-            catch (InvalidOperationException ex)
-            {
-                MessageBox.Show(ex.Message, "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Error: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -86,14 +125,14 @@ namespace TP_CAI_1C2026.Forms.UltimaMilla.EmisionResumenHDR
 
         private void cancelarBTN_Click(object sender, EventArgs e)
         {
-            // 1. Limpiamos el cuadro de texto donde se escribe el DNI
-            dniFleteroTXT.Clear(); // Cambiá "dniFleteroTXT" por el nombre real de tu TextBox
-
-            // 2. Limpiamos la etiqueta que muestra el nombre del fletero encontrado
-            nombreFleteroLBL.Text = ""; // Cambiá "nombreFleteroLBL" por tu Label de nombre
-
-            // 3. Si tenés un desplegable o una grilla (ListView), los vaciamos también
-            // tuListView.Items.Clear();
+            
+            LimpiarPantalla();
         }
+
+        private void nombreFleteroLBL_Click(object sender, EventArgs e)
+        {
+
+        }
+
     }
 }

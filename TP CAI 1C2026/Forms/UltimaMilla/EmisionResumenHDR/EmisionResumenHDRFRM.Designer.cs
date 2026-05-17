@@ -59,7 +59,7 @@
             buscarFleteroBTN.Size = new Size(80, 27);
             buscarFleteroBTN.TabIndex = 2;
             buscarFleteroBTN.Text = "Buscar";
-            buscarFleteroBTN.Click += buscarFleteroTBN_Click;
+            buscarFleteroBTN.Click += buscarFleteroBTN_Click;
             // 
             // nombreFleteroLBL
             // 
@@ -69,6 +69,7 @@
             nombreFleteroLBL.Size = new Size(340, 25);
             nombreFleteroLBL.TabIndex = 3;
             nombreFleteroLBL.Text = "Nombre del Fletero";
+            nombreFleteroLBL.Click += nombreFleteroLBL_Click;
             // 
             // hdrEntregarGBX
             // 
