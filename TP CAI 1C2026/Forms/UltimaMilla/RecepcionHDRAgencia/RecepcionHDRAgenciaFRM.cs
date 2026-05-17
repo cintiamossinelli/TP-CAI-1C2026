@@ -18,6 +18,7 @@ namespace TP_CAI_1C2026.Forms.UltimaMilla.RecepcionHDRAgencia
         public RecepcionHDRAgenciaFRM()
         {
             InitializeComponent();
+            this.Load += RecepcionHDRAgenciaFRM_Load;
         }
 
         private void RecepcionHDRAgenciaFRM_Load(
@@ -90,7 +91,7 @@ namespace TP_CAI_1C2026.Forms.UltimaMilla.RecepcionHDRAgencia
             object sender,
             EventArgs e)
         {
-            if (hdrSeleccionada == null)
+            if (hdrSeleccionada == null || HDRnumCMB.SelectedIndex == -1)
             {
                 MessageBox.Show(
                     "Debe seleccionar un HDR.",
@@ -139,7 +140,8 @@ namespace TP_CAI_1C2026.Forms.UltimaMilla.RecepcionHDRAgencia
             object sender,
             EventArgs e)
         {
-            this.Close();
+            HDRnumCMB.SelectedIndex = -1;
+            GuiasLST.Items.Clear();
         }
     }
 }
