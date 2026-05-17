@@ -1,31 +1,13 @@
-﻿namespace TP_CAI_1C2026.Forms.Troncal.DespachoHDRTransporte
+﻿using System;
+using System.Collections.Generic;
+using System.Drawing;
+using System.Linq;
+using System.Windows.Forms;
+
+namespace TP_CAI_1C2026.Forms.Troncal.DespachoHDRTransporte
 {
     partial class DespachoHDRTransporte
     {
-        /// <summary>
-        /// Required designer variable.
-        /// </summary>
-        private System.ComponentModel.IContainer components = null;
-
-        /// <summary>
-        /// Clean up any resources being used.
-        /// </summary>
-        /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
-        protected override void Dispose(bool disposing)
-        {
-            if (disposing && (components != null))
-            {
-                components.Dispose();
-            }
-            base.Dispose(disposing);
-        }
-
-        #region Windows Form Designer generated code
-
-        /// <summary>
-        /// Required method for Designer support - do not modify
-        /// the contents of this method with the code editor.
-        /// </summary>
         private void InitializeComponent()
         {
             servicioOmnibusLBL = new Label();
@@ -49,7 +31,6 @@
             // 
             // listView1
             // 
-            listView1.CheckBoxes = true;
             listView1.Columns.AddRange(new ColumnHeader[] { columnNumGuia, columnTipoEncomienda, columnDestino });
             listView1.GridLines = true;
             listView1.Location = new Point(26, 82);
@@ -77,7 +58,6 @@
             // HDRnumCMB
             // 
             HDRnumCMB.FormattingEnabled = true;
-            HDRnumCMB.Items.AddRange(new object[] { "HDR-9999" });
             HDRnumCMB.Location = new Point(144, 32);
             HDRnumCMB.Margin = new Padding(3, 2, 3, 2);
             HDRnumCMB.Name = "HDRnumCMB";
@@ -120,8 +100,6 @@
             ResumeLayout(false);
             PerformLayout();
         }
-
-        #endregion
 
         private Label servicioOmnibusLBL;
         private ListView listView1;
