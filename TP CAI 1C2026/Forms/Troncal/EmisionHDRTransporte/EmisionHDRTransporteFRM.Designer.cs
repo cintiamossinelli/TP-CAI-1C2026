@@ -78,6 +78,7 @@
             CDdestinoCMB.Margin = new Padding(3, 2, 3, 2);
             CDdestinoCMB.Name = "CDdestinoCMB";
             CDdestinoCMB.Size = new Size(715, 23);
+            CDdestinoCMB.Sorted = true;
             CDdestinoCMB.TabIndex = 1;
             // 
             // GuiasLST
@@ -171,6 +172,7 @@
             transporteCMB.Margin = new Padding(3, 2, 3, 2);
             transporteCMB.Name = "transporteCMB";
             transporteCMB.Size = new Size(358, 23);
+            transporteCMB.Sorted = true;
             transporteCMB.TabIndex = 42;
             // 
             // transporteLBL
@@ -190,6 +192,7 @@
             buscarFechaBTN.Size = new Size(70, 20);
             buscarFechaBTN.TabIndex = 42;
             buscarFechaBTN.Text = "Buscar";
+            buscarFechaBTN.Click += buscarFechaBTN_Click;
             // 
             // buscarTransporteBTN
             // 
@@ -199,6 +202,7 @@
             buscarTransporteBTN.Size = new Size(70, 20);
             buscarTransporteBTN.TabIndex = 43;
             buscarTransporteBTN.Text = "Buscar";
+            buscarTransporteBTN.Click += buscarFechaBTN_Click;
             // 
             // fechaLBL
             // 
@@ -217,6 +221,7 @@
             fechaDTP.Name = "fechaDTP";
             fechaDTP.Size = new Size(120, 23);
             fechaDTP.TabIndex = 12;
+            fechaDTP.ValueChanged += fechaDTP_ValueChanged;
             // 
             // generarHDRBTN
             // 
@@ -226,6 +231,7 @@
             generarHDRBTN.Size = new Size(94, 24);
             generarHDRBTN.TabIndex = 6;
             generarHDRBTN.Text = "Generar HDR";
+            generarHDRBTN.Click += generarHDRBTN_Click;
             // 
             // cancelarBTN
             // 
@@ -235,6 +241,7 @@
             cancelarBTN.Size = new Size(94, 24);
             cancelarBTN.TabIndex = 13;
             cancelarBTN.Text = "Cancelar";
+            cancelarBTN.Click += cancelarBTN_Click;
             // 
             // agregarBTN
             // 
@@ -244,6 +251,7 @@
             agregarBTN.Size = new Size(95, 24);
             agregarBTN.TabIndex = 35;
             agregarBTN.Text = "Agregar >>>";
+            agregarBTN.Click += agregarBTN_Click;
             // 
             // nGuiaLBL
             // 
@@ -262,6 +270,7 @@
             quitarBTN.Size = new Size(95, 24);
             quitarBTN.TabIndex = 34;
             quitarBTN.Text = "Quitar <<<";
+            quitarBTN.Click += quitarBTN_Click;
             // 
             // nGuiaTXT
             // 
@@ -311,6 +320,7 @@
             buscarGuiaBTN.Size = new Size(70, 20);
             buscarGuiaBTN.TabIndex = 38;
             buscarGuiaBTN.Text = "Buscar";
+            buscarGuiaBTN.Click += buscarGuiaBTN_Click;
             // 
             // guiasGBX
             // 
