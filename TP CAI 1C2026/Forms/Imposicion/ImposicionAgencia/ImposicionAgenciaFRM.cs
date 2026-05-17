@@ -198,7 +198,20 @@ namespace TP_CAI_1C2026.Forms.Imposicion.ImposicionAgencia
 
         private void cancelarBTN_Click(object sender, EventArgs e)
         {
-            this.Close();
+            idClienteTXT.Text = string.Empty;
+            nombreClienteLBL.Text = string.Empty;
+            cdRDB.Checked = true;
+            destinoCDCMB.SelectedIndex = -1;
+            ciudadAgenciaCMB.SelectedIndex = -1;
+            agenciaCMB.SelectedIndex = -1;
+            ciudadDestinatarioCMB.SelectedIndex = -1;
+            direccionDestinatarioTXT.Text = string.Empty;
+            dniDestinatarioTXT.Text = string.Empty;
+            nombreDestinatarioTXT.Text = string.Empty;
+            tipoCajaCMB.SelectedIndex = -1;
+            cantidadTXT.Text = string.Empty;
+            encomiendaLST.Items.Clear();
+            modelo.LimpiarDetalles(); // Limpio los detalles del modelo para la próxima imposición
         }
 
         private void confirmarBTN_Click(object sender, EventArgs e)

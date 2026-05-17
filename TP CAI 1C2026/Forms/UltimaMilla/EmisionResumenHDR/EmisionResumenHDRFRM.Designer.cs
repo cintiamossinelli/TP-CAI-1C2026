@@ -59,6 +59,7 @@
             buscarFleteroBTN.Size = new Size(80, 27);
             buscarFleteroBTN.TabIndex = 2;
             buscarFleteroBTN.Text = "Buscar";
+            buscarFleteroBTN.Click += buscarFleteroTBN_Click;
             // 
             // nombreFleteroLBL
             // 
@@ -150,6 +151,7 @@
             generarResumenBTN.Size = new Size(80, 32);
             generarResumenBTN.TabIndex = 6;
             generarResumenBTN.Text = "Generar";
+            generarResumenBTN.Click += emitirResumenBTN_Click;
             // 
             // cancelarBTN
             // 
@@ -158,6 +160,7 @@
             cancelarBTN.Size = new Size(80, 32);
             cancelarBTN.TabIndex = 7;
             cancelarBTN.Text = "Cancelar";
+            cancelarBTN.Click += cancelarBTN_Click;
             // 
             // EmisionResumenHDRFRM
             // 
