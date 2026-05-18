@@ -31,8 +31,9 @@ namespace TP_CAI_1C2026.Forms.Administracion.CuentaCorrienteCliente
             colFecha = new ColumnHeader();
             colDescripcion = new ColumnHeader();
             colImporte = new ColumnHeader();
-            colSaldo = new ColumnHeader();
             cancelarBTN = new Button();
+            calculoSaldoLBL = new Label();
+            saldoLBL = new Label();
             SuspendLayout();
             // 
             // idClienteLBL
@@ -115,12 +116,12 @@ namespace TP_CAI_1C2026.Forms.Administracion.CuentaCorrienteCliente
             // 
             // cuentaCorrienteLST
             // 
-            cuentaCorrienteLST.Columns.AddRange(new ColumnHeader[] { colFecha, colDescripcion, colImporte, colSaldo });
+            cuentaCorrienteLST.Columns.AddRange(new ColumnHeader[] { colFecha, colDescripcion, colImporte });
             cuentaCorrienteLST.FullRowSelect = true;
             cuentaCorrienteLST.GridLines = true;
             cuentaCorrienteLST.Location = new Point(12, 103);
             cuentaCorrienteLST.Name = "cuentaCorrienteLST";
-            cuentaCorrienteLST.Size = new Size(545, 250);
+            cuentaCorrienteLST.Size = new Size(535, 250);
             cuentaCorrienteLST.TabIndex = 9;
             cuentaCorrienteLST.UseCompatibleStateImageBehavior = false;
             cuentaCorrienteLST.View = View.Details;
@@ -133,19 +134,13 @@ namespace TP_CAI_1C2026.Forms.Administracion.CuentaCorrienteCliente
             // colDescripcion
             // 
             colDescripcion.Text = "Descripción";
-            colDescripcion.Width = 200;
+            colDescripcion.Width = 280;
             // 
             // colImporte
             // 
             colImporte.Text = "Importe";
             colImporte.TextAlign = HorizontalAlignment.Right;
-            colImporte.Width = 120;
-            // 
-            // colSaldo
-            // 
-            colSaldo.Text = "Saldo";
-            colSaldo.TextAlign = HorizontalAlignment.Right;
-            colSaldo.Width = 120;
+            colImporte.Width = 150;
             // 
             // cancelarBTN
             // 
@@ -156,9 +151,31 @@ namespace TP_CAI_1C2026.Forms.Administracion.CuentaCorrienteCliente
             cancelarBTN.Text = "Cancelar";
             cancelarBTN.Click += cancelarBTN_Click;
             // 
+            // calculoSaldoLBL
+            // 
+            calculoSaldoLBL.BackColor = SystemColors.ActiveCaption;
+            calculoSaldoLBL.Font = new System.Drawing.Font("Segoe UI", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            calculoSaldoLBL.Location = new Point(375, 356);
+            calculoSaldoLBL.Name = "calculoSaldoLBL";
+            calculoSaldoLBL.Size = new Size(172, 25);
+            calculoSaldoLBL.TabIndex = 11;
+            calculoSaldoLBL.Text = "$ 0,00";
+            calculoSaldoLBL.TextAlign = ContentAlignment.MiddleRight;
+            // 
+            // saldoLBL
+            // 
+            saldoLBL.Location = new Point(327, 358);
+            saldoLBL.Name = "saldoLBL";
+            saldoLBL.Size = new Size(42, 23);
+            saldoLBL.TabIndex = 12;
+            saldoLBL.Text = "Saldo:";
+            saldoLBL.TextAlign = ContentAlignment.MiddleRight;
+            // 
             // CuentaCorrienteClienteFRM
             // 
             ClientSize = new Size(569, 430);
+            Controls.Add(saldoLBL);
+            Controls.Add(calculoSaldoLBL);
             Controls.Add(idClienteLBL);
             Controls.Add(idClienteTXT);
             Controls.Add(buscarClienteBTN);
@@ -189,7 +206,8 @@ namespace TP_CAI_1C2026.Forms.Administracion.CuentaCorrienteCliente
         private ColumnHeader colFecha;
         private ColumnHeader colDescripcion;
         private ColumnHeader colImporte;
-        private ColumnHeader colSaldo;
         private Button cancelarBTN;
+        private Label calculoSaldoLBL;
+        private Label saldoLBL;
     }
 }
