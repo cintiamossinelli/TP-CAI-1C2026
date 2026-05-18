@@ -164,9 +164,10 @@ namespace TP_CAI_1C2026.Forms.Administracion.CuentaCorrienteCliente
             // 
             // saldoLBL
             // 
-            saldoLBL.Location = new Point(327, 358);
+            saldoLBL.Font = new System.Drawing.Font("Segoe UI", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            saldoLBL.Location = new Point(305, 358);
             saldoLBL.Name = "saldoLBL";
-            saldoLBL.Size = new Size(42, 23);
+            saldoLBL.Size = new Size(64, 23);
             saldoLBL.TabIndex = 12;
             saldoLBL.Text = "Saldo:";
             saldoLBL.TextAlign = ContentAlignment.MiddleRight;
