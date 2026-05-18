@@ -8,5 +8,7 @@ namespace TP_CAI_1C2026.Forms.Administración.CuentaCorrienteCliente
     {
         public string Cuit { get; set; }
         public string RazonSocial { get; set; }
+
+      
     }
 }

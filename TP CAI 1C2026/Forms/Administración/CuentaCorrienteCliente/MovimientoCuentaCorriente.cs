@@ -10,5 +10,8 @@ namespace TP_CAI_1C2026.Forms.Administracion.CuentaCorrienteCliente
         public DateTime Fecha { get; set; }
         public string Descripcion { get; set; }
         public decimal Importe { get; set; }
+
+        public string Saldo { get; set; }
+
     }
 }

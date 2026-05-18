@@ -17,7 +17,7 @@ namespace TP_CAI_1C2026.Forms.Administracion.CuentaCorrienteCliente
     public partial class CuentaCorrienteClienteFRM : Form
     {
         private readonly CuentaCorrienteClienteModelo modelo = new CuentaCorrienteClienteModelo();
-        
+
 
         public CuentaCorrienteClienteFRM()
         {
@@ -26,9 +26,9 @@ namespace TP_CAI_1C2026.Forms.Administracion.CuentaCorrienteCliente
 
         private void CuentaCorrienteClienteFRM_Load(object sender, EventArgs e)
         {
-            
+
         }
-                
+
         private void buscarClienteBTN_Click(object sender, EventArgs e)
         {
             // Busco el cliente y valido el CUIT en el modelo
@@ -46,6 +46,44 @@ namespace TP_CAI_1C2026.Forms.Administracion.CuentaCorrienteCliente
         private void cancelarBTN_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void buscarBTN_Click(object sender, EventArgs e)
+        {
+            DateTime fechaDesde = desdeDTP.Value.Date;
+            DateTime fechaHasta = hastaDTP.Value.Date;
+            DateTime hoy = DateTime.Today;
+
+            if (fechaDesde > hoy)
+            {
+                MessageBox.Show("La fecha Desde debe ser anterior a hoy.");
+                desdeDTP.Focus();
+                return;
+            }
+
+            if (fechaHasta > hoy)
+            {
+                MessageBox.Show("La fecha Hasta debe ser anterior a hoy.");
+                hastaDTP.Focus();
+                return;
+            }
+
+            if (fechaHasta < fechaDesde)
+            {
+                MessageBox.Show("La fecha Hasta no puede ser menor que la fecha Desde.");
+                hastaDTP.Focus();
+                return;
+            }
+
+            var cliente = modelo.BuscarCliente(idClienteTXT.Text);
+            if (cliente == null)
+            {
+                //salgo directo porque dejo que el modelo muestre el error.
+                nombreClienteLBL.Text = string.Empty;
+                return;
+            }
+
+            nombreClienteLBL.Text = cliente.RazonSocial;
         }
     }
 }

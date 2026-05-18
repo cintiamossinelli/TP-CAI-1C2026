@@ -111,6 +111,7 @@ namespace TP_CAI_1C2026.Forms.Administracion.CuentaCorrienteCliente
             buscarBTN.Size = new Size(92, 27);
             buscarBTN.TabIndex = 8;
             buscarBTN.Text = "Buscar";
+            buscarBTN.Click += buscarBTN_Click;
             // 
             // cuentaCorrienteLST
             // 
