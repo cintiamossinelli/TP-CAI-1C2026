@@ -1,86 +1,79 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 using System.Windows.Forms;
 
 namespace TP_CAI_1C2026.Forms.Troncal.DespachoHDRTransporte
 {
     public partial class DespachoHDRTransporte : Form
     {
+        private readonly DespachoHDRTransporteModelo modelo = new DespachoHDRTransporteModelo();
+        private List<Servicio> _servicios = new List<Servicio>();
+
         public DespachoHDRTransporte()
         {
             InitializeComponent();
+            HDRnumCMB.DropDownStyle = ComboBoxStyle.DropDownList; //solo selección
+
+            // Cargar servicios entre hoy y los próximos 10 días
+            var fechaHoy = DateTime.Today;
+            var fechaLimite = fechaHoy.AddDays(+10);
+            _servicios = modelo.ObtenerServicios()
+                .Where(s => s.FechayHora.Date >= fechaHoy && s.FechayHora.Date <= fechaLimite)
+                .OrderBy(s => s.FechayHora)
+                .ToList();
+
+            HDRnumCMB.Items.Clear();
+            foreach (var servicio in _servicios)
+            {
+                HDRnumCMB.Items.Add(servicio.Empresa + " - " + servicio.FechayHora.ToString("dd/MM/yyyy HH:mm"));
+            }
         }
 
         private void HDRnumCMB_SelectedIndexChanged(object sender, EventArgs e)
         {
-            // Si el usuario deselecciona o queda vacío, limpiamos la grilla y salimos
-            if (HDRnumCMB.SelectedIndex == -1)
+            listView1.Items.Clear();
+
+            // Verificación defensiva
+            if (HDRnumCMB.SelectedIndex < 0 || HDRnumCMB.SelectedIndex >= _servicios.Count) return;
+
+            Servicio servicioSeleccionado = _servicios[HDRnumCMB.SelectedIndex];
+
+            foreach (var guia in servicioSeleccionado.GuiasAsociadas)
             {
-                listView1.Items.Clear();
-                return;
+                ListViewItem item = new ListViewItem(guia.Id);
+                item.SubItems.Add(guia.Tamaño);
+                item.SubItems.Add(guia.destino);
+                listView1.Items.Add(item);
             }
-
-            // --- MODO SIMULACIÓN PARA PROBAR TU PANTALLA ---
-            listView1.Items.Clear(); // Limpiamos lo que haya antes
-
-            // Creamos 3 encomiendas ficticias 
-            ListViewItem item1 = new ListViewItem("G-00124"); // N° Guía
-            item1.SubItems.Add("Caja Mediana");              // Tipo Encomienda
-            item1.SubItems.Add("Córdoba Centro");            // Destino
-
-            ListViewItem item2 = new ListViewItem("G-00125");
-            item2.SubItems.Add("Sobres Documentos");
-            item2.SubItems.Add("Rosario Terminal");
-
-            ListViewItem item3 = new ListViewItem("G-00341");
-            item3.SubItems.Add("Pack Bidones");
-            item3.SubItems.Add("Mendoza Capital");
-
-            // Las subimos a la lista visual
-            listView1.Items.Add(item1);
-            listView1.Items.Add(item2);
-            listView1.Items.Add(item3);
-
-            // OBLIGAMOS A LA PANTALLA A REFRESCARSE
-            listView1.Refresh();
-            // ------------------------------------------------
         }
 
         private void despacharHDRBTN_Click(object sender, EventArgs e)
         {
-            // 1. Validar que hayan seleccionado una Hoja de Ruta en el combo
-            if (HDRnumCMB.SelectedIndex == -1 || string.IsNullOrEmpty(HDRnumCMB.Text))
+            if (HDRnumCMB.SelectedIndex == -1)
             {
-                MessageBox.Show("Por favor, seleccione un número de Hoja de Ruta (HDR) para despachar.", "Validación", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Debe seleccionar un servicio de transporte.", "Validación", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 HDRnumCMB.Focus();
                 return;
             }
 
-            // 2. Validar que la Hoja de Ruta seleccionada tenga encomiendas en la lista
-            if (listView1.Items.Count == 0)
-            {
-                MessageBox.Show("No se puede despachar una Hoja de Ruta sin encomiendas asignadas.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            DialogResult confirmacion = MessageBox.Show(
+                "¿Está seguro que desea despachar " + listView1.Items.Count + " guía/s para el servicio seleccionado?",
+                "Confirmar recepción",
+                MessageBoxButtons.YesNo,
+                MessageBoxIcon.Question);
+
+            if (confirmacion == DialogResult.No)
                 return;
-            }
+            MessageBox.Show("Se han despachado las guía/s con éxito.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-            // 3. Pedir confirmación al usuario antes de proceder
-            DialogResult resultado = MessageBox.Show($"¿Está seguro de que desea confirmar el despacho de la HDR {HDRnumCMB.Text}?", "Confirmar Despacho", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-
-            if (resultado == DialogResult.Yes)
-            {
-                MessageBox.Show("¡Hoja de Ruta despachada con éxito!", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-                // Limpiamos todo para la próxima
-                HDRnumCMB.SelectedIndex = -1;
-                listView1.Items.Clear();
-            }
+            HDRnumCMB.SelectedIndex = -1;
+            listView1.Items.Clear();
         }
 
         private void cancelarBTN_Click(object sender, EventArgs e)
         {
-            // 1. Limpiamos el cuadro desplegable (vuelve a quedar en blanco)
             HDRnumCMB.SelectedIndex = -1;
-
-            // 2. Vaciamos la tabla de encomiendas
             listView1.Items.Clear();
         }
     }

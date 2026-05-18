@@ -8,5 +8,6 @@ namespace TP_CAI_1C2026.Forms.Administración.EmisionFactura
     {
         public string Cuit { get; set; }
         public string RazonSocial { get; set; }
+        public List<GuiasAFacturar> GuiasPendientes { get; set; } = new List<GuiasAFacturar>();
     }
 }

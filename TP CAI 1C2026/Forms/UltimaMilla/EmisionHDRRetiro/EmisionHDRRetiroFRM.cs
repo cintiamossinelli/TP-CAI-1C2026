@@ -129,12 +129,13 @@
 
         private void generarBTN_Click(object sender, EventArgs e)
         {
+            fleteroSeleccionado = modelo.BuscarFletero(dniFleteroTXT.Text);
             if (fleteroSeleccionado == null)
             {
-                MessageBox.Show("Debe buscar y seleccionar un fletero.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                //MessageBox.Show("Debe buscar y seleccionar un fletero.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
-
+            
             bool resultado = modelo.GenerarHDR(fleteroSeleccionado, guiasAgregadas, out string mensajeExito, out string error);
             if (!resultado)
             {

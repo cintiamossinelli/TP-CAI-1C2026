@@ -39,6 +39,7 @@
             dniFleteroTXT = new TextBox();
             dniFleteroLBL = new Label();
             nombreFleteroLBL = new Label();
+            LeyendaLBL = new Label();
             SuspendLayout();
             // 
             // cancelarBTN
@@ -56,7 +57,7 @@
             hdrEnTransitoLSVT.CheckBoxes = true;
             hdrEnTransitoLSVT.Columns.AddRange(new ColumnHeader[] { colNHDR, colDomicilio, colCantEncomiendas });
             hdrEnTransitoLSVT.GridLines = true;
-            hdrEnTransitoLSVT.Location = new Point(37, 105);
+            hdrEnTransitoLSVT.Location = new Point(38, 111);
             hdrEnTransitoLSVT.Name = "hdrEnTransitoLSVT";
             hdrEnTransitoLSVT.Size = new Size(631, 405);
             hdrEnTransitoLSVT.TabIndex = 3;
@@ -72,7 +73,6 @@
             // colDomicilio
             // 
             colDomicilio.Text = "Domicilio";
-            colDomicilio.TextAlign = HorizontalAlignment.Center;
             colDomicilio.Width = 400;
             // 
             // colCantEncomiendas
@@ -139,11 +139,24 @@
             nombreFleteroLBL.TabIndex = 3;
             nombreFleteroLBL.Text = "Nombre del Fletero";
             // 
+            // LeyendaLBL
+            // 
+            LeyendaLBL.AutoSize = true;
+            LeyendaLBL.Font = new Font("Segoe UI", 8.25F, FontStyle.Bold | FontStyle.Underline, GraphicsUnit.Point, 0);
+            LeyendaLBL.ForeColor = SystemColors.Desktop;
+            LeyendaLBL.Location = new Point(38, 89);
+            LeyendaLBL.Name = "LeyendaLBL";
+            LeyendaLBL.Size = new Size(343, 13);
+            LeyendaLBL.TabIndex = 6;
+            LeyendaLBL.Text = "Las HDR no seleccionadas cambiarán a estado \"No Confirmadas\"";
+            LeyendaLBL.Click += label1_Click_1;
+            // 
             // EmisionResumenHDRConfirmadasFRM
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(704, 574);
+            Controls.Add(LeyendaLBL);
             Controls.Add(nombreFleteroLBL);
             Controls.Add(dniFleteroLBL);
             Controls.Add(GenerarResumenBTN);
@@ -172,5 +185,6 @@
         private TextBox dniFleteroTXT;
         private Label dniFleteroLBL;
         private Label nombreFleteroLBL;
+        private Label LeyendaLBL;
     }
 }

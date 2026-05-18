@@ -54,6 +54,8 @@
             mesTXT.Name = "mesTXT";
             mesTXT.Size = new Size(141, 23);
             mesTXT.TabIndex = 1;
+            mesTXT.KeyPress += mesTXT_KeyPress;
+            mesTXT.KeyDown += mesTXT_KeyDown;
             // 
             // anioLBL
             // 
@@ -71,6 +73,8 @@
             anioTXT.Name = "anioTXT";
             anioTXT.Size = new Size(141, 23);
             anioTXT.TabIndex = 3;
+            anioTXT.KeyPress += anioTXT_KeyPress;
+            anioTXT.KeyDown += anioTXT_KeyDown;
             // 
             // buscarBTN
             // 
@@ -79,6 +83,7 @@
             buscarBTN.Size = new Size(100, 27);
             buscarBTN.TabIndex = 4;
             buscarBTN.Text = "Buscar";
+            buscarBTN.Click += buscarBTN_Click;
             // 
             // resultadosLST
             // 
@@ -211,6 +216,7 @@
             cancelarBTN.Size = new Size(80, 32);
             cancelarBTN.TabIndex = 9;
             cancelarBTN.Text = "Cancelar";
+            cancelarBTN.Click += cancelarBTN_Click;
             // 
             // ResultadoCostosVentasFRM
             // 

@@ -44,7 +44,7 @@ namespace TP_CAI_1C2026.Forms.Administracion.EmisionFactura
             // idClienteTXT
             // 
             idClienteTXT.Location = new Point(123, 18);
-            idClienteTXT.MaxLength = 11;
+            idClienteTXT.MaxLength = 13;
             idClienteTXT.Name = "idClienteTXT";
             idClienteTXT.Size = new Size(130, 31);
             idClienteTXT.TabIndex = 1;
