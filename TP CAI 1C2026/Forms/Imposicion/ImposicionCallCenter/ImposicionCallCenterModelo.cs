@@ -47,10 +47,10 @@ namespace TP_CAI_1C2026.Forms.Imposicion.ImposicionCallCenter
             return clienteEncontrado;
         }
 
-        internal List<Agencia> ObtenerAgencias(Ciudad? ciudadSeleccionada)
-        {
-            return ciudadSeleccionada.Agencias;
-        }
+        //internal List<Agencia> ObtenerAgencias(Ciudad? ciudadSeleccionada)
+        //{
+        //    return ciudadSeleccionada.Agencias;
+        //}
 
         internal List<CentroDeDistribucion> ObtenerCDS()
         {

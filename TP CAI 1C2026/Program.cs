@@ -1,4 +1,5 @@
 using TP_CAI_1C2026.Forms.Administracion.CuentaCorrienteCliente;
+using TP_CAI_1C2026.Forms.Administracion.ResultadoCostoVentas;
 using TP_CAI_1C2026.Forms.Consultas.ConsultarTracking;
 using TP_CAI_1C2026.Forms.Entregas.EntregaAgencia;
 using TP_CAI_1C2026.Forms.Entregas.EntregaCD;
@@ -22,7 +23,7 @@ namespace TP_CAI_1C2026
         static void Main()
         {
             ApplicationConfiguration.Initialize();
-            Application.Run(new ImposicionCDFRM());
+            Application.Run(new ResultadoCostosVentasFRM());
         }
     }
 }
