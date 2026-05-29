@@ -2,6 +2,10 @@
 
 internal class EmisionHDREntregaModelo
 {
+    public List<Guia> guiasAgregadas = new List<Guia>();
+    public Fletero? fleteroSeleccionado = null;
+
+
     private List<Fletero> fleteros = new List<Fletero>
     {
         new Fletero { Dni = 12345678, Nombre = "Carlos López" },
@@ -56,6 +60,10 @@ internal class EmisionHDREntregaModelo
             return null;
         }
 
+
+
+        fleteroSeleccionado = fletero;
+
         return fletero;
     }
 
@@ -87,10 +95,16 @@ internal class EmisionHDREntregaModelo
         return localidades;
     }
 
-    internal bool GenerarHDR(Fletero fletero, List<Guia> guiasAgregadas, out string mensajeExito, out string error)
+    internal bool GenerarHDR(out string mensajeExito, out string error)
     {
         error = string.Empty;
         mensajeExito = string.Empty;
+
+        if (fleteroSeleccionado == null)
+        {
+            MessageBox.Show("Debe buscar y seleccionar un fletero.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            return false;
+        }
 
         if (guiasAgregadas.Count == 0)
         {
@@ -99,7 +113,22 @@ internal class EmisionHDREntregaModelo
         }
 
         ultimoNumeroHDR++;
-        mensajeExito = $"HDR N° {ultimoNumeroHDR} generada correctamente para el fletero {fletero.Nombre}.";
+        mensajeExito = $"HDR N° {ultimoNumeroHDR} generada correctamente para el fletero {fleteroSeleccionado.Nombre}.";
         return true;
+    }
+
+    internal void AgregarGuia(string nGuia)
+    {
+        var guia = BuscarGuia(nGuia);
+        if (guia != null && !guiasAgregadas.Contains(guia))
+        {
+            guiasAgregadas.Add(guia);
+        }
+    }
+
+    internal void Limpiar()
+    {
+        fleteroSeleccionado = null;
+        guiasAgregadas.Clear();
     }
 }

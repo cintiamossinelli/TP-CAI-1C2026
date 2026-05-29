@@ -1,14 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Windows.Forms;
-
-namespace TP_CAI_1C2026.Forms.Troncal.DespachoHDRTransporte
+﻿namespace TP_CAI_1C2026.Forms.Troncal.DespachoHDRTransporte
 {
     public partial class DespachoHDRTransporte : Form
     {
         private readonly DespachoHDRTransporteModelo modelo = new DespachoHDRTransporteModelo();
-        private List<Servicio> _servicios = new List<Servicio>();
 
         public DespachoHDRTransporte()
         {
@@ -18,13 +12,13 @@ namespace TP_CAI_1C2026.Forms.Troncal.DespachoHDRTransporte
             // Cargar servicios entre hoy y los próximos 10 días
             var fechaHoy = DateTime.Today;
             var fechaLimite = fechaHoy.AddDays(+10);
-            _servicios = modelo.ObtenerServicios()
+            var servicios = modelo.ObtenerServicios()
                 .Where(s => s.FechayHora.Date >= fechaHoy && s.FechayHora.Date <= fechaLimite)
                 .OrderBy(s => s.FechayHora)
                 .ToList();
 
             HDRnumCMB.Items.Clear();
-            foreach (var servicio in _servicios)
+            foreach (var servicio in servicios)
             {
                 HDRnumCMB.Items.Add(servicio.Empresa + " - " + servicio.FechayHora.ToString("dd/MM/yyyy HH:mm"));
             }
@@ -34,10 +28,21 @@ namespace TP_CAI_1C2026.Forms.Troncal.DespachoHDRTransporte
         {
             listView1.Items.Clear();
 
-            // Verificación defensiva
-            if (HDRnumCMB.SelectedIndex < 0 || HDRnumCMB.SelectedIndex >= _servicios.Count) return;
+            var fechaHoy = DateTime.Today;
+            var fechaLimite = fechaHoy.AddDays(+10);
 
-            Servicio servicioSeleccionado = _servicios[HDRnumCMB.SelectedIndex];
+            var servicios = modelo.ObtenerServicios()
+                .Where(s => s.FechayHora.Date >= fechaHoy && s.FechayHora.Date <= fechaLimite)
+                .OrderBy(s => s.FechayHora)
+                .ToList();
+
+            // Verificación defensiva
+            if (HDRnumCMB.SelectedIndex < 0 || HDRnumCMB.SelectedIndex >= servicios.Count)
+            {
+                return;
+            }
+
+            Servicio servicioSeleccionado = servicios[HDRnumCMB.SelectedIndex];
 
             foreach (var guia in servicioSeleccionado.GuiasAsociadas)
             {
@@ -64,7 +69,10 @@ namespace TP_CAI_1C2026.Forms.Troncal.DespachoHDRTransporte
                 MessageBoxIcon.Question);
 
             if (confirmacion == DialogResult.No)
+            {
                 return;
+            }
+
             MessageBox.Show("Se han despachado las guía/s con éxito.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
             HDRnumCMB.SelectedIndex = -1;
