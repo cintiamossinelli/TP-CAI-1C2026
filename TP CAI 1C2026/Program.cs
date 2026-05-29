@@ -1,4 +1,5 @@
 using TP_CAI_1C2026.Forms.Administracion.CuentaCorrienteCliente;
+using TP_CAI_1C2026.Forms.Administracion.ResultadoCostoVentas;
 using TP_CAI_1C2026.Forms.Consultas.ConsultarTracking;
 using TP_CAI_1C2026.Forms.Entregas.EntregaAgencia;
 using TP_CAI_1C2026.Forms.Entregas.EntregaCD;
@@ -13,7 +14,6 @@ using TP_CAI_1C2026.Forms.UltimaMilla.EmisionHDRRetiro;
 using TP_CAI_1C2026.Forms.Troncal.RecepcionHDRTransporte;
 using TP_CAI_1C2026.Forms.Troncal.EmisionHDRTransporte;
 using TP_CAI_1C2026.Forms.Imposicion.ImposicionAgencia;
-using TP_CAI_1C2026.Forms.UltimaMilla.EmisionResumenHDR;
 
 namespace TP_CAI_1C2026
 {
@@ -23,7 +23,7 @@ namespace TP_CAI_1C2026
         static void Main()
         {
             ApplicationConfiguration.Initialize();
-            Application.Run(new EmisionResumenHDRFRM());
+            Application.Run(new ResultadoCostosVentasFRM());
         }
     }
 }

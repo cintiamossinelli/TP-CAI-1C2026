@@ -40,6 +40,7 @@
             dniFleteroLBL = new Label();
             nombreFleteroLBL = new Label();
             LeyendaLBL = new Label();
+            label1 = new Label();
             SuspendLayout();
             // 
             // cancelarBTN
@@ -151,11 +152,22 @@
             LeyendaLBL.Text = "Las HDR no seleccionadas cambiarán a estado \"No Confirmadas\"";
             LeyendaLBL.Click += label1_Click_1;
             // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.BackColor = SystemColors.ActiveCaption;
+            label1.Location = new Point(418, 69);
+            label1.Name = "label1";
+            label1.Size = new Size(109, 15);
+            label1.TabIndex = 7;
+            label1.Text = "Nombre del Fletero";
+            // 
             // EmisionResumenHDRConfirmadasFRM
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(704, 574);
+            Controls.Add(label1);
             Controls.Add(LeyendaLBL);
             Controls.Add(nombreFleteroLBL);
             Controls.Add(dniFleteroLBL);
@@ -186,5 +198,6 @@
         private Label dniFleteroLBL;
         private Label nombreFleteroLBL;
         private Label LeyendaLBL;
+        private Label label1;
     }
 }
