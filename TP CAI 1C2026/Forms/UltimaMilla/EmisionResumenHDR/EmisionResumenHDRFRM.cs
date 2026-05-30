@@ -28,9 +28,13 @@
             hdrEntregarLST.Items.Clear();
             hdrRetirarLST.Items.Clear();
 
-            // 2. Buscamos los datos mockeados en el modelo mediante el DNI
-            List<HDREntrega> entregasFiltradas = modelo.BuscarEntregasPorDni(fletero.Dni);
-            List<HDRRetiro> retirosFiltrados = modelo.BuscarRetirosPorDni(fletero.Dni);
+            // 2. Buscamos los datos mockeados en el modelo mediante el DNI (llamada única al modelo)
+            if (!modelo.TryObtenerEntregasYRetirosPorDni(fletero.Dni, out var entregasFiltradas, out var retirosFiltrados, out var mensaje))
+            {
+                MessageBox.Show(mensaje, "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                nombreFleteroLBL.Text = string.Empty;
+                return;
+            }
 
             // 3. Llenamos la tabla de Entregas (hdrEntregarLST)
             foreach (var entrega in entregasFiltradas)
@@ -119,11 +123,5 @@
         {
             LimpiarPantalla();
         }
-
-        private void nombreFleteroLBL_Click(object sender, EventArgs e)
-        {
-
-        }
-
     }
 }

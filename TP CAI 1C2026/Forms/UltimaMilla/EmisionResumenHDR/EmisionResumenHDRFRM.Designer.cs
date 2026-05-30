@@ -69,7 +69,7 @@
             nombreFleteroLBL.Size = new Size(340, 25);
             nombreFleteroLBL.TabIndex = 3;
             nombreFleteroLBL.Text = "Nombre del Fletero";
-            nombreFleteroLBL.Click += nombreFleteroLBL_Click;
+
             // 
             // hdrEntregarGBX
             // 

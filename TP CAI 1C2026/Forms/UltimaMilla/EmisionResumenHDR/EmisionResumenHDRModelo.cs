@@ -78,7 +78,7 @@ namespace TP_CAI_1C2026.Forms.UltimaMilla.EmisionResumenHDR
         {
             new HDRRetiro(5001, "Depósito Central Barracas", 2, "32443521"),
             new HDRRetiro(5002, "Sucursal Flores, Rivadavia 7000", 6, "33678891"),
-            new HDRRetiro(5003, "Sucursal Belgrano, Cabildo 2200", 1, "29535430")
+            new HDRRetiro(5003, "Sucursal Belgrano, Cabildo 2200", 1, "33678891")
         };
 
         public List<HDREntrega> BuscarEntregasPorDni(string dni)
@@ -105,6 +105,30 @@ namespace TP_CAI_1C2026.Forms.UltimaMilla.EmisionResumenHDR
                 }
             }
             return resultado;
+        }
+
+        // Devuelve ambos listados filtrados por DNI en una sola llamada
+        public (List<HDREntrega> entregas, List<HDRRetiro> retiros) ObtenerEntregasYRetirosPorDni(string dni)
+        {
+            var entregas = BuscarEntregasPorDni(dni);
+            var retiros = BuscarRetirosPorDni(dni);
+            return (entregas, retiros);
+        }
+
+        // Intenta obtener entregas y retiros por DNI; si no hay ninguno devuelve false y un mensaje
+        public bool TryObtenerEntregasYRetirosPorDni(string dni, out List<HDREntrega> entregas, out List<HDRRetiro> retiros, out string mensaje)
+        {
+            entregas = BuscarEntregasPorDni(dni);
+            retiros = BuscarRetirosPorDni(dni);
+
+            if ((entregas == null || entregas.Count == 0) && (retiros == null || retiros.Count == 0))
+            {
+                mensaje = $"El DNI {dni} no tiene hojas de ruta asociadas.";
+                return false;
+            }
+
+            mensaje = string.Empty;
+            return true;
         }
     }
 }
