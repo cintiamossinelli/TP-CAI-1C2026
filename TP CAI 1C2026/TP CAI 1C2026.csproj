@@ -9,4 +9,9 @@
     <ImplicitUsings>enable</ImplicitUsings>
   </PropertyGroup>
 
+  <ItemGroup>
+    <Folder Include="Forms\Datos\" />
+    <Folder Include="Forms\Almacen\" />
+  </ItemGroup>
+
 </Project>

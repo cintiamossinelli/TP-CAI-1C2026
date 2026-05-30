@@ -6,10 +6,8 @@ namespace TP_CAI_1C2026.Forms.Administracion.ResultadoCostoVentas
 {
     internal class Empresa
     {
+        public int Id { get; set; }
         public string EmpresaTransporte { get; set; }
-        public int CantidadEnvios { get; set; }
-        public decimal CostoTotal { get; set; }
-        public decimal VentasTotales { get; set; }
-        public decimal Resultado { get { return VentasTotales - CostoTotal; } }
+        // Propiedades relacionadas con resultados se manejan en el modelo y no se guardan aquí.
     }
 }

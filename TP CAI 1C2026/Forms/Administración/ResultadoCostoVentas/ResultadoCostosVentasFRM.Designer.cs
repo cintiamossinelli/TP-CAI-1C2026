@@ -33,6 +33,7 @@
             resultadoTotalLBL = new Label();
             resultadoTotalValorLBL = new Label();
             cancelarBTN = new Button();
+            avisoMesLBL = new Label();
             totalCostosPanel.SuspendLayout();
             totalVentasPanel.SuspendLayout();
             resultadoPanel.SuspendLayout();
@@ -54,8 +55,6 @@
             mesTXT.Name = "mesTXT";
             mesTXT.Size = new Size(141, 23);
             mesTXT.TabIndex = 1;
-            mesTXT.KeyPress += mesTXT_KeyPress;
-            mesTXT.KeyDown += mesTXT_KeyDown;
             // 
             // anioLBL
             // 
@@ -73,8 +72,6 @@
             anioTXT.Name = "anioTXT";
             anioTXT.Size = new Size(141, 23);
             anioTXT.TabIndex = 3;
-            anioTXT.KeyPress += anioTXT_KeyPress;
-            anioTXT.KeyDown += anioTXT_KeyDown;
             // 
             // buscarBTN
             // 
@@ -90,7 +87,7 @@
             resultadosLST.Columns.AddRange(new ColumnHeader[] { colEmpresaTransporte, colEnvios, colCostoTotal, colVentasTotal, colResultado });
             resultadosLST.FullRowSelect = true;
             resultadosLST.GridLines = true;
-            resultadosLST.Location = new Point(12, 55);
+            resultadosLST.Location = new Point(12, 58);
             resultadosLST.Name = "resultadosLST";
             resultadosLST.Size = new Size(760, 300);
             resultadosLST.TabIndex = 5;
@@ -218,9 +215,19 @@
             cancelarBTN.Text = "Cancelar";
             cancelarBTN.Click += cancelarBTN_Click;
             // 
+            // avisoMesLBL
+            // 
+            avisoMesLBL.AutoSize = true;
+            avisoMesLBL.Location = new Point(10, 39);
+            avisoMesLBL.Name = "avisoMesLBL";
+            avisoMesLBL.Size = new Size(190, 15);
+            avisoMesLBL.TabIndex = 10;
+            avisoMesLBL.Text = "(Debe ingresar el mes en números)";
+            // 
             // ResultadoCostosVentasFRM
             // 
             ClientSize = new Size(784, 490);
+            Controls.Add(avisoMesLBL);
             Controls.Add(mesLBL);
             Controls.Add(mesTXT);
             Controls.Add(anioLBL);
@@ -233,7 +240,6 @@
             Controls.Add(cancelarBTN);
             Name = "ResultadoCostosVentasFRM";
             Text = "Resultado de Costos vs Ventas";
-            Load += ResultadoCostosVentasFRM_Load_1;
             totalCostosPanel.ResumeLayout(false);
             totalVentasPanel.ResumeLayout(false);
             resultadoPanel.ResumeLayout(false);
@@ -262,5 +268,6 @@
         private Label resultadoTotalLBL;
         private Label resultadoTotalValorLBL;
         private Button cancelarBTN;
+        private Label avisoMesLBL;
     }
 }
