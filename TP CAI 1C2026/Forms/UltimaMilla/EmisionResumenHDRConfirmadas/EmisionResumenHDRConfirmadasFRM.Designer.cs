@@ -63,7 +63,6 @@
             hdrEnTransitoLSVT.TabIndex = 3;
             hdrEnTransitoLSVT.UseCompatibleStateImageBehavior = false;
             hdrEnTransitoLSVT.View = View.Details;
-            hdrEnTransitoLSVT.SelectedIndexChanged += hdrEnTransitoLSVT_SelectedIndexChanged;
             // 
             // colNHDR
             // 
@@ -91,7 +90,6 @@
             hojasDeRutaEnTransitoLBL.Size = new Size(182, 20);
             hojasDeRutaEnTransitoLBL.TabIndex = 4;
             hojasDeRutaEnTransitoLBL.Text = "Hojas de ruta en tránsito";
-            hojasDeRutaEnTransitoLBL.Click += hojasDeRutaEnTransitoLBL_Click;
             // 
             // GenerarResumenBTN
             // 
@@ -127,7 +125,6 @@
             dniFleteroLBL.TabIndex = 0;
             dniFleteroLBL.Text = "DNI Fletero:";
             dniFleteroLBL.TextAlign = ContentAlignment.MiddleCenter;
-            dniFleteroLBL.Click += dniFleteroLBL_Click;
             // 
             // nombreFleteroLBL
             // 
@@ -149,7 +146,6 @@
             LeyendaLBL.Size = new Size(343, 13);
             LeyendaLBL.TabIndex = 6;
             LeyendaLBL.Text = "Las HDR no seleccionadas cambiarán a estado \"No Confirmadas\"";
-            LeyendaLBL.Click += label1_Click_1;
             // 
             // EmisionResumenHDRConfirmadasFRM
             // 
@@ -167,7 +163,6 @@
             Controls.Add(cancelarBTN);
             Name = "EmisionResumenHDRConfirmadasFRM";
             Text = "Emisión Resumen HDR Confirmadas";
-            Load += EmisionResumenHDRConfirmadasFRM_Load;
             ResumeLayout(false);
             PerformLayout();
         }

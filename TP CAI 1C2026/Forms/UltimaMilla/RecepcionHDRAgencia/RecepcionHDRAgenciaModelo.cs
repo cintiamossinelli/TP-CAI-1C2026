@@ -6,6 +6,12 @@ namespace TP_CAI_1C2026.Forms.UltimaMilla.RecepcionHDRAgencia
 {
     internal class RecepcionHDRAgenciaModelo
     {
+        // Estado seleccionado mantenido en el modelo
+        internal HDR Seleccionada { get; set; }
+
+        // Encomiendas pertenecientes al HDR seleccionado
+        internal List<Encomienda> EncomiendasHDR { get; set; } = new List<Encomienda>();
+
         internal List<HDR> ObtenerHDRsPendientes()
         {
             return new List<HDR>
@@ -20,9 +26,12 @@ namespace TP_CAI_1C2026.Forms.UltimaMilla.RecepcionHDRAgencia
         internal List<Encomienda> ObtenerEncomiendasHDR(HDR hdr)
         {
             if (hdr == null)
-                return new List<Encomienda>();
+            {
+                EncomiendasHDR = new List<Encomienda>();
+                return EncomiendasHDR;
+            }
 
-            return hdr.NumeroHDR switch
+            var lista = hdr.NumeroHDR switch
             {
                 "1001" => new List<Encomienda>
                 {
@@ -44,16 +53,33 @@ namespace TP_CAI_1C2026.Forms.UltimaMilla.RecepcionHDRAgencia
                 },
                 _ => new List<Encomienda>()
             };
+
+            EncomiendasHDR = lista;
+            return lista;
         }
 
         internal void RecepcionarHDR(HDR hdr)
         {
-            // Simulación de recepción
-            // Más adelante:
-            // - actualizar estado HDR
-            // - actualizar encomiendas
-            // - registrar fecha recepción
-            // - guardar en BD
+
+        }
+
+        // Validación de selección de HDR (mover validaciones desde la UI al modelo)
+        internal bool ValidarSeleccionHDR(HDR hdr, int selectedIndex, out string mensaje)
+        {
+            mensaje = string.Empty;
+            if (hdr == null || selectedIndex == -1)
+            {
+                mensaje = "Debe seleccionar un HDR.";
+                return false;
+            }
+            return true;
+        }
+
+        internal bool ConfirmarRecepcionHDR(HDR hdr)
+        {
+            // Aquí podría ir la lógica de negocio para marcar el HDR como recibido en la base de datos.
+            // En este ejemplo simulado simplemente retornamos true para indicar éxito.
+            return hdr != null;
         }
     }
 }

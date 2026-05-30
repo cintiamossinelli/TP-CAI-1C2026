@@ -140,7 +140,6 @@
             bool resultado = modelo.GenerarHDR(out string mensajeExito, out string error);
             if (!resultado)
             {
-                MessageBox.Show(error, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 

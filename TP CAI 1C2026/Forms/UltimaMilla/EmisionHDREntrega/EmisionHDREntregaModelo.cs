@@ -60,8 +60,6 @@ internal class EmisionHDREntregaModelo
             return null;
         }
 
-
-
         fleteroSeleccionado = fletero;
 
         return fletero;

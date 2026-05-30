@@ -7,13 +7,9 @@ namespace TP_CAI_1C2026.Forms.UltimaMilla.RecepcionHDRAgencia
 {
     public partial class RecepcionHDRAgenciaFRM : Form
     {
-        private readonly RecepcionHDRAgenciaModelo modelo =
-            new RecepcionHDRAgenciaModelo();
+        private readonly RecepcionHDRAgenciaModelo modelo = new RecepcionHDRAgenciaModelo();
 
-        private HDR hdrSeleccionada;
-
-        private List<Encomienda> encomiendasHDR =
-            new List<Encomienda>();
+        // El estado seleccionado y las encomiendas ahora se mantienen en el modelo
 
         public RecepcionHDRAgenciaFRM()
         {
@@ -21,84 +17,57 @@ namespace TP_CAI_1C2026.Forms.UltimaMilla.RecepcionHDRAgencia
             this.Load += RecepcionHDRAgenciaFRM_Load;
         }
 
-        private void RecepcionHDRAgenciaFRM_Load(
-            object sender,
-            EventArgs e)
+        private void RecepcionHDRAgenciaFRM_Load(object sender,EventArgs e)
         {
             CargarHDRs();
-
             GuiasLST.Items.Clear();
         }
 
         private void CargarHDRs()
         {
-            var hdrs =
-                modelo.ObtenerHDRsPendientes();
+            var hdrs = modelo.ObtenerHDRsPendientes();
 
             HDRnumCMB.DataSource = hdrs;
 
-            HDRnumCMB.DisplayMember =
-                "NumeroHDR";
+            HDRnumCMB.DisplayMember = "NumeroHDR";
 
             HDRnumCMB.SelectedIndex = -1;
         }
 
-        private void HDRnumCMB_SelectedIndexChanged(
-            object sender,
-            EventArgs e)
+        private void HDRnumCMB_SelectedIndexChanged(object sender,EventArgs e)
         {
             if (HDRnumCMB.SelectedIndex == -1)
             {
                 return;
             }
 
-            hdrSeleccionada =
-                (HDR)HDRnumCMB.SelectedItem;
-
-            encomiendasHDR =
-                modelo.ObtenerEncomiendasHDR(
-                    hdrSeleccionada);
-
-            CargarEncomiendas(encomiendasHDR);
+            modelo.Seleccionada = (HDR)HDRnumCMB.SelectedItem;
+            modelo.ObtenerEncomiendasHDR(modelo.Seleccionada);
+            CargarEncomiendas(modelo.EncomiendasHDR);
         }
 
-        private void CargarEncomiendas(
-            List<Encomienda> encomiendas)
+        private void CargarEncomiendas(List<Encomienda> encomiendas)
         {
             GuiasLST.Items.Clear();
 
             foreach (var encomienda in encomiendas)
             {
-                ListViewItem item =
-                    new ListViewItem(
-                        encomienda.NumeroGuia);
-
-                item.SubItems.Add(
-                    encomienda.TipoEncomienda);
-
+                ListViewItem item =new ListViewItem(encomienda.NumeroGuia);
+                item.SubItems.Add(encomienda.TipoEncomienda);
                 GuiasLST.Items.Add(item);
             }
         }
 
-        private void GuiasLST_SelectedIndexChanged(
-            object sender,
-            EventArgs e)
+        private void GuiasLST_SelectedIndexChanged(object sender,EventArgs e)
         {
 
         }
 
-        private void recibirHDRBTN_Click(
-            object sender,
-            EventArgs e)
+        private void recibirHDRBTN_Click(object sender,EventArgs e)
         {
-            if (hdrSeleccionada == null || HDRnumCMB.SelectedIndex == -1)
+            if (!modelo.ValidarSeleccionHDR(modelo.Seleccionada, HDRnumCMB.SelectedIndex, out string mensajeValidacion))
             {
-                MessageBox.Show(
-                    "Debe seleccionar un HDR.",
-                    "Error",
-                    MessageBoxButtons.OK,
-                    MessageBoxIcon.Error);
-
+                MessageBox.Show(mensajeValidacion, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 
@@ -113,32 +82,28 @@ namespace TP_CAI_1C2026.Forms.UltimaMilla.RecepcionHDRAgencia
                 return;
             }
 
-            modelo.RecepcionarHDR(
-                hdrSeleccionada);
+            var ok = modelo.ConfirmarRecepcionHDR(modelo.Seleccionada);
+            if (ok)
+            {
+                MessageBox.Show("HDR recepcionado correctamente.","Información",MessageBoxButtons.OK,MessageBoxIcon.Information);
 
-            MessageBox.Show(
-                "HDR recepcionado correctamente.",
-                "Información",
-                MessageBoxButtons.OK,
-                MessageBoxIcon.Information);
-
-            LimpiarPantalla();
+                LimpiarPantalla();
+            }
+            else
+            {
+                MessageBox.Show("Ocurrió un error al procesar la recepción del HDR.","Error", MessageBoxButtons.OK,MessageBoxIcon.Error);
+            }
         }
 
         private void LimpiarPantalla()
         {
             HDRnumCMB.SelectedIndex = -1;
-
             GuiasLST.Items.Clear();
-
-            hdrSeleccionada = null;
-
-            encomiendasHDR.Clear();
+            modelo.Seleccionada = null;
+            modelo.EncomiendasHDR.Clear();
         }
 
-        private void cancelarBTN_Click(
-            object sender,
-            EventArgs e)
+        private void cancelarBTN_Click(object sender,EventArgs e)
         {
             HDRnumCMB.SelectedIndex = -1;
             GuiasLST.Items.Clear();

@@ -3,8 +3,6 @@
     public partial class EmisionHDRRetiroFRM : Form
     {
         private readonly EmisionHDRRetiroModelo modelo = new EmisionHDRRetiroModelo();
-        private List<Guia> guiasAgregadas = new List<Guia>();
-        private Fletero? fleteroSeleccionado = null;
 
         public EmisionHDRRetiroFRM()
         {
@@ -18,7 +16,7 @@
 
         private void buscarFleteroTBN_Click(object sender, EventArgs e)
         {
-            fleteroSeleccionado = modelo.BuscarFletero(dniFleteroTXT.Text);
+            var fleteroSeleccionado = modelo.BuscarFletero(dniFleteroTXT.Text);
             if (fleteroSeleccionado == null)
                 return;
 
@@ -27,7 +25,7 @@
 
             localidadCMB.Items.Clear();
             foreach (string localidad in modelo.ObtenerLocalidades())
-                localidadCMB.Items.Add(localidad);
+            localidadCMB.Items.Add(localidad);
         }
 
         private void CargarGuiasPendientes()
@@ -35,7 +33,7 @@
             guiasSinAgregarLST.Items.Clear();
             foreach (Guia guia in modelo.ObtenerGuiasPendientes())
             {
-                if (!guiasAgregadas.Contains(guia))
+                if (!modelo.guiasAgregadas.Contains(guia))
                 {
                     ListViewItem item = new ListViewItem(guia.NGuia);
                     item.SubItems.Add(guia.TipoCaja);
@@ -69,7 +67,7 @@
             guiasSinAgregarLST.Items.Clear();
             foreach (Guia guia in modelo.ObtenerGuiasPendientes())
             {
-                if (guia.LugarRetiro.Contains(localidadCMB.SelectedItem!.ToString()!) && !guiasAgregadas.Contains(guia))
+                if (guia.LugarRetiro.Contains(localidadCMB.SelectedItem!.ToString()!) && !modelo.guiasAgregadas.Contains(guia))
                 {
                     ListViewItem item = new ListViewItem(guia.NGuia);
                     item.SubItems.Add(guia.TipoCaja);
@@ -94,9 +92,7 @@
 
             foreach (string nGuia in guiasAgregar)
             {
-                Guia? guia = modelo.BuscarGuia(nGuia);
-                if (guia != null && !guiasAgregadas.Contains(guia))
-                    guiasAgregadas.Add(guia);
+                modelo.AgregarGuia(nGuia);
             }
 
             ActualizarListViewAgregadas();
@@ -118,9 +114,11 @@
 
             foreach (string nGuia in guiasQuitar)
             {
-                Guia? guia = guiasAgregadas.FirstOrDefault(g => g.NGuia == nGuia);
+                Guia? guia = modelo.guiasAgregadas.FirstOrDefault(g => g.NGuia == nGuia);
                 if (guia != null)
-                    guiasAgregadas.Remove(guia);
+                {
+                    modelo.guiasAgregadas.Remove(guia);
+                }
             }
 
             ActualizarListViewAgregadas();
@@ -129,17 +127,9 @@
 
         private void generarBTN_Click(object sender, EventArgs e)
         {
-            fleteroSeleccionado = modelo.BuscarFletero(dniFleteroTXT.Text);
-            if (fleteroSeleccionado == null)
-            {
-                //MessageBox.Show("Debe buscar y seleccionar un fletero.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
-            }
-            
-            bool resultado = modelo.GenerarHDR(fleteroSeleccionado, guiasAgregadas, out string mensajeExito, out string error);
+            bool resultado = modelo.GenerarHDR(out string mensajeExito, out string error);
             if (!resultado)
             {
-                MessageBox.Show(error, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 
@@ -156,7 +146,7 @@
         private void ActualizarListViewAgregadas()
         {
             guiasAgregadasLST.Items.Clear();
-            foreach (Guia guia in guiasAgregadas)
+            foreach (Guia guia in modelo.guiasAgregadas)
             {
                 ListViewItem item = new ListViewItem(guia.NGuia);
                 item.SubItems.Add(guia.TipoCaja);
@@ -167,10 +157,9 @@
 
         private void LimpiarCampos()
         {
+            modelo.Limpiar();
             dniFleteroTXT.Clear();
             nombreFleteroLBL.Text = "Nombre del Fletero";
-            fleteroSeleccionado = null;
-            guiasAgregadas.Clear();
             guiasSinAgregarLST.Items.Clear();
             guiasAgregadasLST.Items.Clear();
             nGuiaTXT.Clear();
