@@ -1,14 +1,7 @@
-﻿using System;
-using System.Windows.Forms;
-using TP_CAI_1C2026.Forms.UltimaMilla.EmisionHDREntrega;
-using TP_CAI_1C2026.UltimaMilla.EmisionResumenHDR;
-
-namespace TP_CAI_1C2026.Forms.UltimaMilla.EmisionResumenHDR
+﻿namespace TP_CAI_1C2026.Forms.UltimaMilla.EmisionResumenHDR
 {
     public partial class EmisionResumenHDRFRM : Form
     {
-        private FleteroNegocio negocio = new FleteroNegocio();
-        private Fletero fleteroActual;
         private readonly EmisionResumenHDRModelo modelo = new EmisionResumenHDRModelo();
 
         public EmisionResumenHDRFRM()
@@ -120,12 +113,10 @@ namespace TP_CAI_1C2026.Forms.UltimaMilla.EmisionResumenHDR
             nombreFleteroLBL.Text = "Nombre del Fletero";
             hdrEntregarLST.Items.Clear();
             hdrRetirarLST.Items.Clear();
-            fleteroActual = null;
         }
 
         private void cancelarBTN_Click(object sender, EventArgs e)
         {
-            
             LimpiarPantalla();
         }
 

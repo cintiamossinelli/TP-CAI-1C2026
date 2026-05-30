@@ -1,18 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Text;
-using System.Windows.Forms;
+﻿using System.Data;
 
 namespace TP_CAI_1C2026.Forms.Troncal.RecepcionHDRTransporte
 {
     public partial class RecepcionHDRTransporteFRM : Form
     {
         private readonly RecepcionHDRTransporteModelo modelo = new RecepcionHDRTransporteModelo();
-        private List<Servicio> _servicios;
+
         public RecepcionHDRTransporteFRM()
         {
             InitializeComponent();
@@ -20,12 +13,12 @@ namespace TP_CAI_1C2026.Forms.Troncal.RecepcionHDRTransporte
             // Cargar solo los servicios cuya fecha (sin considerar hora) esté entre hoy y los últimos 10 días
             var fechaHoy = DateTime.Today;
             var fechaLimite = fechaHoy.AddDays(-10);
-            _servicios = modelo.ObtenerServicios()
+            var servicios = modelo.ObtenerServicios()
                 .Where(s => s.FechayHora.Date <= fechaHoy && s.FechayHora.Date >= fechaLimite)
                 .OrderByDescending(s => s.FechayHora)
                 .ToList();
 
-            foreach (var servicio in _servicios)
+            foreach (var servicio in servicios)
             {
                 servicioOmnibusBTN.Items.Add(servicio.Empresa + " - " + servicio.FechayHora.ToString("dd/MM/yyyy HH:mm"));
             }
@@ -35,9 +28,19 @@ namespace TP_CAI_1C2026.Forms.Troncal.RecepcionHDRTransporte
         {
             GuiasLST.Items.Clear();
 
-            if (servicioOmnibusBTN.SelectedIndex == -1) return; //Si no hay nada seleccionado, sale sin hacer nada.
+            if (servicioOmnibusBTN.SelectedIndex == -1)
+            {
+                return; //Si no hay nada seleccionado, sale sin hacer nada.
+            }
 
-            Servicio servicioSeleccionado = _servicios[servicioOmnibusBTN.SelectedIndex];
+            var fechaHoy = DateTime.Today;
+            var fechaLimite = fechaHoy.AddDays(-10);
+            var servicios = modelo.ObtenerServicios()
+                .Where(s => s.FechayHora.Date <= fechaHoy && s.FechayHora.Date >= fechaLimite)
+                .OrderByDescending(s => s.FechayHora)
+                .ToList();
+
+            Servicio servicioSeleccionado = servicios[servicioOmnibusBTN.SelectedIndex];
 
             foreach (var guia in servicioSeleccionado.GuiasAsociadas) //Recorre una por una las guías que tiene ese servicio.
             {
@@ -57,7 +60,7 @@ namespace TP_CAI_1C2026.Forms.Troncal.RecepcionHDRTransporte
                 servicioOmnibusBTN.Focus();
                 return;
             }
-           
+
             //Un doble chequeo para asegurarme que el usuario no confirme la recepción sin haber seleccionado un servicio o sin haber guías asociadas al servicio seleccionado
             DialogResult confirmacion = MessageBox.Show(
             "¿Está seguro que desea confirmar la recepción de " + GuiasLST.Items.Count + " guía/s para el servicio seleccionado?",
@@ -69,7 +72,7 @@ namespace TP_CAI_1C2026.Forms.Troncal.RecepcionHDRTransporte
             {
                 return;
             }
-            servicioOmnibusBTN.SelectedIndex = -1;            
+            servicioOmnibusBTN.SelectedIndex = -1;
             GuiasLST.Items.Clear();
         }
 
