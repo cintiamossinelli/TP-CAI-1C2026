@@ -46,7 +46,7 @@ namespace TP_CAI_1C2026.Forms.Administracion.EmisionFactura
             idClienteTXT.Location = new Point(123, 18);
             idClienteTXT.MaxLength = 13;
             idClienteTXT.Name = "idClienteTXT";
-            idClienteTXT.Size = new Size(130, 31);
+            idClienteTXT.Size = new Size(130, 23);
             idClienteTXT.TabIndex = 1;
             // 
             // buscarClienteBTN
@@ -100,9 +100,9 @@ namespace TP_CAI_1C2026.Forms.Administracion.EmisionFactura
             // 
             totalLBL.AutoSize = true;
             totalLBL.Font = new System.Drawing.Font("Segoe UI", 12F, FontStyle.Bold);
-            totalLBL.Location = new Point(438, 285);
+            totalLBL.Location = new Point(398, 285);
             totalLBL.Name = "totalLBL";
-            totalLBL.Size = new Size(77, 32);
+            totalLBL.Size = new Size(52, 21);
             totalLBL.TabIndex = 5;
             totalLBL.Text = "Total:";
             // 
@@ -110,9 +110,9 @@ namespace TP_CAI_1C2026.Forms.Administracion.EmisionFactura
             // 
             totalFacturarLBL.AutoSize = true;
             totalFacturarLBL.Font = new System.Drawing.Font("Segoe UI", 12F, FontStyle.Bold);
-            totalFacturarLBL.Location = new Point(496, 285);
+            totalFacturarLBL.Location = new Point(456, 285);
             totalFacturarLBL.Name = "totalFacturarLBL";
-            totalFacturarLBL.Size = new Size(84, 32);
+            totalFacturarLBL.Size = new Size(54, 21);
             totalFacturarLBL.TabIndex = 6;
             totalFacturarLBL.Text = "$ 0,00";
             // 

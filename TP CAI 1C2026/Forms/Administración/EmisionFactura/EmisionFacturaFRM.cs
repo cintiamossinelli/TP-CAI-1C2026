@@ -13,7 +13,7 @@ namespace TP_CAI_1C2026.Forms.Administracion.EmisionFactura
         // Cliente actual seleccionado
         private Cliente clienteActual;
         // Guías pendientes actuales
-        private List<GuiasAFacturar> guiasActuales = new List<GuiasAFacturar>();
+        //private List<GuiasAFacturar> guiasActuales = new List<GuiasAFacturar>();
         // Constructor
         public EmisionFacturaFRM()
         {
@@ -52,7 +52,7 @@ namespace TP_CAI_1C2026.Forms.Administracion.EmisionFactura
             // Obtengo guías pendientes
             var clientesConGuias = modelo.ObtenerGuiasPendientes(); // devuelve List<Cliente>
             var clienteConGuias = clientesConGuias.FirstOrDefault(c => c.Cuit == clienteActual.Cuit);
-            guiasActuales = modelo.ObtenerGuiasPendientes(clienteActual.Cuit);
+            var guiasActuales = modelo.ObtenerGuiasPendientes(clienteActual.Cuit);
 
             if (guiasActuales == null ||
                 !guiasActuales.Any())
@@ -83,8 +83,8 @@ namespace TP_CAI_1C2026.Forms.Administracion.EmisionFactura
         // Evento del botón de emisión de factura
         private void emitirBTN_Click(object sender, EventArgs e)
         {
-            if (guiasActuales == null ||
-                !guiasActuales.Any())
+            if (modelo.GuiasActuales == null ||
+                !modelo.GuiasActuales.Any())
             {
                 MessageBox.Show(
                     "No existen guías pendientes para facturar.",
@@ -109,7 +109,7 @@ namespace TP_CAI_1C2026.Forms.Administracion.EmisionFactura
             var factura =
                 modelo.EmitirFactura(
                     clienteActual,
-                    guiasActuales);
+                    modelo.GuiasActuales);
 
             MessageBox.Show(
                 $"Factura {factura.Numero} emitida correctamente.",
@@ -122,7 +122,11 @@ namespace TP_CAI_1C2026.Forms.Administracion.EmisionFactura
         // Evento del botón de cancelación
         private void cancelarBTN_Click(object sender, EventArgs e)
         {
-            this.Close();
+            idClienteTXT.Clear();
+            nombreClienteLBL.Text = string.Empty;
+            guiasEntregadasPendientesLST.Items.Clear();
+            totalFacturarLBL.Text = "0,00";
+            idClienteTXT.Focus();
         }
         // Método para cargar las guías en la lista
         private void CargarGuias(
@@ -157,27 +161,7 @@ namespace TP_CAI_1C2026.Forms.Administracion.EmisionFactura
 
             clienteActual = null;
 
-            guiasActuales.Clear();
+            modelo.GuiasActuales.Clear();
         }
-        // Evento de selección de una guía en la lista (si se desea implementar alguna acción al seleccionar una guía)
-        /*private void guiasEntregadasPendientesLST_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void totalFacturarLBL_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void guiasEntregadasPendientesLST_SelectedIndexChanged_1(object sender, EventArgs e)
-        {
-
-        }*/
     }
 }

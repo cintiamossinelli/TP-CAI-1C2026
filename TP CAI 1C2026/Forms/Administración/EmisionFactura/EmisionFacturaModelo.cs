@@ -7,6 +7,7 @@ namespace TP_CAI_1C2026.Forms.Administración.EmisionFactura
 {
     internal class EmisionFacturaModelo
     {
+        private List<GuiasAFacturar> guiasActuales = new List<GuiasAFacturar>();
         internal Cliente? BuscarCliente(string text)
         {
             if (string.IsNullOrWhiteSpace(text))
@@ -146,8 +147,13 @@ namespace TP_CAI_1C2026.Forms.Administración.EmisionFactura
 
             var cliente = guiasPendientes.FirstOrDefault(c => c.Cuit == cuitCliente);
 
-            return cliente?.GuiasPendientes ?? new List<GuiasAFacturar>();
+            // Guardar en el estado interno las guías actuales según lo solicitado por el profesor
+            guiasActuales = cliente?.GuiasPendientes ?? new List<GuiasAFacturar>();
+            return guiasActuales;
         }
+
+        // Exponer las guías actuales que el modelo mantiene
+        internal List<GuiasAFacturar> GuiasActuales => guiasActuales;
 
         internal decimal CalcularTotal(
             List<GuiasAFacturar> guias)
@@ -182,7 +188,8 @@ namespace TP_CAI_1C2026.Forms.Administración.EmisionFactura
             // Incrementar de forma segura el contador
             _contadorFactura++;
             // Formatear número como A-0004-0001, A-0004-0002, etc.
-            return $"A-0004-{_contadorFactura:D4}";
+            // Ahora la parte final tiene 8 dígitos: A-0004-00000007
+            return $"A-0004-{_contadorFactura:D8}";
         }
     }
 }
