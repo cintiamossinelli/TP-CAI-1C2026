@@ -1,1 +1,104 @@
-﻿
+﻿[
+  {
+    "IdCiudad": 1,
+    "Nombre": "Rosario",
+    "Agencias": [
+      {
+        "IdAgencias": 1
+      },
+      {
+        "IdAgencias": 2
+      },
+      {
+        "IdAgencias": 3
+      },
+      {
+        "IdAgencias": 4
+      }
+    ],
+    "IdCentroDistribucion": 1
+  },
+  {
+    "IdCiudad": 2,
+    "Nombre": "Buenos Aires",
+    "Agencias": [
+      {
+        "IdAgencias": 5
+      },
+      {
+        "IdAgencias": 6
+      },
+      {
+        "IdAgencias": 7
+      },
+      {
+        "IdAgencias": 8
+      }
+    ],
+    "IdCentroDistribucion": 2
+  },
+  {
+    "IdCiudad": 3,
+    "Nombre": "Cordoba",
+    "Agencias": [
+      {
+        "IdAgencias": 9
+      },
+      {
+        "IdAgencias": 10
+      },
+      {
+        "IdAgencias": 11
+      },
+      {
+        "IdAgencias": 12
+      }
+    ],
+    "IdCentroDistribucion": 3
+  },
+  {
+    "IdCiudad": 4,
+    "Nombre": "Santa Fe",
+    "Agencias": [
+      {
+        "IdAgencias": 13
+      },
+      {
+        "IdAgencias": 14
+      },
+      {
+        "IdAgencias": 15
+      }
+    ],
+    "IdCentroDistribucion": 4
+  },
+  {
+    "IdCiudad": 5,
+    "Nombre": "Mendoza",
+    "Agencias": [
+      {
+        "IdAgencias": 16
+      },
+      {
+        "IdAgencias": 17
+      },
+      {
+        "IdAgencias": 18
+      }
+    ],
+    "IdCentroDistribucion": 5
+  },
+  {
+    "IdCiudad": 6,
+    "Nombre": "Olavarria",
+    "Agencias": [
+      {
+        "IdAgencias": 19
+      },
+      {
+        "IdAgencias": 20
+      }
+    ],
+    "IdCentroDistribucion": 6
+  }
+]

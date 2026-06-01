@@ -1,1 +1,26 @@
-﻿
+﻿[
+  {
+    "NumeroNotaCredito": "A-0001-00000102",
+    "Fecha": "2026-01-08",
+    "Total": 30000.00,
+    "Descripcion": "Nota de Crédito"
+  },
+  {
+    "NumeroNotaCredito": "A-0001-00000104",
+    "Fecha": "2026-02-09",
+    "Total": 15000.00,
+    "Descripcion": "Nota de Crédito"
+  },
+  {
+    "NumeroNotaCredito": "A-0001-00000203",
+    "Fecha": "2026-02-09",
+    "Total": 20000.00,
+    "Descripcion": "Nota de Crédito"
+  },
+  {
+    "NumeroNotaCredito": "B-0001-00000309",
+    "Fecha": "2026-05-10",
+    "Total": 15000.00,
+    "Descripcion": "Nota de Crédito"
+  }
+]

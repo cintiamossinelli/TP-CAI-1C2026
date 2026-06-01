@@ -1,1 +1,191 @@
-﻿
+﻿[
+  {
+    "CuitDniCuilCliente": "33-63761744-9",
+    "RazonSocial": "Adidas S.A.",
+    "Factura": [
+      {
+        "NumeroFactura": "A-0001-00001001"
+      },
+      {
+        "NumeroFactura": "A-0001-00001002"
+      },
+      {
+        "NumeroFactura": "A-0001-00001003"
+      },
+      {
+        "NumeroFactura": "A-0001-00001004"
+      },
+      {
+        "NumeroFactura": "A-0001-00001005"
+      },
+      {
+        "NumeroFactura": "A-0001-00001006"
+      }
+    ],
+    "NotaDeCredito": [
+      {
+        "NumeroNotaDeCredito": "A-0001-00000102"
+      },
+      {
+        "NumeroNotaDeCredito": "A-0001-00000104"
+      }
+    ],
+    "Recibos": [
+      {
+        "NumeroRecibo": "R-0001-00001001"
+      },
+      {
+        "NumeroRecibo": "R-0001-00001003"
+      },
+      {
+        "NumeroRecibo": "R-0001-00001005"
+      }
+    ],
+    "Tarifario": [
+      {
+        "TamañoEncomienda": 1,
+        "CiudadOrigen": 1,
+        "CiudadDestino": 2,
+        "Importe": 15000.00
+      },
+      {
+        "TamañoEncomienda": 2,
+        "CiudadOrigen": 1,
+        "CiudadDestino": 3,
+        "Importe": 20000.00
+      },
+      {
+        "TamañoEncomienda": 3,
+        "CiudadOrigen": 1,
+        "CiudadDestino": 4,
+        "Importe": 25000.00
+      },
+      {
+        "TamañoEncomienda": 4,
+        "CiudadOrigen": 1,
+        "CiudadDestino": 5,
+        "Importe": 30000.00
+      }
+    ]
+  },
+  {
+    "CuitDniCuilCliente": "30-64621216-9",
+    "RazonSocial": "Nike S.A.",
+    "Factura": [
+      {
+        "NumeroFactura": "A-0001-00002001"
+      },
+      {
+        "NumeroFactura": "A-0001-00002002"
+      },
+      {
+        "NumeroFactura": "A-0001-00002003"
+      },
+      {
+        "NumeroFactura": "A-0001-00002004"
+      },
+      {
+        "NumeroFactura": "A-0001-00002005"
+      }
+    ],
+    "NotaDeCredito": [
+      {
+        "NumeroNotaDeCredito": "A-0001-00000203"
+      }
+    ],
+    "Recibos": [
+      {
+        "NumeroRecibo": "R-0001-00001002"
+      },
+      {
+        "NumeroRecibo": "R-0001-00001004"
+      }
+    ],
+    "Tarifario": [
+      {
+        "TamañoEncomienda": 1,
+        "CiudadOrigen": 2,
+        "CiudadDestino": 1,
+        "Importe": 16000.00
+      },
+      {
+        "TamañoEncomienda": 2,
+        "CiudadOrigen": 2,
+        "CiudadDestino": 3,
+        "Importe": 21000.00
+      },
+      {
+        "TamañoEncomienda": 3,
+        "CiudadOrigen": 2,
+        "CiudadDestino": 4,
+        "Importe": 24000.00
+      },
+      {
+        "TamañoEncomienda": 4,
+        "CiudadOrigen": 2,
+        "CiudadDestino": 6,
+        "Importe": 29000.00
+      }
+    ]
+  },
+  {
+    "CuitDniCuilCliente": "24078369",
+    "RazonSocial": "Marcelo Gallardo",
+    "Factura": [
+      {
+        "NumeroFactura": "B-0001-00001101"
+      },
+      {
+        "NumeroFactura": "B-0001-00001115"
+      },
+      {
+        "NumeroFactura": "B-0001-00001213"
+      },
+      {
+        "NumeroFactura": "B-0001-00002001"
+      },
+      {
+        "NumeroFactura": "B-0001-00002026"
+      }
+    ],
+    "NotaDeCredito": [
+      {
+        "NumeroNotaDeCredito": "B-0001-00000309"
+      }
+    ],
+    "Recibos": [
+      {
+        "NumeroRecibo": "R-0001-00001015"
+      },
+      {
+        "NumeroRecibo": "R-0001-00001020"
+      }
+    ],
+    "Tarifario": [
+      {
+        "TamañoEncomienda": 1,
+        "CiudadOrigen": 2,
+        "CiudadDestino": 1,
+        "Importe": 14000.00
+      },
+      {
+        "TamañoEncomienda": 2,
+        "CiudadOrigen": 2,
+        "CiudadDestino": 3,
+        "Importe": 19000.00
+      },
+      {
+        "TamañoEncomienda": 3,
+        "CiudadOrigen": 2,
+        "CiudadDestino": 5,
+        "Importe": 23000.00
+      },
+      {
+        "TamañoEncomienda": 4,
+        "CiudadOrigen": 2,
+        "CiudadDestino": 6,
+        "Importe": 28000.00
+      }
+    ]
+  }
+]

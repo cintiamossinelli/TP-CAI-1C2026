@@ -22,7 +22,6 @@
         "Importe": 2500.00
       }
     ]
-
   },
   {
     "IdAgencia": 2,
@@ -223,7 +222,6 @@
 
     ]
   },
-
   {
     "IdAgencia": 11,
     "Nombre": "Cordoba Centro",
@@ -335,28 +333,6 @@
     ]
   },
   {
-    "IdAgencia": 15,
-    "Nombre": "Mendoza Norte",
-    "Comsiones": [
-      {
-        "TamañoEncomienda": 1,
-        "Importe": 2000.00
-      },
-      {
-        "TamañoEncomienda": 2,
-        "Importe": 3000.00
-      },
-      {
-        "TamañoEncomienda": 3,
-        "Importe": 4000.00
-      },
-      {
-        "TamañoEncomienda": 4,
-        "Importe": 5000.00
-      }
-    ]
-  },
-  {
     "IdAgencia": 16,
     "Nombre": "Mendoza Sur",
     "Comsiones": [
@@ -422,7 +398,6 @@
       }
     ]
   },
-
   {
     "IdAgencia": 19,
     "Nombre": "Olavarria Norte",

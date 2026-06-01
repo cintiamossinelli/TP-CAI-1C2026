@@ -1,1 +1,262 @@
-﻿
+﻿[
+  {
+    "NumeroFactura": "A-0001-00001001",
+    "Fecha": "2026-01-02",
+    "Total": 120000.00,
+    "Descripcion": "Factura",
+    "Guias": [
+      {
+        "NroGuia": "AG-1-10"
+      },
+      {
+        "NroGuia": "AG-1-21"
+      },
+      {
+        "NroGuia": "AG-1-22"
+      },
+      {
+        "NroGuia": "AG-1-25"
+      }
+    ]
+  },
+  {
+    "NumeroFactura": "A-0001-00001005",
+    "Fecha": "2026-02-02",
+    "Total": 140000.00,
+    "Descripcion": "Factura",
+    "Guias": [
+      {
+        "NroGuia": "CD-1-30"
+      },
+      {
+        "NroGuia": "CD-1-31"
+      },
+      {
+        "NroGuia": "CD-1-32"
+      },
+      {
+        "NroGuia": "CD-1-33"
+      }
+    ]
+  },
+  {
+    "NumeroFactura": "A-0001-00001006",
+    "Fecha": "2026-03-02",
+    "Total": 80000.00,
+    "Descripcion": "Factura",
+    "Guias": [
+      {
+        "NroGuia": "CC-1-40"
+      },
+      {
+        "NroGuia": "CC-1-41"
+      },
+      {
+        "NroGuia": "CC-1-42"
+      },
+      {
+        "NroGuia": "CC-1-43"
+      }
+    ]
+  },
+  {
+    "NumeroFactura": "A-0001-00002001",
+    "Fecha": "2026-04-02",
+    "Total": 200000.00,
+    "Descripcion": "Factura",
+    "Guias": [
+      {
+        "NroGuia": "AG-2-55"
+      },
+      {
+        "NroGuia": "AG-2-56"
+      },
+      {
+        "NroGuia": "AG-2-57"
+      },
+      {
+        "NroGuia": "AG-2-58"
+      }
+    ]
+  },
+  {
+    "NumeroFactura": "A-0001-00002002",
+    "Fecha": "2026-05-02",
+    "Total": 130000.00,
+    "Descripcion": "Factura",
+    "Guias": [
+      {
+        "NroGuia": "CD-1-60"
+      },
+      {
+        "NroGuia": "CD-1-61"
+      },
+      {
+        "NroGuia": "CD-1-62"
+      },
+      {
+        "NroGuia": "CD-1-63"
+      }
+    ]
+  },
+  {
+    "NumeroFactura": "A-0001-00002003",
+    "Fecha": "2026-01-03",
+    "Total": 85000.00,
+    "Descripcion": "Factura",
+    "Guias": [
+      {
+        "NroGuia": "CC-1-80"
+      },
+      {
+        "NroGuia": "CC-1-81"
+      },
+      {
+        "NroGuia": "CC-1-82"
+      },
+      {
+        "NroGuia": "CC-1-83"
+      }
+    ]
+  },
+  {
+    "NumeroFactura": "A-0001-00002004",
+    "Fecha": "2026-02-02",
+    "Total": 300000.00,
+    "Descripcion": "Factura",
+    "Guias": [
+      {
+        "NroGuia": "AG-5-84"
+      },
+      {
+        "NroGuia": "AG-5-85"
+      },
+      {
+        "NroGuia": "AG-5-86"
+      },
+      {
+        "NroGuia": "AG-5-87"
+      }
+    ]
+  },
+  {
+    "NumeroFactura": "A-0001-00002005",
+    "Fecha": "2026-03-02",
+    "Total": 110000.00,
+    "Descripcion": "Factura",
+    "Guias": [
+      {
+        "NroGuia": "CD-2-90"
+      },
+      {
+        "NroGuia": "CD-2-91"
+      },
+      {
+        "NroGuia": "CD-2-92"
+      },
+      {
+        "NroGuia": "CD-2-93"
+      }
+    ]
+  },
+  {
+    "NumeroFactura": "B-0001-00001101",
+    "Fecha": "2026-01-02",
+    "Total": 70000.00,
+    "Descripcion": "Factura",
+    "Guias": [
+      {
+        "NroGuia": "CC-1-100"
+      },
+      {
+        "NroGuia": "CC-1-101"
+      },
+      {
+        "NroGuia": "CC-1-102"
+      },
+      {
+        "NroGuia": "CC-1-103"
+      }
+    ]
+  },
+  {
+    "NumeroFactura": "B-0001-00001115",
+    "Fecha": "2026-02-02",
+    "Total": 150000.00,
+    "Descripcion": "Factura",
+    "Guias": [
+      {
+        "NroGuia": "AG-6-110"
+      },
+      {
+        "NroGuia": "AG-6-111"
+      },
+      {
+        "NroGuia": "AG-6-112"
+      },
+      {
+        "NroGuia": "AG-6-113"
+      }
+    ]
+  },
+  {
+    "NumeroFactura": "B-0001-00001213",
+    "Fecha": "2026-03-02",
+    "Total": 160000.00,
+    "Descripcion": "Factura",
+    "Guias": [
+      {
+        "NroGuia": "AG-7-120"
+      },
+      {
+        "NroGuia": "AG-7-121"
+      },
+      {
+        "NroGuia": "AG-7-122"
+      },
+      {
+        "NroGuia": "AG-7-123"
+      }
+    ]
+  },
+  {
+    "NumeroFactura": "B-0001-00002001",
+    "Fecha": "2026-04-02",
+    "Total": 170000.00,
+    "Descripcion": "Factura",
+    "Guias": [
+      {
+        "NroGuia": "CD-2-130"
+      },
+      {
+        "NroGuia": "CD-2-131"
+      },
+      {
+        "NroGuia": "CD-2-132"
+      },
+      {
+        "NroGuia": "CD-2-133"
+      }
+    ]
+  },
+  {
+    "NumeroFactura": "B-0001-00002026",
+    "Fecha": "2026-05-02",
+    "Total": 210000.00,
+    "Descripcion": "Factura",
+    "Guias": [
+      {
+        "NroGuia": "CD-2-138"
+      },
+      {
+        "NroGuia": "CD-2-139"
+      },
+      {
+        "NroGuia": "CD-2-140"
+      },
+      {
+        "NroGuia": "CD-2-141"
+      }
+    ]
+  }
+]
