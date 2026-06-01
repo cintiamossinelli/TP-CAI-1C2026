@@ -1,1 +1,474 @@
-﻿
+﻿[
+  {
+    "IdAgencia": 1,
+    "Nombre": "Rosario Norte",
+    "Comsiones": [
+      {
+
+        "TamañoEncomienda": 1,
+        "Importe": 1000.00
+
+      },
+      {
+        "TamañoEncomienda": 2,
+        "Importe": 1500.00
+      },
+      {
+        "TamañoEncomienda": 3,
+        "Importe": 2000.00
+      },
+      {
+        "TamañoEncomienda": 4,
+        "Importe": 2500.00
+      }
+    ]
+
+  },
+  {
+    "IdAgencia": 2,
+    "Nombre": "Rosario Sur",
+    "Comsiones": [
+      {
+        "TamañoEncomienda": 1,
+        "Importe": 1200.00
+      },
+      {
+        "TamañoEncomienda": 2,
+        "Importe": 1700.00
+      },
+      {
+        "TamañoEncomienda": 3,
+        "Importe": 2200.00
+      },
+      {
+        "TamañoEncomienda": 4,
+        "Importe": 2700.00
+      }
+    ]
+  },
+  {
+    "IdAgencia": 3,
+    "Nombre": "Rosario Centro",
+    "Comsiones": [
+      {
+        "TamañoEncomienda": 1,
+        "Importe": 1100.00
+      },
+      {
+        "TamañoEncomienda": 2,
+        "Importe": 1600.00
+      },
+      {
+        "TamañoEncomienda": 3,
+        "Importe": 2100.00
+      },
+      {
+        "TamañoEncomienda": 4,
+        "Importe": 2600.00
+      }
+    ]
+  },
+  {
+    "IdAgencia": 4,
+    "Nombre": "Rosario Oeste",
+    "Comsiones": [
+      {
+        "TamañoEncomienda": 1,
+        "Importe": 1300.00
+      },
+      {
+        "TamañoEncomienda": 2,
+        "Importe": 1800.00
+      },
+      {
+        "TamañoEncomienda": 3,
+        "Importe": 2300.00
+      },
+      {
+        "TamañoEncomienda": 4,
+        "Importe": 2800.00
+      }
+    ]
+  },
+  {
+    "IdAgencia": 5,
+    "Nombre": "Microcentro",
+    "Comsiones": [
+      {
+        "TamañoEncomienda": 1,
+        "Importe": 1400.00
+      },
+      {
+        "TamañoEncomienda": 2,
+        "Importe": 1900.00
+      },
+      {
+        "TamañoEncomienda": 3,
+        "Importe": 2400.00
+      },
+      {
+        "TamañoEncomienda": 4,
+        "Importe": 2900.00
+      }
+    ]
+  },
+  {
+    "IdAgencia": 6,
+    "Nombre": "Palermo",
+    "Comsiones": [
+      {
+        "TamañoEncomienda": 1,
+        "Importe": 1400.00
+      },
+      {
+        "TamañoEncomienda": 2,
+        "Importe": 1900.00
+      },
+      {
+        "TamañoEncomienda": 3,
+        "Importe": 2400.00
+      },
+      {
+        "TamañoEncomienda": 4,
+        "Importe": 2900.00
+      }
+    ]
+  },
+  {
+    "IdAgencia": 7,
+    "Nombre": "Belgrano",
+    "Comsiones": [
+      {
+        "TamañoEncomienda": 1,
+        "Importe": 1400.00
+      },
+      {
+        "TamañoEncomienda": 2,
+        "Importe": 1900.00
+      },
+      {
+        "TamañoEncomienda": 3,
+        "Importe": 2400.00
+      },
+      {
+        "TamañoEncomienda": 4,
+        "Importe": 2900.00
+      }
+    ]
+  },
+  {
+    "IdAgencia": 8,
+    "Nombre": "Recoleta",
+    "Comsiones": [
+      {
+        "TamañoEncomienda": 1,
+        "Importe": 1400.00
+      },
+      {
+        "TamañoEncomienda": 2,
+        "Importe": 1900.00
+      },
+      {
+        "TamañoEncomienda": 3,
+        "Importe": 2400.00
+      },
+      {
+        "TamañoEncomienda": 4,
+        "Importe": 2900.00
+      }
+    ]
+  },
+  {
+    "IdAgencia": 9,
+    "Nombre": "Cordoba Norte",
+    "Comsiones": [
+      {
+        "TamañoEncomienda": 1,
+        "Importe": 1800.00
+      },
+      {
+        "TamañoEncomienda": 2,
+        "Importe": 2300.00
+      },
+      {
+        "TamañoEncomienda": 3,
+        "Importe": 2800.00
+      },
+      {
+        "TamañoEncomienda": 4,
+        "Importe": 3300.00
+      }
+    ]
+  },
+  {
+    "IdAgencia": 10,
+    "Nombre": "Cordoba Sur",
+    "Comsiones": [
+      {
+        "TamañoEncomienda": 1,
+        "Importe": 1800.00
+      },
+      {
+        "TamañoEncomienda": 2,
+        "Importe": 2300.00
+      },
+      {
+        "TamañoEncomienda": 3,
+        "Importe": 2800.00
+      },
+      {
+        "TamañoEncomienda": 4,
+        "Importe": 3300.00
+      }
+
+    ]
+  },
+
+  {
+    "IdAgencia": 11,
+    "Nombre": "Cordoba Centro",
+    "Comsiones": [
+      {
+        "TamañoEncomienda": 1,
+        "Importe": 1800.00
+      },
+      {
+        "TamañoEncomienda": 2,
+        "Importe": 2300.00
+      },
+      {
+        "TamañoEncomienda": 3,
+        "Importe": 2800.00
+      },
+      {
+        "TamañoEncomienda": 4,
+        "Importe": 3300.00
+      }
+    ]
+  },
+  {
+    "IdAgencia": 12,
+    "Nombre": "Cordoba Oeste",
+    "Comsiones": [
+      {
+        "TamañoEncomienda": 1,
+        "Importe": 1800.00
+      },
+      {
+        "TamañoEncomienda": 2,
+        "Importe": 2300.00
+      },
+      {
+        "TamañoEncomienda": 3,
+        "Importe": 2800.00
+      },
+      {
+        "TamañoEncomienda": 4,
+        "Importe": 3300.00
+      }
+    ]
+  },
+  {
+    "IdAgencia": 13,
+    "Nombre": "Santa Fe Norte",
+    "Comsiones": [
+      {
+        "TamañoEncomienda": 1,
+        "Importe": 2000.00
+      },
+      {
+        "TamañoEncomienda": 2,
+        "Importe": 3000.00
+      },
+      {
+        "TamañoEncomienda": 3,
+        "Importe": 4000.00
+      },
+      {
+        "TamañoEncomienda": 4,
+        "Importe": 5000.00
+      }
+    ]
+  },
+  {
+    "IdAgencia": 14,
+    "Nombre": "Santa Fe Sur",
+    "Comsiones": [
+      {
+        "TamañoEncomienda": 1,
+        "Importe": 2000.00
+      },
+      {
+        "TamañoEncomienda": 2,
+        "Importe": 3000.00
+      },
+      {
+        "TamañoEncomienda": 3,
+        "Importe": 4000.00
+      },
+      {
+        "TamañoEncomienda": 4,
+        "Importe": 5000.00
+      }
+    ]
+  },
+  {
+    "IdAgencia": 15,
+    "Nombre": "Santa Fe Oeste",
+    "Comsiones": [
+      {
+        "TamañoEncomienda": 1,
+        "Importe": 2000.00
+      },
+      {
+        "TamañoEncomienda": 2,
+        "Importe": 3000.00
+      },
+      {
+        "TamañoEncomienda": 3,
+        "Importe": 4000.00
+      },
+      {
+        "TamañoEncomienda": 4,
+        "Importe": 5000.00
+      }
+    ]
+  },
+  {
+    "IdAgencia": 15,
+    "Nombre": "Mendoza Norte",
+    "Comsiones": [
+      {
+        "TamañoEncomienda": 1,
+        "Importe": 2000.00
+      },
+      {
+        "TamañoEncomienda": 2,
+        "Importe": 3000.00
+      },
+      {
+        "TamañoEncomienda": 3,
+        "Importe": 4000.00
+      },
+      {
+        "TamañoEncomienda": 4,
+        "Importe": 5000.00
+      }
+    ]
+  },
+  {
+    "IdAgencia": 16,
+    "Nombre": "Mendoza Sur",
+    "Comsiones": [
+      {
+        "TamañoEncomienda": 1,
+        "Importe": 2000.00
+      },
+      {
+        "TamañoEncomienda": 2,
+        "Importe": 3000.00
+      },
+      {
+        "TamañoEncomienda": 3,
+        "Importe": 4000.00
+      },
+      {
+        "TamañoEncomienda": 4,
+        "Importe": 5000.00
+      }
+    ]
+  },
+  {
+    "IdAgencia": 17,
+    "Nombre": "Mendoza Centro",
+    "Comsiones": [
+      {
+        "TamañoEncomienda": 1,
+        "Importe": 2000.00
+      },
+      {
+        "TamañoEncomienda": 2,
+        "Importe": 3000.00
+      },
+      {
+        "TamañoEncomienda": 3,
+        "Importe": 4000.00
+      },
+      {
+        "TamañoEncomienda": 4,
+        "Importe": 5000.00
+      }
+    ]
+  },
+  {
+    "IdAgencia": 18,
+    "Nombre": "Mendoza Oeste",
+    "Comsiones": [
+      {
+        "TamañoEncomienda": 1,
+        "Importe": 2000.00
+      },
+      {
+        "TamañoEncomienda": 2,
+        "Importe": 3000.00
+      },
+      {
+        "TamañoEncomienda": 3,
+        "Importe": 4000.00
+      },
+      {
+        "TamañoEncomienda": 4,
+        "Importe": 5000.00
+      }
+    ]
+  },
+
+  {
+    "IdAgencia": 19,
+    "Nombre": "Olavarria Norte",
+    "Comsiones": [
+      {
+        "TamañoEncomienda": 1,
+        "Importe": 2000.00
+      },
+      {
+        "TamañoEncomienda": 2,
+        "Importe": 3000.00
+      },
+      {
+        "TamañoEncomienda": 3,
+        "Importe": 4000.00
+      },
+      {
+        "TamañoEncomienda": 4,
+        "Importe": 5000.00
+      }
+    ]
+  },
+  {
+    "IdAgencia": 20,
+    "Nombre": "Olavarria Sur",
+    "Comsiones": [
+      {
+        "TamañoEncomienda": 1,
+        "Importe": 2000.00
+      },
+      {
+        "TamañoEncomienda": 2,
+        "Importe": 3000.00
+      },
+      {
+        "TamañoEncomienda": 3,
+        "Importe": 4000.00
+      },
+      {
+        "TamañoEncomienda": 4,
+        "Importe": 5000.00
+      }
+    ]
+  }
+]
+
+  
+
+ 

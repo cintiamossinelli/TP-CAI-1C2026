@@ -1,1 +1,26 @@
-﻿
+﻿[
+  {
+    "IdCentroDistribucion": 1,
+    "Nombre": "Rosario"
+  },
+  {
+    "IdCentroDistribucion": 2,
+    "Nombre": "Buenos Aires"
+  },
+  {
+    "IdCentroDistribucion": 3,
+    "Nombre": "Cordoba"
+  },
+  {
+    "IdCentroDistribucion": 4,
+    "Nombre": "Santa Fe"
+  },
+  {
+    "IdCentroDistribucion": 5,
+    "Nombre": "Mendoza"
+  },
+  {
+    "IdCentroDistribucion": 6,
+    "Nombre": "Olavarria"
+  }
+]
