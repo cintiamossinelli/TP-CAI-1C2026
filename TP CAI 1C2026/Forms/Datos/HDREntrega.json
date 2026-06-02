@@ -1,1 +1,219 @@
-﻿
+﻿[
+  {
+    "NroHDR": 1,
+    "DniFletero": 11223344,
+    "Fecha": "2026-06-01",
+    "Domicilio": "Av. Corrientes 1234, CABA",
+    "CantEncomiendas": 5,
+    "Guias": [
+      { "NroGuia": "AG-1-167" },
+      { "NroGuia": "AG-1-168" },
+      { "NroGuia": "CD-1-169" },
+      { "NroGuia": "CC-1-170" },
+      { "NroGuia": "AG-1-171" }
+    ],
+    "Estado": 1
+  },
+  {
+    "NroHDR": 2,
+    "DniFletero": 12354678,
+    "Fecha": "2026-05-23",
+    "Domicilio": "Florida 450, CABA",
+    "CantEncomiendas": 5,
+    "Guias": [
+      { "NroGuia": "AG-3-172" },
+      { "NroGuia": "AG-3-173" },
+      { "NroGuia": "CD-2-174" },
+      { "NroGuia": "CC-1-175" },
+      { "NroGuia": "AG-3-176" }
+    ],
+    "Estado": 2
+  },
+  {
+    "NroHDR": 3,
+    "DniFletero": 32080691,
+    "Fecha": "2026-05-31",
+    "Domicilio": "Av. Santa Fe 2900, CABA",
+    "CantEncomiendas": 57,
+    "Guias": [
+      { "NroGuia": "CD-1-177" },
+      { "NroGuia": "CD-1-178" },
+      { "NroGuia": "AG-4-179" },
+      { "NroGuia": "AG-4-180" },
+      { "NroGuia": "CC-1-181" },
+      { "NroGuia": "AG-1-10" },
+      { "NroGuia": "AG-1-21" },
+      { "NroGuia": "AG-1-22" },
+      { "NroGuia": "AG-1-25" },
+      { "NroGuia": "CD-1-30" },
+      { "NroGuia": "CD-1-31" },
+      { "NroGuia": "CD-1-32" },
+      { "NroGuia": "CD-1-33" },
+      { "NroGuia": "CC-1-40" },
+      { "NroGuia": "CC-1-41" },
+      { "NroGuia": "CC-1-42" },
+      { "NroGuia": "CC-1-43" },
+      { "NroGuia": "AG-2-55" },
+      { "NroGuia": "AG-2-56" },
+      { "NroGuia": "AG-2-57" },
+      { "NroGuia": "AG-2-58" },
+      { "NroGuia": "CD-1-60" },
+      { "NroGuia": "CD-1-61" },
+      { "NroGuia": "CD-1-62" },
+      { "NroGuia": "CD-1-63" },
+      { "NroGuia": "CC-1-80" },
+      { "NroGuia": "CC-1-81" },
+      { "NroGuia": "CC-1-82" },
+      { "NroGuia": "CC-1-83" },
+      { "NroGuia": "AG-5-84" },
+      { "NroGuia": "AG-5-85" },
+      { "NroGuia": "AG-5-86" },
+      { "NroGuia": "AG-5-87" },
+      { "NroGuia": "CD-2-90" },
+      { "NroGuia": "CD-2-91" },
+      { "NroGuia": "CD-2-92" },
+      { "NroGuia": "CD-2-93" },
+      { "NroGuia": "CC-1-100" },
+      { "NroGuia": "CC-1-101" },
+      { "NroGuia": "CC-1-102" },
+      { "NroGuia": "CC-1-103" },
+      { "NroGuia": "AG-6-110" },
+      { "NroGuia": "AG-6-111" },
+      { "NroGuia": "AG-6-112" },
+      { "NroGuia": "AG-6-113" },
+      { "NroGuia": "AG-7-120" },
+      { "NroGuia": "AG-7-121" },
+      { "NroGuia": "AG-7-122" },
+      { "NroGuia": "AG-7-123" },
+      { "NroGuia": "CD-2-130" },
+      { "NroGuia": "CD-2-131" },
+      { "NroGuia": "CD-2-132" },
+      { "NroGuia": "CD-2-133" },
+      { "NroGuia": "CD-2-138" },
+      { "NroGuia": "CD-2-139" },
+      { "NroGuia": "CD-2-140" },
+      { "NroGuia": "CD-2-141" }
+    ],
+    "Estado": 3
+  },
+  {
+    "NroHDR": 4,
+    "DniFletero": 10101010,
+    "Fecha": "2026-06-06",
+    "Domicilio": "Brandsen 805, CABA",
+    "CantEncomiendas": 5,
+    "Guias": [
+      { "NroGuia": "AG-2-182" },
+      { "NroGuia": "AG-2-183" },
+      { "NroGuia": "CD-3-184" },
+      { "NroGuia": "CD-3-185" },
+      { "NroGuia": "AG-2-186" }
+    ],
+    "Estado": 1
+  },
+  {
+    "NroHDR": 5,
+    "DniFletero": 24242424,
+    "Fecha": "2026-06-16",
+    "Domicilio": "Calle Mitre 220, Rosario",
+    "CantEncomiendas": 5,
+    "Guias": [
+      { "NroGuia": "CC-1-187" },
+      { "NroGuia": "AG-5-188" },
+      { "NroGuia": "AG-5-189" },
+      { "NroGuia": "CD-4-190" },
+      { "NroGuia": "AG-5-191" }
+    ],
+    "Estado": 2
+  },
+  {
+    "NroHDR": 6,
+    "DniFletero": 45000123,
+    "Fecha": "2026-06-24",
+    "Domicilio": "Av. Rivadavia 7000, Flores",
+    "CantEncomiendas": 5,
+    "Guias": [
+      { "NroGuia": "CD-2-192" },
+      { "NroGuia": "CD-2-193" },
+      { "NroGuia": "AG-6-194" },
+      { "NroGuia": "AG-6-195" },
+      { "NroGuia": "CC-1-196" }
+    ],
+    "Estado": 1
+  },
+  {
+    "NroHDR": 7,
+    "DniFletero": 30303030,
+    "Fecha": "2026-05-25",
+    "Domicilio": "San Martín 500, Córdoba",
+    "CantEncomiendas": 5,
+    "Guias": [
+      { "NroGuia": "AG-1-167" },
+      { "NroGuia": "AG-1-168" },
+      { "NroGuia": "CD-1-169" },
+      { "NroGuia": "CC-1-170" },
+      { "NroGuia": "AG-1-171" }
+    ],
+    "Estado": 3
+  },
+  {
+    "NroHDR": 8,
+    "DniFletero": 40404040,
+    "Fecha": "2026-06-05",
+    "Domicilio": "Bv. Oroño 1200, Rosario",
+    "CantEncomiendas": 5,
+    "Guias": [
+      { "NroGuia": "AG-3-172" },
+      { "NroGuia": "AG-3-173" },
+      { "NroGuia": "CD-2-174" },
+      { "NroGuia": "CC-1-175" },
+      { "NroGuia": "AG-3-176" }
+    ],
+    "Estado": 2
+  },
+  {
+    "NroHDR": 9,
+    "DniFletero": 21212121,
+    "Fecha": "2026-05-30",
+    "Domicilio": "Av. Libertador 3500, Vicente López",
+    "CantEncomiendas": 5,
+    "Guias": [
+      { "NroGuia": "CD-1-177" },
+      { "NroGuia": "CD-1-178" },
+      { "NroGuia": "AG-4-179" },
+      { "NroGuia": "AG-4-180" },
+      { "NroGuia": "CC-1-181" }
+    ],
+    "Estado": 1
+  },
+  {
+    "NroHDR": 10,
+    "DniFletero": 31313131,
+    "Fecha": "2026-06-10",
+    "Domicilio": "Córdoba 1500, CABA",
+    "CantEncomiendas": 5,
+    "Guias": [
+      { "NroGuia": "AG-2-182" },
+      { "NroGuia": "AG-2-183" },
+      { "NroGuia": "CD-3-184" },
+      { "NroGuia": "CD-3-185" },
+      { "NroGuia": "AG-2-186" }
+    ],
+    "Estado": 2
+  },
+  {
+    "NroHDR": 11,
+    "DniFletero": 30313031,
+    "Fecha": "2026-06-15",
+    "Domicilio": "Av. 9 de Julio 1000, CABA",
+    "CantEncomiendas": 5,
+    "Guias": [
+      { "NroGuia": "AG-5-188" },
+      { "NroGuia": "AG-5-189" },
+      { "NroGuia": "CD-4-190" },
+      { "NroGuia": "AG-5-191" },
+      { "NroGuia": "CC-1-187" }
+    ],
+    "Estado": 3
+  }
+]

@@ -10,7 +10,7 @@ namespace TP_CAI_1C2026.Forms.Almacen
         ImpuestaEnAgencia = 2,
         ImpuestaEnCD = 3,
         PendienteDeRetiro = 4,
-        Rendidad = 5,
+        Rendida = 5,
         PendienteDeAdmision = 6,
         Rechazada = 7,
         Admitida = 8,

@@ -20,7 +20,7 @@ namespace TP_CAI_1C2026.Forms.Almacen
         public string DireccionEntrega { get; set; }
         public string DNIDestinatario { get; set; }
         public string NombreDestinatario { get; set; }
-        public string TipoCaja { get; set; }
+        public TipoTamañoEnvioEnum TipoCaja { get; set; }
         public decimal PrecioVenta { get; set; }
         public EstadoGuiaEnum Estado { get; set; }
         public List<HistorialGuia> Historial { get; set; }

@@ -1,1 +1,170 @@
-﻿
+﻿[
+  {
+    "IdServicio": 1,
+    "IdEmpresaTransporte": 1,
+    "Paradas": [
+      { "Fecha": "2026-05-15T20:00:00Z", "IdCentroDeDistribucion": 1 },
+      { "Fecha": "2026-05-16T20:30:00Z", "IdCentroDeDistribucion": 2 }
+    ]
+  },
+  {
+    "IdServicio": 2,
+    "IdEmpresaTransporte": 2,
+    "Paradas": [
+      { "Fecha": "2026-05-17T21:00:00Z", "IdCentroDeDistribucion": 3 },
+      { "Fecha": "2026-05-18T21:30:00Z", "IdCentroDeDistribucion": 4 }
+    ]
+  },
+  {
+    "IdServicio": 3,
+    "IdEmpresaTransporte": 3,
+    "Paradas": [
+      { "Fecha": "2026-05-19T22:00:00Z", "IdCentroDeDistribucion": 5 },
+      { "Fecha": "2026-05-20T22:30:00Z", "IdCentroDeDistribucion": 6 }
+    ]
+  },
+  {
+    "IdServicio": 4,
+    "IdEmpresaTransporte": 4,
+    "Paradas": [
+      { "Fecha": "2026-05-21T20:15:00Z", "IdCentroDeDistribucion": 1 },
+      { "Fecha": "2026-05-22T20:45:00Z", "IdCentroDeDistribucion": 3 }
+    ]
+  },
+  {
+    "IdServicio": 5,
+    "IdEmpresaTransporte": 5,
+    "Paradas": [
+      { "Fecha": "2026-05-23T21:15:00Z", "IdCentroDeDistribucion": 2 },
+      { "Fecha": "2026-05-24T21:45:00Z", "IdCentroDeDistribucion": 4 }
+    ]
+  },
+  {
+    "IdServicio": 6,
+    "IdEmpresaTransporte": 6,
+    "Paradas": [
+      { "Fecha": "2026-05-25T22:15:00Z", "IdCentroDeDistribucion": 5 },
+      { "Fecha": "2026-05-26T22:45:00Z", "IdCentroDeDistribucion": 6 }
+    ]
+  },
+  {
+    "IdServicio": 7,
+    "IdEmpresaTransporte": 7,
+    "Paradas": [
+      { "Fecha": "2026-05-27T22:50:00Z", "IdCentroDeDistribucion": 1 },
+      { "Fecha": "2026-05-28T20:10:00Z", "IdCentroDeDistribucion": 2 }
+    ]
+  },
+  {
+    "IdServicio": 8,
+    "IdEmpresaTransporte": 1,
+    "Paradas": [
+      { "Fecha": "2026-05-29T20:30:00Z", "IdCentroDeDistribucion": 3 },
+      { "Fecha": "2026-05-30T21:00:00Z", "IdCentroDeDistribucion": 4 }
+    ]
+  },
+  {
+    "IdServicio": 9,
+    "IdEmpresaTransporte": 2,
+    "Paradas": [
+      { "Fecha": "2026-05-31T21:30:00Z", "IdCentroDeDistribucion": 5 },
+      { "Fecha": "2026-06-01T22:00:00Z", "IdCentroDeDistribucion": 6 }
+    ]
+  },
+  {
+    "IdServicio": 10,
+    "IdEmpresaTransporte": 3,
+    "Paradas": [
+      { "Fecha": "2026-06-02T20:00:00Z", "IdCentroDeDistribucion": 1 },
+      { "Fecha": "2026-06-03T20:30:00Z", "IdCentroDeDistribucion": 2 }
+    ]
+  },
+  {
+    "IdServicio": 11,
+    "IdEmpresaTransporte": 4,
+    "Paradas": [
+      { "Fecha": "2026-06-04T21:00:00Z", "IdCentroDeDistribucion": 3 },
+      { "Fecha": "2026-06-05T21:30:00Z", "IdCentroDeDistribucion": 4 }
+    ]
+  },
+  {
+    "IdServicio": 12,
+    "IdEmpresaTransporte": 5,
+    "Paradas": [
+      { "Fecha": "2026-06-06T22:00:00Z", "IdCentroDeDistribucion": 5 },
+      { "Fecha": "2026-06-07T22:30:00Z", "IdCentroDeDistribucion": 6 }
+    ]
+  },
+  {
+    "IdServicio": 13,
+    "IdEmpresaTransporte": 6,
+    "Paradas": [
+      { "Fecha": "2026-06-08T20:20:00Z", "IdCentroDeDistribucion": 1 },
+      { "Fecha": "2026-06-09T20:50:00Z", "IdCentroDeDistribucion": 3 }
+    ]
+  },
+  {
+    "IdServicio": 14,
+    "IdEmpresaTransporte": 7,
+    "Paradas": [
+      { "Fecha": "2026-06-10T21:10:00Z", "IdCentroDeDistribucion": 2 },
+      { "Fecha": "2026-06-11T21:40:00Z", "IdCentroDeDistribucion": 4 }
+    ]
+  },
+  {
+    "IdServicio": 15,
+    "IdEmpresaTransporte": 1,
+    "Paradas": [
+      { "Fecha": "2026-06-12T22:10:00Z", "IdCentroDeDistribucion": 5 },
+      { "Fecha": "2026-06-13T22:40:00Z", "IdCentroDeDistribucion": 6 }
+    ]
+  },
+  {
+    "IdServicio": 16,
+    "IdEmpresaTransporte": 2,
+    "Paradas": [
+      { "Fecha": "2026-06-14T20:05:00Z", "IdCentroDeDistribucion": 1 },
+      { "Fecha": "2026-06-15T20:35:00Z", "IdCentroDeDistribucion": 2 }
+    ]
+  },
+  {
+    "IdServicio": 17,
+    "IdEmpresaTransporte": 3,
+    "Paradas": [
+      { "Fecha": "2026-06-16T21:05:00Z", "IdCentroDeDistribucion": 3 },
+      { "Fecha": "2026-06-17T21:35:00Z", "IdCentroDeDistribucion": 4 }
+    ]
+  },
+  {
+    "IdServicio": 18,
+    "IdEmpresaTransporte": 4,
+    "Paradas": [
+      { "Fecha": "2026-06-18T22:05:00Z", "IdCentroDeDistribucion": 5 },
+      { "Fecha": "2026-06-19T22:35:00Z", "IdCentroDeDistribucion": 6 }
+    ]
+  },
+  {
+    "IdServicio": 19,
+    "IdEmpresaTransporte": 5,
+    "Paradas": [
+      { "Fecha": "2026-06-20T20:25:00Z", "IdCentroDeDistribucion": 1 },
+      { "Fecha": "2026-06-21T20:55:00Z", "IdCentroDeDistribucion": 3 }
+    ]
+  },
+  {
+    "IdServicio": 20,
+    "IdEmpresaTransporte": 6,
+    "Paradas": [
+      { "Fecha": "2026-06-22T21:25:00Z", "IdCentroDeDistribucion": 2 },
+      { "Fecha": "2026-06-23T21:55:00Z", "IdCentroDeDistribucion": 4 }
+    ]
+  },
+  {
+    "IdServicio": 21,
+    "IdEmpresaTransporte": 7,
+    "Paradas": [
+      { "Fecha": "2026-06-24T22:25:00Z", "IdCentroDeDistribucion": 5 },
+      { "Fecha": "2026-06-25T22:55:00Z", "IdCentroDeDistribucion": 6 }
+    ]
+  }
+]

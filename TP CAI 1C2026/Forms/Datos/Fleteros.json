@@ -1,1 +1,278 @@
-﻿
+﻿[
+  {
+    "DNI": 11223344,
+    "Nombre": "José Lema",
+    "IdCentroDeDistribucion": 1,
+    "Comsiones": [
+      {
+        "TamañoEncomienda": 1,
+        "Importe": 1500.00
+      },
+      {
+        "TamañoEncomienda": 2,
+        "Importe": 2000.00
+      },
+      {
+        "TamañoEncomienda": 3,
+        "Importe": 2500.00
+      },
+      {
+        "TamañoEncomienda": 4,
+        "Importe": 3000.00
+      }
+    ]
+  },
+  {
+    "DNI": 12354678,
+    "Nombre": "Claudio Úbeda",
+    "IdCentroDeDistribucion": 1,
+    "Comsiones": [
+      {
+        "TamañoEncomienda": 1,
+        "Importe": 1200.00
+      },
+      {
+        "TamañoEncomienda": 2,
+        "Importe": 1700.00
+      },
+      {
+        "TamañoEncomienda": 3,
+        "Importe": 2200.00
+      },
+      {
+        "TamañoEncomienda": 4,
+        "Importe": 2700.00
+      }
+    ]
+  },
+  {
+    "DNI": 32080691,
+    "Nombre": "Lionel Messi",
+    "IdCentroDeDistribucion": 2,
+    "Comsiones": [
+      {
+        "TamañoEncomienda": 1,
+        "Importe": 2000.00
+      },
+      {
+        "TamañoEncomienda": 2,
+        "Importe": 3000.00
+      },
+      {
+        "TamañoEncomienda": 3,
+        "Importe": 4000.00
+      },
+      {
+        "TamañoEncomienda": 4,
+        "Importe": 5000.00
+      }
+    ]
+  },
+  {
+    "DNI": 10101010,
+    "Nombre": "Diego Maradona",
+    "IdCentroDeDistribucion": 2,
+    "Comsiones": [
+      {
+        "TamañoEncomienda": 1,
+        "Importe": 2000.00
+      },
+      {
+        "TamañoEncomienda": 2,
+        "Importe": 3000.00
+      },
+      {
+        "TamañoEncomienda": 3,
+        "Importe": 4000.00
+      },
+      {
+        "TamañoEncomienda": 4,
+        "Importe": 5000.00
+      }
+    ]
+  },
+  {
+    "DNI": 24242424,
+    "Nombre": "Enzo Pérez",
+    "IdCentroDeDistribucion": 3,
+    "Comsiones": [
+      {
+        "TamañoEncomienda": 1,
+        "Importe": 1800.00
+      },
+      {
+        "TamañoEncomienda": 2,
+        "Importe": 2400.00
+      },
+      {
+        "TamañoEncomienda": 3,
+        "Importe": 3000.00
+      },
+      {
+        "TamañoEncomienda": 4,
+        "Importe": 3500.00
+      }
+    ]
+  },
+  {
+    "DNI": 45000123,
+    "Nombre": "Tim Payne",
+    "IdCentroDeDistribucion": 3,
+    "Comsiones": [
+      {
+        "TamañoEncomienda": 1,
+        "Importe": 1500.00
+      },
+      {
+        "TamañoEncomienda": 2,
+        "Importe": 2000.00
+      },
+      {
+        "TamañoEncomienda": 3,
+        "Importe": 2500.00
+      },
+      {
+        "TamañoEncomienda": 4,
+        "Importe": 3000.00
+      }
+    ]
+  },
+  {
+    "DNI": 30303030,
+    "Nombre": "Sergio Agüero",
+    "IdCentroDeDistribucion": 4,
+    "Comsiones": [
+      {
+        "TamañoEncomienda": 1,
+        "Importe": 2000.00
+      },
+      {
+        "TamañoEncomienda": 2,
+        "Importe": 3000.00
+      },
+      {
+        "TamañoEncomienda": 3,
+        "Importe": 4000.00
+      },
+      {
+        "TamañoEncomienda": 4,
+        "Importe": 5000.00
+      }
+    ]
+  },
+  {
+    "DNI": 40404040,
+    "Nombre": "Ángel Di María",
+    "IdCentroDeDistribucion": 4,
+    "Comsiones": [
+      {
+        "TamañoEncomienda": 1,
+        "Importe": 2000.00
+      },
+      {
+        "TamañoEncomienda": 2,
+        "Importe": 3000.00
+      },
+      {
+        "TamañoEncomienda": 3,
+        "Importe": 4000.00
+      },
+      {
+        "TamañoEncomienda": 4,
+        "Importe": 5000.00
+      }
+    ]
+  },
+  {
+    "DNI": 21212121,
+    "Nombre": "Paulo Dybala",
+    "IdCentroDeDistribucion": 5,
+    "Comsiones": [
+      {
+        "TamañoEncomienda": 1,
+        "Importe": 1800.00
+      },
+      {
+        "TamañoEncomienda": 2,
+        "Importe": 2400.00
+      },
+      {
+        "TamañoEncomienda": 3,
+        "Importe": 3000.00
+      },
+      {
+        "TamañoEncomienda": 4,
+        "Importe": 3500.00
+      }
+    ]
+  },
+  {
+    "DNI": 31313131,
+    "Nombre": "Gonzalo Higuaín",
+    "IdCentroDeDistribucion": 5,
+    "Comsiones": [
+      {
+        "TamañoEncomienda": 1,
+        "Importe": 1500.00
+      },
+      {
+        "TamañoEncomienda": 2,
+        "Importe": 2000.00
+      },
+      {
+        "TamañoEncomienda": 3,
+        "Importe": 2500.00
+      },
+      {
+        "TamañoEncomienda": 4,
+        "Importe": 3000.00
+      }
+    ]
+  },
+  {
+    "DNI": 30313031,
+    "Nombre": "Carlos Tévez",
+    "IdCentroDeDistribucion": 6,
+    "Comsiones": [
+      {
+        "TamañoEncomienda": 1,
+        "Importe": 2000.00
+      },
+      {
+        "TamañoEncomienda": 2,
+        "Importe": 3000.00
+      },
+      {
+        "TamañoEncomienda": 3,
+        "Importe": 4000.00
+      },
+      {
+        "TamañoEncomienda": 4,
+        "Importe": 5000.00
+      }
+    ]
+  },
+  {
+    "DNI": 19191919,
+    "Nombre": "Nicolás Otamendi",
+    "IdCentroDeDistribucion": 6,
+    "Comsiones": [
+      {
+        "TamañoEncomienda": 1,
+        "Importe": 2000.00
+      },
+      {
+        "TamañoEncomienda": 2,
+        "Importe": 3000.00
+      },
+      {
+        "TamañoEncomienda": 3,
+        "Importe": 4000.00
+      },
+      {
+        "TamañoEncomienda": 4,
+        "Importe": 5000.00
+      }
+    ]
+  }
+]
