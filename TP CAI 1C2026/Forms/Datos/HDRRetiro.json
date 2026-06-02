@@ -1,4 +1,5 @@
-﻿[
+﻿/* VIEJO
+ [
   {
     "NroHDR": 1,
     "DniFletero": 11223344,
@@ -141,5 +142,151 @@
       { "NroGuia": "AG-2-186" }
     ],
     "Estado": 2
+  }
+]
+*/
+
+//Cambios de martin
+
+[
+  {
+    "NroHDR": 1,
+    "DniFletero": 11223344,
+    "Fecha": "2026-06-01",
+    "Domicilio": "",
+    "CantEncomiendas": 4,
+    "Guias": [
+      { "NroGuia": "AG-1-10" },
+      { "NroGuia": "AG-1-21" },
+      { "NroGuia": "AG-1-22" },
+      { "NroGuia": "AG-1-25" }
+    ],
+    "Estado": 1
+  },
+  {
+    "NroHDR": 2,
+    "DniFletero": 22334455,
+    "Fecha": "2026-06-02",
+    "Domicilio": "",
+    "CantEncomiendas": 3,
+    "Guias": [
+      { "NroGuia": "AG-1-167" },
+      { "NroGuia": "AG-1-168" },
+      { "NroGuia": "AG-1-171" }
+    ],
+    "Estado": 3
+  },
+  {
+    "NroHDR": 3,
+    "DniFletero": 33445566,
+    "Fecha": "2026-06-03",
+    "Domicilio": "",
+    "CantEncomiendas": 3,
+    "Guias": [
+      { "NroGuia": "AG-3-172" },
+      { "NroGuia": "AG-3-173" },
+      { "NroGuia": "AG-2-182" }
+    ],
+    "Estado": 2
+  },
+  {
+    "NroHDR": 4,
+    "DniFletero": 44556677,
+    "Fecha": "2026-06-04",
+    "Domicilio": "",
+    "CantEncomiendas": 2,
+    "Guias": [
+      { "NroGuia": "AG-4-179" },
+      { "NroGuia": "AG-4-180" }
+    ],
+    "Estado": 3
+  },
+  {
+    "NroHDR": 5,
+    "DniFletero": 55667788,
+    "Fecha": "2026-06-05",
+    "Domicilio": "Av. Corrientes 3344",
+    "CantEncomiendas": 1,
+    "Guias": [
+      { "NroGuia": "CC-1-40" }
+    ],
+    "Estado": 1
+  },
+  {
+    "NroHDR": 6,
+    "DniFletero": 11223344,
+    "Fecha": "2026-06-06",
+    "Domicilio": "Av. Corrientes 4520",
+    "CantEncomiendas": 1,
+    "Guias": [
+      { "NroGuia": "CC-1-41" }
+    ],
+    "Estado": 2
+  },
+  {
+    "NroHDR": 7,
+    "DniFletero": 22334455,
+    "Fecha": "2026-06-07",
+    "Domicilio": "Av. Corrientes 5678",
+    "CantEncomiendas": 1,
+    "Guias": [
+      { "NroGuia": "CC-1-42" }
+    ],
+    "Estado": 3
+  },
+  {
+    "NroHDR": 8,
+    "DniFletero": 33445566,
+    "Fecha": "2026-06-08",
+    "Domicilio": "Juan Ramirez de Velasco 600",
+    "CantEncomiendas": 1,
+    "Guias": [
+      { "NroGuia": "CC-1-43" }
+    ],
+    "Estado": 1
+  },
+  {
+    "NroHDR": 9,
+    "DniFletero": 44556677,
+    "Fecha": "2026-06-09",
+    "Domicilio": "Av. Corrientes 3400, CABA",
+    "CantEncomiendas": 1,
+    "Guias": [
+      { "NroGuia": "CC-1-170" }
+    ],
+    "Estado": 3
+  },
+  {
+    "NroHDR": 10,
+    "DniFletero": 55667788,
+    "Fecha": "2026-06-10",
+    "Domicilio": "Av. Belgrano 100, CABA",
+    "CantEncomiendas": 1,
+    "Guias": [
+      { "NroGuia": "CC-1-175" }
+    ],
+    "Estado": 2
+  },
+  {
+    "NroHDR": 11,
+    "DniFletero": 11223344,
+    "Fecha": "2026-06-11",
+    "Domicilio": "",
+    "CantEncomiendas": 1,
+    "Guias": [
+      { "NroGuia": "AG-3-176" }
+    ],
+    "Estado": 1
+  },
+  {
+    "NroHDR": 12,
+    "DniFletero": 22334455,
+    "Fecha": "2026-06-12",
+    "Domicilio": "Calle Belgrano 400",
+    "CantEncomiendas": 1,
+    "Guias": [
+      { "NroGuia": "CC-1-181" }
+    ],
+    "Estado": 3
   }
 ]
