@@ -9,14 +9,65 @@
     "DireccionRetiroDomicilio": "",
     "TipoEntrega": 2,
     "IdCentroDeDistribucionEntrega": 0,
-    "IdAgenciaEntrega": 1,
+    "IdAgenciaEntrega": 7,
     "DireccionEntrega": "",
     "DniDestinatario": "20123456",
     "NombreDestinatario": "Lucas Perez",
     "TipoCaja": 1,
     "PrecioVenta": 15000.0,
     "Estado": 18,
-    "Historial": [],
+    "Historial": [
+      {
+        "Fecha": "2026-05-30",
+        "Estado": 2
+      },
+      {
+        "Fecha": "2026-05-30",
+        "Estado": 4
+      },
+      {
+        "Fecha": "2026-05-30",
+        "Estado": 5
+      },
+      {
+        "Fecha": "2026-05-30",
+        "Estado": 6
+      },
+      {
+        "Fecha": "2026-05-31",
+        "Estado": 8
+      },
+      {
+        "Fecha": "2026-06-01",
+        "Estado": 9
+      },
+      {
+        "Fecha": "2026-06-01",
+        "Estado": 10
+      },
+      {
+        "Fecha": "2026-06-02",
+        "Estado": 11
+      },
+      {
+        "Fecha": "2026-06-02",
+        "Estado": 12
+      },
+      {
+        "Fecha": "2026-06-02",
+        "Estado": 14
+      },
+      {
+        "Fecha": "2026-06-02",
+        "Estado": 17
+      },
+      {
+        "Fecha": "2026-06-16",
+        "Estado": 18
+      }
+
+
+    ],
     "ComisionFletero": [],
     "ComisionAgencia": []
   },
