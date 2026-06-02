@@ -1197,12 +1197,12 @@
     "ComisionAgencia": []
   },
   {
-    "NroGuia": "AG-6-172",
+    "NroGuia": "CD-6-172",
     "CuitDniCuilCliente": "33-63761744-9",
     "FechaImposicion": "2026-05-29",
-    "TipoImposicion": 2,
-    "IdCentroDeDistribucionImposicion": 0,
-    "IdAgenciaImposicion": 6,
+    "TipoImposicion": 1,
+    "IdCentroDeDistribucionImposicion": 6,
+    "IdAgenciaImposicion": 0,
     "DireccionRetiroDomicilio": "",
     "TipoEntrega": 2,
     "IdCentroDeDistribucionEntrega": 0,
@@ -1218,12 +1218,12 @@
     "ComisionAgencia": []
   },
   {
-    "NroGuia": "AG-6-173",
+    "NroGuia": "CD-6-173",
     "CuitDniCuilCliente": "33-63761744-9",
     "FechaImposicion": "2026-05-29",
-    "TipoImposicion": 2,
-    "IdCentroDeDistribucionImposicion": 0,
-    "IdAgenciaImposicion": 6,
+    "TipoImposicion": 1,
+    "IdCentroDeDistribucionImposicion": 6,
+    "IdAgenciaImposicion": 0,
     "DireccionRetiroDomicilio": "",
     "TipoEntrega": 3,
     "IdCentroDeDistribucionEntrega": 0,

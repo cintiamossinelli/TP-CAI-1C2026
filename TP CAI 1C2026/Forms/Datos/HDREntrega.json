@@ -39,7 +39,7 @@
     "Domicilio": "Agencia 8 (Recoleta)",
     "CantEncomiendas": 1,
     "Guias": [
-      { "NroGuia": "AG-6-172" }
+      { "NroGuia": "CD-6-172" }
     ],
     "Estado": 1
   },
@@ -50,7 +50,7 @@
     "Domicilio": "Córdoba 100, Córdoba",
     "CantEncomiendas": 1,
     "Guias": [
-      { "NroGuia": "AG-6-173" }
+      { "NroGuia": "CD-6-173" }
     ],
     "Estado": 3
   },

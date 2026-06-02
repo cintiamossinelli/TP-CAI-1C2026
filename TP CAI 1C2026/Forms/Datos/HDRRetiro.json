@@ -50,7 +50,95 @@
     "Domicilio": "Agencia 12 (Córdoba Oeste)",
     "CantEncomiendas": 1,
     "Guias": [
-      { "NroGuia": "CC-1-304" }
+      { "NroGuia": "AG-12-305" }
+    ],
+    "Estado": 3
+  },
+  {
+    "NroHDR": 6,
+    "DniFletero": 10101010,
+    "Fecha": "2026-05-31",
+    "Domicilio": "Agencia 5 (Microcentro)",
+    "CantEncomiendas": 1,
+    "Guias": [
+      { "NroGuia": "AG-5-167" }
+    ],
+    "Estado": 3
+  },
+  {
+    "NroHDR": 7,
+    "DniFletero": 10101010,
+    "Fecha": "2026-05-31",
+    "Domicilio": "Agencia 5 (Microcentro)",
+    "CantEncomiendas": 1,
+    "Guias": [
+      { "NroGuia": "AG-5-168" }
+    ],
+    "Estado": 3
+  },
+  {
+    "NroHDR": 8,
+    "DniFletero": 10101010,
+    "Fecha": "2026-05-31",
+    "Domicilio": "Av. Corrientes 3400, CABA",
+    "CantEncomiendas": 1,
+    "Guias": [
+      { "NroGuia": "CC-1-170" }
+    ],
+    "Estado": 3
+  },
+  {
+    "NroHDR": 9,
+    "DniFletero": 10101010,
+    "Fecha": "2026-05-31",
+    "Domicilio": "Av. Corrientes 3400, CABA",
+    "CantEncomiendas": 1,
+    "Guias": [
+      { "NroGuia": "CC-1-172" }
+    ],
+    "Estado": 3
+  },
+  {
+    "NroHDR": 10,
+    "DniFletero": 32080691,
+    "Fecha": "2026-05-23",
+    "Domicilio": "Av. Belgrano 100, CABA",
+    "CantEncomiendas": 1,
+    "Guias": [
+      { "NroGuia": "CC-1-175" }
+    ],
+    "Estado": 3
+  },
+  {
+    "NroHDR": 11,
+    "DniFletero": 24242424,
+    "Fecha": "2026-05-31",
+    "Domicilio": "Agencia 11 (Córdoba Centro)",
+    "CantEncomiendas": 1,
+    "Guias": [
+      { "NroGuia": "AG-11-179" }
+    ],
+    "Estado": 3
+  },
+  {
+    "NroHDR": 12,
+    "DniFletero": 10101010,
+    "Fecha": "2026-05-31",
+    "Domicilio": "Belgrano 400, CABA",
+    "CantEncomiendas": 1,
+    "Guias": [
+      { "NroGuia": "CC-1-181" }
+    ],
+    "Estado": 3
+  },
+  {
+    "NroHDR": 13,
+    "DniFletero": 10101010,
+    "Fecha": "2026-06-06",
+    "Domicilio": "Agencia 6 (Palermo)",
+    "CantEncomiendas": 1,
+    "Guias": [
+      { "NroGuia": "AG-6-182" }
     ],
     "Estado": 3
   }
