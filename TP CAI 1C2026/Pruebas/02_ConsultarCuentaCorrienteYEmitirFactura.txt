@@ -1,0 +1,170 @@
+﻿PRUEBA INTEGRAL 02: Consultar Cuenta Corriente + Emitir Factura
+
+DATOS UTILIZADOS:
+- Cliente 1: 33-63761744-9 → Adidas S.A.
+- Cliente 2: 30-64621216-9 → Nike S.A.
+- Cliente 3: 24078369 → Marcelo Gallardo
+
+=========================================================
+PASO 1 - Pantalla: Consultar Cuenta Corriente de Cliente
+CASO: Adidas S.A. - período enero/marzo 2026
+=========================================================
+
+01. TextBox CUIT/DNI/CUIL: 33-63761744-9
+02. Botón: Buscar Cliente
+03. VERIFICAR: Label muestra "Adidas S.A."
+04. DateTimePicker Desde: 01/01/2026
+05. DateTimePicker Hasta: 31/03/2026
+06. Botón: Buscar
+07. VERIFICAR: ListView muestra los siguientes registros ordenados por fecha:
+
+    Fecha       | Descripción                     | Importe
+    02/01/2026  | Factura A-0001-00001001         | 120.000,00
+    05/01/2026  | Recibo R-0001-00001001          | 120.000,00
+    08/01/2026  | Nota de Crédito A-0001-00000102 | 30.000,00
+    02/02/2026  | Factura A-0001-00001005         | 140.000,00
+    05/02/2026  | Recibo R-0001-00001003          | 140.000,00
+    09/02/2026  | Nota de Crédito A-0001-00000104 | 15.000,00
+    02/03/2026  | Factura A-0001-00001006         | 80.000,00
+    05/03/2026  | Recibo R-0001-00001005          | 80.000,00
+
+08. VERIFICAR: Label Saldo muestra: 35.000,00
+    (Cálculo: 120.000 - 120.000 - 30.000 + 140.000 - 140.000 - 15.000 + 80.000 - 80.000 = -45.000
+     Nota: verificar con el grupo cómo se calcula el saldo, si facturas suman y NC+recibos restan)
+09. Botón: Cancelar
+10. VERIFICAR: Formulario limpio
+
+=========================================================
+PASO 2 - Pantalla: Consultar Cuenta Corriente de Cliente
+CASO: Nike S.A. - período completo 2026
+=========================================================
+
+01. TextBox CUIT/DNI/CUIL: 30-64621216-9
+02. Botón: Buscar Cliente
+03. VERIFICAR: Label muestra "Nike S.A."
+04. DateTimePicker Desde: 01/01/2026
+05. DateTimePicker Hasta: 31/05/2026
+06. Botón: Buscar
+07. VERIFICAR: ListView muestra registros de facturas, notas de crédito y recibos del período
+08. VERIFICAR: Label Saldo muestra el importe calculado
+09. Botón: Cancelar
+10. VERIFICAR: Formulario limpio
+
+=========================================================
+PASO 3 - Pantalla: Consultar Cuenta Corriente de Cliente
+CASO: Marcelo Gallardo - período mayo 2026
+=========================================================
+
+01. TextBox CUIT/DNI/CUIL: 24078369
+02. Botón: Buscar Cliente
+03. VERIFICAR: Label muestra "Marcelo Gallardo"
+04. DateTimePicker Desde: 01/05/2026
+05. DateTimePicker Hasta: 31/05/2026
+06. Botón: Buscar
+07. VERIFICAR: ListView muestra:
+
+    Fecha       | Descripción                     | Importe
+    02/05/2026  | Factura B-0001-00002026         | 210.000,00
+    05/05/2026  | Recibo R-0001-00001020          | 120.000,00
+    10/05/2026  | Nota de Crédito B-0001-00000309 | 15.000,00
+
+08. VERIFICAR: Label Saldo muestra: 75.000,00
+    (Cálculo: 210.000 - 120.000 - 15.000 = 75.000)
+09. Botón: Cancelar
+10. VERIFICAR: Formulario limpio
+
+=========================================================
+PASO 4 - Pantalla: Emitir Factura
+CASO: Adidas S.A. con guías pendientes
+=========================================================
+
+01. TextBox CUIT/DNI/CUIL: 33-63761744-9
+02. Botón: Buscar Cliente
+03. VERIFICAR: Label muestra "Adidas S.A."
+04. VERIFICAR: ListView muestra las guías pendientes de facturación:
+
+    N° Guía  | Fecha      | Monto
+    AG-3-56  | fecha      | 1.000,00
+    AG-3-57  | fecha      | 1.500,00
+
+05. VERIFICAR: Label Total muestra "2.500,00"
+06. Botón: Emitir Factura
+07. VERIFICAR: MessageBox "¿Desea emitir la factura?" con Sí/No
+08. Botón: Sí
+09. VERIFICAR: MessageBox "Factura A-0004-0001 emitida correctamente."
+10. Botón: Aceptar
+11. VERIFICAR: Formulario limpio
+
+=========================================================
+PASO 5 - Pantalla: Emitir Factura
+CASO: Nike S.A. con guías pendientes
+=========================================================
+
+01. TextBox CUIT/DNI/CUIL: 30-64621216-9
+02. Botón: Buscar Cliente
+03. VERIFICAR: Label muestra "Nike S.A."
+04. VERIFICAR: ListView muestra las guías pendientes de facturación:
+
+    N° Guía   | Fecha      | Monto
+    CD-2-111  | fecha      | 2.000,00
+
+05. VERIFICAR: Label Total muestra "2.000,00"
+06. Botón: Emitir Factura
+07. VERIFICAR: MessageBox "¿Desea emitir la factura?" con Sí/No
+08. Botón: Sí
+09. VERIFICAR: MessageBox "Factura A-0004-0002 emitida correctamente."
+10. Botón: Aceptar
+11. VERIFICAR: Formulario limpio
+
+=========================================================
+PASO 6 - Pantalla: Consultar Cuenta Corriente de Cliente
+VERIFICACIÓN POST-FACTURA: Adidas S.A.
+Verificar que la nueva factura aparece en la cuenta corriente
+=========================================================
+
+01. TextBox CUIT/DNI/CUIL: 33-63761744-9
+02. Botón: Buscar Cliente
+03. VERIFICAR: Label muestra "Adidas S.A."
+04. DateTimePicker Desde: 01/01/2026
+05. DateTimePicker Hasta: fecha de hoy
+06. Botón: Buscar
+07. VERIFICAR: ListView incluye la factura A-0004-0001 emitida en el paso 4
+08. VERIFICAR: Saldo actualizado correctamente
+
+=========================================================
+EXCEPCIONES - Cuenta Corriente
+=========================================================
+
+EXC-CC-01: Fecha Desde posterior a hoy
+→ DateTimePicker Desde: fecha futura
+→ Botón: Buscar
+→ VERIFICAR: "La fecha Desde debe ser anterior a hoy."
+
+EXC-CC-02: Fecha Hasta posterior a hoy
+→ DateTimePicker Hasta: fecha futura
+→ Botón: Buscar
+→ VERIFICAR: "La fecha Hasta debe ser anterior a hoy."
+
+EXC-CC-03: Fecha Hasta menor que Fecha Desde
+→ DateTimePicker Desde: 01/05/2026
+→ DateTimePicker Hasta: 01/01/2026
+→ Botón: Buscar
+→ VERIFICAR: "La fecha Hasta no puede ser menor que la fecha Desde."
+
+EXC-CC-04: Sin movimientos en el período
+→ CUIT: 33-63761744-9
+→ Buscar Cliente
+→ DateTimePicker Desde: 01/06/2025
+→ DateTimePicker Hasta: 30/06/2025
+→ Botón: Buscar
+→ VERIFICAR: "No hay movimientos en el rango de fechas indicado."
+
+EXC-FAC-01: Cliente sin guías pendientes
+→ CUIT: 24078369 (Marcelo Gallardo, sin guías pendientes en el modelo)
+→ Botón: Buscar Cliente
+→ VERIFICAR: "El cliente no posee guías pendientes de facturación."
+
+EXC-FAC-02: Cancelar confirmación de factura
+→ Llegar hasta el MessageBox de confirmación
+→ Botón: No
+→ VERIFICAR: MessageBox se cierra, datos siguen en pantalla, no se emitió factura
