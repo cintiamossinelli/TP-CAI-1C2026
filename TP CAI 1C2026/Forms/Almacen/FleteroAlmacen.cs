@@ -11,9 +11,9 @@ namespace TP_CAI_1C2026.Forms.Almacen
 
         static FleteroAlmacen()
         {
-            if (File.Exists(@"datos\Fleteros.json"))
+            if (File.Exists(@"Forms\Datos\Fleteros.json"))
             {
-                string json = File.ReadAllText(@"datos\Fleteros.json");
+                string json = File.ReadAllText(@"Forms\Datos\Fleteros.json");
                 fleteros = JsonSerializer.Deserialize<List<FleteroEntidad>>(json);
             }
         }
@@ -21,7 +21,7 @@ namespace TP_CAI_1C2026.Forms.Almacen
         public static void Guardar()
         {
             string json = JsonSerializer.Serialize(fleteros);
-            File.WriteAllText(@"datos\Fleteros.json", json);
+            File.WriteAllText(@"Forms\Datos\Fleteros.json", json);
         }
     }
 }

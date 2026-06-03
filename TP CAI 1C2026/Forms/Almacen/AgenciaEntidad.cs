@@ -8,6 +8,7 @@ namespace TP_CAI_1C2026.Forms.Almacen
     {
         public int IdAgencia { get; set; }
         public string Nombre { get; set; }
+        public string Domicilio { get; set; }
         public List<ComisionAgencia> Comisiones { get; set; }
     }
 }

@@ -11,9 +11,9 @@ namespace TP_CAI_1C2026.Forms.Almacen
 
         static ServicioAlmacen()
         {
-            if (File.Exists(@"datos\Servicios.json"))
+            if (File.Exists(@"Forms\Datos\Servicios.json"))
             {
-                string json = File.ReadAllText(@"datos\Servicios.json");
+                string json = File.ReadAllText(@"Forms\Datos\Servicios.json");
                 servicios = JsonSerializer.Deserialize<List<ServicioEntidad>>(json);
             }
         }
@@ -21,7 +21,7 @@ namespace TP_CAI_1C2026.Forms.Almacen
         public static void Guardar()
         {
             string json = JsonSerializer.Serialize(servicios);
-            File.WriteAllText(@"datos\Servicios.json", json);
+            File.WriteAllText(@"Forms\Datos\Servicios.json", json);
         }
     }
 }

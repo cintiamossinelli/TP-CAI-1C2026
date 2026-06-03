@@ -11,9 +11,9 @@ namespace TP_CAI_1C2026.Forms.Almacen
 
         static CentroDeDistribucionAlmacen()
         {
-            if (File.Exists(@"datos\CentrosDeDistribucion.json"))
+            if (File.Exists(@"Forms\Datos\CentrosDeDistribucion.json"))
             {
-                string json = File.ReadAllText(@"datos\CentrosDeDistribucion.json");
+                string json = File.ReadAllText(@"Forms\Datos\CentrosDeDistribucion.json");
                 centrosDeDistribucion = JsonSerializer.Deserialize<List<CentroDeDistribucionEntidad>>(json);
             }
         }
@@ -21,7 +21,7 @@ namespace TP_CAI_1C2026.Forms.Almacen
         public static void Guardar()
         {
             string json = JsonSerializer.Serialize(centrosDeDistribucion);
-            File.WriteAllText(@"datos\CentrosDeDistribucion.json", json);
+            File.WriteAllText(@"Forms\Datos\CentrosDeDistribucion.json", json);
         }
     }
 }

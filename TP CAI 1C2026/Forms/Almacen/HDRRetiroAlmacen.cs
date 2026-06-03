@@ -11,9 +11,9 @@ namespace TP_CAI_1C2026.Forms.Almacen
 
         static HDRRetiroAlmacen()
         {
-            if (File.Exists(@"datos\HDRRetiro.json"))
+            if (File.Exists(@"Forms\Datos\HDRRetiro.json"))
             {
-                string json = File.ReadAllText(@"datos\HDRRetiro.json");
+                string json = File.ReadAllText(@"Forms\Datos\HDRRetiro.json");
                 hdrRetiro = JsonSerializer.Deserialize<List<HDRRetiroEntidad>>(json);
             }
         }
@@ -21,7 +21,7 @@ namespace TP_CAI_1C2026.Forms.Almacen
         public static void Guardar()
         {
             string json = JsonSerializer.Serialize(hdrRetiro);
-            File.WriteAllText(@"datos\HDRRetiro.json", json);
+            File.WriteAllText(@"Forms\Datos\HDRRetiro.json", json);
         }
     }
 }

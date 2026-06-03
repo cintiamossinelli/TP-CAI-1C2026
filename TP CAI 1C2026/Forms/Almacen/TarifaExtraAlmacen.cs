@@ -8,9 +8,9 @@ namespace TP_CAI_1C2026.Forms.Almacen
 
         static TarifaExtraAlmacen()
         {
-            if (File.Exists(@"datos\Tarifas.json"))
+            if (File.Exists(@"Forms\Datos\Tarifas.json"))
             {
-                string json = File.ReadAllText(@"datos\Tarifas.json");
+                string json = File.ReadAllText(@"Forms\Datos\Tarifas.json");
                 tarifas = JsonSerializer.Deserialize<List<TarifaExtraEntidad>>(json);
             }
         }
@@ -18,7 +18,7 @@ namespace TP_CAI_1C2026.Forms.Almacen
         public static void Guardar()
         {
             string json = JsonSerializer.Serialize(tarifas);
-            File.WriteAllText(@"datos\Tarifas.json", json);
+            File.WriteAllText(@"Forms\Datos\Tarifas.json", json);
         }
     }
 }

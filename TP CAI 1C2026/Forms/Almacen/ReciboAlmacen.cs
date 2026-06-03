@@ -11,9 +11,9 @@ namespace TP_CAI_1C2026.Forms.Almacen
 
         static ReciboAlmacen()
         {
-            if (File.Exists(@"datos\Recibos.json"))
+            if (File.Exists(@"Forms\Datos\Recibos.json"))
             {
-                string json = File.ReadAllText(@"datos\Recibos.json");
+                string json = File.ReadAllText(@"Forms\Datos\Recibos.json");
                 recibos = JsonSerializer.Deserialize<List<ReciboEntidad>>(json);
             }
         }
@@ -21,7 +21,7 @@ namespace TP_CAI_1C2026.Forms.Almacen
         public static void Guardar()
         {
             string json = JsonSerializer.Serialize(recibos);
-            File.WriteAllText(@"datos\Recibos.json", json);
+            File.WriteAllText(@"Forms\Datos\Recibos.json", json);
         }
     }
 }

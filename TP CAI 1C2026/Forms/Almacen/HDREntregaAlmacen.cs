@@ -11,9 +11,9 @@ namespace TP_CAI_1C2026.Forms.Almacen
 
         static HDREntregaAlmacen()
         {
-            if (File.Exists(@"datos\HDREntrega.json"))
+            if (File.Exists(@"Forms\Datos\HDREntrega.json"))
             {
-                string json = File.ReadAllText(@"datos\HDREntrega.json");
+                string json = File.ReadAllText(@"Forms\Datos\HDREntrega.json");
                 hdrEntrega = JsonSerializer.Deserialize<List<HDREntregaEntidad>>(json);
             }
         }
@@ -21,7 +21,7 @@ namespace TP_CAI_1C2026.Forms.Almacen
         public static void Guardar()
         {
             string json = JsonSerializer.Serialize(hdrEntrega);
-            File.WriteAllText(@"datos\HDREntrega.json", json);
+            File.WriteAllText(@"Forms\Datos\HDREntrega.json", json);
         }
     }
 }

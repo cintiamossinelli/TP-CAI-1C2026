@@ -11,9 +11,9 @@ namespace TP_CAI_1C2026.Forms.Almacen
 
         static FacturaAlmacen()
         {
-            if (File.Exists(@"datos\Facturas.json"))
+            if (File.Exists(@"Forms\Datos\Facturas.json"))
             {
-                string json = File.ReadAllText(@"datos\Facturas.json");
+                string json = File.ReadAllText(@"Forms\Datos\Facturas.json");
                 facturas = JsonSerializer.Deserialize<List<FacturaEntidad>>(json);
             }
         }
@@ -21,7 +21,7 @@ namespace TP_CAI_1C2026.Forms.Almacen
         public static void Guardar()
         {
             string json = JsonSerializer.Serialize(facturas);
-            File.WriteAllText(@"datos\Facturas.json", json);
+            File.WriteAllText(@"Forms\Datos\Facturas.json", json);
         }
 
     }

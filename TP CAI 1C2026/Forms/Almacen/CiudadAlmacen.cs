@@ -11,9 +11,9 @@ namespace TP_CAI_1C2026.Forms.Almacen
 
         static CiudadAlmacen()
         {
-            if (File.Exists(@"datos\Ciudades.json"))
+            if (File.Exists(@"Forms\Datos\Ciudades.json"))
             {
-                string json = File.ReadAllText(@"datos\Ciudades.json");
+                string json = File.ReadAllText(@"Forms\Datos\Ciudades.json");
                 ciudades = JsonSerializer.Deserialize<List<CiudadEntidad>>(json);
             }
         }
@@ -21,7 +21,7 @@ namespace TP_CAI_1C2026.Forms.Almacen
         public static void Guardar()
         {
             string json = JsonSerializer.Serialize(ciudades);
-            File.WriteAllText(@"datos\Ciudades.json", json);
+            File.WriteAllText(@"Forms\Datos\Ciudades.json", json);
         }
     }
 }

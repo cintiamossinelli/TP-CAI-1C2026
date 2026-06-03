@@ -11,9 +11,9 @@ namespace TP_CAI_1C2026.Forms.Almacen
 
         static NotaDeCreditoAlmacen()
         {
-            if (File.Exists(@"datos\NotasDeCredito.json"))
+            if (File.Exists(@"Forms\Datos\NotasDeCredito.json"))
             {
-                string json = File.ReadAllText(@"datos\NotasDeCredito.json");
+                string json = File.ReadAllText(@"Forms\Datos\NotasDeCredito.json");
                 notasDeCredito = JsonSerializer.Deserialize<List<NotaDeCreditoEntidad>>(json);
             }
         }
@@ -21,7 +21,7 @@ namespace TP_CAI_1C2026.Forms.Almacen
         public static void Guardar()
         {
             string json = JsonSerializer.Serialize(notasDeCredito);
-            File.WriteAllText(@"datos\NotasDeCredito.json", json);
+            File.WriteAllText(@"Forms\Datos\NotasDeCredito.json", json);
         }
     }
 }

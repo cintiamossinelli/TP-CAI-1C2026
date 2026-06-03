@@ -11,9 +11,9 @@ namespace TP_CAI_1C2026.Forms.Almacen
 
         static GuiaAlmacen()
         {
-            if (File.Exists(@"datos\Guias.json"))
+            if (File.Exists(@"Forms\Datos\Guias.json"))
             {
-                string json = File.ReadAllText(@"datos\Guias.json");
+                string json = File.ReadAllText(@"Forms\Datos\Guias.json");
                 guias = JsonSerializer.Deserialize<List<GuiaEntidad>>(json);
             }
         }
@@ -21,7 +21,7 @@ namespace TP_CAI_1C2026.Forms.Almacen
         public static void Guardar()
         {
             string json = JsonSerializer.Serialize(guias);
-            File.WriteAllText(@"datos\Guias.json", json);
+            File.WriteAllText(@"Forms\Datos\Guias.json", json);
         }
     }
 }

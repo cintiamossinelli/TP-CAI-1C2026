@@ -11,9 +11,9 @@ namespace TP_CAI_1C2026.Forms.Almacen
 
         static HDRTransporteAlmacen()
         {
-            if (File.Exists(@"datos\HDRTransporte.json"))
+            if (File.Exists(@"Forms\Datos\HDRTransporte.json"))
             {
-                string json = File.ReadAllText(@"datos\HDRTransporte.json");
+                string json = File.ReadAllText(@"Forms\Datos\HDRTransporte.json");
                 hdrTransporte = JsonSerializer.Deserialize<List<HDRTransporteEntidad>>(json);
             }
         }
@@ -21,7 +21,7 @@ namespace TP_CAI_1C2026.Forms.Almacen
         public static void Guardar()
         {
             string json = JsonSerializer.Serialize(hdrTransporte);
-            File.WriteAllText(@"datos\HDRTransporte.json", json);
+            File.WriteAllText(@"Forms\Datos\HDRTransporte.json", json);
         }
     }
 }

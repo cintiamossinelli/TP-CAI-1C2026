@@ -11,9 +11,9 @@ namespace TP_CAI_1C2026.Forms.Almacen
 
         static AgenciaAlmacen()
         {
-            if (File.Exists(@"datos\Agencias.json"))
+            if (File.Exists(@"Forms\Datos\Agencias.json"))
             {
-                string json = File.ReadAllText(@"datos\Agencias.json");
+                string json = File.ReadAllText(@"Forms\Datos\Agencias.json");
                 agencias = JsonSerializer.Deserialize<List<AgenciaEntidad>>(json);
             }
         }
@@ -21,7 +21,7 @@ namespace TP_CAI_1C2026.Forms.Almacen
         public static void Guardar()
         {
             string json = JsonSerializer.Serialize(agencias);
-            File.WriteAllText(@"datos\Agencias.json", json);
+            File.WriteAllText(@"Forms\Datos\Agencias.json", json);
         }
     }
 }

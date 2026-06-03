@@ -11,9 +11,9 @@ namespace TP_CAI_1C2026.Forms.Almacen
 
         static EmpresaTransporteAlmacen()
         {
-            if (File.Exists(@"datos\EmpresasTransporte.json"))
+            if (File.Exists(@"Forms\Datos\EmpresasTransporte.json"))
             {
-                string json = File.ReadAllText(@"datos\EmpresasTransporte.json");
+                string json = File.ReadAllText(@"Forms\Datos\EmpresasTransporte.json");
                 empresasTransporte = JsonSerializer.Deserialize<List<EmpresaTransporteEntidad>>(json);
             }
         }
@@ -21,7 +21,7 @@ namespace TP_CAI_1C2026.Forms.Almacen
         public static void Guardar()
         {
             string json = JsonSerializer.Serialize(empresasTransporte);
-            File.WriteAllText(@"datos\EmpresasTransporte.json", json);
+            File.WriteAllText(@"Forms\Datos\EmpresasTransporte.json", json);
         }
     }
 }
