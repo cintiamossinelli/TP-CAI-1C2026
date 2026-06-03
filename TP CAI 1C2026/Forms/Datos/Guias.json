@@ -67,7 +67,16 @@
       }
     ],
     "ComisionFletero": [],
-    "ComisionAgencia": []
+    "ComisionAgencia": [
+      {
+        "IdAgencia": 1,
+        "Importe": 1518.0
+      },
+      {
+        "IdAgencia": 7,
+        "Importe": 1571.0
+      }
+    ]
   },
   {
     "NroGuia": "AG-1-21",
@@ -137,7 +146,16 @@
       }
     ],
     "ComisionFletero": [],
-    "ComisionAgencia": []
+    "ComisionAgencia": [
+      {
+        "IdAgencia": 1,
+        "Importe": 2617.0
+      },
+      {
+        "IdAgencia": 2,
+        "Importe": 2670.0
+      }
+    ]
   },
   {
     "NroGuia": "CD-1-30",
@@ -331,7 +349,16 @@
       }
     ],
     "ComisionFletero": [],
-    "ComisionAgencia": []
+    "ComisionAgencia": [
+      {
+        "IdAgencia": 2,
+        "Importe": 1528.0
+      },
+      {
+        "IdAgencia": 1,
+        "Importe": 1581.0
+      }
+    ]
   },
   {
     "NroGuia": "AG-2-56",
@@ -401,7 +428,16 @@
       }
     ],
     "ComisionFletero": [],
-    "ComisionAgencia": []
+    "ComisionAgencia": [
+      {
+        "IdAgencia": 2,
+        "Importe": 1529.0
+      },
+      {
+        "IdAgencia": 1,
+        "Importe": 1582.0
+      }
+    ]
   },
   {
     "NroGuia": "CD-1-60",
@@ -463,7 +499,12 @@
       }
     ],
     "ComisionFletero": [],
-    "ComisionAgencia": []
+    "ComisionAgencia": [
+      {
+        "IdAgencia": 1,
+        "Importe": 1522.0
+      }
+    ]
   },
   {
     "NroGuia": "CD-1-61",
@@ -525,7 +566,12 @@
       }
     ],
     "ComisionFletero": [],
-    "ComisionAgencia": []
+    "ComisionAgencia": [
+      {
+        "IdAgencia": 1,
+        "Importe": 1523.0
+      }
+    ]
   },
   {
     "NroGuia": "CC-1-100",
@@ -735,7 +781,12 @@
       }
     ],
     "ComisionFletero": [],
-    "ComisionAgencia": []
+    "ComisionAgencia": [
+      {
+        "IdAgencia": 6,
+        "Importe": 1572.0
+      }
+    ]
   },
   {
     "NroGuia": "AG-6-111",
@@ -805,7 +856,12 @@
       }
     ],
     "ComisionFletero": [],
-    "ComisionAgencia": []
+    "ComisionAgencia": [
+      {
+        "IdAgencia": 6,
+        "Importe": 1573.0
+      }
+    ]
   },
   {
     "NroGuia": "AG-5-167",
@@ -870,8 +926,26 @@
         "Estado": 15
       }
     ],
-    "ComisionFletero": [],
-    "ComisionAgencia": []
+    "ComisionFletero": [
+      {
+        "DniFletero": 32080691,
+        "Importe": 1699.0
+      },
+      {
+        "DniFletero": 10101010,
+        "Importe": 3987.0
+      }
+    ],
+    "ComisionAgencia": [
+      {
+        "IdAgencia": 5,
+        "Importe": 1583.0
+      },
+      {
+        "IdAgencia": 6,
+        "Importe": 1636.0
+      }
+    ]
   },
   {
     "NroGuia": "AG-5-168",
@@ -936,8 +1010,22 @@
         "Estado": 17
       }
     ],
-    "ComisionFletero": [],
-    "ComisionAgencia": []
+    "ComisionFletero": [
+      {
+        "DniFletero": 10101010,
+        "Importe": 4569.0
+      },
+      {
+        "DniFletero": 10101010,
+        "Importe": 3461.0
+      }
+    ],
+    "ComisionAgencia": [
+      {
+        "IdAgencia": 5,
+        "Importe": 2681.0
+      }
+    ]
   },
   {
     "NroGuia": "CD-1-169",
@@ -1060,8 +1148,22 @@
         "Estado": 15
       }
     ],
-    "ComisionFletero": [],
-    "ComisionAgencia": []
+    "ComisionFletero": [
+      {
+        "DniFletero": 10101010,
+        "Importe": 2294.0
+      },
+      {
+        "DniFletero": 10101010,
+        "Importe": 3687.0
+      }
+    ],
+    "ComisionAgencia": [
+      {
+        "IdAgencia": 7,
+        "Importe": 4862.0
+      }
+    ]
   },
   {
     "NroGuia": "AG-5-171",
@@ -1127,7 +1229,12 @@
       }
     ],
     "ComisionFletero": [],
-    "ComisionAgencia": []
+    "ComisionAgencia": [
+      {
+        "IdAgencia": 5,
+        "Importe": 1578.0
+      }
+    ]
   },
   {
     "NroGuia": "CD-6-172",
@@ -1176,8 +1283,18 @@
         "Estado": 12
       }
     ],
-    "ComisionFletero": [],
-    "ComisionAgencia": []
+    "ComisionFletero": [
+      {
+        "DniFletero": 32080691,
+        "Importe": 2924.0
+      }
+    ],
+    "ComisionAgencia": [
+      {
+        "IdAgencia": 8,
+        "Importe": 2676.0
+      }
+    ]
   },
   {
     "NroGuia": "CD-6-173",
@@ -1234,7 +1351,12 @@
         "Estado": 17
       }
     ],
-    "ComisionFletero": [],
+    "ComisionFletero": [
+      {
+        "DniFletero": 24242424,
+        "Importe": 3846.0
+      }
+    ],
     "ComisionAgencia": []
   },
   {
@@ -1342,8 +1464,22 @@
         "Estado": 12
       }
     ],
-    "ComisionFletero": [],
-    "ComisionAgencia": []
+    "ComisionFletero": [
+      {
+        "DniFletero": 45000123,
+        "Importe": 4166.0
+      },
+      {
+        "DniFletero": 32080691,
+        "Importe": 3631.0
+      }
+    ],
+    "ComisionAgencia": [
+      {
+        "IdAgencia": 9,
+        "Importe": 2673.0
+      }
+    ]
   },
   {
     "NroGuia": "AG-9-176",
@@ -1401,7 +1537,12 @@
       }
     ],
     "ComisionFletero": [],
-    "ComisionAgencia": []
+    "ComisionAgencia": [
+      {
+        "IdAgencia": 9,
+        "Importe": 3781.0
+      }
+    ]
   },
   {
     "NroGuia": "CD-2-177",
@@ -1458,8 +1599,18 @@
         "Estado": 15
       }
     ],
-    "ComisionFletero": [],
-    "ComisionAgencia": []
+    "ComisionFletero": [
+      {
+        "DniFletero": 24242424,
+        "Importe": 3695.0
+      }
+    ],
+    "ComisionAgencia": [
+      {
+        "IdAgencia": 10,
+        "Importe": 1580.0
+      }
+    ]
   },
   {
     "NroGuia": "CD-2-178",
@@ -1516,7 +1667,12 @@
         "Estado": 17
       }
     ],
-    "ComisionFletero": [],
+    "ComisionFletero": [
+      {
+        "DniFletero": 21212121,
+        "Importe": 2936.0
+      }
+    ],
     "ComisionAgencia": []
   },
   {
@@ -1582,8 +1738,26 @@
         "Estado": 15
       }
     ],
-    "ComisionFletero": [],
-    "ComisionAgencia": []
+    "ComisionFletero": [
+      {
+        "DniFletero": 24242424,
+        "Importe": 3912.0
+      },
+      {
+        "DniFletero": 24242424,
+        "Importe": 4846.0
+      }
+    ],
+    "ComisionAgencia": [
+      {
+        "IdAgencia": 11,
+        "Importe": 3825.0
+      },
+      {
+        "IdAgencia": 12,
+        "Importe": 3878.0
+      }
+    ]
   },
   {
     "NroGuia": "AG-11-180",
@@ -1649,7 +1823,12 @@
       }
     ],
     "ComisionFletero": [],
-    "ComisionAgencia": []
+    "ComisionAgencia": [
+      {
+        "IdAgencia": 11,
+        "Importe": 4914.0
+      }
+    ]
   },
   {
     "NroGuia": "CC-1-181",
@@ -1714,7 +1893,16 @@
         "Estado": 15
       }
     ],
-    "ComisionFletero": [],
+    "ComisionFletero": [
+      {
+        "DniFletero": 32080691,
+        "Importe": 4598.0
+      },
+      {
+        "DniFletero": 10101010,
+        "Importe": 3071.0
+      }
+    ],
     "ComisionAgencia": []
   },
   {
@@ -1772,8 +1960,26 @@
         "Estado": 12
       }
     ],
-    "ComisionFletero": [],
-    "ComisionAgencia": []
+    "ComisionFletero": [
+      {
+        "DniFletero": 10101010,
+        "Importe": 4275.0
+      },
+      {
+        "DniFletero": 10101010,
+        "Importe": 3520.0
+      }
+    ],
+    "ComisionAgencia": [
+      {
+        "IdAgencia": 6,
+        "Importe": 1581.0
+      },
+      {
+        "IdAgencia": 7,
+        "Importe": 1634.0
+      }
+    ]
   },
   {
     "NroGuia": "AG-8-300",
@@ -1802,8 +2008,22 @@
         "Estado": 4
       }
     ],
-    "ComisionFletero": [],
-    "ComisionAgencia": []
+    "ComisionFletero": [
+      {
+        "DniFletero": 10101010,
+        "Importe": 2131.0
+      }
+    ],
+    "ComisionAgencia": [
+      {
+        "IdAgencia": 8,
+        "Importe": 1575.0
+      },
+      {
+        "IdAgencia": 9,
+        "Importe": 1628.0
+      }
+    ]
   },
   {
     "NroGuia": "CC-1-301",
@@ -1832,7 +2052,12 @@
         "Estado": 4
       }
     ],
-    "ComisionFletero": [],
+    "ComisionFletero": [
+      {
+        "DniFletero": 32080691,
+        "Importe": 2861.0
+      }
+    ],
     "ComisionAgencia": []
   },
   {
@@ -1862,8 +2087,22 @@
         "Estado": 4
       }
     ],
-    "ComisionFletero": [],
-    "ComisionAgencia": []
+    "ComisionFletero": [
+      {
+        "DniFletero": 24242424,
+        "Importe": 3441.0
+      }
+    ],
+    "ComisionAgencia": [
+      {
+        "IdAgencia": 10,
+        "Importe": 1619.0
+      },
+      {
+        "IdAgencia": 11,
+        "Importe": 1672.0
+      }
+    ]
   },
   {
     "NroGuia": "CC-1-304",
@@ -1892,7 +2131,12 @@
         "Estado": 4
       }
     ],
-    "ComisionFletero": [],
+    "ComisionFletero": [
+      {
+        "DniFletero": 30313031,
+        "Importe": 4548.0
+      }
+    ],
     "ComisionAgencia": []
   },
   {
@@ -1930,8 +2174,22 @@
         "Estado": 6
       }
     ],
-    "ComisionFletero": [],
-    "ComisionAgencia": []
+    "ComisionFletero": [
+      {
+        "DniFletero": 45000123,
+        "Importe": 3330.0
+      }
+    ],
+    "ComisionAgencia": [
+      {
+        "IdAgencia": 12,
+        "Importe": 1623.0
+      },
+      {
+        "IdAgencia": 11,
+        "Importe": 1676.0
+      }
+    ]
   },
   {
     "NroGuia": "CD-1-790",
