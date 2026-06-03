@@ -28,20 +28,6 @@
     ]
   },
   {
-    "NumeroFactura": "A-0001-00001006",
-    "Fecha": "2026-06-16",
-    "Total": 80000.00,
-    "Descripcion": "Factura",
-    "Guias": [
-      {
-        "NroGuia": "CC-1-40"
-      },
-      {
-        "NroGuia": "CC-1-41"
-      }
-    ]
-  },
-  {
     "NumeroFactura": "A-0001-00002001",
     "Fecha": "2026-06-16",
     "Total": 200000.00,
@@ -70,48 +56,6 @@
      ]
   },
   {
-    "NumeroFactura": "A-0001-00002003",
-    "Fecha": "2026-06-16",
-    "Total": 85000.00,
-    "Descripcion": "Factura",
-    "Guias": [
-      {
-        "NroGuia": "CC-1-80"
-      },
-      {
-        "NroGuia": "CC-1-81"
-      }
-     ]
-  },
-  {
-    "NumeroFactura": "A-0001-00002004",
-    "Fecha": "2026-06-16",
-    "Total": 300000.00,
-    "Descripcion": "Factura",
-    "Guias": [
-      {
-        "NroGuia": "AG-5-84"
-      },
-      {
-        "NroGuia": "AG-5-85"
-      }
-    ]
-  },
-  {
-    "NumeroFactura": "A-0001-00002005",
-    "Fecha": "2026-06-16",
-    "Total": 110000.00,
-    "Descripcion": "Factura",
-    "Guias": [
-      {
-        "NroGuia": "CD-2-90"
-      },
-      {
-        "NroGuia": "CD-2-91"
-      }    
-    ]
-  },
-  {
     "NumeroFactura": "B-0001-00001101",
     "Fecha": "2026-06-16",
     "Total": 70000.00,
@@ -136,48 +80,6 @@
       },
       {
         "NroGuia": "AG-6-111"
-      }
-    ]
-  },
-  {
-    "NumeroFactura": "B-0001-00001213",
-    "Fecha": "2026-06-16",
-    "Total": 160000.00,
-    "Descripcion": "Factura",
-    "Guias": [
-      {
-        "NroGuia": "AG-7-120"
-      },
-      {
-        "NroGuia": "AG-7-121"
-      }
-    ]
-  },
-  {
-    "NumeroFactura": "B-0001-00002001",
-    "Fecha": "2026-06-16",
-    "Total": 170000.00,
-    "Descripcion": "Factura",
-    "Guias": [
-      {
-        "NroGuia": "CD-2-130"
-      },
-      {
-        "NroGuia": "CD-2-131"
-      }
-    ]
-  },
-  {
-    "NumeroFactura": "B-0001-00002026",
-    "Fecha": "2026-06-16",
-    "Total": 210000.00,
-    "Descripcion": "Factura",
-    "Guias": [
-      {
-        "NroGuia": "CD-2-138"
-      },
-      {
-        "NroGuia": "CD-2-139"
       }
     ]
   }

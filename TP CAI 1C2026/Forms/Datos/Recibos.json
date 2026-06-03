@@ -6,27 +6,9 @@
     "Descripcion": "Recibo"
   },
   {
-    "NumeroRecibo": "R-0001-00001003",
-    "Fecha": "2026-02-05",
-    "Total": 140000.00,
-    "Descripcion": "Recibo"
-  },
-  {
-    "NumeroRecibo": "R-0001-00001005",
-    "Fecha": "2026-03-05",
-    "Total": 80000.00,
-    "Descripcion": "Recibo"
-  },
-  {
     "NumeroRecibo": "R-0001-00001002",
     "Fecha": "2026-01-05",
     "Total": 40000.00,
-    "Descripcion": "Recibo"
-  },
-  {
-    "NumeroRecibo": "R-0001-00001004",
-    "Fecha": "2026-02-05",
-    "Total": 50000.00,
     "Descripcion": "Recibo"
   },
   {
@@ -34,11 +16,5 @@
     "Fecha": "2026-02-05",
     "Total": 80000.00,
     "Descripcion": "Recibo"
-  },
-  {
-    "NumeroRecibo": "R-0001-00001020",
-    "Fecha": "2026-05-05",
-    "Total": 120000.00,
-    "Descripcion": "Recibo"
   }
-]
+ ]
