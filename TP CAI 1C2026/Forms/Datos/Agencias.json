@@ -2,12 +2,10 @@
   {
     "IdAgencia": 1,
     "Nombre": "Rosario Norte",
-    "Comsiones": [
+    "Comisiones": [
       {
-
         "TamañoEncomienda": 1,
         "Importe": 1000.00
-
       },
       {
         "TamañoEncomienda": 2,
@@ -26,7 +24,7 @@
   {
     "IdAgencia": 2,
     "Nombre": "Rosario Sur",
-    "Comsiones": [
+    "Comisiones": [
       {
         "TamañoEncomienda": 1,
         "Importe": 1200.00
@@ -48,7 +46,7 @@
   {
     "IdAgencia": 3,
     "Nombre": "Rosario Centro",
-    "Comsiones": [
+    "Comisiones": [
       {
         "TamañoEncomienda": 1,
         "Importe": 1100.00
@@ -70,7 +68,7 @@
   {
     "IdAgencia": 4,
     "Nombre": "Rosario Oeste",
-    "Comsiones": [
+    "Comisiones": [
       {
         "TamañoEncomienda": 1,
         "Importe": 1300.00
@@ -92,7 +90,7 @@
   {
     "IdAgencia": 5,
     "Nombre": "Microcentro",
-    "Comsiones": [
+    "Comisiones": [
       {
         "TamañoEncomienda": 1,
         "Importe": 1400.00
@@ -114,7 +112,7 @@
   {
     "IdAgencia": 6,
     "Nombre": "Palermo",
-    "Comsiones": [
+    "Comisiones": [
       {
         "TamañoEncomienda": 1,
         "Importe": 1400.00
@@ -136,7 +134,7 @@
   {
     "IdAgencia": 7,
     "Nombre": "Belgrano",
-    "Comsiones": [
+    "Comisiones": [
       {
         "TamañoEncomienda": 1,
         "Importe": 1400.00
@@ -158,7 +156,7 @@
   {
     "IdAgencia": 8,
     "Nombre": "Recoleta",
-    "Comsiones": [
+    "Comisiones": [
       {
         "TamañoEncomienda": 1,
         "Importe": 1400.00
@@ -180,7 +178,7 @@
   {
     "IdAgencia": 9,
     "Nombre": "Cordoba Norte",
-    "Comsiones": [
+    "Comisiones": [
       {
         "TamañoEncomienda": 1,
         "Importe": 1800.00
@@ -202,7 +200,7 @@
   {
     "IdAgencia": 10,
     "Nombre": "Cordoba Sur",
-    "Comsiones": [
+    "Comisiones": [
       {
         "TamañoEncomienda": 1,
         "Importe": 1800.00
@@ -225,7 +223,7 @@
   {
     "IdAgencia": 11,
     "Nombre": "Cordoba Centro",
-    "Comsiones": [
+    "Comisiones": [
       {
         "TamañoEncomienda": 1,
         "Importe": 1800.00
@@ -247,7 +245,7 @@
   {
     "IdAgencia": 12,
     "Nombre": "Cordoba Oeste",
-    "Comsiones": [
+    "Comisiones": [
       {
         "TamañoEncomienda": 1,
         "Importe": 1800.00
@@ -269,7 +267,7 @@
   {
     "IdAgencia": 13,
     "Nombre": "Santa Fe Norte",
-    "Comsiones": [
+    "Comisiones": [
       {
         "TamañoEncomienda": 1,
         "Importe": 2000.00
@@ -291,7 +289,7 @@
   {
     "IdAgencia": 14,
     "Nombre": "Santa Fe Sur",
-    "Comsiones": [
+    "Comisiones": [
       {
         "TamañoEncomienda": 1,
         "Importe": 2000.00
@@ -313,7 +311,7 @@
   {
     "IdAgencia": 15,
     "Nombre": "Santa Fe Oeste",
-    "Comsiones": [
+    "Comisiones": [
       {
         "TamañoEncomienda": 1,
         "Importe": 2000.00
@@ -335,7 +333,7 @@
   {
     "IdAgencia": 16,
     "Nombre": "Mendoza Sur",
-    "Comsiones": [
+    "Comisiones": [
       {
         "TamañoEncomienda": 1,
         "Importe": 2000.00
@@ -357,7 +355,7 @@
   {
     "IdAgencia": 17,
     "Nombre": "Mendoza Centro",
-    "Comsiones": [
+    "Comisiones": [
       {
         "TamañoEncomienda": 1,
         "Importe": 2000.00
@@ -379,7 +377,7 @@
   {
     "IdAgencia": 18,
     "Nombre": "Mendoza Oeste",
-    "Comsiones": [
+    "Comisiones": [
       {
         "TamañoEncomienda": 1,
         "Importe": 2000.00
@@ -401,7 +399,7 @@
   {
     "IdAgencia": 19,
     "Nombre": "Olavarria Norte",
-    "Comsiones": [
+    "Comisiones": [
       {
         "TamañoEncomienda": 1,
         "Importe": 2000.00
@@ -423,7 +421,7 @@
   {
     "IdAgencia": 20,
     "Nombre": "Olavarria Sur",
-    "Comsiones": [
+    "Comisiones": [
       {
         "TamañoEncomienda": 1,
         "Importe": 2000.00
@@ -443,7 +441,3 @@
     ]
   }
 ]
-
-  
-
- 
