@@ -7,38 +7,17 @@
         "NumeroFactura": "A-0001-00001001"
       },
       {
-        "NumeroFactura": "A-0001-00001002"
-      },
-      {
-        "NumeroFactura": "A-0001-00001003"
-      },
-      {
-        "NumeroFactura": "A-0001-00001004"
-      },
-      {
         "NumeroFactura": "A-0001-00001005"
-      },
-      {
-        "NumeroFactura": "A-0001-00001006"
       }
     ],
     "NotaDeCredito": [
       {
         "NumeroNotaDeCredito": "A-0001-00000102"
-      },
-      {
-        "NumeroNotaDeCredito": "A-0001-00000104"
       }
     ],
     "Recibos": [
       {
         "NumeroRecibo": "R-0001-00001001"
-      },
-      {
-        "NumeroRecibo": "R-0001-00001003"
-      },
-      {
-        "NumeroRecibo": "R-0001-00001005"
       }
     ],
     "Tarifario": [
@@ -77,15 +56,6 @@
       },
       {
         "NumeroFactura": "A-0001-00002002"
-      },
-      {
-        "NumeroFactura": "A-0001-00002003"
-      },
-      {
-        "NumeroFactura": "A-0001-00002004"
-      },
-      {
-        "NumeroFactura": "A-0001-00002005"
       }
     ],
     "NotaDeCredito": [
@@ -96,9 +66,6 @@
     "Recibos": [
       {
         "NumeroRecibo": "R-0001-00001002"
-      },
-      {
-        "NumeroRecibo": "R-0001-00001004"
       }
     ],
     "Tarifario": [
@@ -137,15 +104,6 @@
       },
       {
         "NumeroFactura": "B-0001-00001115"
-      },
-      {
-        "NumeroFactura": "B-0001-00001213"
-      },
-      {
-        "NumeroFactura": "B-0001-00002001"
-      },
-      {
-        "NumeroFactura": "B-0001-00002026"
       }
     ],
     "NotaDeCredito": [
@@ -156,9 +114,6 @@
     "Recibos": [
       {
         "NumeroRecibo": "R-0001-00001015"
-      },
-      {
-        "NumeroRecibo": "R-0001-00001020"
       }
     ],
     "Tarifario": [
