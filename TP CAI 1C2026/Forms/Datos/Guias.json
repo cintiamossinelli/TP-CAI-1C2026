@@ -62,7 +62,7 @@
         "Estado": 17
       },
       {
-        "Fecha": "2026-06-16",
+        "Fecha": "2026-06-02",
         "Estado": 18
       }
     ],
@@ -132,13 +132,13 @@
         "Estado": 17
       },
       {
-        "Fecha": "2026-06-16",
+        "Fecha": "2026-06-02",
         "Estado": 18
       }
     ],
     "ComisionFletero": [],
     "ComisionAgencia": []
-  },  
+  },
   {
     "NroGuia": "CD-1-30",
     "CuitDniCuilCliente": "33-63761744-9",
@@ -156,7 +156,48 @@
     "TipoCaja": 1,
     "PrecioVenta": 15000.0,
     "Estado": 18,
-    "Historial": [],
+    "Historial": [
+      {
+        "Fecha": "2026-05-30",
+        "Estado": 3
+      },
+      {
+        "Fecha": "2026-05-30",
+        "Estado": 6
+      },
+      {
+        "Fecha": "2026-05-31",
+        "Estado": 8
+      },
+      {
+        "Fecha": "2026-06-01",
+        "Estado": 9
+      },
+      {
+        "Fecha": "2026-06-01",
+        "Estado": 10
+      },
+      {
+        "Fecha": "2026-06-02",
+        "Estado": 11
+      },
+      {
+        "Fecha": "2026-06-02",
+        "Estado": 12
+      },
+      {
+        "Fecha": "2026-06-02",
+        "Estado": 14
+      },
+      {
+        "Fecha": "2026-06-02",
+        "Estado": 17
+      },
+      {
+        "Fecha": "2026-06-02",
+        "Estado": 18
+      }
+    ],
     "ComisionFletero": [],
     "ComisionAgencia": []
   },
@@ -177,7 +218,48 @@
     "TipoCaja": 2,
     "PrecioVenta": 20000.0,
     "Estado": 18,
-    "Historial": [],
+    "Historial": [
+      {
+        "Fecha": "2026-05-30",
+        "Estado": 3
+      },
+      {
+        "Fecha": "2026-05-30",
+        "Estado": 6
+      },
+      {
+        "Fecha": "2026-05-31",
+        "Estado": 8
+      },
+      {
+        "Fecha": "2026-06-01",
+        "Estado": 9
+      },
+      {
+        "Fecha": "2026-06-01",
+        "Estado": 10
+      },
+      {
+        "Fecha": "2026-06-02",
+        "Estado": 11
+      },
+      {
+        "Fecha": "2026-06-02",
+        "Estado": 12
+      },
+      {
+        "Fecha": "2026-06-02",
+        "Estado": 14
+      },
+      {
+        "Fecha": "2026-06-02",
+        "Estado": 17
+      },
+      {
+        "Fecha": "2026-06-02",
+        "Estado": 18
+      }
+    ],
     "ComisionFletero": [],
     "ComisionAgencia": []
   },
@@ -198,7 +280,56 @@
     "TipoCaja": 1,
     "PrecioVenta": 50000.0,
     "Estado": 18,
-    "Historial": [],
+    "Historial": [
+      {
+        "Fecha": "2026-05-30",
+        "Estado": 2
+      },
+      {
+        "Fecha": "2026-05-30",
+        "Estado": 4
+      },
+      {
+        "Fecha": "2026-05-30",
+        "Estado": 5
+      },
+      {
+        "Fecha": "2026-05-30",
+        "Estado": 6
+      },
+      {
+        "Fecha": "2026-05-31",
+        "Estado": 8
+      },
+      {
+        "Fecha": "2026-06-01",
+        "Estado": 9
+      },
+      {
+        "Fecha": "2026-06-01",
+        "Estado": 10
+      },
+      {
+        "Fecha": "2026-06-02",
+        "Estado": 11
+      },
+      {
+        "Fecha": "2026-06-02",
+        "Estado": 12
+      },
+      {
+        "Fecha": "2026-06-02",
+        "Estado": 14
+      },
+      {
+        "Fecha": "2026-06-02",
+        "Estado": 17
+      },
+      {
+        "Fecha": "2026-06-02",
+        "Estado": 18
+      }
+    ],
     "ComisionFletero": [],
     "ComisionAgencia": []
   },
@@ -219,7 +350,56 @@
     "TipoCaja": 1,
     "PrecioVenta": 50000.0,
     "Estado": 18,
-    "Historial": [],
+    "Historial": [
+      {
+        "Fecha": "2026-05-30",
+        "Estado": 2
+      },
+      {
+        "Fecha": "2026-05-30",
+        "Estado": 4
+      },
+      {
+        "Fecha": "2026-05-30",
+        "Estado": 5
+      },
+      {
+        "Fecha": "2026-05-30",
+        "Estado": 6
+      },
+      {
+        "Fecha": "2026-05-31",
+        "Estado": 8
+      },
+      {
+        "Fecha": "2026-06-01",
+        "Estado": 9
+      },
+      {
+        "Fecha": "2026-06-01",
+        "Estado": 10
+      },
+      {
+        "Fecha": "2026-06-02",
+        "Estado": 11
+      },
+      {
+        "Fecha": "2026-06-02",
+        "Estado": 12
+      },
+      {
+        "Fecha": "2026-06-02",
+        "Estado": 14
+      },
+      {
+        "Fecha": "2026-06-02",
+        "Estado": 17
+      },
+      {
+        "Fecha": "2026-06-02",
+        "Estado": 18
+      }
+    ],
     "ComisionFletero": [],
     "ComisionAgencia": []
   },
@@ -240,7 +420,48 @@
     "TipoCaja": 1,
     "PrecioVenta": 32500.0,
     "Estado": 18,
-    "Historial": [],
+    "Historial": [
+      {
+        "Fecha": "2026-05-30",
+        "Estado": 3
+      },
+      {
+        "Fecha": "2026-05-30",
+        "Estado": 6
+      },
+      {
+        "Fecha": "2026-05-31",
+        "Estado": 8
+      },
+      {
+        "Fecha": "2026-06-01",
+        "Estado": 9
+      },
+      {
+        "Fecha": "2026-06-01",
+        "Estado": 10
+      },
+      {
+        "Fecha": "2026-06-02",
+        "Estado": 11
+      },
+      {
+        "Fecha": "2026-06-02",
+        "Estado": 12
+      },
+      {
+        "Fecha": "2026-06-02",
+        "Estado": 14
+      },
+      {
+        "Fecha": "2026-06-02",
+        "Estado": 17
+      },
+      {
+        "Fecha": "2026-06-02",
+        "Estado": 18
+      }
+    ],
     "ComisionFletero": [],
     "ComisionAgencia": []
   },
@@ -261,7 +482,48 @@
     "TipoCaja": 1,
     "PrecioVenta": 32500.0,
     "Estado": 18,
-    "Historial": [],
+    "Historial": [
+      {
+        "Fecha": "2026-05-30",
+        "Estado": 3
+      },
+      {
+        "Fecha": "2026-05-30",
+        "Estado": 6
+      },
+      {
+        "Fecha": "2026-05-31",
+        "Estado": 8
+      },
+      {
+        "Fecha": "2026-06-01",
+        "Estado": 9
+      },
+      {
+        "Fecha": "2026-06-01",
+        "Estado": 10
+      },
+      {
+        "Fecha": "2026-06-02",
+        "Estado": 11
+      },
+      {
+        "Fecha": "2026-06-02",
+        "Estado": 12
+      },
+      {
+        "Fecha": "2026-06-02",
+        "Estado": 14
+      },
+      {
+        "Fecha": "2026-06-02",
+        "Estado": 17
+      },
+      {
+        "Fecha": "2026-06-02",
+        "Estado": 18
+      }
+    ],
     "ComisionFletero": [],
     "ComisionAgencia": []
   },
@@ -282,7 +544,56 @@
     "TipoCaja": 1,
     "PrecioVenta": 17500.0,
     "Estado": 18,
-    "Historial": [],
+    "Historial": [
+      {
+        "Fecha": "2026-05-30",
+        "Estado": 1
+      },
+      {
+        "Fecha": "2026-05-30",
+        "Estado": 4
+      },
+      {
+        "Fecha": "2026-05-30",
+        "Estado": 5
+      },
+      {
+        "Fecha": "2026-05-30",
+        "Estado": 6
+      },
+      {
+        "Fecha": "2026-05-31",
+        "Estado": 8
+      },
+      {
+        "Fecha": "2026-06-01",
+        "Estado": 9
+      },
+      {
+        "Fecha": "2026-06-01",
+        "Estado": 10
+      },
+      {
+        "Fecha": "2026-06-02",
+        "Estado": 11
+      },
+      {
+        "Fecha": "2026-06-02",
+        "Estado": 12
+      },
+      {
+        "Fecha": "2026-06-02",
+        "Estado": 14
+      },
+      {
+        "Fecha": "2026-06-02",
+        "Estado": 17
+      },
+      {
+        "Fecha": "2026-06-02",
+        "Estado": 18
+      }
+    ],
     "ComisionFletero": [],
     "ComisionAgencia": []
   },
@@ -303,7 +614,56 @@
     "TipoCaja": 1,
     "PrecioVenta": 17500.0,
     "Estado": 18,
-    "Historial": [],
+    "Historial": [
+      {
+        "Fecha": "2026-05-30",
+        "Estado": 1
+      },
+      {
+        "Fecha": "2026-05-30",
+        "Estado": 4
+      },
+      {
+        "Fecha": "2026-05-30",
+        "Estado": 5
+      },
+      {
+        "Fecha": "2026-05-30",
+        "Estado": 6
+      },
+      {
+        "Fecha": "2026-05-31",
+        "Estado": 8
+      },
+      {
+        "Fecha": "2026-06-01",
+        "Estado": 9
+      },
+      {
+        "Fecha": "2026-06-01",
+        "Estado": 10
+      },
+      {
+        "Fecha": "2026-06-02",
+        "Estado": 11
+      },
+      {
+        "Fecha": "2026-06-02",
+        "Estado": 12
+      },
+      {
+        "Fecha": "2026-06-02",
+        "Estado": 14
+      },
+      {
+        "Fecha": "2026-06-02",
+        "Estado": 17
+      },
+      {
+        "Fecha": "2026-06-02",
+        "Estado": 18
+      }
+    ],
     "ComisionFletero": [],
     "ComisionAgencia": []
   },
@@ -324,7 +684,56 @@
     "TipoCaja": 1,
     "PrecioVenta": 37500.0,
     "Estado": 18,
-    "Historial": [],
+    "Historial": [
+      {
+        "Fecha": "2026-05-30",
+        "Estado": 2
+      },
+      {
+        "Fecha": "2026-05-30",
+        "Estado": 4
+      },
+      {
+        "Fecha": "2026-05-30",
+        "Estado": 5
+      },
+      {
+        "Fecha": "2026-05-30",
+        "Estado": 6
+      },
+      {
+        "Fecha": "2026-05-31",
+        "Estado": 8
+      },
+      {
+        "Fecha": "2026-06-01",
+        "Estado": 9
+      },
+      {
+        "Fecha": "2026-06-01",
+        "Estado": 10
+      },
+      {
+        "Fecha": "2026-06-02",
+        "Estado": 11
+      },
+      {
+        "Fecha": "2026-06-02",
+        "Estado": 12
+      },
+      {
+        "Fecha": "2026-06-02",
+        "Estado": 14
+      },
+      {
+        "Fecha": "2026-06-02",
+        "Estado": 17
+      },
+      {
+        "Fecha": "2026-06-02",
+        "Estado": 18
+      }
+    ],
     "ComisionFletero": [],
     "ComisionAgencia": []
   },
@@ -345,7 +754,56 @@
     "TipoCaja": 1,
     "PrecioVenta": 37500.0,
     "Estado": 18,
-    "Historial": [],
+    "Historial": [
+      {
+        "Fecha": "2026-05-30",
+        "Estado": 2
+      },
+      {
+        "Fecha": "2026-05-30",
+        "Estado": 4
+      },
+      {
+        "Fecha": "2026-05-30",
+        "Estado": 5
+      },
+      {
+        "Fecha": "2026-05-30",
+        "Estado": 6
+      },
+      {
+        "Fecha": "2026-05-31",
+        "Estado": 8
+      },
+      {
+        "Fecha": "2026-06-01",
+        "Estado": 9
+      },
+      {
+        "Fecha": "2026-06-01",
+        "Estado": 10
+      },
+      {
+        "Fecha": "2026-06-02",
+        "Estado": 11
+      },
+      {
+        "Fecha": "2026-06-02",
+        "Estado": 12
+      },
+      {
+        "Fecha": "2026-06-02",
+        "Estado": 14
+      },
+      {
+        "Fecha": "2026-06-02",
+        "Estado": 17
+      },
+      {
+        "Fecha": "2026-06-02",
+        "Estado": 18
+      }
+    ],
     "ComisionFletero": [],
     "ComisionAgencia": []
   },
@@ -366,7 +824,52 @@
     "TipoCaja": 1,
     "PrecioVenta": 15000.0,
     "Estado": 15,
-    "Historial": [],
+    "Historial": [
+      {
+        "Fecha": "2026-05-31",
+        "Estado": 2
+      },
+      {
+        "Fecha": "2026-05-31",
+        "Estado": 4
+      },
+      {
+        "Fecha": "2026-05-31",
+        "Estado": 5
+      },
+      {
+        "Fecha": "2026-05-31",
+        "Estado": 6
+      },
+      {
+        "Fecha": "2026-06-01",
+        "Estado": 8
+      },
+      {
+        "Fecha": "2026-06-02",
+        "Estado": 9
+      },
+      {
+        "Fecha": "2026-06-02",
+        "Estado": 10
+      },
+      {
+        "Fecha": "2026-06-03",
+        "Estado": 11
+      },
+      {
+        "Fecha": "2026-06-03",
+        "Estado": 12
+      },
+      {
+        "Fecha": "2026-06-03",
+        "Estado": 14
+      },
+      {
+        "Fecha": "2026-06-03",
+        "Estado": 15
+      }
+    ],
     "ComisionFletero": [],
     "ComisionAgencia": []
   },
@@ -387,7 +890,52 @@
     "TipoCaja": 2,
     "PrecioVenta": 20000.0,
     "Estado": 17,
-    "Historial": [],
+    "Historial": [
+      {
+        "Fecha": "2026-05-31",
+        "Estado": 2
+      },
+      {
+        "Fecha": "2026-05-31",
+        "Estado": 4
+      },
+      {
+        "Fecha": "2026-05-31",
+        "Estado": 5
+      },
+      {
+        "Fecha": "2026-05-31",
+        "Estado": 6
+      },
+      {
+        "Fecha": "2026-06-01",
+        "Estado": 8
+      },
+      {
+        "Fecha": "2026-06-02",
+        "Estado": 9
+      },
+      {
+        "Fecha": "2026-06-02",
+        "Estado": 10
+      },
+      {
+        "Fecha": "2026-06-03",
+        "Estado": 11
+      },
+      {
+        "Fecha": "2026-06-03",
+        "Estado": 12
+      },
+      {
+        "Fecha": "2026-06-03",
+        "Estado": 14
+      },
+      {
+        "Fecha": "2026-06-03",
+        "Estado": 17
+      }
+    ],
     "ComisionFletero": [],
     "ComisionAgencia": []
   },
@@ -408,7 +956,44 @@
     "TipoCaja": 3,
     "PrecioVenta": 25000.0,
     "Estado": 15,
-    "Historial": [],
+    "Historial": [
+      {
+        "Fecha": "2026-05-31",
+        "Estado": 3
+      },
+      {
+        "Fecha": "2026-05-31",
+        "Estado": 6
+      },
+      {
+        "Fecha": "2026-06-01",
+        "Estado": 8
+      },
+      {
+        "Fecha": "2026-06-02",
+        "Estado": 9
+      },
+      {
+        "Fecha": "2026-06-02",
+        "Estado": 10
+      },
+      {
+        "Fecha": "2026-06-03",
+        "Estado": 11
+      },
+      {
+        "Fecha": "2026-06-03",
+        "Estado": 12
+      },
+      {
+        "Fecha": "2026-06-03",
+        "Estado": 14
+      },
+      {
+        "Fecha": "2026-06-03",
+        "Estado": 15
+      }
+    ],
     "ComisionFletero": [],
     "ComisionAgencia": []
   },
@@ -429,7 +1014,52 @@
     "TipoCaja": 4,
     "PrecioVenta": 30000.0,
     "Estado": 15,
-    "Historial": [],
+    "Historial": [
+      {
+        "Fecha": "2026-05-31",
+        "Estado": 1
+      },
+      {
+        "Fecha": "2026-05-31",
+        "Estado": 4
+      },
+      {
+        "Fecha": "2026-05-31",
+        "Estado": 5
+      },
+      {
+        "Fecha": "2026-05-31",
+        "Estado": 6
+      },
+      {
+        "Fecha": "2026-06-01",
+        "Estado": 8
+      },
+      {
+        "Fecha": "2026-06-02",
+        "Estado": 9
+      },
+      {
+        "Fecha": "2026-06-02",
+        "Estado": 10
+      },
+      {
+        "Fecha": "2026-06-03",
+        "Estado": 11
+      },
+      {
+        "Fecha": "2026-06-03",
+        "Estado": 12
+      },
+      {
+        "Fecha": "2026-06-03",
+        "Estado": 14
+      },
+      {
+        "Fecha": "2026-06-03",
+        "Estado": 15
+      }
+    ],
     "ComisionFletero": [],
     "ComisionAgencia": []
   },
@@ -450,7 +1080,52 @@
     "TipoCaja": 1,
     "PrecioVenta": 15000.0,
     "Estado": 15,
-    "Historial": [],
+    "Historial": [
+      {
+        "Fecha": "2026-05-31",
+        "Estado": 2
+      },
+      {
+        "Fecha": "2026-05-31",
+        "Estado": 4
+      },
+      {
+        "Fecha": "2026-05-31",
+        "Estado": 5
+      },
+      {
+        "Fecha": "2026-05-31",
+        "Estado": 6
+      },
+      {
+        "Fecha": "2026-06-01",
+        "Estado": 8
+      },
+      {
+        "Fecha": "2026-06-02",
+        "Estado": 9
+      },
+      {
+        "Fecha": "2026-06-02",
+        "Estado": 10
+      },
+      {
+        "Fecha": "2026-06-03",
+        "Estado": 11
+      },
+      {
+        "Fecha": "2026-06-03",
+        "Estado": 12
+      },
+      {
+        "Fecha": "2026-06-03",
+        "Estado": 14
+      },
+      {
+        "Fecha": "2026-06-03",
+        "Estado": 15
+      }
+    ],
     "ComisionFletero": [],
     "ComisionAgencia": []
   },
@@ -471,7 +1146,36 @@
     "TipoCaja": 2,
     "PrecioVenta": 20000.0,
     "Estado": 12,
-    "Historial": [],
+    "Historial": [
+      {
+        "Fecha": "2026-05-29",
+        "Estado": 3
+      },
+      {
+        "Fecha": "2026-05-29",
+        "Estado": 6
+      },
+      {
+        "Fecha": "2026-05-30",
+        "Estado": 8
+      },
+      {
+        "Fecha": "2026-05-31",
+        "Estado": 9
+      },
+      {
+        "Fecha": "2026-05-31",
+        "Estado": 10
+      },
+      {
+        "Fecha": "2026-06-01",
+        "Estado": 11
+      },
+      {
+        "Fecha": "2026-06-01",
+        "Estado": 12
+      }
+    ],
     "ComisionFletero": [],
     "ComisionAgencia": []
   },
@@ -492,7 +1196,44 @@
     "TipoCaja": 3,
     "PrecioVenta": 25000.0,
     "Estado": 17,
-    "Historial": [],
+    "Historial": [
+      {
+        "Fecha": "2026-05-29",
+        "Estado": 3
+      },
+      {
+        "Fecha": "2026-05-29",
+        "Estado": 6
+      },
+      {
+        "Fecha": "2026-05-30",
+        "Estado": 8
+      },
+      {
+        "Fecha": "2026-05-31",
+        "Estado": 9
+      },
+      {
+        "Fecha": "2026-05-31",
+        "Estado": 10
+      },
+      {
+        "Fecha": "2026-06-01",
+        "Estado": 11
+      },
+      {
+        "Fecha": "2026-06-01",
+        "Estado": 12
+      },
+      {
+        "Fecha": "2026-06-01",
+        "Estado": 14
+      },
+      {
+        "Fecha": "2026-06-01",
+        "Estado": 17
+      }
+    ],
     "ComisionFletero": [],
     "ComisionAgencia": []
   },
@@ -513,7 +1254,36 @@
     "TipoCaja": 1,
     "PrecioVenta": 16000.0,
     "Estado": 12,
-    "Historial": [],
+    "Historial": [
+      {
+        "Fecha": "2026-05-23",
+        "Estado": 3
+      },
+      {
+        "Fecha": "2026-05-23",
+        "Estado": 6
+      },
+      {
+        "Fecha": "2026-05-24",
+        "Estado": 8
+      },
+      {
+        "Fecha": "2026-05-25",
+        "Estado": 9
+      },
+      {
+        "Fecha": "2026-05-25",
+        "Estado": 10
+      },
+      {
+        "Fecha": "2026-05-26",
+        "Estado": 11
+      },
+      {
+        "Fecha": "2026-05-26",
+        "Estado": 12
+      }
+    ],
     "ComisionFletero": [],
     "ComisionAgencia": []
   },
@@ -534,7 +1304,44 @@
     "TipoCaja": 2,
     "PrecioVenta": 21000.0,
     "Estado": 12,
-    "Historial": [],
+    "Historial": [
+      {
+        "Fecha": "2026-05-23",
+        "Estado": 1
+      },
+      {
+        "Fecha": "2026-05-23",
+        "Estado": 4
+      },
+      {
+        "Fecha": "2026-05-23",
+        "Estado": 5
+      },
+      {
+        "Fecha": "2026-05-23",
+        "Estado": 6
+      },
+      {
+        "Fecha": "2026-05-24",
+        "Estado": 8
+      },
+      {
+        "Fecha": "2026-05-25",
+        "Estado": 9
+      },
+      {
+        "Fecha": "2026-05-25",
+        "Estado": 10
+      },
+      {
+        "Fecha": "2026-05-26",
+        "Estado": 11
+      },
+      {
+        "Fecha": "2026-05-26",
+        "Estado": 12
+      }
+    ],
     "ComisionFletero": [],
     "ComisionAgencia": []
   },
@@ -555,7 +1362,44 @@
     "TipoCaja": 3,
     "PrecioVenta": 24000.0,
     "Estado": 12,
-    "Historial": [],
+    "Historial": [
+      {
+        "Fecha": "2026-05-23",
+        "Estado": 2
+      },
+      {
+        "Fecha": "2026-05-23",
+        "Estado": 4
+      },
+      {
+        "Fecha": "2026-05-23",
+        "Estado": 5
+      },
+      {
+        "Fecha": "2026-05-23",
+        "Estado": 6
+      },
+      {
+        "Fecha": "2026-05-24",
+        "Estado": 8
+      },
+      {
+        "Fecha": "2026-05-25",
+        "Estado": 9
+      },
+      {
+        "Fecha": "2026-05-25",
+        "Estado": 10
+      },
+      {
+        "Fecha": "2026-05-26",
+        "Estado": 11
+      },
+      {
+        "Fecha": "2026-05-26",
+        "Estado": 12
+      }
+    ],
     "ComisionFletero": [],
     "ComisionAgencia": []
   },
@@ -576,7 +1420,44 @@
     "TipoCaja": 1,
     "PrecioVenta": 14000.0,
     "Estado": 15,
-    "Historial": [],
+    "Historial": [
+      {
+        "Fecha": "2026-05-31",
+        "Estado": 3
+      },
+      {
+        "Fecha": "2026-05-31",
+        "Estado": 6
+      },
+      {
+        "Fecha": "2026-06-01",
+        "Estado": 8
+      },
+      {
+        "Fecha": "2026-06-02",
+        "Estado": 9
+      },
+      {
+        "Fecha": "2026-06-02",
+        "Estado": 10
+      },
+      {
+        "Fecha": "2026-06-03",
+        "Estado": 11
+      },
+      {
+        "Fecha": "2026-06-03",
+        "Estado": 12
+      },
+      {
+        "Fecha": "2026-06-03",
+        "Estado": 14
+      },
+      {
+        "Fecha": "2026-06-03",
+        "Estado": 15
+      }
+    ],
     "ComisionFletero": [],
     "ComisionAgencia": []
   },
@@ -597,7 +1478,44 @@
     "TipoCaja": 2,
     "PrecioVenta": 19000.0,
     "Estado": 17,
-    "Historial": [],
+    "Historial": [
+      {
+        "Fecha": "2026-05-31",
+        "Estado": 3
+      },
+      {
+        "Fecha": "2026-05-31",
+        "Estado": 6
+      },
+      {
+        "Fecha": "2026-06-01",
+        "Estado": 8
+      },
+      {
+        "Fecha": "2026-06-02",
+        "Estado": 9
+      },
+      {
+        "Fecha": "2026-06-02",
+        "Estado": 10
+      },
+      {
+        "Fecha": "2026-06-03",
+        "Estado": 11
+      },
+      {
+        "Fecha": "2026-06-03",
+        "Estado": 12
+      },
+      {
+        "Fecha": "2026-06-03",
+        "Estado": 14
+      },
+      {
+        "Fecha": "2026-06-03",
+        "Estado": 17
+      }
+    ],
     "ComisionFletero": [],
     "ComisionAgencia": []
   },
@@ -618,7 +1536,52 @@
     "TipoCaja": 3,
     "PrecioVenta": 23000.0,
     "Estado": 15,
-    "Historial": [],
+    "Historial": [
+      {
+        "Fecha": "2026-05-31",
+        "Estado": 2
+      },
+      {
+        "Fecha": "2026-05-31",
+        "Estado": 4
+      },
+      {
+        "Fecha": "2026-05-31",
+        "Estado": 5
+      },
+      {
+        "Fecha": "2026-05-31",
+        "Estado": 6
+      },
+      {
+        "Fecha": "2026-06-01",
+        "Estado": 8
+      },
+      {
+        "Fecha": "2026-06-02",
+        "Estado": 9
+      },
+      {
+        "Fecha": "2026-06-02",
+        "Estado": 10
+      },
+      {
+        "Fecha": "2026-06-03",
+        "Estado": 11
+      },
+      {
+        "Fecha": "2026-06-03",
+        "Estado": 12
+      },
+      {
+        "Fecha": "2026-06-03",
+        "Estado": 14
+      },
+      {
+        "Fecha": "2026-06-03",
+        "Estado": 15
+      }
+    ],
     "ComisionFletero": [],
     "ComisionAgencia": []
   },
@@ -639,7 +1602,52 @@
     "TipoCaja": 4,
     "PrecioVenta": 28000.0,
     "Estado": 15,
-    "Historial": [],
+    "Historial": [
+      {
+        "Fecha": "2026-05-31",
+        "Estado": 2
+      },
+      {
+        "Fecha": "2026-05-31",
+        "Estado": 4
+      },
+      {
+        "Fecha": "2026-05-31",
+        "Estado": 5
+      },
+      {
+        "Fecha": "2026-05-31",
+        "Estado": 6
+      },
+      {
+        "Fecha": "2026-06-01",
+        "Estado": 8
+      },
+      {
+        "Fecha": "2026-06-02",
+        "Estado": 9
+      },
+      {
+        "Fecha": "2026-06-02",
+        "Estado": 10
+      },
+      {
+        "Fecha": "2026-06-03",
+        "Estado": 11
+      },
+      {
+        "Fecha": "2026-06-03",
+        "Estado": 12
+      },
+      {
+        "Fecha": "2026-06-03",
+        "Estado": 14
+      },
+      {
+        "Fecha": "2026-06-03",
+        "Estado": 15
+      }
+    ],
     "ComisionFletero": [],
     "ComisionAgencia": []
   },
@@ -660,7 +1668,52 @@
     "TipoCaja": 1,
     "PrecioVenta": 14000.0,
     "Estado": 15,
-    "Historial": [],
+    "Historial": [
+      {
+        "Fecha": "2026-05-31",
+        "Estado": 1
+      },
+      {
+        "Fecha": "2026-05-31",
+        "Estado": 4
+      },
+      {
+        "Fecha": "2026-05-31",
+        "Estado": 5
+      },
+      {
+        "Fecha": "2026-05-31",
+        "Estado": 6
+      },
+      {
+        "Fecha": "2026-06-01",
+        "Estado": 8
+      },
+      {
+        "Fecha": "2026-06-02",
+        "Estado": 9
+      },
+      {
+        "Fecha": "2026-06-02",
+        "Estado": 10
+      },
+      {
+        "Fecha": "2026-06-03",
+        "Estado": 11
+      },
+      {
+        "Fecha": "2026-06-03",
+        "Estado": 12
+      },
+      {
+        "Fecha": "2026-06-03",
+        "Estado": 14
+      },
+      {
+        "Fecha": "2026-06-03",
+        "Estado": 15
+      }
+    ],
     "ComisionFletero": [],
     "ComisionAgencia": []
   },
@@ -681,7 +1734,44 @@
     "TipoCaja": 1,
     "PrecioVenta": 15000.0,
     "Estado": 12,
-    "Historial": [],
+    "Historial": [
+      {
+        "Fecha": "2026-06-06",
+        "Estado": 2
+      },
+      {
+        "Fecha": "2026-06-06",
+        "Estado": 4
+      },
+      {
+        "Fecha": "2026-06-06",
+        "Estado": 5
+      },
+      {
+        "Fecha": "2026-06-06",
+        "Estado": 6
+      },
+      {
+        "Fecha": "2026-06-07",
+        "Estado": 8
+      },
+      {
+        "Fecha": "2026-06-08",
+        "Estado": 9
+      },
+      {
+        "Fecha": "2026-06-08",
+        "Estado": 10
+      },
+      {
+        "Fecha": "2026-06-09",
+        "Estado": 11
+      },
+      {
+        "Fecha": "2026-06-09",
+        "Estado": 12
+      }
+    ],
     "ComisionFletero": [],
     "ComisionAgencia": []
   },
@@ -702,7 +1792,16 @@
     "TipoCaja": 1,
     "PrecioVenta": 18000.0,
     "Estado": 4,
-    "Historial": [],
+    "Historial": [
+      {
+        "Fecha": "2026-06-07",
+        "Estado": 2
+      },
+      {
+        "Fecha": "2026-06-07",
+        "Estado": 4
+      }
+    ],
     "ComisionFletero": [],
     "ComisionAgencia": []
   },
@@ -723,7 +1822,16 @@
     "TipoCaja": 2,
     "PrecioVenta": 21000.0,
     "Estado": 4,
-    "Historial": [],
+    "Historial": [
+      {
+        "Fecha": "2026-06-07",
+        "Estado": 1
+      },
+      {
+        "Fecha": "2026-06-07",
+        "Estado": 4
+      }
+    ],
     "ComisionFletero": [],
     "ComisionAgencia": []
   },
@@ -744,7 +1852,16 @@
     "TipoCaja": 1,
     "PrecioVenta": 17000.0,
     "Estado": 4,
-    "Historial": [],
+    "Historial": [
+      {
+        "Fecha": "2026-06-08",
+        "Estado": 2
+      },
+      {
+        "Fecha": "2026-06-08",
+        "Estado": 4
+      }
+    ],
     "ComisionFletero": [],
     "ComisionAgencia": []
   },
@@ -765,7 +1882,16 @@
     "TipoCaja": 4,
     "PrecioVenta": 26000.0,
     "Estado": 4,
-    "Historial": [],
+    "Historial": [
+      {
+        "Fecha": "2026-06-09",
+        "Estado": 1
+      },
+      {
+        "Fecha": "2026-06-09",
+        "Estado": 4
+      }
+    ],
     "ComisionFletero": [],
     "ComisionAgencia": []
   },
@@ -786,7 +1912,24 @@
     "TipoCaja": 1,
     "PrecioVenta": 17000.0,
     "Estado": 6,
-    "Historial": [],
+    "Historial": [
+      {
+        "Fecha": "2026-06-09",
+        "Estado": 2
+      },
+      {
+        "Fecha": "2026-06-09",
+        "Estado": 4
+      },
+      {
+        "Fecha": "2026-06-09",
+        "Estado": 5
+      },
+      {
+        "Fecha": "2026-06-09",
+        "Estado": 6
+      }
+    ],
     "ComisionFletero": [],
     "ComisionAgencia": []
   },
@@ -807,7 +1950,24 @@
     "TipoCaja": 1,
     "PrecioVenta": 17000.0,
     "Estado": 9,
-    "Historial": [],
+    "Historial": [
+      {
+        "Fecha": "2026-05-13",
+        "Estado": 3
+      },
+      {
+        "Fecha": "2026-05-13",
+        "Estado": 6
+      },
+      {
+        "Fecha": "2026-05-14",
+        "Estado": 8
+      },
+      {
+        "Fecha": "2026-05-15",
+        "Estado": 9
+      }
+    ],
     "ComisionFletero": [],
     "ComisionAgencia": []
   },
@@ -828,7 +1988,24 @@
     "TipoCaja": 1,
     "PrecioVenta": 17000.0,
     "Estado": 9,
-    "Historial": [],
+    "Historial": [
+      {
+        "Fecha": "2026-05-13",
+        "Estado": 3
+      },
+      {
+        "Fecha": "2026-05-13",
+        "Estado": 6
+      },
+      {
+        "Fecha": "2026-05-14",
+        "Estado": 8
+      },
+      {
+        "Fecha": "2026-05-15",
+        "Estado": 9
+      }
+    ],
     "ComisionFletero": [],
     "ComisionAgencia": []
   },
@@ -849,7 +2026,24 @@
     "TipoCaja": 1,
     "PrecioVenta": 17000.0,
     "Estado": 9,
-    "Historial": [],
+    "Historial": [
+      {
+        "Fecha": "2026-05-13",
+        "Estado": 3
+      },
+      {
+        "Fecha": "2026-05-13",
+        "Estado": 6
+      },
+      {
+        "Fecha": "2026-05-14",
+        "Estado": 8
+      },
+      {
+        "Fecha": "2026-05-15",
+        "Estado": 9
+      }
+    ],
     "ComisionFletero": [],
     "ComisionAgencia": []
   },
@@ -870,7 +2064,24 @@
     "TipoCaja": 1,
     "PrecioVenta": 17000.0,
     "Estado": 9,
-    "Historial": [],
+    "Historial": [
+      {
+        "Fecha": "2026-06-06",
+        "Estado": 3
+      },
+      {
+        "Fecha": "2026-06-06",
+        "Estado": 6
+      },
+      {
+        "Fecha": "2026-06-07",
+        "Estado": 8
+      },
+      {
+        "Fecha": "2026-06-08",
+        "Estado": 9
+      }
+    ],
     "ComisionFletero": [],
     "ComisionAgencia": []
   },
@@ -891,7 +2102,24 @@
     "TipoCaja": 1,
     "PrecioVenta": 17000.0,
     "Estado": 9,
-    "Historial": [],
+    "Historial": [
+      {
+        "Fecha": "2026-06-06",
+        "Estado": 3
+      },
+      {
+        "Fecha": "2026-06-06",
+        "Estado": 6
+      },
+      {
+        "Fecha": "2026-06-07",
+        "Estado": 8
+      },
+      {
+        "Fecha": "2026-06-08",
+        "Estado": 9
+      }
+    ],
     "ComisionFletero": [],
     "ComisionAgencia": []
   },
@@ -912,7 +2140,24 @@
     "TipoCaja": 1,
     "PrecioVenta": 17000.0,
     "Estado": 9,
-    "Historial": [],
+    "Historial": [
+      {
+        "Fecha": "2026-06-06",
+        "Estado": 3
+      },
+      {
+        "Fecha": "2026-06-06",
+        "Estado": 6
+      },
+      {
+        "Fecha": "2026-06-07",
+        "Estado": 8
+      },
+      {
+        "Fecha": "2026-06-08",
+        "Estado": 9
+      }
+    ],
     "ComisionFletero": [],
     "ComisionAgencia": []
   }
