@@ -5,11 +5,7 @@
     "FechaEmision": "2026-05-14",
     "IdCentroDeDistribucionOrigen": 1,
     "IdCentroDeDistribucionDestino": 2,
-    "Guias": [
-      { "NroGuia": "CD-1-790" },
-      { "NroGuia": "CD-1-791" },
-      { "NroGuia": "CD-1-792" }
-    ]
+    "Guias": ["CD-1-790", "CD-1-791", "CD-1-792"]
   },
   {
     "NroHDR": 2,
@@ -17,11 +13,7 @@
     "FechaEmision": "2026-06-07",
     "IdCentroDeDistribucionOrigen": 1,
     "IdCentroDeDistribucionDestino": 3,
-    "Guias": [
-      { "NroGuia": "CD-1-793" },
-      { "NroGuia": "CD-1-794" },
-      { "NroGuia": "CD-1-795" }
-    ]
+    "Guias": ["CD-1-793", "CD-1-794", "CD-1-795"]
   }
 ]
 

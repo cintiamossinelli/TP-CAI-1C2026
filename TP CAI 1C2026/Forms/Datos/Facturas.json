@@ -4,83 +4,41 @@
     "Fecha": "2026-06-16",
     "Total": 120000.00,
     "Descripcion": "Factura",
-    "Guias": [
-      {
-        "NroGuia": "AG-1-10"
-      },
-      {
-        "NroGuia": "AG-1-21"
-      }   
-    ]
+    "Guias": ["AG-1-10", "AG-1-21"]
   },
   {
     "NumeroFactura": "A-0001-00001005",
     "Fecha": "2026-06-16",
     "Total": 140000.00,
     "Descripcion": "Factura",
-    "Guias": [
-      {
-        "NroGuia": "CD-1-30"
-      },
-      {
-        "NroGuia": "CD-1-31"
-      }
-    ]
+    "Guias": ["CD-1-30", "CD-1-31"]
   },
   {
     "NumeroFactura": "A-0001-00002001",
     "Fecha": "2026-06-16",
     "Total": 200000.00,
     "Descripcion": "Factura",
-    "Guias": [
-      {
-        "NroGuia": "AG-2-55"
-      },
-      {
-        "NroGuia": "AG-2-56"
-      }    
-    ]
+    "Guias": ["AG-2-55", "AG-2-56"]
   },
   {
     "NumeroFactura": "A-0001-00002002",
     "Fecha": "2026-06-16",
     "Total": 130000.00,
     "Descripcion": "Factura",
-    "Guias": [
-      {
-        "NroGuia": "CD-1-60"
-      },
-      {
-        "NroGuia": "CD-1-61"
-      }
-     ]
+    "Guias": ["CD-1-60", "CD-1-61"]
   },
   {
     "NumeroFactura": "B-0001-00001101",
     "Fecha": "2026-06-16",
     "Total": 70000.00,
     "Descripcion": "Factura",
-    "Guias": [
-      {
-        "NroGuia": "CC-1-100"
-      },
-      {
-        "NroGuia": "CC-1-101"
-      }
-    ]
+    "Guias": ["CC-1-100", "CC-1-101"]
   },
   {
     "NumeroFactura": "B-0001-00001115",
     "Fecha": "2026-06-16",
     "Total": 150000.00,
     "Descripcion": "Factura",
-    "Guias": [
-      {
-        "NroGuia": "AG-6-110"
-      },
-      {
-        "NroGuia": "AG-6-111"
-      }
-    ]
+    "Guias": ["AG-6-110", "AG-6-111"]
   }
 ]

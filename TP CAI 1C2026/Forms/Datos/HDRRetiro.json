@@ -5,9 +5,7 @@
     "Fecha": "2026-06-08",
     "Domicilio": "Agencia 8 (Recoleta)",
     "CantEncomiendas": 1,
-    "Guias": [
-      { "NroGuia": "AG-8-300" }
-    ],
+    "Guias": ["AG-8-300"],
     "Estado": 1
   },
   {
@@ -16,9 +14,7 @@
     "Fecha": "2026-06-08",
     "Domicilio": "Av. San Martín 555, CABA",
     "CantEncomiendas": 1,
-    "Guias": [
-      { "NroGuia": "CC-1-301" }
-    ],
+    "Guias": ["CC-1-301"],
     "Estado": 2
   },
   {
@@ -27,9 +23,7 @@
     "Fecha": "2026-06-09",
     "Domicilio": "Agencia 10 (Córdoba Sur)",
     "CantEncomiendas": 1,
-    "Guias": [
-      { "NroGuia": "AG-10-303" }
-    ],
+    "Guias": ["AG-10-303"],
     "Estado": 2
   },
   {
@@ -38,9 +32,7 @@
     "Fecha": "2026-06-10",
     "Domicilio": "Tacuari 2871, Olavarria",
     "CantEncomiendas": 1,
-    "Guias": [
-      { "NroGuia": "CC-1-304" }
-    ],
+    "Guias": ["CC-1-304"],
     "Estado": 1
   },
   {
@@ -49,9 +41,7 @@
     "Fecha": "2026-06-10",
     "Domicilio": "Agencia 12 (Córdoba Oeste)",
     "CantEncomiendas": 1,
-    "Guias": [
-      { "NroGuia": "AG-12-305" }
-    ],
+    "Guias": ["AG-12-305"],
     "Estado": 3
   },
   {
@@ -60,9 +50,7 @@
     "Fecha": "2026-05-31",
     "Domicilio": "Agencia 5 (Microcentro)",
     "CantEncomiendas": 1,
-    "Guias": [
-      { "NroGuia": "AG-5-167" }
-    ],
+    "Guias": ["AG-5-167"],
     "Estado": 3
   },
   {
@@ -71,9 +59,7 @@
     "Fecha": "2026-05-31",
     "Domicilio": "Agencia 5 (Microcentro)",
     "CantEncomiendas": 1,
-    "Guias": [
-      { "NroGuia": "AG-5-168" }
-    ],
+    "Guias": ["AG-5-168"],
     "Estado": 3
   },
   {
@@ -82,9 +68,7 @@
     "Fecha": "2026-05-31",
     "Domicilio": "Av. Corrientes 3400, CABA",
     "CantEncomiendas": 1,
-    "Guias": [
-      { "NroGuia": "CC-1-170" }
-    ],
+    "Guias": ["CC-1-170"],
     "Estado": 3
   },
   {
@@ -93,9 +77,7 @@
     "Fecha": "2026-05-31",
     "Domicilio": "Av. Corrientes 3400, CABA",
     "CantEncomiendas": 1,
-    "Guias": [
-      { "NroGuia": "CC-1-172" }
-    ],
+    "Guias": ["CC-1-172"],
     "Estado": 3
   },
   {
@@ -104,9 +86,7 @@
     "Fecha": "2026-05-23",
     "Domicilio": "Av. Belgrano 100, CABA",
     "CantEncomiendas": 1,
-    "Guias": [
-      { "NroGuia": "CC-1-175" }
-    ],
+    "Guias": ["CC-1-175"],
     "Estado": 3
   },
   {
@@ -115,9 +95,7 @@
     "Fecha": "2026-05-31",
     "Domicilio": "Agencia 11 (Córdoba Centro)",
     "CantEncomiendas": 1,
-    "Guias": [
-      { "NroGuia": "AG-11-179" }
-    ],
+    "Guias": ["AG-11-179"],
     "Estado": 3
   },
   {
@@ -126,9 +104,7 @@
     "Fecha": "2026-05-31",
     "Domicilio": "Belgrano 400, CABA",
     "CantEncomiendas": 1,
-    "Guias": [
-      { "NroGuia": "CC-1-181" }
-    ],
+    "Guias": ["CC-1-181"],
     "Estado": 3
   },
   {
@@ -137,9 +113,7 @@
     "Fecha": "2026-06-06",
     "Domicilio": "Agencia 6 (Palermo)",
     "CantEncomiendas": 1,
-    "Guias": [
-      { "NroGuia": "AG-6-182" }
-    ],
+    "Guias": ["AG-6-182"],
     "Estado": 3
   }
 ]
