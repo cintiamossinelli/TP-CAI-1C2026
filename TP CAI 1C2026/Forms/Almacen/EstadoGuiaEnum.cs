@@ -23,6 +23,7 @@ namespace TP_CAI_1C2026.Forms.Almacen
         PendienteDeEntrega = 15,
         NoEntregada = 16,
         Entregada = 17,
-        Facturada = 18
+        Facturada = 18,
+        NoRetirada = 19 // La guia se intentó retirar pero no se pudo retirar. Con este estado se tiene facturar.
     }
 }

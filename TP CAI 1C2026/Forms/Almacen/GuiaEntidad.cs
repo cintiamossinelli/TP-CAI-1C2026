@@ -26,6 +26,7 @@ namespace TP_CAI_1C2026.Forms.Almacen
         public List<HistorialGuia> Historial { get; set; }
         public List<GuiaComisionFletero> ComisionesFletero { get; set; }
         public List<GuiaComisionAgencia> ComisionesAgencia { get; set; }
+        public int IntentosDeEntrega { get; set; }
 
     }
 }
