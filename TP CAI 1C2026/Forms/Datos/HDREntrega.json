@@ -1,18 +1,18 @@
 ﻿[
   {
     "NroHDR": 1,
-    "DniFletero": 32080691, //Messi, CD 2, BS.AS.
+    "DniFletero": 32080691,
     "Fecha": "2026-06-01",
-    "Domicilio": "Agencia 6 (Palermo)", // Chequear esto
+    "Domicilio": "Agencia 6 (Palermo)", 
     "CantEncomiendas": 1,
     "Guias": [ "AG-5-167" ],
     "Estado": 3
   },
   {
     "NroHDR": 2,
-    "DniFletero": 10101010, //modificado. D10S
+    "DniFletero": 10101010,
     "Fecha": "2026-06-02",
-    "Domicilio": "Maipú 120, CABA", //modificado
+    "Domicilio": "Maipú 120, CABA",
     "CantEncomiendas": 1,
     "Guias": [ "AG-5-168" ],
     "Estado": 3
