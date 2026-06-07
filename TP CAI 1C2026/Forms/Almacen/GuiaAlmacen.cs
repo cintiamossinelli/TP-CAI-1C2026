@@ -24,6 +24,12 @@ namespace TP_CAI_1C2026.Forms.Almacen
             string json = JsonSerializer.Serialize(guias);
             File.WriteAllText(@"Forms\Datos\Guias.json", json);
         }
+
+        public static void AgregarGuias(IEnumerable<GuiaEntidad> nuevasGuias)
+        {
+            guias.AddRange(nuevasGuias);
+            Guardar();
+        }
     }
 }
 

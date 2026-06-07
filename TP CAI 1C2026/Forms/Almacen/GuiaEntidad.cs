@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Text.Json.Serialization;
 using TP_CAI_1C2026.Forms.Consultas.ConsultarTracking;
 
 namespace TP_CAI_1C2026.Forms.Almacen
@@ -24,8 +25,8 @@ namespace TP_CAI_1C2026.Forms.Almacen
         public decimal PrecioVenta { get; set; }
         public EstadoGuiaEnum Estado { get; set; }
         public List<HistorialGuia> Historial { get; set; }
-        public List<GuiaComisionFletero> ComisionesFletero { get; set; }
-        public List<GuiaComisionAgencia> ComisionesAgencia { get; set; }
+        public List<GuiaComisionFletero> ComisionFletero { get; set; }
+        public List<GuiaComisionAgencia> ComisionAgencia { get; set; }
         public int IntentosDeEntrega { get; set; }
 
     }
