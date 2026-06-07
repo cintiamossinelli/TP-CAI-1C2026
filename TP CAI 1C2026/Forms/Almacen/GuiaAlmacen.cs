@@ -8,6 +8,7 @@ namespace TP_CAI_1C2026.Forms.Almacen
     internal class GuiaAlmacen
     {
         private static List<GuiaEntidad> guias = new();
+        public static IReadOnlyCollection<GuiaEntidad> Guias => guias.AsReadOnly();
 
         static GuiaAlmacen()
         {

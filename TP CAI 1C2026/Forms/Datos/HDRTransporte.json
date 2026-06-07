@@ -5,7 +5,7 @@
     "FechaEmision": "2026-05-14",
     "IdCentroDeDistribucionOrigen": 1,
     "IdCentroDeDistribucionDestino": 2,
-    "Guias": ["CD-1-790", "CD-1-791", "CD-1-792"]
+    "Guias": [ "CD-1-790", "CD-1-791", "CD-1-792" ]
   },
   {
     "NroHDR": 2,
@@ -13,7 +13,31 @@
     "FechaEmision": "2026-06-07",
     "IdCentroDeDistribucionOrigen": 1,
     "IdCentroDeDistribucionDestino": 3,
-    "Guias": ["CD-1-793", "CD-1-794", "CD-1-795"]
+    "Guias": [ "CD-1-793", "CD-1-794", "CD-1-795" ]
+  },
+  {
+    "NroHDR": 3,
+    "IdServicio": 10,
+    "FechaEmision": "2026-06-03",
+    "IdCentroDeDistribucionOrigen": 1,
+    "IdCentroDeDistribucionDestino": 3,
+    "Guias": [ "AG-1-803", "AG-1-804", "CD-1-805" ]
+  },
+  {
+    "NroHDR": 4,
+    "IdServicio": 11,
+    "FechaEmision": "2026-06-04",
+    "IdCentroDeDistribucionOrigen": 2,
+    "IdCentroDeDistribucionDestino": 3,
+    "Guias": [ "CD-2-806", "CD-2-807", "AG-5-808" ]
+  },
+  {
+    "NroHDR": 5,
+    "IdServicio": 9,
+    "FechaEmision": "2026-06-01",
+    "IdCentroDeDistribucionOrigen": 1,
+    "IdCentroDeDistribucionDestino": 3,
+    "Guias": [ "CD-1-809" ]
   }
 ]
 

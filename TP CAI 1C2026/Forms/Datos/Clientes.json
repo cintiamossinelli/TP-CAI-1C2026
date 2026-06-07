@@ -2,9 +2,9 @@
   {
     "CuitDniCuilCliente": "33-63761744-9",
     "RazonSocial": "Adidas S.A.",
-    "Factura": ["A-0001-00001001", "A-0001-00001005"],
-    "NotaDeCredito": ["A-0001-00000102"],
-    "Recibos": ["R-0001-00001001"],
+    "Factura": [ "A-0001-00001001", "A-0001-00001005" ],
+    "NotaDeCredito": [ "A-0001-00000102" ],
+    "Recibos": [ "R-0001-00001001" ],
     "Tarifario": [
       {
         "TamañoEncomienda": 1,
@@ -35,9 +35,9 @@
   {
     "CuitDniCuilCliente": "30-64621216-9",
     "RazonSocial": "Nike S.A.",
-    "Factura": ["A-0001-00002001", "A-0001-00002002"],
-    "NotaDeCredito": ["A-0001-00000203"],
-    "Recibos": ["R-0001-00001002"],
+    "Factura": [ "A-0001-00002001", "A-0001-00002002" ],
+    "NotaDeCredito": [ "A-0001-00000203" ],
+    "Recibos": [ "R-0001-00001002" ],
     "Tarifario": [
       {
         "TamañoEncomienda": 1,
@@ -68,9 +68,9 @@
   {
     "CuitDniCuilCliente": "24078369",
     "RazonSocial": "Marcelo Gallardo",
-    "Factura": ["B-0001-00001101", "B-0001-00001115"],
-    "NotaDeCredito": ["B-0001-00000309"],
-    "Recibos": ["R-0001-00001015"],
+    "Factura": [ "B-0001-00001101", "B-0001-00001115" ],
+    "NotaDeCredito": [ "B-0001-00000309" ],
+    "Recibos": [ "R-0001-00001015" ],
     "Tarifario": [
       {
         "TamañoEncomienda": 1,

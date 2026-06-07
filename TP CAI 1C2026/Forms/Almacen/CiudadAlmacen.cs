@@ -8,6 +8,7 @@ namespace TP_CAI_1C2026.Forms.Almacen
     internal class CiudadAlmacen
     {
         private static List<CiudadEntidad> ciudades = new();
+        public static IReadOnlyCollection<CiudadEntidad> Ciudades => ciudades.AsReadOnly();
 
         static CiudadAlmacen()
         {

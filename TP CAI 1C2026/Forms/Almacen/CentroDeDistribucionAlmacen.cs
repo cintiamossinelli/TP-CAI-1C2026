@@ -8,7 +8,7 @@ namespace TP_CAI_1C2026.Forms.Almacen
     internal class CentroDeDistribucionAlmacen
     {
         private static List<CentroDeDistribucionEntidad> centrosDeDistribucion = new();
-
+        public static IReadOnlyCollection<CentroDeDistribucionEntidad> CentrosDeDistribucion => centrosDeDistribucion.AsReadOnly();
         static CentroDeDistribucionAlmacen()
         {
             if (File.Exists(@"Forms\Datos\CentrosDeDistribucion.json"))

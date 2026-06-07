@@ -8,7 +8,7 @@ namespace TP_CAI_1C2026.Forms.Almacen
     internal class AgenciaAlmacen
     {
         private static List<AgenciaEntidad> agencias = new();
-
+        public static IReadOnlyCollection<AgenciaEntidad> Agencias => agencias.AsReadOnly();
         static AgenciaAlmacen()
         {
             if (File.Exists(@"Forms\Datos\Agencias.json"))

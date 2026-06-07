@@ -2418,5 +2418,753 @@
     ],
     "ComisionFletero": [],
     "ComisionAgencia": []
+  },
+
+  {
+    "NroGuia": "AG-5-400",
+    "CuitDniCuilCliente": "33-63761744-9",
+    "FechaImposicion": "2026-06-05",
+    "TipoImposicion": 2,
+    "IdCentroDeDistribucionImposicion": 0,
+    "IdAgenciaImposicion": 5,
+    "DireccionRetiroDomicilio": "",
+    "TipoEntrega": 1,
+    "IdCentroDeDistribucionEntrega": 3,
+    "IdAgenciaEntrega": 0,
+    "DireccionEntrega": "",
+    "DniDestinatario": "22000111",
+    "NombreDestinatario": "Prueba Retiro",
+    "TipoCaja": 1,
+    "PrecioVenta": 0,
+    "Estado": 4,
+    "Historial": [],
+    "ComisionFletero": [],
+    "ComisionAgencia": []
+  },
+
+  {
+    "NroGuia": "AG-5-796",
+    "CuitDniCuilCliente": "33-63761744-9",
+    "FechaImposicion": "2026-06-06",
+    "TipoImposicion": 2,
+    "IdCentroDeDistribucionImposicion": 0,
+    "IdAgenciaImposicion": 5,
+    "DireccionRetiroDomicilio": "",
+    "TipoEntrega": 1,
+    "IdCentroDeDistribucionEntrega": 3,
+    "IdAgenciaEntrega": 0,
+    "DireccionEntrega": "",
+    "DniDestinatario": "22000111",
+    "NombreDestinatario": "Prueba Retiro 1",
+    "TipoCaja": 1,
+    "PrecioVenta": 0,
+    "Estado": 2,
+    "Historial": [],
+    "ComisionFletero": [],
+    "ComisionAgencia": []
+  },
+  {
+    "NroGuia": "CC-1-797",
+    "CuitDniCuilCliente": "33-63761744-9",
+    "FechaImposicion": "2026-06-06",
+    "TipoImposicion": 3,
+    "IdCentroDeDistribucionImposicion": 1,
+    "IdAgenciaImposicion": 0,
+    "DireccionRetiroDomicilio": "Av. Siempre Viva 123, Rosario",
+    "TipoEntrega": 1,
+    "IdCentroDeDistribucionEntrega": 3,
+    "IdAgenciaEntrega": 0,
+    "DireccionEntrega": "",
+    "DniDestinatario": "22000111",
+    "NombreDestinatario": "Prueba Retiro 2",
+    "TipoCaja": 1,
+    "PrecioVenta": 0,
+    "Estado": 1,
+    "Historial": [],
+    "ComisionFletero": [],
+    "ComisionAgencia": []
+  },
+  {
+    "NroGuia": "CC-1-798",
+    "CuitDniCuilCliente": "33-63761744-9",
+    "FechaImposicion": "2026-06-06",
+    "TipoImposicion": 3,
+    "IdCentroDeDistribucionImposicion": 1,
+    "IdAgenciaImposicion": 0,
+    "DireccionRetiroDomicilio": "Av. Siempre Viva 123, Rosario",
+    "TipoEntrega": 1,
+    "IdCentroDeDistribucionEntrega": 3,
+    "IdAgenciaEntrega": 0,
+    "DireccionEntrega": "",
+    "DniDestinatario": "22000111",
+    "NombreDestinatario": "Prueba Retiro 3",
+    "TipoCaja": 2,
+    "PrecioVenta": 0,
+    "Estado": 1,
+    "Historial": [],
+    "ComisionFletero": [],
+    "ComisionAgencia": []
+  },
+  {
+    "NroGuia": "CC-1-799",
+    "CuitDniCuilCliente": "33-63761744-9",
+    "FechaImposicion": "2026-06-06",
+    "TipoImposicion": 3,
+    "IdCentroDeDistribucionImposicion": 2,
+    "IdAgenciaImposicion": 0,
+    "DireccionRetiroDomicilio": "Av. Corrientes 1234, Buenos Aires",
+    "TipoEntrega": 1,
+    "IdCentroDeDistribucionEntrega": 3,
+    "IdAgenciaEntrega": 0,
+    "DireccionEntrega": "",
+    "DniDestinatario": "22000111",
+    "NombreDestinatario": "Prueba Retiro 4",
+    "TipoCaja": 1,
+    "PrecioVenta": 0,
+    "Estado": 1,
+    "Historial": [],
+    "ComisionFletero": [],
+    "ComisionAgencia": []
+  },
+  {
+    "NroGuia": "CD-2-800",
+    "CuitDniCuilCliente": "33-63761744-9",
+    "FechaImposicion": "2026-06-06",
+    "TipoImposicion": 1,
+    "IdCentroDeDistribucionImposicion": 2,
+    "IdAgenciaImposicion": 0,
+    "DireccionRetiroDomicilio": "",
+    "TipoEntrega": 1,
+    "IdCentroDeDistribucionEntrega": 3,
+    "IdAgenciaEntrega": 0,
+    "DireccionEntrega": "",
+    "DniDestinatario": "22000111",
+    "NombreDestinatario": "Prueba Retiro 5",
+    "TipoCaja": 1,
+    "PrecioVenta": 0,
+    "Estado": 3,
+    "Historial": [],
+    "ComisionFletero": [],
+    "ComisionAgencia": []
+  },
+  {
+    "NroGuia": "AG-1-801",
+    "CuitDniCuilCliente": "33-63761744-9",
+    "FechaImposicion": "2026-06-06",
+    "TipoImposicion": 2,
+    "IdCentroDeDistribucionImposicion": 0,
+    "IdAgenciaImposicion": 1,
+    "DireccionRetiroDomicilio": "",
+    "TipoEntrega": 1,
+    "IdCentroDeDistribucionEntrega": 3,
+    "IdAgenciaEntrega": 0,
+    "DireccionEntrega": "",
+    "DniDestinatario": "22000111",
+    "NombreDestinatario": "Prueba Retiro 6",
+    "TipoCaja": 1,
+    "PrecioVenta": 0,
+    "Estado": 2,
+    "Historial": [],
+    "ComisionFletero": [],
+    "ComisionAgencia": []
+  },
+  {
+    "NroGuia": "AG-1-802",
+    "CuitDniCuilCliente": "33-63761744-9",
+    "FechaImposicion": "2026-06-06",
+    "TipoImposicion": 2,
+    "IdCentroDeDistribucionImposicion": 0,
+    "IdAgenciaImposicion": 1,
+    "DireccionRetiroDomicilio": "",
+    "TipoEntrega": 1,
+    "IdCentroDeDistribucionEntrega": 3,
+    "IdAgenciaEntrega": 0,
+    "DireccionEntrega": "",
+    "DniDestinatario": "22000111",
+    "NombreDestinatario": "Prueba Retiro 7",
+    "TipoCaja": 3,
+    "PrecioVenta": 0,
+    "Estado": 2,
+    "Historial": [],
+    "ComisionFletero": [],
+    "ComisionAgencia": []
+  },
+  {
+    "NroGuia": "AG-1-803",
+    "CuitDniCuilCliente": "33-63761744-9",
+    "FechaImposicion": "2026-05-31",
+    "TipoImposicion": 2,
+    "IdCentroDeDistribucionImposicion": 0,
+    "IdAgenciaImposicion": 1,
+    "DireccionRetiroDomicilio": "",
+    "TipoEntrega": 1,
+    "IdCentroDeDistribucionEntrega": 3,
+    "IdAgenciaEntrega": 0,
+    "DireccionEntrega": "",
+    "DniDestinatario": "22000111",
+    "NombreDestinatario": "Prueba Transporte 1",
+    "TipoCaja": 3,
+    "PrecioVenta": 0,
+    "Estado": 10,
+    "Historial": [
+      {
+        "Fecha": "2026-05-31",
+        "Estado": 2
+      },
+      {
+        "Fecha": "2026-05-31",
+        "Estado": 4
+      },
+      {
+        "Fecha": "2026-05-31",
+        "Estado": 5
+      },
+      {
+        "Fecha": "2026-05-31",
+        "Estado": 6
+      },
+      {
+        "Fecha": "2026-06-01",
+        "Estado": 8
+      },
+      {
+        "Fecha": "2026-06-02",
+        "Estado": 9
+      },
+      {
+        "Fecha": "2026-06-03",
+        "Estado": 10
+      }
+    ],
+    "ComisionFletero": [],
+    "ComisionAgencia": []
+  },
+  {
+    "NroGuia": "AG-1-804",
+    "CuitDniCuilCliente": "33-63761744-9",
+    "FechaImposicion": "2026-05-31",
+    "TipoImposicion": 2,
+    "IdCentroDeDistribucionImposicion": 0,
+    "IdAgenciaImposicion": 1,
+    "DireccionRetiroDomicilio": "",
+    "TipoEntrega": 1,
+    "IdCentroDeDistribucionEntrega": 6,
+    "IdAgenciaEntrega": 0,
+    "DireccionEntrega": "",
+    "DniDestinatario": "22000111",
+    "NombreDestinatario": "Prueba Transporte 2",
+    "TipoCaja": 1,
+    "PrecioVenta": 0,
+    "Estado": 10,
+    "Historial": [
+      {
+        "Fecha": "2026-05-31",
+        "Estado": 2
+      },
+      {
+        "Fecha": "2026-05-31",
+        "Estado": 4
+      },
+      {
+        "Fecha": "2026-05-31",
+        "Estado": 5
+      },
+      {
+        "Fecha": "2026-05-31",
+        "Estado": 6
+      },
+      {
+        "Fecha": "2026-06-01",
+        "Estado": 8
+      },
+      {
+        "Fecha": "2026-06-02",
+        "Estado": 9
+      },
+      {
+        "Fecha": "2026-06-03",
+        "Estado": 10
+      }
+    ],
+    "ComisionFletero": [],
+    "ComisionAgencia": []
+  },
+  {
+    "NroGuia": "CD-1-805",
+    "CuitDniCuilCliente": "33-63761744-9",
+    "FechaImposicion": "2026-05-31",
+    "TipoImposicion": 1,
+    "IdCentroDeDistribucionImposicion": 1,
+    "IdAgenciaImposicion": 0,
+    "DireccionRetiroDomicilio": "",
+    "TipoEntrega": 2,
+    "IdCentroDeDistribucionEntrega": 0,
+    "IdAgenciaEntrega": 9,
+    "DireccionEntrega": "",
+    "DniDestinatario": "22000111",
+    "NombreDestinatario": "Prueba Transporte 3",
+    "TipoCaja": 4,
+    "PrecioVenta": 0,
+    "Estado": 10,
+    "Historial": [
+      {
+        "Fecha": "2026-05-31",
+        "Estado": 2
+      },
+      {
+        "Fecha": "2026-05-31",
+        "Estado": 4
+      },
+      {
+        "Fecha": "2026-05-31",
+        "Estado": 5
+      },
+      {
+        "Fecha": "2026-05-31",
+        "Estado": 6
+      },
+      {
+        "Fecha": "2026-06-01",
+        "Estado": 8
+      },
+      {
+        "Fecha": "2026-06-02",
+        "Estado": 9
+      },
+      {
+        "Fecha": "2026-06-03",
+        "Estado": 10
+      }
+    ],
+    "ComisionFletero": [],
+    "ComisionAgencia": []
+  },
+  {
+    "NroGuia": "CD-2-806",
+    "CuitDniCuilCliente": "33-63761744-9",
+    "FechaImposicion": "2026-05-31",
+    "TipoImposicion": 1,
+    "IdCentroDeDistribucionImposicion": 1,
+    "IdAgenciaImposicion": 0,
+    "DireccionRetiroDomicilio": "",
+    "TipoEntrega": 3,
+    "IdCentroDeDistribucionEntrega": 3,
+    "IdAgenciaEntrega": 0,
+    "DireccionEntrega": "Av. Sarmiento 1513",
+    "DniDestinatario": "22000111",
+    "NombreDestinatario": "Prueba Transporte 4",
+    "TipoCaja": 2,
+    "PrecioVenta": 0,
+    "Estado": 10,
+    "Historial": [
+      {
+        "Fecha": "2026-05-31",
+        "Estado": 2
+      },
+      {
+        "Fecha": "2026-05-31",
+        "Estado": 4
+      },
+      {
+        "Fecha": "2026-05-31",
+        "Estado": 5
+      },
+      {
+        "Fecha": "2026-05-31",
+        "Estado": 6
+      },
+      {
+        "Fecha": "2026-06-01",
+        "Estado": 8
+      },
+      {
+        "Fecha": "2026-06-03",
+        "Estado": 9
+      },
+      {
+        "Fecha": "2026-06-04",
+        "Estado": 10
+      }
+    ],
+    "ComisionFletero": [],
+    "ComisionAgencia": []
+  },
+  {
+    "NroGuia": "CD-2-807",
+    "CuitDniCuilCliente": "33-63761744-9",
+    "FechaImposicion": "2026-05-31",
+    "TipoImposicion": 1,
+    "IdCentroDeDistribucionImposicion": 1,
+    "IdAgenciaImposicion": 0,
+    "DireccionRetiroDomicilio": "",
+    "TipoEntrega": 1,
+    "IdCentroDeDistribucionEntrega": 3,
+    "IdAgenciaEntrega": 0,
+    "DireccionEntrega": "",
+    "DniDestinatario": "22000111",
+    "NombreDestinatario": "Prueba Transporte 5",
+    "TipoCaja": 2,
+    "PrecioVenta": 0,
+    "Estado": 10,
+    "Historial": [
+      {
+        "Fecha": "2026-05-31",
+        "Estado": 2
+      },
+      {
+        "Fecha": "2026-05-31",
+        "Estado": 4
+      },
+      {
+        "Fecha": "2026-05-31",
+        "Estado": 5
+      },
+      {
+        "Fecha": "2026-05-31",
+        "Estado": 6
+      },
+      {
+        "Fecha": "2026-06-01",
+        "Estado": 8
+      },
+      {
+        "Fecha": "2026-06-03",
+        "Estado": 9
+      },
+      {
+        "Fecha": "2026-06-04",
+        "Estado": 10
+      }
+    ],
+    "ComisionFletero": [],
+    "ComisionAgencia": []
+  },
+  {
+    "NroGuia": "AG-5-808",
+    "CuitDniCuilCliente": "33-63761744-9",
+    "FechaImposicion": "2026-05-31",
+    "TipoImposicion": 2,
+    "IdCentroDeDistribucionImposicion": 0,
+    "IdAgenciaImposicion": 5,
+    "DireccionRetiroDomicilio": "",
+    "TipoEntrega": 3,
+    "IdCentroDeDistribucionEntrega": 3,
+    "IdAgenciaEntrega": 0,
+    "DireccionEntrega": "Corrientes 2125",
+    "DniDestinatario": "22000111",
+    "NombreDestinatario": "Prueba Transporte 6",
+    "TipoCaja": 3,
+    "PrecioVenta": 0,
+    "Estado": 10,
+    "Historial": [
+      {
+        "Fecha": "2026-05-31",
+        "Estado": 2
+      },
+      {
+        "Fecha": "2026-05-31",
+        "Estado": 4
+      },
+      {
+        "Fecha": "2026-05-31",
+        "Estado": 5
+      },
+      {
+        "Fecha": "2026-05-31",
+        "Estado": 6
+      },
+      {
+        "Fecha": "2026-06-01",
+        "Estado": 8
+      },
+      {
+        "Fecha": "2026-06-03",
+        "Estado": 9
+      },
+      {
+        "Fecha": "2026-06-04",
+        "Estado": 10
+      }
+    ],
+    "ComisionFletero": [],
+    "ComisionAgencia": []
+  },
+  {
+    "NroGuia": "CD-1-809",
+    "CuitDniCuilCliente": "33-63761744-9",
+    "FechaImposicion": "2026-05-31",
+    "TipoImposicion": 1,
+    "IdCentroDeDistribucionImposicion": 1,
+    "IdAgenciaImposicion": 1,
+    "DireccionRetiroDomicilio": "",
+    "TipoEntrega": 2,
+    "IdCentroDeDistribucionEntrega": 0,
+    "IdAgenciaEntrega": 10,
+    "DireccionEntrega": "",
+    "DniDestinatario": "12346578",
+    "NombreDestinatario": "Prueba Transporte 7",
+    "TipoCaja": 3,
+    "PrecioVenta": 0,
+    "Estado": 10,
+    "Historial": [
+      {
+        "Fecha": "2026-05-31",
+        "Estado": 2
+      },
+      {
+        "Fecha": "2026-05-31",
+        "Estado": 4
+      },
+      {
+        "Fecha": "2026-05-31",
+        "Estado": 5
+      },
+      {
+        "Fecha": "2026-05-31",
+        "Estado": 6
+      },
+      {
+        "Fecha": "2026-06-01",
+        "Estado": 8
+      },
+      {
+        "Fecha": "2026-06-01",
+        "Estado": 9
+      },
+      {
+        "Fecha": "2026-06-01",
+        "Estado": 10
+      }
+    ],
+    "ComisionFletero": [],
+    "ComisionAgencia": []
+  },
+  {
+    "NroGuia": "AG-12-810",
+    "CuitDniCuilCliente": "24078369",
+    "FechaImposicion": "2026-06-05",
+    "TipoImposicion": 2,
+    "IdCentroDeDistribucionImposicion": 0,
+    "IdAgenciaImposicion": 12,
+    "DireccionRetiroDomicilio": "",
+    "TipoEntrega": 2,
+    "IdCentroDeDistribucionEntrega": 0,
+    "IdAgenciaEntrega": 11,
+    "DireccionEntrega": "",
+    "DniDestinatario": "22333444",
+    "NombreDestinatario": "Federico Ruiz",
+    "TipoCaja": 2,
+    "PrecioVenta": 17000.0,
+    "Estado": 6,
+    "Historial": [
+      {
+        "Fecha": "2026-06-05",
+        "Estado": 2
+      },
+      {
+        "Fecha": "2026-06-05",
+        "Estado": 4
+      },
+      {
+        "Fecha": "2026-06-05",
+        "Estado": 5
+      },
+      {
+        "Fecha": "2026-06-05",
+        "Estado": 6
+      }
+    ],
+    "ComisionFletero": [],
+    "ComisionAgencia": []
+  },
+  {
+    "NroGuia": "AG-12-811",
+    "CuitDniCuilCliente": "24078369",
+    "FechaImposicion": "2026-06-05",
+    "TipoImposicion": 2,
+    "IdCentroDeDistribucionImposicion": 0,
+    "IdAgenciaImposicion": 12,
+    "DireccionRetiroDomicilio": "",
+    "TipoEntrega": 2,
+    "IdCentroDeDistribucionEntrega": 0,
+    "IdAgenciaEntrega": 11,
+    "DireccionEntrega": "",
+    "DniDestinatario": "22333444",
+    "NombreDestinatario": "Federico Ruiz",
+    "TipoCaja": 3,
+    "PrecioVenta": 17000.0,
+    "Estado": 6,
+    "Historial": [
+      {
+        "Fecha": "2026-06-05",
+        "Estado": 2
+      },
+      {
+        "Fecha": "2026-06-05",
+        "Estado": 4
+      },
+      {
+        "Fecha": "2026-06-05",
+        "Estado": 5
+      },
+      {
+        "Fecha": "2026-06-05",
+        "Estado": 6
+      }
+    ],
+    "ComisionFletero": [],
+    "ComisionAgencia": []
+  },
+  {
+    "NroGuia": "AG-12-812",
+    "CuitDniCuilCliente": "24078369",
+    "FechaImposicion": "2026-06-05",
+    "TipoImposicion": 2,
+    "IdCentroDeDistribucionImposicion": 0,
+    "IdAgenciaImposicion": 12,
+    "DireccionRetiroDomicilio": "",
+    "TipoEntrega": 2,
+    "IdCentroDeDistribucionEntrega": 0,
+    "IdAgenciaEntrega": 6,
+    "DireccionEntrega": "",
+    "DniDestinatario": "22333444",
+    "NombreDestinatario": "Federico Ruiz",
+    "TipoCaja": 3,
+    "PrecioVenta": 17000.0,
+    "Estado": 6,
+    "Historial": [
+      {
+        "Fecha": "2026-06-05",
+        "Estado": 2
+      },
+      {
+        "Fecha": "2026-06-05",
+        "Estado": 4
+      },
+      {
+        "Fecha": "2026-06-05",
+        "Estado": 5
+      },
+      {
+        "Fecha": "2026-06-05",
+        "Estado": 6
+      }
+    ],
+    "ComisionFletero": [],
+    "ComisionAgencia": []
+  },
+  {
+    "NroGuia": "CC-1-813",
+    "CuitDniCuilCliente": "24078369",
+    "FechaImposicion": "2026-06-05",
+    "TipoImposicion": 3,
+    "IdCentroDeDistribucionImposicion": 1,
+    "IdAgenciaImposicion": 0,
+    "DireccionRetiroDomicilio": "Corrientes 4444",
+    "TipoEntrega": 2,
+    "IdCentroDeDistribucionEntrega": 0,
+    "IdAgenciaEntrega": 2,
+    "DireccionEntrega": "",
+    "DniDestinatario": "22333444",
+    "NombreDestinatario": "Federico Ruiz",
+    "TipoCaja": 3,
+    "PrecioVenta": 17000.0,
+    "Estado": 6,
+    "Historial": [
+      {
+        "Fecha": "2026-06-05",
+        "Estado": 1
+      },
+      {
+        "Fecha": "2026-06-05",
+        "Estado": 4
+      },
+      {
+        "Fecha": "2026-06-05",
+        "Estado": 5
+      },
+      {
+        "Fecha": "2026-06-05",
+        "Estado": 6
+      }
+    ],
+    "ComisionFletero": [],
+    "ComisionAgencia": []
+  },
+  {
+    "NroGuia": "CC-1-814",
+    "CuitDniCuilCliente": "24078369",
+    "FechaImposicion": "2026-06-05",
+    "TipoImposicion": 3,
+    "IdCentroDeDistribucionImposicion": 1,
+    "IdAgenciaImposicion": 0,
+    "DireccionRetiroDomicilio": "Corrientes 4444",
+    "TipoEntrega": 3,
+    "IdCentroDeDistribucionEntrega": 1,
+    "IdAgenciaEntrega": 0,
+    "DireccionEntrega": "Belgrano 1715",
+    "DniDestinatario": "22333444",
+    "NombreDestinatario": "Federico Ruiz",
+    "TipoCaja": 3,
+    "PrecioVenta": 17000.0,
+    "Estado": 6,
+    "Historial": [
+      {
+        "Fecha": "2026-06-05",
+        "Estado": 1
+      },
+      {
+        "Fecha": "2026-06-05",
+        "Estado": 4
+      },
+      {
+        "Fecha": "2026-06-05",
+        "Estado": 5
+      },
+      {
+        "Fecha": "2026-06-05",
+        "Estado": 6
+      }
+    ],
+    "ComisionFletero": [],
+    "ComisionAgencia": []
+  },
+  {
+    "NroGuia": "AG-1-815",
+    "CuitDniCuilCliente": "24078369",
+    "FechaImposicion": "2026-06-05",
+    "TipoImposicion": 2,
+    "IdCentroDeDistribucionImposicion": 0,
+    "IdAgenciaImposicion": 1,
+    "DireccionRetiroDomicilio": "",
+    "TipoEntrega": 1,
+    "IdCentroDeDistribucionEntrega": 2,
+    "IdAgenciaEntrega": 0,
+    "DireccionEntrega": "",
+    "DniDestinatario": "22333444",
+    "NombreDestinatario": "Federico Ruiz",
+    "TipoCaja": 3,
+    "PrecioVenta": 17000.0,
+    "Estado": 6,
+    "Historial": [
+      {
+        "Fecha": "2026-06-05",
+        "Estado": 1
+      },
+      {
+        "Fecha": "2026-06-05",
+        "Estado": 4
+      },
+      {
+        "Fecha": "2026-06-05",
+        "Estado": 5
+      },
+      {
+        "Fecha": "2026-06-05",
+        "Estado": 6
+      }
+    ],
+    "ComisionFletero": [],
+    "ComisionAgencia": []
   }
 ]

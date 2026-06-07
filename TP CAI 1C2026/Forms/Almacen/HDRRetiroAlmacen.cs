@@ -8,6 +8,7 @@ namespace TP_CAI_1C2026.Forms.Almacen
     internal class HDRRetiroAlmacen
     {
         private static List<HDRRetiroEntidad> hdrRetiro = new();
+        public static IReadOnlyCollection<HDRRetiroEntidad> HDRRetiros => hdrRetiro.AsReadOnly();
 
         static HDRRetiroAlmacen()
         {
@@ -22,6 +23,11 @@ namespace TP_CAI_1C2026.Forms.Almacen
         {
             string json = JsonSerializer.Serialize(hdrRetiro);
             File.WriteAllText(@"Forms\Datos\HDRRetiro.json", json);
+        }
+
+        public static void Agregar(HDRRetiroEntidad hdr)
+        {
+            hdrRetiro.Add(hdr);
         }
     }
 }

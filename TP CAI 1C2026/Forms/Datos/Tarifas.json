@@ -1,14 +1,14 @@
 ﻿[
   {
     "Tarifa": 1,
-    "Precio": 100
+    "Precio": 500
   },
   {
     "Tarifa": 2,
-    "Precio": 200
+    "Precio": 800
   },
   {
     "Tarifa": 3,
-    "Precio": 300
+    "Precio": 1000
   }
 ]

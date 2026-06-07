@@ -1,26 +1,26 @@
 ﻿[
   {
-    "IdCentroDistribucion": 1,
+    "IdCentroDeDistribucion": 1,
     "Nombre": "Rosario"
   },
   {
-    "IdCentroDistribucion": 2,
+    "IdCentroDeDistribucion": 2,
     "Nombre": "Buenos Aires"
   },
   {
-    "IdCentroDistribucion": 3,
+    "IdCentroDeDistribucion": 3,
     "Nombre": "Cordoba"
   },
   {
-    "IdCentroDistribucion": 4,
+    "IdCentroDeDistribucion": 4,
     "Nombre": "Santa Fe"
   },
   {
-    "IdCentroDistribucion": 5,
+    "IdCentroDeDistribucion": 5,
     "Nombre": "Mendoza"
   },
   {
-    "IdCentroDistribucion": 6,
+    "IdCentroDeDistribucion": 6,
     "Nombre": "Olavarria"
   }
 ]

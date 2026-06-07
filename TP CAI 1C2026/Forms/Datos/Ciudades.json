@@ -3,36 +3,36 @@
     "IdCiudad": 1,
     "Nombre": "Rosario",
     "Agencias": [ 1, 2, 3, 4 ],
-    "IdCentroDistribucion": 1
+    "IdCentroDeDistribucion": 1
   },
   {
     "IdCiudad": 2,
     "Nombre": "Buenos Aires",
     "Agencias": [ 5, 6, 7, 8 ],
-    "IdCentroDistribucion": 2
+    "IdCentroDeDistribucion": 2
   },
   {
     "IdCiudad": 3,
     "Nombre": "Cordoba",
     "Agencias": [ 9, 10, 11, 12 ],
-    "IdCentroDistribucion": 3
+    "IdCentroDeDistribucion": 3
   },
   {
     "IdCiudad": 4,
     "Nombre": "Santa Fe",
     "Agencias": [ 13, 14, 15 ],
-    "IdCentroDistribucion": 4
+    "IdCentroDeDistribucion": 4
   },
   {
     "IdCiudad": 5,
     "Nombre": "Mendoza",
     "Agencias": [ 16, 17, 18 ],
-    "IdCentroDistribucion": 5
+    "IdCentroDeDistribucion": 5
   },
   {
     "IdCiudad": 6,
     "Nombre": "Olavarria",
     "Agencias": [ 19, 20 ],
-    "IdCentroDistribucion": 6
+    "IdCentroDeDistribucion": 6
   }
 ]

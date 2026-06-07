@@ -9,6 +9,7 @@ namespace TP_CAI_1C2026.Forms.Almacen
     {
         private static List<FacturaEntidad> facturas = new();
 
+        public static IReadOnlyCollection<FacturaEntidad> Facturas => facturas.AsReadOnly();
         static FacturaAlmacen()
         {
             if (File.Exists(@"Forms\Datos\Facturas.json"))

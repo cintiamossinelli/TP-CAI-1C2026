@@ -8,6 +8,7 @@ namespace TP_CAI_1C2026.Forms.Almacen
     internal class FleteroAlmacen
     {
         private static List<FleteroEntidad> fleteros = new();
+        public static IReadOnlyCollection<FleteroEntidad> Fleteros => fleteros.AsReadOnly();
 
         static FleteroAlmacen()
         {

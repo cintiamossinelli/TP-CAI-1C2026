@@ -1,44 +1,44 @@
 ﻿[
   {
     "NumeroFactura": "A-0001-00001001",
-    "Fecha": "2026-06-16",
+    "Fecha": "2026-06-01",
     "Total": 120000.00,
     "Descripcion": "Factura",
-    "Guias": ["AG-1-10", "AG-1-21"]
+    "Guias": [ "AG-1-10", "AG-1-21" ]
   },
   {
     "NumeroFactura": "A-0001-00001005",
-    "Fecha": "2026-06-16",
+    "Fecha": "2026-06-02",
     "Total": 140000.00,
     "Descripcion": "Factura",
-    "Guias": ["CD-1-30", "CD-1-31"]
+    "Guias": [ "CD-1-30", "CD-1-31" ]
   },
   {
     "NumeroFactura": "A-0001-00002001",
-    "Fecha": "2026-06-16",
+    "Fecha": "2026-06-03",
     "Total": 200000.00,
     "Descripcion": "Factura",
-    "Guias": ["AG-2-55", "AG-2-56"]
+    "Guias": [ "AG-2-55", "AG-2-56" ]
   },
   {
     "NumeroFactura": "A-0001-00002002",
-    "Fecha": "2026-06-16",
+    "Fecha": "2026-06-04",
     "Total": 130000.00,
     "Descripcion": "Factura",
-    "Guias": ["CD-1-60", "CD-1-61"]
+    "Guias": [ "CD-1-60", "CD-1-61" ]
   },
   {
     "NumeroFactura": "B-0001-00001101",
-    "Fecha": "2026-06-16",
+    "Fecha": "2026-06-05",
     "Total": 70000.00,
     "Descripcion": "Factura",
-    "Guias": ["CC-1-100", "CC-1-101"]
+    "Guias": [ "CC-1-100", "CC-1-101" ]
   },
   {
     "NumeroFactura": "B-0001-00001115",
-    "Fecha": "2026-06-16",
+    "Fecha": "2026-06-06",
     "Total": 150000.00,
     "Descripcion": "Factura",
-    "Guias": ["AG-6-110", "AG-6-111"]
+    "Guias": [ "AG-6-110", "AG-6-111" ]
   }
 ]
