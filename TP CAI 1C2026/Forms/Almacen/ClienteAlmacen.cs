@@ -8,7 +8,7 @@ namespace TP_CAI_1C2026.Forms.Almacen
     internal class ClienteAlmacen
     {
         private static List<ClienteEntidad> clientes = new();
-        
+        public static IReadOnlyCollection<ClienteEntidad> Clientes => clientes.AsReadOnly();
         static ClienteAlmacen()
         {
             if (File.Exists(@"Forms\Datos\Clientes.json"))

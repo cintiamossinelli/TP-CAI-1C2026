@@ -2,12 +2,14 @@
 using System.Collections.Generic;
 using System.Text;
 using System.Text.Json;
+using TP_CAI_1C2026.Forms.Troncal.EmisionHDRTransporte;
 
 namespace TP_CAI_1C2026.Forms.Almacen
 {
     internal class NotaDeCreditoAlmacen
     {
         private static List<NotaDeCreditoEntidad> notasDeCredito = new();
+        public static IReadOnlyCollection<NotaDeCreditoEntidad> NotasDeCredito => notasDeCredito.AsReadOnly();
 
         static NotaDeCreditoAlmacen()
         {

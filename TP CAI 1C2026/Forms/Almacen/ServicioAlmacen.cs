@@ -2,12 +2,14 @@
 using System.Collections.Generic;
 using System.Text;
 using System.Text.Json;
+using TP_CAI_1C2026.Forms.Troncal.EmisionHDRTransporte;
 
 namespace TP_CAI_1C2026.Forms.Almacen
 {
     internal class ServicioAlmacen
     {
         private static List<ServicioEntidad> servicios = new();
+        public static IReadOnlyCollection<ServicioEntidad> Servicios => servicios.AsReadOnly();
 
         static ServicioAlmacen()
         {

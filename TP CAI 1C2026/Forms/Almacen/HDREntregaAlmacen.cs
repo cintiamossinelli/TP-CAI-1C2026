@@ -8,6 +8,7 @@ namespace TP_CAI_1C2026.Forms.Almacen
     internal class HDREntregaAlmacen
     {
         private static List<HDREntregaEntidad> hdrEntrega = new();
+        public static IReadOnlyCollection<HDREntregaEntidad> HDREntregas => hdrEntrega.AsReadOnly();
 
         static HDREntregaAlmacen()
         {

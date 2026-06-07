@@ -8,7 +8,7 @@ namespace TP_CAI_1C2026.Forms.Almacen
     internal class EmpresaTransporteAlmacen
     {
         private static List<EmpresaTransporteEntidad> empresasTransporte = new();
-
+        public static IReadOnlyCollection<EmpresaTransporteEntidad> EmpresasTransporte => empresasTransporte.AsReadOnly();
         static EmpresaTransporteAlmacen()
         {
             if (File.Exists(@"Forms\Datos\EmpresasTransporte.json"))

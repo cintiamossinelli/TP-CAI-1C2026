@@ -1,10 +1,12 @@
 ﻿using System.Text.Json;
+using TP_CAI_1C2026.Forms.Troncal.EmisionHDRTransporte;
 
 namespace TP_CAI_1C2026.Forms.Almacen
 {
     internal class TarifaExtraAlmacen
     {
         private static List<TarifaExtraEntidad> tarifas = new();
+        public static IReadOnlyCollection<TarifaExtraEntidad> Tarifas => tarifas.AsReadOnly();
 
         static TarifaExtraAlmacen()
         {

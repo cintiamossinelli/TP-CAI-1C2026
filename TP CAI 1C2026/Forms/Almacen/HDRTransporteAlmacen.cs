@@ -8,6 +8,7 @@ namespace TP_CAI_1C2026.Forms.Almacen
     internal class HDRTransporteAlmacen
     {
         private static List<HDRTransporteEntidad> hdrTransporte = new();
+        public static IReadOnlyCollection<HDRTransporteEntidad> HDRTransportes => hdrTransporte.AsReadOnly();
 
         static HDRTransporteAlmacen()
         {
