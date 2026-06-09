@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
-using TP_CAI_1C2026.Forms.Imposicion.ImposicionCD;
+using TP_CAI_1C2026.Forms.Almacen;
 
 namespace TP_CAI_1C2026.Forms.UltimaMilla.AdmisionCD
 {
@@ -19,58 +19,39 @@ namespace TP_CAI_1C2026.Forms.UltimaMilla.AdmisionCD
                     return null;
                 }
 
-                // Simulación de búsqueda en una base de datos o servicio
-                var numGuiasSimulados = new List<GuiasImpuestas>
-                {
-                    new GuiasImpuestas { Id = "CD-1-123", Tamaño = "S", Estado = "Impuesta" },
-                    new GuiasImpuestas { Id = "AG-1-333", Tamaño = "M", Estado = "En Tránsito" },
-                    new GuiasImpuestas { Id = "AG-1-103", Tamaño = "L", Estado = "Entregada" },
-                    new GuiasImpuestas { Id = "AG-2-123", Tamaño = "XL", Estado = "Impuesta" },
-                    new GuiasImpuestas { Id = "CD-2-111", Tamaño = "S", Estado = "Impuesta" },
-                    new GuiasImpuestas { Id = "AG-2-12", Tamaño = "M", Estado = "En Tránsito" },
-                    new GuiasImpuestas { Id = "AG-3-56", Tamaño = "L", Estado = "Impuesta" },
-                    new GuiasImpuestas { Id = "AG-3-1", Tamaño = "XL", Estado = "Impuesta" },
-                    new GuiasImpuestas { Id = "CC-3-35", Tamaño = "S", Estado = "Impuesta" },
-                    new GuiasImpuestas { Id = "AG-3-20", Tamaño = "M", Estado = "Impuesta" },
-                    new GuiasImpuestas { Id = "CC-3-21", Tamaño = "L", Estado = "Impuesta" },
-                    new GuiasImpuestas { Id = "AG-3-22", Tamaño = "XL", Estado = "Impuesta" },
-                    new GuiasImpuestas { Id = "CD-3-23", Tamaño = "XL", Estado = "Impuesta" },
-                    new GuiasImpuestas { Id = "AG-3-24", Tamaño = "M", Estado = "Impuesta" },
-                    new GuiasImpuestas { Id = "AG-3-25", Tamaño = "XL", Estado = "Impuesta" },
-                    new GuiasImpuestas { Id = "CD-3-26", Tamaño = "S", Estado = "Impuesta" },
-                };
+                var guiaEncontrada = guiasAgregadas.FirstOrDefault(g =>
+                    string.Equals(g.Id, text, StringComparison.OrdinalIgnoreCase));
 
-                // Primero ver si ya tenemos esa guía en las agregadas (estado actualizado)
-                var existenteEnMemoria = guiasAgregadas.FirstOrDefault(g => string.Equals(g.Id, text, StringComparison.OrdinalIgnoreCase));
-                if (existenteEnMemoria != null)
+                if (guiaEncontrada == null)
                 {
-                    // Si ya existe en memoria pero su estado no es 'Impuesta', no permitir su búsqueda
-                    if (!string.Equals(existenteEnMemoria.Estado, "Impuesta", StringComparison.OrdinalIgnoreCase))
+                    var guiaEntidad = GuiaAlmacen.Guias.FirstOrDefault(g =>
+                        string.Equals(g.NroGuia, text, StringComparison.OrdinalIgnoreCase));
+
+                    if (guiaEntidad == null)
                     {
-                        MessageBox.Show($"La guía con el número {text} no está en estado 'Impuesta'.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        MessageBox.Show($"No se encontró una guía con el número {text}.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         return null;
                     }
 
-                    // Devuelvo la instancia en memoria que está en estado 'Impuesta'
-                    return existenteEnMemoria;
+                    guiaEncontrada = new GuiasImpuestas
+                    {
+                        Id = guiaEntidad.NroGuia,
+                        Tamaño = guiaEntidad.TipoCaja.ToString(),
+                        Estado = guiaEntidad.Estado.ToString()
+                    };
                 }
 
-                var guiaEncontrada = numGuiasSimulados.FirstOrDefault(g => g.Id == text);
-                if (guiaEncontrada == null)
+                if (!string.Equals(guiaEncontrada.Estado,EstadoGuiaEnum.PendienteDeAdmision.ToString(),StringComparison.OrdinalIgnoreCase))
                 {
-                    MessageBox.Show($"No se encontró una guía con el número {text}.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show($"La guía con el número {text} no está en estado 'Pendiente de admisión'.","Error",MessageBoxButtons.OK,MessageBoxIcon.Error);
                     return null;
                 }
 
-                // Sólo aceptar guías que estén en estado 'Impuesta'
-                if (!string.Equals(guiaEncontrada.Estado, "Impuesta", StringComparison.OrdinalIgnoreCase))
+                if (!guiasAgregadas.Contains(guiaEncontrada))
                 {
-                    MessageBox.Show($"La guía con el número {text} no está en estado 'Impuesta'.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    return null;
+                    guiasAgregadas.Add(guiaEncontrada);
                 }
 
-                // Conservamos la instancia en memoria para futuras búsquedas/actualizaciones
-                guiasAgregadas.Add(guiaEncontrada);
                 return guiaEncontrada;
             }
 
@@ -94,16 +75,170 @@ namespace TP_CAI_1C2026.Forms.UltimaMilla.AdmisionCD
             return true;
         }
 
-        internal void CambiarEstadoDeGuias(IEnumerable<GuiasImpuestas> guias, string nuevoEstado)
+        internal void AdmitirGuias(IEnumerable<GuiasImpuestas> guias)
         {
-            if (guias == null) return;
+            if (guias == null)
+            {
+                return;
+            }
+
+            DateTime fechaActual = DateTime.Now;
+
             foreach (var g in guias)
             {
-                if (g != null)
+                if (g == null)
                 {
-                    g.Estado = nuevoEstado;
+                    continue;
+                }
+
+                var guiaEntidad = GuiaAlmacen.Guias.FirstOrDefault(guia =>
+                    string.Equals(guia.NroGuia, g.Id, StringComparison.OrdinalIgnoreCase));
+
+                if (guiaEntidad == null)
+                {
+                    continue;
+                }
+
+                guiaEntidad.PrecioVenta = CalcularPrecioVenta(guiaEntidad);
+                guiaEntidad.Historial ??= new List<HistorialGuia>();
+                guiaEntidad.Historial.Add(new HistorialGuia
+                {
+                    Fecha = fechaActual,
+                    Estado = EstadoGuiaEnum.Admitida
+                });
+
+                if (EsMismaCiudadOrigenYDestino(guiaEntidad))
+                {
+                    guiaEntidad.Estado = EstadoGuiaEnum.EnDestino;
+                    guiaEntidad.Historial.Add(new HistorialGuia
+                    {
+                        Fecha = fechaActual,
+                        Estado = EstadoGuiaEnum.EnDestino
+                    });
+                    g.Estado = "EnDestino";
+                }
+                else
+                {
+                    guiaEntidad.Estado = EstadoGuiaEnum.Admitida;
+                    g.Estado = "Admitida";
                 }
             }
+
+            GuiaAlmacen.Guardar();
+        }
+
+        private static decimal CalcularPrecioVenta(GuiaEntidad guia)
+        {
+            decimal precioBase = ClienteAlmacen.Clientes
+                .FirstOrDefault(cliente =>
+                    cliente.CuitDniCuilCliente == guia.CuitDniCuilCliente)?
+                .Tarifario
+                .FirstOrDefault(precio =>
+                    precio.TamañoEncomienda == guia.TipoCaja)?
+                .Importe ?? 0;
+
+            decimal tarifasExtra = 0;
+
+            if (guia.TipoImposicion == TipoImposicionEnum.EnDomicilio)
+            {
+                tarifasExtra += ObtenerTarifaExtra((TipoExtraEnum)1);
+            }
+
+            if (guia.TipoEntrega == TipoEntregaEnum.ADomicilio)
+            {
+                tarifasExtra += ObtenerTarifaExtra((TipoExtraEnum)2);
+            }
+
+            if (guia.TipoEntrega == TipoEntregaEnum.Agencia)
+            {
+                tarifasExtra += ObtenerTarifaExtra((TipoExtraEnum)3);
+            }
+
+            return precioBase + tarifasExtra;
+        }
+
+        private static decimal ObtenerTarifaExtra(TipoExtraEnum tipoTarifa)
+        {
+            return TarifaExtraAlmacen.Tarifas
+                .FirstOrDefault(tarifa => tarifa.Tarifa == tipoTarifa)?
+                .Precio ?? 0;
+        }
+
+        internal void RechazarGuias(IEnumerable<GuiasImpuestas> guias)
+        {
+            if (guias == null)
+            {
+                return;
+            }
+
+            DateTime fechaActual = DateTime.Now;
+
+            foreach (var g in guias)
+            {
+                if (g == null)
+                {
+                    continue;
+                }
+
+                var guiaEntidad = GuiaAlmacen.Guias.FirstOrDefault(guia =>
+                    string.Equals(guia.NroGuia, g.Id, StringComparison.OrdinalIgnoreCase));
+
+                if (guiaEntidad == null)
+                {
+                    continue;
+                }
+
+                guiaEntidad.Estado = EstadoGuiaEnum.Rechazada;
+                guiaEntidad.Historial ??= new List<HistorialGuia>();
+                guiaEntidad.Historial.Add(new HistorialGuia
+                {
+                    Fecha = fechaActual,
+                    Estado = EstadoGuiaEnum.Rechazada
+                });
+                g.Estado = "Rechazada";
+            }
+
+            GuiaAlmacen.Guardar();
+        }
+
+        private static bool EsMismaCiudadOrigenYDestino(GuiaEntidad guia)
+        {
+            int? idCiudadOrigen = ObtenerIdCiudadOrigen(guia);
+            int? idCiudadDestino = ObtenerIdCiudadDestino(guia);
+
+            return idCiudadOrigen.HasValue &&
+                   idCiudadDestino.HasValue &&
+                   idCiudadOrigen.Value == idCiudadDestino.Value;
+        }
+
+        private static int? ObtenerIdCiudadOrigen(GuiaEntidad guia)
+        {
+            if (guia.IdCentroDeDistribucionImposicion > 0)
+            {
+                return CiudadAlmacen.Ciudades.FirstOrDefault(ciudad =>ciudad.IdCentroDeDistribucion == guia.IdCentroDeDistribucionImposicion)?.IdCiudad;
+            }
+
+            if (guia.IdAgenciaImposicion > 0)
+            {
+                return CiudadAlmacen.Ciudades.FirstOrDefault(ciudad =>ciudad.Agencias.Contains(guia.IdAgenciaImposicion))?.IdCiudad;
+            }
+
+            return null;
+        }
+
+        private static int? ObtenerIdCiudadDestino(GuiaEntidad guia)
+        {
+            if (guia.IdCentroDeDistribucionEntrega > 0)
+            {
+                return CiudadAlmacen.Ciudades.FirstOrDefault(ciudad =>ciudad.IdCentroDeDistribucion == guia.IdCentroDeDistribucionEntrega)?.IdCiudad;
+            }
+
+            if (guia.IdAgenciaEntrega > 0)
+            {
+                return CiudadAlmacen.Ciudades.FirstOrDefault(ciudad =>ciudad.Agencias.Contains(guia.IdAgenciaEntrega))?.IdCiudad;
+            }
+
+            return null;
         }
     }
 }
