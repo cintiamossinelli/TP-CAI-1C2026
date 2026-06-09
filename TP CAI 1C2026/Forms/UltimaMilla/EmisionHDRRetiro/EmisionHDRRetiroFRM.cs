@@ -25,7 +25,12 @@
 
             localidadCMB.Items.Clear();
             foreach (string localidad in modelo.ObtenerLocalidades())
-            localidadCMB.Items.Add(localidad);
+                localidadCMB.Items.Add(localidad);
+
+            string localidadFletero = modelo.ObtenerLocalidadFletero();
+            int idx = localidadCMB.Items.IndexOf(localidadFletero);
+            if (idx >= 0)
+                localidadCMB.SelectedIndex = idx;
         }
 
         private void CargarGuiasPendientes()
