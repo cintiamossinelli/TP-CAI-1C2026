@@ -1,0 +1,16 @@
+Plan de Prueba: ConsultarTracking-CampoVacio.txt
+
+(Empieza con el menú principal)
+1- Abrir formulario                         "Consulta de Estado de la Guía"
+2- Campo Guía                               ""
+3- Botón                                    "Buscar"
+4- Mensaje                                  "El número de guía no puede estar vacío."
+5- Botón                                    "Aceptar"
+6- Cerrar el sistema
+
+Verificaciones:
+7-  El campo CUIT/DNI/CUIL muestra          "CUIT/DNI/CUIL"
+8-  El campo Origen muestra                 "Origen"
+9-  El campo Destino muestra                "Destino"
+10- El campo Tipo de Caja muestra           "Tipo de Caja"
+11- La lista Historial está vacía
