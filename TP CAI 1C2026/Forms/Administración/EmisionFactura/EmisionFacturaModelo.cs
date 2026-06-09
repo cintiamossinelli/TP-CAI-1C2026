@@ -172,7 +172,7 @@ namespace TP_CAI_1C2026.Forms.Administración.EmisionFactura
                     {
                         Id = g.NroGuia,
                         Fecha = g.FechaImposicion,
-                        Monto = (int)g.PrecioVenta
+                        Monto = g.PrecioVenta
                     })
                 .ToList();
 
@@ -401,7 +401,7 @@ namespace TP_CAI_1C2026.Forms.Administración.EmisionFactura
                     {
                         Id = g.NroGuia,
                         Fecha = g.FechaImposicion,
-                        Monto = (int)g.PrecioVenta
+                        Monto = g.PrecioVenta
                     })
                 .ToList();
 

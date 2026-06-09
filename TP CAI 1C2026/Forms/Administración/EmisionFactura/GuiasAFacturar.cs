@@ -8,6 +8,6 @@ namespace TP_CAI_1C2026.Forms.Administración.EmisionFactura
     {
         public string Id { get; set; }
         public DateTime Fecha { get; set; }
-        public int Monto { get; set; }
+        public decimal Monto { get; set; }
     }
 }
