@@ -1,0 +1,30 @@
+Plan de Prueba: EntregaAgencia-EntregaExitosa.txt
+
+(Empieza con el menú principal)
+1-  Abrir formulario                        "Entrega de Encomienda - Agencia"
+2-  Campo DNI Destinatario                  "20111222"
+3-  Botón                                   "Buscar"
+4-  Lista Guías Asociadas muestra           "AG-5-167 | PendienteDeEntrega | S"
+5-  Seleccionar guía                        "AG-5-167"
+6-  Botón                                   "Retirar"
+7-  Mensaje                                 "Entrega registrada correctamente.
+                                             Guias entregadas:
+                                             - AG-5-167 | S"
+8-  Botón                                   "Aceptar"
+9- Cerrar el sistema
+
+Verificaciones:
+10- Archivo Guias.json — la guía AG-5-167 debe aparecer con los siguientes cambios:
+
+    {
+      "NroGuia": "AG-5-167",
+      "Estado": 17,
+      "Historial": [
+        ...entradas anteriores...,
+        { "Fecha": "<fecha actual>", "Estado": 17 }
+      ],
+      "ComisionAgencia": [
+        ...entradas anteriores...,
+        { "IdAgencia": 6, "Importe": 1400.0 } //!!!!!!!!FIJARSE DE QUE HAY YA DOS ENTRADAS ANTES QUIZÁS BORRAR UNA?
+      ]
+    }

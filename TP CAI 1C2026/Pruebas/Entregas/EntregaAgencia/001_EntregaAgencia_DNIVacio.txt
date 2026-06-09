@@ -1,0 +1,12 @@
+Plan de Prueba: EntregaAgencia-DNIVacio.txt
+
+(Empieza con el menú principal)
+1- Abrir formulario                         "Entrega de Encomienda - Agencia"
+2- Campo DNI Destinatario                   ""
+3- Botón                                    "Buscar"
+4- Mensaje                                  "El DNI no puede estar vacío."
+5- Botón                                    "Aceptar"
+6- Cerrar el sistema
+
+Verificaciones:
+7- La lista Guías Asociadas está vacía

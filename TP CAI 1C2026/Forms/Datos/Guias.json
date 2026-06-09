@@ -952,11 +952,7 @@
       {
         "IdAgencia": 5,
         "Importe": 1583.0
-      },
-      {
-        "IdAgencia": 6,
-        "Importe": 1636.0
-      }
+      }      
     ],
     "IntentosDeEntrega": 0
   },
