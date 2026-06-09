@@ -50,8 +50,8 @@ namespace TP_CAI_1C2026.Forms.Administracion.EmisionFactura
             nombreClienteLBL.Text = cliente.RazonSocial;
 
             // Obtengo guías pendientes
-            var clientesConGuias = modelo.ObtenerGuiasPendientes(); // devuelve List<Cliente>
-            var clienteConGuias = clientesConGuias.FirstOrDefault(c => c.Cuit == clienteActual.Cuit);
+            //var clientesConGuias = modelo.ObtenerGuiasPendientes(); // devuelve List<Cliente>
+            //var clienteConGuias = clientesConGuias.FirstOrDefault(c => c.Cuit == clienteActual.Cuit);
             var guiasActuales = modelo.ObtenerGuiasPendientes(clienteActual.Cuit);
 
             if (guiasActuales == null ||
