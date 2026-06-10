@@ -239,7 +239,7 @@ namespace TP_CAI_1C2026.Forms.Imposicion.ImposicionAgencia
                         NroGuia = numerosGuias[indiceGuia],
                         CuitDniCuilCliente = cuitCliente,
                         FechaImposicion = fechaActual,
-                        TipoImposicion = TipoImposicionEnum.CD,
+                        TipoImposicion = TipoImposicionEnum.Agencia,
                         IdCentroDeDistribucionImposicion = 0,
                         IdAgenciaImposicion = 1,
                         DireccionRetiroDomicilio = string.Empty,
