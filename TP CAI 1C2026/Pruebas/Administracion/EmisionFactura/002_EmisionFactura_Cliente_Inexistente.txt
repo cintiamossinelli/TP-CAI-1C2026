@@ -1,0 +1,26 @@
+﻿=========================================
+PRUEBA DE CAJA NEGRA N° 2
+CLIENTE INEXISTENTE
+=========================================
+
+Objetivo:
+Verificar que el sistema informe cuando el cliente ingresado no existe.
+
+Precondiciones:
+- No existe ningún cliente con el identificador ingresado.
+
+Datos de Entrada:
+CUIT/DNI/CUIL: 99-99999999-9
+
+Pasos:
+1. Ingresar el CUIT/DNI/CUIL.
+2. Presionar el botón "Buscar".
+
+Resultado Esperado:
+- No se muestra nombre de cliente.
+- No se cargan guías en la grilla.
+- Se muestra un mensaje indicando que el cliente no existe o no fue encontrado.
+- No se habilita la emisión de factura.
+
+Estado Esperado:
+Rechazada.
