@@ -28,7 +28,7 @@ namespace TP_CAI_1C2026
         static void Main()
         {
             ApplicationConfiguration.Initialize();
-            Application.Run(new EntregaCDFRM());
+            Application.Run(new EmisionHDREntregaFRM());
         }
     }
 }

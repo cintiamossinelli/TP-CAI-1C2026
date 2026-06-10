@@ -1,0 +1,18 @@
+Plan de Prueba: EmisionHDREntrega-Cancelar.txt
+
+(Empieza con el menú principal)
+1-  Abrir formulario                        "Emisión de HDR de Entrega"
+2-  Campo DNI Fletero                       "11223344"
+3-  Botón                                   "Buscar"
+4-  Nombre del Fletero muestra              "José Lema"
+5-  Combobox Localidad se selecciona auto   "Rosario"
+6-  Lista guías sin agregar muestra guías del fletero
+7-  Botón                                   "Cancelar"
+8-  Cerrar el sistema
+
+Verificaciones:
+9-  El formulario queda limpio (campos vacíos, listas vacías)
+10- El campo DNI Fletero queda vacío        ""
+11- El campo Nombre del Fletero muestra     "Nombre del Fletero"
+12- Archivo HDREntrega.json — no se agregó ninguna entrada nueva
+13- Archivo Guias.json — ninguna guía cambió de estado

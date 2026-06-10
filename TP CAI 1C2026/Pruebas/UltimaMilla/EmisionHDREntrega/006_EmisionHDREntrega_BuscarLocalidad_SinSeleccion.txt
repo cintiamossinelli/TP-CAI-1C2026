@@ -1,0 +1,11 @@
+Plan de Prueba: EmisionHDREntrega-BuscarLocalidad_SinSeleccion.txt
+
+(Empieza con el menú principal)
+1- Abrir formulario                         "Emisión de HDR de Entrega"
+2- Botón                                    "Buscar por Localidad"
+3- Mensaje                                  "Debe seleccionar una localidad."
+4- Botón                                    "Aceptar"
+5- Cerrar el sistema
+
+Verificaciones:
+6- La lista guías sin agregar está vacía

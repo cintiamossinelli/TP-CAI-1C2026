@@ -1,4 +1,4 @@
-﻿namespace TP_CAI_1C2026.Forms.UltimaMilla.EmisionHDREntrega
+namespace TP_CAI_1C2026.Forms.UltimaMilla.EmisionHDREntrega
 {
     public partial class EmisionHDREntregaFRM : Form
     {
@@ -18,18 +18,19 @@
         {
             var fleteroSeleccionado = modelo.BuscarFletero(dniFleteroTXT.Text);
             if (fleteroSeleccionado == null)
-            {
                 return;
-            }
 
             nombreFleteroLBL.Text = fleteroSeleccionado.Nombre;
             CargarGuiasPendientes();
 
             localidadCMB.Items.Clear();
             foreach (string localidad in modelo.ObtenerLocalidades())
-            {
                 localidadCMB.Items.Add(localidad);
-            }
+
+            string localidadFletero = modelo.ObtenerLocalidadFletero();
+            int idx = localidadCMB.Items.IndexOf(localidadFletero);
+            if (idx >= 0)
+                localidadCMB.SelectedIndex = idx;
         }
 
         private void CargarGuiasPendientes()
@@ -37,13 +38,10 @@
             guiasSinAgregarLST.Items.Clear();
             foreach (Guia guia in modelo.ObtenerGuiasPendientes())
             {
-                if (!modelo.guiasAgregadas.Contains(guia))
-                {
-                    ListViewItem item = new ListViewItem(guia.NGuia);
-                    item.SubItems.Add(guia.TipoCaja);
-                    item.SubItems.Add(guia.LugarEntrega);
-                    guiasSinAgregarLST.Items.Add(item);
-                }
+                ListViewItem item = new ListViewItem(guia.NGuia);
+                item.SubItems.Add(guia.TipoCaja);
+                item.SubItems.Add(guia.LugarEntrega);
+                guiasSinAgregarLST.Items.Add(item);
             }
         }
 
@@ -51,9 +49,7 @@
         {
             Guia? guia = modelo.BuscarGuia(nGuiaTXT.Text);
             if (guia == null)
-            {
                 return;
-            }
 
             guiasSinAgregarLST.Items.Clear();
             ListViewItem item = new ListViewItem(guia.NGuia);
@@ -73,7 +69,7 @@
             guiasSinAgregarLST.Items.Clear();
             foreach (Guia guia in modelo.ObtenerGuiasPendientes())
             {
-                if (guia.LugarEntrega.Contains(localidadCMB.SelectedItem!.ToString()!) && !modelo.guiasAgregadas.Contains(guia))
+                if (guia.LugarEntrega.Contains(localidadCMB.SelectedItem!.ToString()!))
                 {
                     ListViewItem item = new ListViewItem(guia.NGuia);
                     item.SubItems.Add(guia.TipoCaja);
@@ -88,9 +84,7 @@
             List<string> guiasAgregar = new List<string>();
 
             foreach (ListViewItem item in guiasSinAgregarLST.CheckedItems)
-            {
                 guiasAgregar.Add(item.Text);
-            }
 
             if (guiasAgregar.Count == 0)
             {
@@ -99,9 +93,7 @@
             }
 
             foreach (string nGuia in guiasAgregar)
-            {
                 modelo.AgregarGuia(nGuia);
-            }
 
             ActualizarListViewAgregadas();
             CargarGuiasPendientes();
@@ -112,9 +104,7 @@
             List<string> guiasQuitar = new List<string>();
 
             foreach (ListViewItem item in guiasAgregadasLST.CheckedItems)
-            {
                 guiasQuitar.Add(item.Text);
-            }
 
             if (guiasQuitar.Count == 0)
             {
@@ -126,9 +116,7 @@
             {
                 Guia? guia = modelo.guiasAgregadas.FirstOrDefault(g => g.NGuia == nGuia);
                 if (guia != null)
-                {
                     modelo.guiasAgregadas.Remove(guia);
-                }
             }
 
             ActualizarListViewAgregadas();
@@ -140,6 +128,8 @@
             bool resultado = modelo.GenerarHDR(out string mensajeExito, out string error);
             if (!resultado)
             {
+                if (!string.IsNullOrEmpty(error))
+                    MessageBox.Show(error, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 
