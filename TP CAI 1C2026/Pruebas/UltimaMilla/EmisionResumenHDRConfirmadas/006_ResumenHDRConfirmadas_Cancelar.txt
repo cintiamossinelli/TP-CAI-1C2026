@@ -1,0 +1,18 @@
+Plan de Prueba: ResumenHDRConfirmadas-Cancelar.txt
+
+(Empieza con el menú principal)
+1-  Abrir formulario                        "Emisión Resumen HDR Confirmadas"
+2-  Campo DNI Fletero                       "11223344"
+3-  Botón                                   "Buscar"
+4-  Nombre del Fletero muestra             "José Lema"
+5-  Lista de HDRs muestra las HDRs pendientes del fletero
+6-  Botón                                   "Cancelar"
+7-  Cerrar el sistema
+
+Verificaciones:
+8-  El campo DNI Fletero queda vacío        ""
+9-  El campo Nombre del Fletero muestra     "Nombre del Fletero"
+10- La lista de HDRs está vacía
+11- Archivo HDRRetiro.json — no se modificó ninguna entrada
+12- Archivo HDREntrega.json — no se modificó ninguna entrada
+13- Archivo Guias.json — ninguna guía cambió de estado
