@@ -80,11 +80,17 @@ internal class EmisionHDRRetiroModelo
 
     internal List<Guia> ObtenerGuiasPendientes()
     {
+        var nGuiasAgregadas =
+            guiasAgregadas
+            .Select(g => g.NGuia)
+            .ToHashSet();
+
         return GuiaAlmacen.Guias
             .Where(g =>
                 (g.Estado == EstadoGuiaEnum.ImpuestaEnCallCenter ||
                  g.Estado == EstadoGuiaEnum.ImpuestaEnAgencia)
-                && PerteneceAlCDDelFletero(g))
+                && PerteneceAlCDDelFletero(g)
+                && !nGuiasAgregadas.Contains(g.NroGuia))
             .Select(g => new Guia
             {
                 NGuia = g.NroGuia,
