@@ -29,49 +29,41 @@ namespace TP_CAI_1C2026.Forms.Imposicion.ImposicionAgencia
 
             List<CentroDeDistribucion> cds = modelo.ObtenerCDS();
             destinoCDCMB.Items.Clear();
-            ciudadDestinatarioCMB.Items.Clear();
             foreach (var c in cds)
             {
                 destinoCDCMB.Items.Add(c);
-                ciudadDestinatarioCMB.Items.Add(c);
+
             }
             destinoCDCMB.DisplayMember = "Nombre";
             destinoCDCMB.ValueMember = "Id";
-            ciudadDestinatarioCMB.DisplayMember = "Nombre";
-            ciudadDestinatarioCMB.ValueMember = "Id";
-
 
             List<Ciudad> ciudades = modelo.ObtenerCiudades();
             ciudadAgenciaCMB.Items.Clear();
+            ciudadDestinatarioCMB.Items.Clear();
             foreach (var c in ciudades)
             {
                 ciudadAgenciaCMB.Items.Add(c);
+                ciudadDestinatarioCMB.Items.Add(c);
             }
             ciudadAgenciaCMB.DisplayMember = "Nombre";
             ciudadAgenciaCMB.ValueMember = "Id";
             ciudadAgenciaCMB.SelectedIndex = -1;
+            ciudadDestinatarioCMB.DisplayMember = "Nombre";
+            ciudadDestinatarioCMB.ValueMember = "Id";
         }
 
         private void ciudadAgenciaCMB_SelectedIndexChanged(object sender, EventArgs e)
         {
+            // Si no hay una ciudad seleccionada, limpio el combo de agencias y salgo
             if (ciudadAgenciaCMB.SelectedIndex == -1)
             {
                 agenciaCMB.DataSource = null;
-                agenciaCMB.Items.Clear();
                 return;
             }
-
             // Obtengo la ciudad seleccionada y lleno el combo de agencias con las agencias de esa ciudad
             var ciudadSeleccionada = (Ciudad)ciudadAgenciaCMB.SelectedItem;
-            var agencias = ciudadSeleccionada.Agencias
-                .OrderBy(a => a.Nombre, StringComparer.CurrentCultureIgnoreCase)
-                .ToList();
+            var agencias = ciudadSeleccionada.Agencias.OrderBy(a => a.Nombre).ToList();
 
-            // Aseguro que el binding se recree correctamente
-            agenciaCMB.DataSource = null;
-            agenciaCMB.Items.Clear();
-            // Desactivo el ordenamiento automático para que DisplayMember funcione correctamente
-            agenciaCMB.Sorted = false;
             agenciaCMB.DisplayMember = "Nombre";
             agenciaCMB.ValueMember = "Id";
             agenciaCMB.DataSource = agencias;
@@ -226,7 +218,7 @@ namespace TP_CAI_1C2026.Forms.Imposicion.ImposicionAgencia
             var cdSelected = destinoCDCMB.SelectedIndex == -1 ? null : (CentroDeDistribucion)destinoCDCMB.SelectedItem;
             var ciudadAgSelected = ciudadAgenciaCMB.SelectedIndex == -1 ? null : (Ciudad)ciudadAgenciaCMB.SelectedItem;
             var agenciaSelected = agenciaCMB.SelectedIndex == -1 ? null : (Agencia)agenciaCMB.SelectedItem;
-            var ciudadDestSelected = ciudadDestinatarioCMB.SelectedIndex == -1 ? null : ciudadDestinatarioCMB.SelectedItem;
+            var ciudadDestSelected = ciudadDestinatarioCMB.SelectedIndex == -1 ? null : (Ciudad)ciudadDestinatarioCMB.SelectedItem;
 
             bool valido = modelo.ValidarConfirmacion(
                 cdRDB.Checked,
@@ -246,7 +238,18 @@ namespace TP_CAI_1C2026.Forms.Imposicion.ImposicionAgencia
             }
 
             // Generar números de guía y mostrarlos
-            var guias = modelo.GenerarNumerosGuias();
+            var guias = modelo.GuardarGuias(
+                idClienteTXT.Text,
+                cdRDB.Checked,
+                cdSelected,
+                agenciaRDB.Checked,
+                ciudadAgSelected,
+                agenciaSelected,
+                domicilioRDB.Checked,
+                ciudadDestSelected,
+                direccionDestinatarioTXT.Text,
+                dniDestinatarioTXT.Text,
+                nombreDestinatarioTXT.Text);
 
             var sb = new StringBuilder();
             sb.AppendLine("Las siguientes guías fueron impuestas correctamente:");
@@ -254,8 +257,6 @@ namespace TP_CAI_1C2026.Forms.Imposicion.ImposicionAgencia
             {
                 sb.AppendLine(g);
             }
-
-            //AL GRABAR, SACARLE CARACTERES ESPECIALES Y LETRAS AL CUIT DEL CLIENTE Y DNI DEL DESTINATARIO
 
             MessageBox.Show(sb.ToString(), "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
             idClienteTXT.Text = string.Empty;

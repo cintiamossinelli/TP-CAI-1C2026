@@ -5,6 +5,8 @@ using System.Text;
 namespace TP_CAI_1C2026.Forms.Imposicion.ImposicionAgencia
 {
     using System.Linq;
+    using TP_CAI_1C2026.Forms.Almacen;
+
     internal class ImposicionAgenciaModelo
     {
         List<DetalleEncomienda> detallesAgregados = new();
@@ -24,24 +26,18 @@ namespace TP_CAI_1C2026.Forms.Imposicion.ImposicionAgencia
                 return null;
             }
 
-            // Simulación de búsqueda en una base de datos o servicio
-            var clientesSimulados = new List<Cliente>
-        {
-            new Cliente { Cuit = "33-63761744-9", RazonSocial = "Empresa A" },
-            new Cliente { Cuit = "30-64621216-9", RazonSocial = "Empresa B" },
-            new Cliente { Cuit = "30-67337754-4", RazonSocial = "Empresa C" },
-            new Cliente { Cuit = "33078369", RazonSocial = "José Perez" },
-            new Cliente { Cuit = "9123456", RazonSocial = "Juan Gonzalez" }
-        };
-
-            var clienteEncontrado = clientesSimulados.FirstOrDefault(c => c.Cuit == cuitFormateado);
-            if (clienteEncontrado == null)
+            var clienteEntidad = ClienteAlmacen.Clientes.FirstOrDefault(c => c.CuitDniCuilCliente == cuitFormateado);
+            if (clienteEntidad == null)
             {
                 MessageBox.Show($"No se encontró un cliente con CUIT, CUIL o DNI {cuitFormateado}.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return null;
             }
 
-            return clienteEncontrado;
+            return new Cliente
+            {
+                Cuit = clienteEntidad.CuitDniCuilCliente,
+                RazonSocial = clienteEntidad.RazonSocial
+            };
         }
 
         internal List<Agencia> ObtenerAgencias(Ciudad? ciudadSeleccionada)
@@ -51,107 +47,42 @@ namespace TP_CAI_1C2026.Forms.Imposicion.ImposicionAgencia
 
         internal List<CentroDeDistribucion> ObtenerCDS()
         {
-            return new List<CentroDeDistribucion>
-        {
-            new CentroDeDistribucion { Id = 1, Nombre = "Rosario" },
-            new CentroDeDistribucion { Id = 2, Nombre = "Santa Fe" },
-            new CentroDeDistribucion { Id = 3, Nombre = "Buenos Aires" },
-            new CentroDeDistribucion { Id = 4, Nombre = "Córdoba" },
-            new CentroDeDistribucion { Id = 5, Nombre = "Mendoza" },
-            new CentroDeDistribucion { Id = 6, Nombre = "San Miguel de Tucumán" },
-            new CentroDeDistribucion { Id = 7, Nombre = "Neuquén" },
-            new CentroDeDistribucion { Id = 8, Nombre = "Salta" },
-            new CentroDeDistribucion { Id = 9, Nombre = "San Salvador de Jujuy" },
-            new CentroDeDistribucion { Id = 10, Nombre = "Mar del Plata" }
-        };
+            return CentroDeDistribucionAlmacen.CentrosDeDistribucion
+              .Select(cd => new CentroDeDistribucion
+              {
+                  Id = cd.IdCentroDeDistribucion,
+                  Nombre = cd.Nombre
+              })
+              .ToList();
         }
 
         internal List<Ciudad> ObtenerCiudades()
         {
-            return new List<Ciudad>
-        {
-            new Ciudad { Id = 1, Nombre = "Rosario", Agencias = new List<Agencia>
-            {
-                new() { Id = 1, Nombre = "Rosario Norte" },
-                new() { Id = 2, Nombre = "Rosario Sur" },
-                new() { Id = 3, Nombre = "Rosario Centro" },
-                new() { Id = 4, Nombre = "Rosario Oeste" }
-            }},
-            new Ciudad { Id = 2, Nombre = "Santa Fe", Agencias = new List<Agencia>
-            {
-                new() { Id = 5, Nombre = "Santa Fe Centro" },
-                new() { Id = 6, Nombre = "Santa Fe Norte" },
-                new() { Id = 7, Nombre = "Santa Fe Sur" },
-                new() { Id = 8, Nombre = "Santo Tomé" }
-            }},
-            new Ciudad { Id = 3, Nombre = "Buenos Aires", Agencias = new List<Agencia>
-            {
-                new() { Id = 9,  Nombre = "Microcentro" },
-                new() { Id = 10, Nombre = "Palermo" },
-                new() { Id = 11, Nombre = "Belgrano" },
-                new() { Id = 12, Nombre = "San Telmo" }
-            }},
-            new Ciudad { Id = 4, Nombre = "Córdoba", Agencias = new List<Agencia>
-            {
-                new() { Id = 10,  Nombre = "Córdoba Centro" },
-                new() { Id = 11, Nombre = "Córdoba Norte" },
-                new() { Id = 12, Nombre = "Córdoba Sur" },
-                new() { Id = 13, Nombre = "Córdoba Oeste" }
-            }},
-            new Ciudad { Id = 5, Nombre = "Mendoza", Agencias = new List<Agencia>
-            {
-                new() { Id = 14,  Nombre = "Mendoza Centro" },
-                new() { Id = 15, Nombre = "Mendoza Norte" },
-                new() { Id = 16, Nombre = "Mendoza Sur" },
-                new() { Id = 17, Nombre = "Mendoza Oeste" }
-            }},
-            new Ciudad { Id = 6, Nombre = "San Miguel de Tucumán", Agencias = new List<Agencia>
-            {
-                new() { Id = 18,  Nombre = "San Miguel de Tucumán Centro" },
-                new() { Id = 19, Nombre = "San Miguel de Tucumán Norte" },
-                new() { Id = 20, Nombre = "San Miguel de Tucumán Sur" },
-                new() { Id = 21, Nombre = "San Miguel de Tucumán Oeste" }
-            }},
-            new Ciudad { Id = 7, Nombre = "Neuquén", Agencias = new List<Agencia>
-            {
-                new() { Id = 22,  Nombre = "Neuquén Centro" },
-                new() { Id = 23, Nombre = "Neuquén Norte" },
-                new() { Id = 24, Nombre = "Neuquén Sur" },
-                new() { Id = 25, Nombre = "Neuquén Oeste" }
-            }},
-            new Ciudad { Id = 8, Nombre = "Salta", Agencias = new List<Agencia>
-            {
-                new() { Id = 26,  Nombre = "Salta Centro" },
-                new() { Id = 27, Nombre = "Salta Norte" },
-                new() { Id = 28, Nombre = "Salta Sur" },
-                new() { Id = 29, Nombre = "Salta Oeste" }
-            }},
-            new Ciudad { Id = 9, Nombre = "San Salvador de Jujuy", Agencias = new List<Agencia>
-            {
-                new() { Id = 30,  Nombre = "San Salvador de Jujuy Centro" },
-                new() { Id = 31, Nombre = "San Salvador de Jujuy Norte" },
-                new() { Id = 32, Nombre = "San Salvador de Jujuy Sur" },
-                new() { Id = 33, Nombre = "San Salvador de Jujuy Oeste" }
-            }},
-            new Ciudad { Id = 10, Nombre = "Mar del Plata", Agencias = new List<Agencia>
-            {
-                new() { Id = 34,  Nombre = "Mar del Plata Centro" },
-                new() { Id = 35, Nombre = "Mar del Plata Norte" },
-                new() { Id = 36, Nombre = "Mar del Plata Sur" },
-                new() { Id = 37, Nombre = "Mar del Plata Oeste" }
-            }}
-        };
+            return CiudadAlmacen.Ciudades
+                .Select(ciudad => new Ciudad
+                {
+                    Id = ciudad.IdCiudad,
+                    Nombre = ciudad.Nombre,
+                    Agencias = AgenciaAlmacen.Agencias
+                        .Where(agencia => ciudad.Agencias.Contains(agencia.IdAgencia))
+                        .Select(agencia => new Agencia
+                        {
+                            Id = agencia.IdAgencia,
+                            Nombre = agencia.Nombre
+                        })
+                        .ToList()
+                })
+                .ToList();
         }
 
         internal List<TamañoEnvio> ObtenerTamañosEnvio()
         {
-            return new List<TamañoEnvio>()
-        {
-            new TamañoEnvio { Letra = "S" },
-            new TamañoEnvio { Letra = "M" },
-            new TamañoEnvio { Letra = "L" },
-            new TamañoEnvio { Letra = "XL" }
-        };
+            return Enum.GetValues<TipoTamañoEnvioEnum>()
+                .Select(tamaño => new TamañoEnvio
+                {
+                    Letra = tamaño.ToString()
+                })
+                .ToList();
         }
 
         public static string? NormalizarCuit(string? texto)
@@ -251,25 +182,157 @@ namespace TP_CAI_1C2026.Forms.Imposicion.ImposicionAgencia
         }
 
         internal List<string> GenerarNumerosGuias()
-
         {
-            var resultado = new List<string>();
-
-
-            // Genero números de guía con formato: TIPO-CODIGO-XXX, donde XXX es un número secuencial para cada encomienda agregada.
-
-            // CUANDO TENGAMOS USUARIOS, ACÁ HAY QUE CAMBIAR EL TIPO Y CODIGO POR LO QUE CORRESPONDA SEGÚN EL USUARIO Y SU SEDE O LO QUE SEA.
-            int contador = 1;
-            foreach (var det in detallesAgregados)
             {
-                for (int i = 0; i < det.Cantidad; i++)
+                var resultado = new List<string>();
+
+                int ultimoNumero = GuiaAlmacen.Guias
+                    .Select(guia => guia.NroGuia?.Split('-').LastOrDefault())
+                    .Where(numero => int.TryParse(numero, out _))
+                    .Select(int.Parse)
+                    .DefaultIfEmpty(0)
+                    .Max();
+
+                int contador = ultimoNumero + 1;
+                foreach (var det in detallesAgregados)
                 {
-                    resultado.Add($"AG-1-{contador}");
-                    contador++;
+                    for (int i = 0; i < det.Cantidad; i++)
+                    {
+                        resultado.Add($"AG-1-{contador}");
+                        contador++;
+                    }
+                }
+
+                return resultado;
+            }
+        }
+
+        internal List<string> GuardarGuias(
+    string cuitDniCuilCliente,
+    bool cdChecked,
+    CentroDeDistribucion? cdSelected,
+    bool agenciaChecked,
+    Ciudad? ciudadAgenciaSelected,
+    Agencia? agenciaSelected,
+    bool domicilioChecked,
+    Ciudad? ciudadDestSelected,
+    string direccionDest,
+    string dniDest,
+    string nombreDest)
+        {
+            string cuitCliente = NormalizarCuit(cuitDniCuilCliente) ?? cuitDniCuilCliente;
+            DateTime fechaActual = DateTime.Now;
+            List<string> numerosGuias = GenerarNumerosGuias();
+            List<GuiaEntidad> guias = new();
+            int indiceGuia = 0;
+
+            foreach (var detalle in detallesAgregados)
+            {
+                TipoTamañoEnvioEnum tipoCaja = ObtenerTipoCaja(detalle.LetraTamaño);
+
+                for (int i = 0; i < detalle.Cantidad; i++)
+                {
+                    EstadoGuiaEnum estado = ObtenerEstadoInicial(cdChecked, cdSelected, agenciaChecked, ciudadAgenciaSelected, domicilioChecked, ciudadDestSelected);
+
+                    guias.Add(new GuiaEntidad
+                    {
+                        NroGuia = numerosGuias[indiceGuia],
+                        CuitDniCuilCliente = cuitCliente,
+                        FechaImposicion = fechaActual,
+                        TipoImposicion = TipoImposicionEnum.CD,
+                        IdCentroDeDistribucionImposicion = 0,
+                        IdAgenciaImposicion = 1,
+                        DireccionRetiroDomicilio = string.Empty,
+                        TipoEntrega = ObtenerTipoEntrega(cdChecked, agenciaChecked, domicilioChecked),
+                        IdCentroDeDistribucionEntrega = ObtenerIdCentroDeDistribucionEntrega(cdChecked, cdSelected, domicilioChecked, ciudadDestSelected),
+                        IdAgenciaEntrega = agenciaChecked && agenciaSelected != null ? agenciaSelected.Id : 0,
+                        DireccionEntrega = domicilioChecked ? direccionDest : string.Empty,
+                        DniDestinatario = dniDest,
+                        NombreDestinatario = nombreDest,
+                        TipoCaja = tipoCaja,
+                        PrecioVenta = 0,
+                        Estado = estado,
+                        Historial = CrearHistorial(estado, fechaActual),
+                        ComisionFletero = new List<GuiaComisionFletero>(),
+                        ComisionAgencia = new List<GuiaComisionAgencia>(),
+                        IntentosDeEntrega = 0
+                    });
+
+                    indiceGuia++;
                 }
             }
 
-            return resultado;
+            GuiaAlmacen.AgregarGuias(guias);
+            return numerosGuias;
+        }
+
+        private static TipoTamañoEnvioEnum ObtenerTipoCaja(string letraTamaño)
+        {
+            return Enum.Parse<TipoTamañoEnvioEnum>(letraTamaño);
+        }
+
+        private static TipoEntregaEnum ObtenerTipoEntrega(bool cdChecked, bool agenciaChecked, bool domicilioChecked)
+        {
+            if (cdChecked)
+            {
+                return TipoEntregaEnum.CD;
+            }
+
+            if (agenciaChecked)
+            {
+                return TipoEntregaEnum.Agencia;
+            }
+
+            return TipoEntregaEnum.ADomicilio;
+        }
+
+        private static int ObtenerIdCentroDeDistribucionEntrega(
+            bool cdChecked,
+            CentroDeDistribucion? cdSelected,
+            bool domicilioChecked,
+            Ciudad? ciudadDestSelected)
+        {
+            if (cdChecked && cdSelected != null)
+            {
+                return cdSelected.Id;
+            }
+
+            if (domicilioChecked && ciudadDestSelected != null)
+            {
+                return ciudadDestSelected.Id;
+            }
+
+            return 0;
+        }
+        private static EstadoGuiaEnum ObtenerEstadoInicial(
+            bool cdChecked,
+            CentroDeDistribucion? cdSelected,
+            bool agenciaChecked,
+            Ciudad? ciudadAgenciaSelected,
+            bool domicilioChecked,
+            Ciudad? ciudadDestSelected)
+        {
+            bool yaEstaEnDestino =
+                cdChecked && cdSelected?.Id == 1 ||
+                agenciaChecked && ciudadAgenciaSelected?.Id == 1 ||
+                domicilioChecked && ciudadDestSelected?.Id == 1;
+
+            return yaEstaEnDestino ? EstadoGuiaEnum.EnDestino : EstadoGuiaEnum.Admitida;
+        }
+
+        private static List<HistorialGuia> CrearHistorial(EstadoGuiaEnum estado, DateTime fecha)
+        {
+            List<HistorialGuia> historial = new()
+        {
+            new HistorialGuia { Fecha = fecha, Estado = EstadoGuiaEnum.ImpuestaEnAgencia }
+        };
+
+            if (estado == EstadoGuiaEnum.EnDestino)
+            {
+                historial.Add(new HistorialGuia { Fecha = fecha, Estado = EstadoGuiaEnum.ImpuestaEnAgencia });
+            }
+
+            return historial;
         }
 
         internal bool ValidarConfirmacion(

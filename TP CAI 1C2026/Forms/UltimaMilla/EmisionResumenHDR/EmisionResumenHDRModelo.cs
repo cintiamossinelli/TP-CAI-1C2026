@@ -64,12 +64,12 @@ namespace TP_CAI_1C2026.Forms.UltimaMilla.EmisionResumenHDR
         public List<HDREntrega> BuscarEntregasPorDni(string dni)
         {
             return HDREntregaAlmacen.HDREntregas
-                .Where(e => e.DNIFletero.ToString() == dni)
+                .Where(e => e.DniFletero.ToString() == dni)
                 .Select(e => new HDREntrega(
                     e.NroHDR,
                     e.Domicilio,
                     e.CantEncomiendas,
-                    e.DNIFletero.ToString()
+                    e.DniFletero.ToString()
                 ))
                 .ToList();
         }
