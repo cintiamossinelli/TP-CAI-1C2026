@@ -17,7 +17,7 @@ Pasos:
 1. Ingresar el CUIT/DNI/CUIL del cliente.
 2. Presionar el botón "Buscar".
 3. Verificar que se muestre el nombre del cliente.
-4. Verificar que se carguen las guías pendientes de facturación.
+4. Verificar que se carguen las guías pendientes de facturación con Estados = 16, 17 y 19.
 5. Presionar "Emitir Factura".
 
 Resultado Esperado:
@@ -29,4 +29,4 @@ Resultado Esperado:
 - Las guías incluidas quedan facturadas y no vuelven a aparecer en futuras emisiones.
 
 Estado Esperado:
-Factura Emitida.
+Factura Emitida, Guias cambian a Estado = 18.
