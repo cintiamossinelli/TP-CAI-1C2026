@@ -9,40 +9,24 @@ namespace TP_CAI_1C2026.Forms.Troncal.RecepcionHDRTransporte
         public RecepcionHDRTransporteFRM()
         {
             InitializeComponent();
-            servicioOmnibusBTN.DropDownStyle = ComboBoxStyle.DropDownList; //esto para que no se pueda escribir en el comboBox, solo seleccionar las opciones que tiene
-            // Cargar solo los servicios cuya fecha (sin considerar hora) esté entre hoy y los últimos 10 días
-            var fechaHoy = DateTime.Today;
-            var fechaLimite = fechaHoy.AddDays(-10);
-            var servicios = modelo.ObtenerServicios()
-                .Where(s => s.FechayHora.Date <= fechaHoy && s.FechayHora.Date >= fechaLimite)
-                .OrderByDescending(s => s.FechayHora)
-                .ToList();
+            servicioOmnibusCMB.DropDownStyle = ComboBoxStyle.DropDownList; //esto para que no se pueda escribir en el comboBox, solo seleccionar las opciones que tiene
 
-            foreach (var servicio in servicios)
+            foreach (string descripcionServicio in modelo.ObtenerDescripcionesServicios())
             {
-                servicioOmnibusBTN.Items.Add(servicio.Empresa + " - " + servicio.FechayHora.ToString("dd/MM/yyyy HH:mm"));
+                servicioOmnibusCMB.Items.Add(descripcionServicio);
             }
         }
 
-        private void servicioOmnibusBTN_SelectedIndexChanged(object sender, EventArgs e)
+        private void servicioOmnibusCMB_SelectedIndexChanged(object sender, EventArgs e)
         {
             GuiasLST.Items.Clear();
 
-            if (servicioOmnibusBTN.SelectedIndex == -1)
+            if (servicioOmnibusCMB.SelectedIndex == -1)
             {
                 return; //Si no hay nada seleccionado, sale sin hacer nada.
             }
 
-            var fechaHoy = DateTime.Today;
-            var fechaLimite = fechaHoy.AddDays(-10);
-            var servicios = modelo.ObtenerServicios()
-                .Where(s => s.FechayHora.Date <= fechaHoy && s.FechayHora.Date >= fechaLimite)
-                .OrderByDescending(s => s.FechayHora)
-                .ToList();
-
-            Servicio servicioSeleccionado = servicios[servicioOmnibusBTN.SelectedIndex];
-
-            foreach (var guia in servicioSeleccionado.GuiasAsociadas) //Recorre una por una las guías que tiene ese servicio.
+            foreach (var guia in modelo.ObtenerGuiasDelServicio(servicioOmnibusCMB.SelectedIndex)) //Recorre una por una las guías que tiene ese servicio.
             {
                 ListViewItem item = new ListViewItem(guia.Id); //Crea una fila en el ListView con el número de guía.
                 item.SubItems.Add(guia.Tamaño); //Agrega el tipo de encomienda a esa fila.
@@ -54,10 +38,10 @@ namespace TP_CAI_1C2026.Forms.Troncal.RecepcionHDRTransporte
 
         private void recibirHDRBTN_Click(object sender, EventArgs e)
         {
-            if (servicioOmnibusBTN.SelectedIndex == -1)
+            if (servicioOmnibusCMB.SelectedIndex == -1)
             { //pruebo que se haya seleccionado un servicio de transporte
                 MessageBox.Show("Debe seleccionar un servicio de transporte.", "Validación", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                servicioOmnibusBTN.Focus();
+                servicioOmnibusCMB.Focus();
                 return;
             }
 
@@ -72,13 +56,19 @@ namespace TP_CAI_1C2026.Forms.Troncal.RecepcionHDRTransporte
             {
                 return;
             }
-            servicioOmnibusBTN.SelectedIndex = -1;
+
+            modelo.RecibirHDR(servicioOmnibusCMB.SelectedIndex);
+            servicioOmnibusCMB.Items.Clear();
+            foreach (string descripcionServicio in modelo.ObtenerDescripcionesServicios())
+            {
+                servicioOmnibusCMB.Items.Add(descripcionServicio);
+            }
             GuiasLST.Items.Clear();
         }
 
         private void cancelarBTN_Click(object sender, EventArgs e)
         {
-            servicioOmnibusBTN.SelectedIndex = -1; //Esto para que se deseleccione el servicio de transporte, y se borren las guías asociadas a ese servicio del ListView.
+            servicioOmnibusCMB.SelectedIndex = -1; //Esto para que se deseleccione el servicio de transporte, y se borren las guías asociadas a ese servicio del ListView.
             GuiasLST.Items.Clear();
 
         }

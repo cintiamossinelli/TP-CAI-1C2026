@@ -25,6 +25,6 @@ Verificaciones:
       ],
       "ComisionAgencia": [
         ...entradas anteriores...,
-        { "IdAgencia": 6, "Importe": 1400.0 } //!!!!!!!!FIJARSE DE QUE HAY YA DOS ENTRADAS ANTES QUIZÁS BORRAR UNA?
+        { "IdAgencia": 6, "Importe": 1400.0 }
       ]
     }
