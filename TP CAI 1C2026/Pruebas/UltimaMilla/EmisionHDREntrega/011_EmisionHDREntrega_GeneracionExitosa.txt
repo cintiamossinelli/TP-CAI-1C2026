@@ -6,34 +6,34 @@ Plan de Prueba: EmisionHDREntrega-GeneracionExitosa.txt
 3-  Botón                                   "Buscar"
 4-  Nombre del Fletero muestra              "José Lema"
 5-  Combobox Localidad se selecciona auto   "Rosario"
-6-  Lista guías sin agregar muestra         "CC-1-823 | S | Av. Pellegrini 450, Rosario"
-                                            "CC-1-824 | M | Av. Pellegrini 450, Rosario"
-                                            "AG-1-825 | L | Rosario Norte"
-                                            "CC-1-826 | XL | Bv. Oroño 200, Rosario"
+6-  Lista guías sin agregar muestra         "CC-1-827 | S | Av. Pellegrini 450, Rosario"
+                                            "CC-1-828 | M | Av. Pellegrini 450, Rosario"
+                                            "AG-1-829 | L | Rosario Norte"
+                                            "CC-1-830 | XL | Bv. Oroño 200, Rosario"
 7-  Botón                                   "Buscar por Localidad"
 8-  Lista guías sin agregar muestra las mismas guías filtradas por "Rosario"
-9-  Campo Nº Guía                           "CC-1-823"
+9-  Campo Nº Guía                           "CC-1-827"
 10- Botón                                   "Buscar" (buscar guía)
-11- Lista guías sin agregar muestra         "CC-1-823 | S | Av. Pellegrini 450, Rosario"
-12- Seleccionar guía                        "CC-1-823"
+11- Lista guías sin agregar muestra         "CC-1-827 | S | Av. Pellegrini 450, Rosario"
+12- Seleccionar guía                        "CC-1-827"
 13- Botón                                   "Agregar >>>"
-14- Lista guías sin agregar ya no contiene  "CC-1-823"
-15- Lista guías agregadas muestra           "CC-1-823 | S | Av. Pellegrini 450, Rosario"
-16- Campo Nº Guía                           "CC-1-824"
+14- Lista guías sin agregar ya no contiene  "CC-1-827"
+15- Lista guías agregadas muestra           "CC-1-827 | S | Av. Pellegrini 450, Rosario"
+16- Campo Nº Guía                           "CC-1-828"
 17- Botón                                   "Buscar" (buscar guía)
-18- Lista guías sin agregar muestra         "CC-1-824 | M | Av. Pellegrini 450, Rosario"
-19- Seleccionar guía                        "CC-1-824"
+18- Lista guías sin agregar muestra         "CC-1-828 | M | Av. Pellegrini 450, Rosario"
+19- Seleccionar guía                        "CC-1-828"
 20- Botón                                   "Agregar >>>"
-21- Lista guías agregadas muestra           "CC-1-823 | S | Av. Pellegrini 450, Rosario"
-                                            "CC-1-824 | M | Av. Pellegrini 450, Rosario"
-22- Seleccionar guía del lado derecho       "CC-1-824"
+21- Lista guías agregadas muestra           "CC-1-827 | S | Av. Pellegrini 450, Rosario"
+                                            "CC-1-828 | M | Av. Pellegrini 450, Rosario"
+22- Seleccionar guía del lado derecho       "CC-1-828"
 23- Botón                                   "<<< Quitar"
-24- Lista guías agregadas muestra solo      "CC-1-823 | S | Av. Pellegrini 450, Rosario"
-25- Lista guías sin agregar vuelve a mostrar "CC-1-824 | M | Av. Pellegrini 450, Rosario"
-26- Seleccionar guía                        "CC-1-824"
+24- Lista guías agregadas muestra solo      "CC-1-827 | S | Av. Pellegrini 450, Rosario"
+25- Lista guías sin agregar vuelve a mostrar "CC-1-828 | M | Av. Pellegrini 450, Rosario"
+26- Seleccionar guía                        "CC-1-828"
 27- Botón                                   "Agregar >>>"
-28- Lista guías agregadas muestra           "CC-1-823 | S | Av. Pellegrini 450, Rosario"
-                                            "CC-1-824 | M | Av. Pellegrini 450, Rosario"
+28- Lista guías agregadas muestra           "CC-1-827 | S | Av. Pellegrini 450, Rosario"
+                                            "CC-1-828 | M | Av. Pellegrini 450, Rosario"
 29- Botón                                   "Generar HDR"
 30- Mensaje                                 "HDR N° 16 generada correctamente para el fletero José Lema."
 31- Botón                                   "Aceptar"
@@ -49,14 +49,14 @@ Verificaciones:
       "Fecha": "<fecha actual>",
       "Domicilio": "Av. Pellegrini 450, Rosario",
       "CantEncomiendas": 2,
-      "Guias": [ "CC-1-823", "CC-1-824" ],
+      "Guias": [ "CC-1-827", "CC-1-828" ],
       "Estado": 1
     }
 
-35- Archivo Guias.json — guía CC-1-823 debe tener:
+35- Archivo Guias.json — guía CC-1-827 debe tener:
     "Estado": 12
     Última entrada del Historial: { "Fecha": "<fecha actual>", "Estado": 12 }
 
-36- Archivo Guias.json — guía CC-1-824 debe tener:
+36- Archivo Guias.json — guía CC-1-828 debe tener:
     "Estado": 12
     Última entrada del Historial: { "Fecha": "<fecha actual>", "Estado": 12 }
