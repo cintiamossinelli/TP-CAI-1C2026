@@ -1,0 +1,13 @@
+Plan de Prueba: EntregaCD-DNISinGuiasPendientes.txt
+
+(Empieza con el menú principal)
+1- Abrir formulario                         "Entrega de Encomienda - CD"
+2- Campo DNI Destinatario                   "30123456"
+3- Botón                                    "Buscar"
+4- Mensaje                                  "No se encontró ningún destinatario con DNI 30123456."
+5- Botón                                    "Aceptar"
+6- Cerrar el sistema
+
+Verificaciones:
+7- La lista Guías Asociadas está vacía
+8- Archivo Guias.json — ninguna guía cambió de estado

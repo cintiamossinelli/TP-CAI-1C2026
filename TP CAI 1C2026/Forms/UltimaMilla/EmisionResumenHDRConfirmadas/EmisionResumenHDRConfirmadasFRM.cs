@@ -135,18 +135,7 @@ namespace TP_CAI_1C2026.Forms.UltimaMilla.EmisionResumenHDRConfirmadas
 
             if (result == DialogResult.OK)
             {
-                foreach (var hd in seleccionadasHdrs)
-                {
-                    hd.Estado = "Confirmada";
-                }
-
-                foreach (var hd in noSeleccionadasHdrs)
-                {
-                    hd.Estado = "No Confirmada";
-                }
-
-                // Actualizar estados en el modelo
-                modelo.ActualizarEstados(seleccionadasHdrs.Concat(noSeleccionadasHdrs));
+                modelo.ActualizarEstados(seleccionadasHdrs, noSeleccionadasHdrs, dniIngresado);
 
                 hdrEnTransitoLSVT.Items.Clear();
                 dniFleteroTXT.Clear();

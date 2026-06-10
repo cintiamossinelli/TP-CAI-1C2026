@@ -952,7 +952,7 @@
       {
         "IdAgencia": 5,
         "Importe": 1583.0
-      }      
+      }
     ],
     "IntentosDeEntrega": 0
   },
@@ -3223,207 +3223,526 @@
     "ComisionAgencia": [],
     "IntentosDeEntrega": 0
   },
-
   {
-    "NroGuia": "AG-1-816",
-    "CuitDniCuilCliente": "33-63761744-9",
-    "FechaImposicion": "2026-06-09",
-    "TipoImposicion": 2,
-    "IdCentroDeDistribucionImposicion": 0,
-    "IdAgenciaImposicion": 1,
+<<<<<<< HEAD
+    "NroGuia": "CD-1-816",
+    "CuitDniCuilCliente": "24078369",
+    "FechaImposicion": "2026-06-08",
+    "TipoImposicion": 1,
+    "IdCentroDeDistribucionImposicion": 1,
+    "IdAgenciaImposicion": 0,
     "DireccionRetiroDomicilio": "",
     "TipoEntrega": 1,
     "IdCentroDeDistribucionEntrega": 2,
     "IdAgenciaEntrega": 0,
     "DireccionEntrega": "",
-    "DniDestinatario": "22000111",
-    "NombreDestinatario": "Prueba ResumenHDR 1",
+    "DniDestinatario": "22333444",
+    "NombreDestinatario": "Federico Ruiz",
     "TipoCaja": 1,
-    "PrecioVenta": 8000.0,
-    "Estado": 4,
+    "PrecioVenta": 17000.0,
+    "Estado": 8,
     "Historial": [
-      { "Fecha": "2026-06-09", "Estado": 2 },
-      { "Fecha": "2026-06-09", "Estado": 4 }
-    ],
-    "ComisionFletero": [],
-    "ComisionAgencia": [],
-    "IntentosDeEntrega": 0
-  },
-  {
-    "NroGuia": "CC-1-817",
+      {
+        "Fecha": "2026-06-08",
+        "Estado": 3
+      },
+      {
+        "Fecha": "2026-06-08",
+        "Estado": 6
+      },
+      {
+        "Fecha": "2026-06-09",
+        "Estado": 8
+      }
+=======
+    "NroGuia": "CC-1-823",
     "CuitDniCuilCliente": "33-63761744-9",
-    "FechaImposicion": "2026-06-09",
+    "FechaImposicion": "2026-06-07",
     "TipoImposicion": 3,
     "IdCentroDeDistribucionImposicion": 1,
     "IdAgenciaImposicion": 0,
-    "DireccionRetiroDomicilio": "Av. Corrientes 500, Rosario",
-    "TipoEntrega": 1,
-    "IdCentroDeDistribucionEntrega": 2,
-    "IdAgenciaEntrega": 0,
-    "DireccionEntrega": "",
-    "DniDestinatario": "22000111",
-    "NombreDestinatario": "Prueba ResumenHDR 2",
-    "TipoCaja": 2,
-    "PrecioVenta": 10000.0,
-    "Estado": 4,
-    "Historial": [
-      { "Fecha": "2026-06-09", "Estado": 1 },
-      { "Fecha": "2026-06-09", "Estado": 4 }
-    ],
-    "ComisionFletero": [],
-    "ComisionAgencia": [],
-    "IntentosDeEntrega": 0
-  },
-  {
-    "NroGuia": "CC-1-818",
-    "CuitDniCuilCliente": "33-63761744-9",
-    "FechaImposicion": "2026-06-09",
-    "TipoImposicion": 3,
-    "IdCentroDeDistribucionImposicion": 1,
-    "IdAgenciaImposicion": 0,
-    "DireccionRetiroDomicilio": "Pellegrini 800, Rosario",
-    "TipoEntrega": 1,
-    "IdCentroDeDistribucionEntrega": 2,
-    "IdAgenciaEntrega": 0,
-    "DireccionEntrega": "",
-    "DniDestinatario": "22000111",
-    "NombreDestinatario": "Prueba ResumenHDR 3",
-    "TipoCaja": 3,
-    "PrecioVenta": 12000.0,
-    "Estado": 4,
-    "Historial": [
-      { "Fecha": "2026-06-09", "Estado": 1 },
-      { "Fecha": "2026-06-09", "Estado": 4 }
-    ],
-    "ComisionFletero": [],
-    "ComisionAgencia": [],
-    "IntentosDeEntrega": 0
-  },
-  {
-    "NroGuia": "CC-2-819",
-    "CuitDniCuilCliente": "33-63761744-9",
-    "FechaImposicion": "2026-06-01",
-    "TipoImposicion": 3,
-    "IdCentroDeDistribucionImposicion": 2,
-    "IdAgenciaImposicion": 0,
-    "DireccionRetiroDomicilio": "Av. Libertad 100, CABA",
+    "DireccionRetiroDomicilio": "Av. Pellegrini 450, Rosario",
     "TipoEntrega": 3,
     "IdCentroDeDistribucionEntrega": 1,
     "IdAgenciaEntrega": 0,
-    "DireccionEntrega": "San Martín 400, Rosario",
-    "DniDestinatario": "30111222",
-    "NombreDestinatario": "Prueba ResumenHDR 4",
+    "DireccionEntrega": "Av. Pellegrini 450, Rosario",
+    "DniDestinatario": "29111222",
+    "NombreDestinatario": "Laura Gómez",
     "TipoCaja": 1,
-    "PrecioVenta": 8000.0,
-    "Estado": 12,
+    "PrecioVenta": 15000.0,
+    "Estado": 11,
     "Historial": [
-      { "Fecha": "2026-06-01", "Estado": 1 },
-      { "Fecha": "2026-06-01", "Estado": 4 },
-      { "Fecha": "2026-06-01", "Estado": 5 },
-      { "Fecha": "2026-06-02", "Estado": 6 },
-      { "Fecha": "2026-06-03", "Estado": 8 },
-      { "Fecha": "2026-06-04", "Estado": 9 },
-      { "Fecha": "2026-06-05", "Estado": 10 },
-      { "Fecha": "2026-06-06", "Estado": 11 },
-      { "Fecha": "2026-06-07", "Estado": 12 }
+      { "Fecha": "2026-06-07", "Estado": 3 },
+      { "Fecha": "2026-06-07", "Estado": 6 },
+      { "Fecha": "2026-06-08", "Estado": 8 },
+      { "Fecha": "2026-06-09", "Estado": 9 },
+      { "Fecha": "2026-06-09", "Estado": 10 },
+      { "Fecha": "2026-06-10", "Estado": 11 }
+>>>>>>> fb47f78edd1d199be8e979871e5a61559dfff60f
     ],
     "ComisionFletero": [],
     "ComisionAgencia": [],
     "IntentosDeEntrega": 0
   },
   {
-    "NroGuia": "CC-2-820",
-    "CuitDniCuilCliente": "33-63761744-9",
-    "FechaImposicion": "2026-06-01",
-    "TipoImposicion": 3,
-    "IdCentroDeDistribucionImposicion": 2,
-    "IdAgenciaImposicion": 0,
-    "DireccionRetiroDomicilio": "Av. Libertad 200, CABA",
-    "TipoEntrega": 3,
-    "IdCentroDeDistribucionEntrega": 1,
-    "IdAgenciaEntrega": 0,
-    "DireccionEntrega": "Entre Ríos 600, Rosario",
-    "DniDestinatario": "30222333",
-    "NombreDestinatario": "Prueba ResumenHDR 5",
-    "TipoCaja": 2,
-    "PrecioVenta": 10000.0,
-    "Estado": 12,
-    "Historial": [
-      { "Fecha": "2026-06-01", "Estado": 1 },
-      { "Fecha": "2026-06-01", "Estado": 4 },
-      { "Fecha": "2026-06-01", "Estado": 5 },
-      { "Fecha": "2026-06-02", "Estado": 6 },
-      { "Fecha": "2026-06-03", "Estado": 8 },
-      { "Fecha": "2026-06-04", "Estado": 9 },
-      { "Fecha": "2026-06-05", "Estado": 10 },
-      { "Fecha": "2026-06-06", "Estado": 11 },
-      { "Fecha": "2026-06-07", "Estado": 12 }
-    ],
-    "ComisionFletero": [],
-    "ComisionAgencia": [],
-    "IntentosDeEntrega": 0
-  },
-  {
-    "NroGuia": "CC-2-821",
-    "CuitDniCuilCliente": "33-63761744-9",
-    "FechaImposicion": "2026-06-01",
-    "TipoImposicion": 3,
-    "IdCentroDeDistribucionImposicion": 2,
-    "IdAgenciaImposicion": 0,
-    "DireccionRetiroDomicilio": "Av. Libertad 300, CABA",
-    "TipoEntrega": 3,
-    "IdCentroDeDistribucionEntrega": 1,
-    "IdAgenciaEntrega": 0,
-    "DireccionEntrega": "Córdoba 800, Rosario",
-    "DniDestinatario": "30333444",
-    "NombreDestinatario": "Prueba ResumenHDR 6",
-    "TipoCaja": 3,
-    "PrecioVenta": 12000.0,
-    "Estado": 12,
-    "Historial": [
-      { "Fecha": "2026-06-01", "Estado": 1 },
-      { "Fecha": "2026-06-01", "Estado": 4 },
-      { "Fecha": "2026-06-01", "Estado": 5 },
-      { "Fecha": "2026-06-02", "Estado": 6 },
-      { "Fecha": "2026-06-03", "Estado": 8 },
-      { "Fecha": "2026-06-04", "Estado": 9 },
-      { "Fecha": "2026-06-05", "Estado": 10 },
-      { "Fecha": "2026-06-06", "Estado": 11 },
-      { "Fecha": "2026-06-07", "Estado": 12 },
-      { "Fecha": "2026-06-08", "Estado": 16 },
-      { "Fecha": "2026-06-08", "Estado": 12 }
-    ],
-    "ComisionFletero": [],
-    "ComisionAgencia": [],
-    "IntentosDeEntrega": 1
-  },
-  {
-    "NroGuia": "CC-2-822",
-    "CuitDniCuilCliente": "33-63761744-9",
-    "FechaImposicion": "2026-06-01",
-    "TipoImposicion": 3,
-    "IdCentroDeDistribucionImposicion": 2,
-    "IdAgenciaImposicion": 0,
-    "DireccionRetiroDomicilio": "Av. Libertad 400, CABA",
+<<<<<<< HEAD
+    "NroGuia": "AG-12-817",
+    "CuitDniCuilCliente": "24078369",
+    "FechaImposicion": "2026-06-07",
+    "TipoImposicion": 2,
+    "IdCentroDeDistribucionImposicion": 0,
+    "IdAgenciaImposicion": 12,
+    "DireccionRetiroDomicilio": "",
     "TipoEntrega": 2,
     "IdCentroDeDistribucionEntrega": 0,
-    "IdAgenciaEntrega": 2,
+    "IdAgenciaEntrega": 6,
     "DireccionEntrega": "",
-    "DniDestinatario": "30444555",
-    "NombreDestinatario": "Prueba ResumenHDR 7",
-    "TipoCaja": 1,
-    "PrecioVenta": 8000.0,
-    "Estado": 12,
+    "DniDestinatario": "22333444",
+    "NombreDestinatario": "Federico Ruiz",
+    "TipoCaja": 2,
+    "PrecioVenta": 17000.0,
+    "Estado": 8,
     "Historial": [
-      { "Fecha": "2026-06-01", "Estado": 1 },
-      { "Fecha": "2026-06-01", "Estado": 4 },
-      { "Fecha": "2026-06-01", "Estado": 5 },
-      { "Fecha": "2026-06-02", "Estado": 6 },
-      { "Fecha": "2026-06-03", "Estado": 8 },
-      { "Fecha": "2026-06-04", "Estado": 9 },
-      { "Fecha": "2026-06-05", "Estado": 10 },
-      { "Fecha": "2026-06-06", "Estado": 11 },
-      { "Fecha": "2026-06-07", "Estado": 12 }
+      {
+        "Fecha": "2026-06-07",
+        "Estado": 2
+      },
+      {
+        "Fecha": "2026-06-07",
+        "Estado": 4
+      },
+      {
+        "Fecha": "2026-06-08",
+        "Estado": 5
+      },
+      {
+        "Fecha": "2026-06-08",
+        "Estado": 6
+      },
+      {
+        "Fecha": "2026-06-09",
+        "Estado": 8
+      }
+=======
+    "NroGuia": "CC-1-824",
+    "CuitDniCuilCliente": "33-63761744-9",
+    "FechaImposicion": "2026-06-07",
+    "TipoImposicion": 3,
+    "IdCentroDeDistribucionImposicion": 1,
+    "IdAgenciaImposicion": 0,
+    "DireccionRetiroDomicilio": "Av. Pellegrini 450, Rosario",
+    "TipoEntrega": 3,
+    "IdCentroDeDistribucionEntrega": 1,
+    "IdAgenciaEntrega": 0,
+    "DireccionEntrega": "Av. Pellegrini 450, Rosario",
+    "DniDestinatario": "29111222",
+    "NombreDestinatario": "Laura Gómez",
+    "TipoCaja": 2,
+    "PrecioVenta": 20000.0,
+    "Estado": 11,
+    "Historial": [
+      { "Fecha": "2026-06-07", "Estado": 3 },
+      { "Fecha": "2026-06-07", "Estado": 6 },
+      { "Fecha": "2026-06-08", "Estado": 8 },
+      { "Fecha": "2026-06-09", "Estado": 9 },
+      { "Fecha": "2026-06-09", "Estado": 10 },
+      { "Fecha": "2026-06-10", "Estado": 11 }
+    ],
+    "ComisionFletero": [],
+    "ComisionAgencia": [],
+    "IntentosDeEntrega": 0
+  },
+  {
+    "NroGuia": "AG-1-825",
+    "CuitDniCuilCliente": "33-63761744-9",
+    "FechaImposicion": "2026-06-07",
+    "TipoImposicion": 2,
+    "IdCentroDeDistribucionImposicion": 0,
+    "IdAgenciaImposicion": 1,
+    "DireccionRetiroDomicilio": "",
+    "TipoEntrega": 2,
+    "IdCentroDeDistribucionEntrega": 0,
+    "IdAgenciaEntrega": 1,
+    "DireccionEntrega": "",
+    "DniDestinatario": "29333444",
+    "NombreDestinatario": "Marcos Díaz",
+    "TipoCaja": 3,
+    "PrecioVenta": 25000.0,
+    "Estado": 11,
+    "Historial": [
+      { "Fecha": "2026-06-07", "Estado": 2 },
+      { "Fecha": "2026-06-07", "Estado": 4 },
+      { "Fecha": "2026-06-07", "Estado": 5 },
+      { "Fecha": "2026-06-07", "Estado": 6 },
+      { "Fecha": "2026-06-08", "Estado": 8 },
+      { "Fecha": "2026-06-09", "Estado": 9 },
+      { "Fecha": "2026-06-09", "Estado": 10 },
+      { "Fecha": "2026-06-10", "Estado": 11 }
+>>>>>>> fb47f78edd1d199be8e979871e5a61559dfff60f
+    ],
+    "ComisionFletero": [],
+    "ComisionAgencia": [],
+    "IntentosDeEntrega": 0
+  },
+  {
+<<<<<<< HEAD
+    "NroGuia": "CC-1-818",
+    "CuitDniCuilCliente": "24078369",
+=======
+    "NroGuia": "CC-1-826",
+    "CuitDniCuilCliente": "33-63761744-9",
+>>>>>>> fb47f78edd1d199be8e979871e5a61559dfff60f
+    "FechaImposicion": "2026-06-07",
+    "TipoImposicion": 3,
+    "IdCentroDeDistribucionImposicion": 1,
+    "IdAgenciaImposicion": 0,
+<<<<<<< HEAD
+    "DireccionRetiroDomicilio": "Av. Siempre Viva 123, Rosario",
+    "TipoEntrega": 3,
+    "IdCentroDeDistribucionEntrega": 5,
+    "IdAgenciaEntrega": 0,
+    "DireccionEntrega": "Av. San Martin 100, Mendoza",
+    "DniDestinatario": "22333444",
+    "NombreDestinatario": "Federico Ruiz",
+    "TipoCaja": 3,
+    "PrecioVenta": 17000.0,
+    "Estado": 8,
+    "Historial": [
+      {
+        "Fecha": "2026-06-07",
+        "Estado": 1
+      },
+      {
+        "Fecha": "2026-06-07",
+        "Estado": 4
+      },
+      {
+        "Fecha": "2026-06-08",
+        "Estado": 5
+      },
+      {
+        "Fecha": "2026-06-08",
+        "Estado": 6
+      },
+      {
+        "Fecha": "2026-06-09",
+        "Estado": 8
+      }
+    ],
+    "ComisionFletero": [],
+    "ComisionAgencia": [],
+    "IntentosDeEntrega": 0
+  },
+  {
+    "NroGuia": "CD-2-819",
+    "CuitDniCuilCliente": "24078369",
+    "FechaImposicion": "2026-06-08",
+    "TipoImposicion": 1,
+    "IdCentroDeDistribucionImposicion": 2,
+    "IdAgenciaImposicion": 0,
+    "DireccionRetiroDomicilio": "",
+    "TipoEntrega": 2,
+    "IdCentroDeDistribucionEntrega": 0,
+    "IdAgenciaEntrega": 11,
+    "DireccionEntrega": "",
+    "DniDestinatario": "22333444",
+    "NombreDestinatario": "Federico Ruiz",
+    "TipoCaja": 4,
+    "PrecioVenta": 17000.0,
+    "Estado": 8,
+    "Historial": [
+      {
+        "Fecha": "2026-06-08",
+        "Estado": 3
+      },
+      {
+        "Fecha": "2026-06-08",
+        "Estado": 6
+      },
+      {
+        "Fecha": "2026-06-09",
+        "Estado": 8
+      }
+    ],
+    "ComisionFletero": [],
+    "ComisionAgencia": [],
+    "IntentosDeEntrega": 0
+  },
+  {
+    "NroGuia": "CD-1-820",
+    "CuitDniCuilCliente": "33-63761744-9",
+    "FechaImposicion": "2026-06-09",
+    "TipoImposicion": 1,
+    "IdCentroDeDistribucionImposicion": 1,
+    "IdAgenciaImposicion": 0,
+    "DireccionRetiroDomicilio": "",
+    "TipoEntrega": 2,
+    "IdCentroDeDistribucionEntrega": 0,
+    "IdAgenciaEntrega": 6,
+    "DireccionEntrega": "",
+    "DniDestinatario": "25200071",
+    "NombreDestinatario": "Ferran Torres",
+    "TipoCaja": 1,
+    "PrecioVenta": 17000.0,
+    "Estado": 8,
+    "Historial": [
+      {
+        "Fecha": "2026-06-09",
+        "Estado": 3
+      },
+      {
+        "Fecha": "2026-06-09",
+        "Estado": 6
+      },
+      {
+        "Fecha": "2026-06-10",
+        "Estado": 8
+      }
+    ],
+    "ComisionFletero": [],
+    "ComisionAgencia": [],
+    "IntentosDeEntrega": 0
+  },
+  {
+    "NroGuia": "CD-2-821",
+    "CuitDniCuilCliente": "30-64621216-9",
+    "FechaImposicion": "2026-06-09",
+    "TipoImposicion": 1,
+    "IdCentroDeDistribucionImposicion": 2,
+    "IdAgenciaImposicion": 0,
+    "DireccionRetiroDomicilio": "",
+    "TipoEntrega": 2,
+    "IdCentroDeDistribucionEntrega": 0,
+    "IdAgenciaEntrega": 11,
+    "DireccionEntrega": "",
+    "DniDestinatario": "22333444",
+    "NombreDestinatario": "Federico Ruiz",
+    "TipoCaja": 2,
+    "PrecioVenta": 17000.0,
+    "Estado": 8,
+    "Historial": [
+      {
+        "Fecha": "2026-06-09",
+        "Estado": 3
+      },
+      {
+        "Fecha": "2026-06-09",
+        "Estado": 6
+      },
+      {
+        "Fecha": "2026-06-10",
+        "Estado": 8
+      }
+    ],
+    "ComisionFletero": [],
+    "ComisionAgencia": [],
+    "IntentosDeEntrega": 0
+  },
+  {
+    "NroGuia": "CC-1-822",
+    "CuitDniCuilCliente": "24078369",
+    "FechaImposicion": "2026-06-08",
+    "TipoImposicion": 3,
+    "IdCentroDeDistribucionImposicion": 1,
+    "IdAgenciaImposicion": 0,
+    "DireccionRetiroDomicilio": "Av. Siempre Viva 123, Rosario",
+    "TipoEntrega": 1,
+    "IdCentroDeDistribucionEntrega": 5,
+    "IdAgenciaEntrega": 0,
+    "DireccionEntrega": "",
+    "DniDestinatario": "22333444",
+    "NombreDestinatario": "Federico Ruiz",
+    "TipoCaja": 3,
+    "PrecioVenta": 17000.0,
+    "Estado": 8,
+    "Historial": [
+      {
+        "Fecha": "2026-06-08",
+        "Estado": 1
+      },
+      {
+        "Fecha": "2026-06-08",
+        "Estado": 4
+      },
+      {
+        "Fecha": "2026-06-09",
+        "Estado": 5
+      },
+      {
+        "Fecha": "2026-06-09",
+        "Estado": 6
+      },
+      {
+        "Fecha": "2026-06-10",
+        "Estado": 8
+      }
+    ],
+    "ComisionFletero": [],
+    "ComisionAgencia": [],
+    "IntentosDeEntrega": 0
+  },
+  {
+    "NroGuia": "CC-3-823",
+    "CuitDniCuilCliente": "24078369",
+    "FechaImposicion": "2026-06-08",
+    "TipoImposicion": 3,
+    "IdCentroDeDistribucionImposicion": 3,
+    "IdAgenciaImposicion": 0,
+    "DireccionRetiroDomicilio": "Bv. San Juan 1200, Cordoba",
+    "TipoEntrega": 2,
+    "IdCentroDeDistribucionEntrega": 0,
+    "IdAgenciaEntrega": 13,
+    "DireccionEntrega": "",
+    "DniDestinatario": "22333444",
+    "NombreDestinatario": "Federico Ruiz",
+    "TipoCaja": 4,
+    "PrecioVenta": 17000.0,
+    "Estado": 8,
+    "Historial": [
+      {
+        "Fecha": "2026-06-08",
+        "Estado": 1
+      },
+      {
+        "Fecha": "2026-06-08",
+        "Estado": 4
+      },
+      {
+        "Fecha": "2026-06-09",
+        "Estado": 5
+      },
+      {
+        "Fecha": "2026-06-09",
+        "Estado": 6
+      },
+      {
+        "Fecha": "2026-06-10",
+        "Estado": 8
+      }
+    ],
+    "ComisionFletero": [],
+    "ComisionAgencia": [],
+    "IntentosDeEntrega": 0
+  },
+  {
+    "NroGuia": "CD-1-824",
+    "CuitDniCuilCliente": "33-63761744-9",
+    "FechaImposicion": "2026-06-09",
+    "TipoImposicion": 1,
+    "IdCentroDeDistribucionImposicion": 1,
+    "IdAgenciaImposicion": 0,
+    "DireccionRetiroDomicilio": "",
+    "TipoEntrega": 1,
+    "IdCentroDeDistribucionEntrega": 2,
+    "IdAgenciaEntrega": 0,
+    "DireccionEntrega": "",
+    "DniDestinatario": "25200071",
+    "NombreDestinatario": "Ferran Torres",
+    "TipoCaja": 2,
+    "PrecioVenta": 17000.0,
+    "Estado": 8,
+    "Historial": [
+      {
+        "Fecha": "2026-06-09",
+        "Estado": 3
+      },
+      {
+        "Fecha": "2026-06-09",
+        "Estado": 6
+      },
+      {
+        "Fecha": "2026-06-10",
+        "Estado": 8
+      }
+    ],
+    "ComisionFletero": [],
+    "ComisionAgencia": [],
+    "IntentosDeEntrega": 0
+  },
+  {
+    "NroGuia": "CD-2-825",
+    "CuitDniCuilCliente": "30-64621216-9",
+    "FechaImposicion": "2026-06-09",
+    "TipoImposicion": 1,
+    "IdCentroDeDistribucionImposicion": 2,
+    "IdAgenciaImposicion": 0,
+    "DireccionRetiroDomicilio": "",
+    "TipoEntrega": 1,
+    "IdCentroDeDistribucionEntrega": 3,
+    "IdAgenciaEntrega": 0,
+    "DireccionEntrega": "",
+    "DniDestinatario": "22333444",
+    "NombreDestinatario": "Federico Ruiz",
+    "TipoCaja": 3,
+    "PrecioVenta": 17000.0,
+    "Estado": 8,
+    "Historial": [
+      {
+        "Fecha": "2026-06-09",
+        "Estado": 3
+      },
+      {
+        "Fecha": "2026-06-09",
+        "Estado": 6
+      },
+      {
+        "Fecha": "2026-06-10",
+        "Estado": 8
+      }
+    ],
+    "ComisionFletero": [],
+    "ComisionAgencia": [],
+    "IntentosDeEntrega": 0
+  },
+  {
+    "NroGuia": "CD-3-826",
+    "CuitDniCuilCliente": "24078369",
+    "FechaImposicion": "2026-06-09",
+    "TipoImposicion": 1,
+    "IdCentroDeDistribucionImposicion": 3,
+    "IdAgenciaImposicion": 0,
+    "DireccionRetiroDomicilio": "",
+    "TipoEntrega": 1,
+    "IdCentroDeDistribucionEntrega": 4,
+    "IdAgenciaEntrega": 0,
+    "DireccionEntrega": "",
+    "DniDestinatario": "22333444",
+    "NombreDestinatario": "Federico Ruiz",
+    "TipoCaja": 4,
+    "PrecioVenta": 17000.0,
+    "Estado": 8,
+    "Historial": [
+      {
+        "Fecha": "2026-06-09",
+        "Estado": 3
+      },
+      {
+        "Fecha": "2026-06-09",
+        "Estado": 6
+      },
+      {
+        "Fecha": "2026-06-10",
+        "Estado": 8
+      }
+=======
+    "DireccionRetiroDomicilio": "Bv. Oroño 200, Rosario",
+    "TipoEntrega": 3,
+    "IdCentroDeDistribucionEntrega": 1,
+    "IdAgenciaEntrega": 0,
+    "DireccionEntrega": "Bv. Oroño 200, Rosario",
+    "DniDestinatario": "29555666",
+    "NombreDestinatario": "Sandra Vidal",
+    "TipoCaja": 4,
+    "PrecioVenta": 30000.0,
+    "Estado": 11,
+    "Historial": [
+      { "Fecha": "2026-06-07", "Estado": 3 },
+      { "Fecha": "2026-06-07", "Estado": 6 },
+      { "Fecha": "2026-06-08", "Estado": 8 },
+      { "Fecha": "2026-06-09", "Estado": 9 },
+      { "Fecha": "2026-06-09", "Estado": 10 },
+      { "Fecha": "2026-06-10", "Estado": 11 }
+>>>>>>> fb47f78edd1d199be8e979871e5a61559dfff60f
     ],
     "ComisionFletero": [],
     "ComisionAgencia": [],

@@ -232,14 +232,12 @@ namespace TP_CAI_1C2026.Forms.Imposicion.ImposicionAgencia
 
                 for (int i = 0; i < detalle.Cantidad; i++)
                 {
-                    EstadoGuiaEnum estado = ObtenerEstadoInicial(cdChecked, cdSelected, agenciaChecked, ciudadAgenciaSelected, domicilioChecked, ciudadDestSelected);
-
                     guias.Add(new GuiaEntidad
                     {
                         NroGuia = numerosGuias[indiceGuia],
                         CuitDniCuilCliente = cuitCliente,
                         FechaImposicion = fechaActual,
-                        TipoImposicion = TipoImposicionEnum.CD,
+                        TipoImposicion = TipoImposicionEnum.Agencia,
                         IdCentroDeDistribucionImposicion = 0,
                         IdAgenciaImposicion = 1,
                         DireccionRetiroDomicilio = string.Empty,
@@ -251,8 +249,15 @@ namespace TP_CAI_1C2026.Forms.Imposicion.ImposicionAgencia
                         NombreDestinatario = nombreDest,
                         TipoCaja = tipoCaja,
                         PrecioVenta = 0,
-                        Estado = estado,
-                        Historial = CrearHistorial(estado, fechaActual),
+                        Estado = EstadoGuiaEnum.ImpuestaEnAgencia,
+                        Historial = new List<HistorialGuia>
+                        {
+                            new HistorialGuia
+                            {
+                                Fecha = fechaActual,
+                                Estado = EstadoGuiaEnum.ImpuestaEnAgencia
+                            }
+                        },
                         ComisionFletero = new List<GuiaComisionFletero>(),
                         ComisionAgencia = new List<GuiaComisionAgencia>(),
                         IntentosDeEntrega = 0
@@ -304,37 +309,6 @@ namespace TP_CAI_1C2026.Forms.Imposicion.ImposicionAgencia
 
             return 0;
         }
-        private static EstadoGuiaEnum ObtenerEstadoInicial(
-            bool cdChecked,
-            CentroDeDistribucion? cdSelected,
-            bool agenciaChecked,
-            Ciudad? ciudadAgenciaSelected,
-            bool domicilioChecked,
-            Ciudad? ciudadDestSelected)
-        {
-            bool yaEstaEnDestino =
-                cdChecked && cdSelected?.Id == 1 ||
-                agenciaChecked && ciudadAgenciaSelected?.Id == 1 ||
-                domicilioChecked && ciudadDestSelected?.Id == 1;
-
-            return yaEstaEnDestino ? EstadoGuiaEnum.EnDestino : EstadoGuiaEnum.Admitida;
-        }
-
-        private static List<HistorialGuia> CrearHistorial(EstadoGuiaEnum estado, DateTime fecha)
-        {
-            List<HistorialGuia> historial = new()
-        {
-            new HistorialGuia { Fecha = fecha, Estado = EstadoGuiaEnum.ImpuestaEnAgencia }
-        };
-
-            if (estado == EstadoGuiaEnum.EnDestino)
-            {
-                historial.Add(new HistorialGuia { Fecha = fecha, Estado = EstadoGuiaEnum.ImpuestaEnAgencia });
-            }
-
-            return historial;
-        }
-
         internal bool ValidarConfirmacion(
             bool cdChecked,
             CentroDeDistribucion? cdSelected,

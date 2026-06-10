@@ -176,7 +176,6 @@ public class ImposicionCDModelo
     }
 
     internal List<string> GenerarNumerosGuias()
-
     {
         var resultado = new List<string>();
 

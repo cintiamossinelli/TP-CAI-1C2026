@@ -35,7 +35,7 @@ Plan de Prueba: EmisionHDRRetiro-GeneracionExitosa.txt
 28- Lista guías agregadas muestra           "CC-1-797 | S | Av. Siempre Viva 123, Rosario"
                                             "CC-1-798 | M | Av. Siempre Viva 123, Rosario"
 29- Botón                                   "Generar HDR"
-30- Mensaje                                 "HDR N° 14 generada correctamente para el fletero José Lema."
+30- Mensaje                                 "HDR N° 17 generada correctamente para el fletero José Lema."
 31- Botón                                   "Aceptar"
 32- Cerrar el sistema
 
@@ -44,7 +44,7 @@ Verificaciones:
 34- Archivo HDRRetiro.json — última entrada agregada debe ser similar a:
 
     {
-      "NroHDR": 14,
+      "NroHDR": 17,
       "DniFletero": 11223344,
       "Fecha": "<fecha actual>",
       "Domicilio": "Av. Siempre Viva 123, Rosario",

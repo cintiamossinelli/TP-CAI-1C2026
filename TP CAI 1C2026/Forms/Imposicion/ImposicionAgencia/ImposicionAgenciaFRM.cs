@@ -64,9 +64,15 @@ namespace TP_CAI_1C2026.Forms.Imposicion.ImposicionAgencia
             var ciudadSeleccionada = (Ciudad)ciudadAgenciaCMB.SelectedItem;
             var agencias = ciudadSeleccionada.Agencias.OrderBy(a => a.Nombre).ToList();
 
+            agenciaCMB.DataSource = null;
+            agenciaCMB.Items.Clear();
+            foreach (var agencia in agencias)
+            {
+                agenciaCMB.Items.Add(agencia);
+            }
+
             agenciaCMB.DisplayMember = "Nombre";
             agenciaCMB.ValueMember = "Id";
-            agenciaCMB.DataSource = agencias;
             agenciaCMB.SelectedIndex = -1;
         }
 
@@ -97,7 +103,7 @@ namespace TP_CAI_1C2026.Forms.Imposicion.ImposicionAgencia
             direccionDestinatarioTXT.Enabled = domicilioRDB.Checked;
             destinoCDCMB.SelectedIndex = -1;
             ciudadAgenciaCMB.SelectedIndex = -1;
-            ciudadDestinatarioCMB.SelectedIndex = -1;
+            agenciaCMB.SelectedIndex = -1;
         }
 
         private void buscarClienteBTN_Click(object sender, EventArgs e)

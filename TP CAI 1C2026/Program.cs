@@ -28,7 +28,11 @@ namespace TP_CAI_1C2026
         static void Main()
         {
             ApplicationConfiguration.Initialize();
-            Application.Run(new EmisionResumenHDRConfirmadasFRM());
+<<<<<<< HEAD
+            Application.Run(new EmisionHDRTransporteFRM());
+=======
+            Application.Run(new EmisionHDREntregaFRM());
+>>>>>>> fb47f78edd1d199be8e979871e5a61559dfff60f
         }
     }
 }

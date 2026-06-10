@@ -24,5 +24,10 @@ namespace TP_CAI_1C2026.Forms.Almacen
             string json = JsonSerializer.Serialize(hdrTransporte);
             File.WriteAllText(@"Forms\Datos\HDRTransporte.json", json);
         }
+
+        public static void Agregar(HDRTransporteEntidad hdr)
+        {
+            hdrTransporte.Add(hdr);
+        }
     }
 }

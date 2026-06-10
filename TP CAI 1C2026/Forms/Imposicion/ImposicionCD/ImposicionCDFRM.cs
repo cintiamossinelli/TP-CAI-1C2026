@@ -23,7 +23,6 @@ namespace TP_CAI_1C2026.Forms.Imposicion.ImposicionCD
 
             List<CentroDeDistribucion> cds = modelo.ObtenerCDS();
             destinoCDCMB.Items.Clear();
-            ciudadDestinatarioCMB.Items.Clear();
             foreach (var c in cds)
             {
                 destinoCDCMB.Items.Add(c);
@@ -34,6 +33,7 @@ namespace TP_CAI_1C2026.Forms.Imposicion.ImposicionCD
 
             List<Ciudad> ciudades = modelo.ObtenerCiudades();
             ciudadAgenciaCMB.Items.Clear();
+            ciudadDestinatarioCMB.Items.Clear();
             foreach (var c in ciudades)
             {
                 ciudadAgenciaCMB.Items.Add(c);
@@ -92,7 +92,7 @@ namespace TP_CAI_1C2026.Forms.Imposicion.ImposicionCD
             direccionDestinatarioTXT.Enabled = domicilioRDB.Checked;
             destinoCDCMB.SelectedIndex = -1;
             ciudadAgenciaCMB.SelectedIndex = -1;
-            ciudadDestinatarioCMB.SelectedIndex = -1;
+            agenciaCMB.SelectedIndex = -1;
         }
 
         private void buscarClienteBTN_Click(object sender, EventArgs e)
