@@ -2,21 +2,12 @@
 using System.Collections.Generic;
 using System.Text;
 using System.Linq;
+using TP_CAI_1C2026.Forms.Almacen;
 
 namespace TP_CAI_1C2026.Forms.UltimaMilla.EmisionResumenHDRConfirmadas
 {
     internal class EmisionResumenHDRConfirmadasModelo
     {
-        private List<Fletero> fleteros = new List<Fletero>
-    {
-        new Fletero { Dni = 12345678, Nombre = "Carlos López" },
-        new Fletero { Dni = 87654321, Nombre = "Roberto Gómez" },
-        new Fletero { Dni = 11223344, Nombre = "Pedro Martínez" },
-        new Fletero { Dni = 99999999, Nombre = "Julián Alvarez" },
-        new Fletero { Dni = 44445678, Nombre = "Pablo Perez" },
-        new Fletero { Dni = 44445678, Nombre = "Marcos Gutierrez" }
-    };
-
         private List<HDREnTransito> hdrs = new List<HDREnTransito>
     {
         // Asociamos cada HDR a un fletero mediante DniFletero y definimos su Estado
@@ -124,9 +115,18 @@ namespace TP_CAI_1C2026.Forms.UltimaMilla.EmisionResumenHDRConfirmadas
                 return null;
             }
 
-            var fletero = fleteros.FirstOrDefault(f => f.Dni == dniInt);
+            var fleteroEntidad = FleteroAlmacen.Fleteros.FirstOrDefault(f => f.DNI == dniInt);
 
-            return fletero;
+            if (fleteroEntidad == null)
+            {
+                return null;
+            }
+
+            return new Fletero
+            {
+                Dni = fleteroEntidad.DNI,
+                Nombre = fleteroEntidad.Nombre
+            };
 
 
         }
