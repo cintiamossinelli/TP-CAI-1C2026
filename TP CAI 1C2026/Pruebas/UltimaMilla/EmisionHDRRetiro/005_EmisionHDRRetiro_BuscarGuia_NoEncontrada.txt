@@ -1,0 +1,17 @@
+Plan de Prueba: EmisionHDRRetiro-BuscarGuia_NoEncontrada.txt
+
+(Empieza con el menú principal)
+1-  Abrir formulario                        "Emisión de HDR de Retiro"
+2-  Campo DNI Fletero                       "11223344"
+3-  Botón                                   "Buscar"
+4-  Nombre del Fletero muestra              "José Lema"
+5-  Combobox Localidad se selecciona auto   "Rosario"
+6-  Campo Nº Guía                           "CC-1-999"
+7-  Botón                                   "Buscar" (buscar guía)
+8-  Mensaje                                 "No se encontró ninguna guía con el número CC-1-999."
+9-  Botón                                   "Aceptar"
+10- Cerrar el sistema
+
+Verificaciones:
+11- La lista de guías sin agregar está vacía
+12- La lista de guías agregadas está vacía

@@ -1,0 +1,22 @@
+Plan de Prueba: EmisionHDRRetiro-Quitar_SinSeleccion.txt
+
+(Empieza con el menú principal)
+1-  Abrir formulario                        "Emisión de HDR de Retiro"
+2-  Campo DNI Fletero                       "11223344"
+3-  Botón                                   "Buscar"
+4-  Nombre del Fletero muestra              "José Lema"
+5-  Combobox Localidad se selecciona auto   "Rosario"
+6-  Campo Nº Guía                           "CC-1-797"
+7-  Botón                                   "Buscar" (buscar guía)
+8-  Lista guías sin agregar muestra         "CC-1-797 | S | Av. Siempre Viva 123, Rosario"
+9-  Seleccionar guía                        "CC-1-797"
+10- Botón                                   "Agregar >>>"
+11- Lista guías agregadas muestra           "CC-1-797 | S | Av. Siempre Viva 123, Rosario"
+12- (No se selecciona ninguna guía del lado derecho)
+13- Botón                                   "<<< Quitar"
+14- Mensaje                                 "Debe seleccionar al menos una guía para quitar."
+15- Botón                                   "Aceptar"
+16- Cerrar el sistema
+
+Verificaciones:
+17- La lista de guías agregadas sigue mostrando "CC-1-797 | S | Av. Siempre Viva 123, Rosario"
