@@ -1,6 +1,8 @@
 ﻿namespace TP_CAI_1C2026.Forms.Troncal.EmisionHDRTransporte;
 
 using System.Linq;
+using System.Globalization;
+using System.Text;
 using TP_CAI_1C2026.Forms.Almacen;
 
 public class EmisionHDRTransporteModelo
@@ -277,15 +279,24 @@ public class EmisionHDRTransporteModelo
             .Select(g => g.NumeroGuia)
             .ToHashSet(StringComparer.OrdinalIgnoreCase);
 
-        var origenesGuias = GuiaAlmacen.Guias
+        var entidadesGuias = GuiaAlmacen.Guias
             .Where(g => numerosGuias.Contains(g.NroGuia))
-            .Select(g => g.IdCentroDeDistribucionImposicion)
+            .ToList();
+
+        var origenesGuias = entidadesGuias
+            .Select(ResolverIdCentroOrigen)
             .Distinct()
             .ToList();
 
-        if (origenesGuias.Count != 1)
+        if (origenesGuias.Count != 1 || !origenesGuias.Single().HasValue)
         {
-            MessageBox.Show("Todas las guías seleccionadas deben pertenecer al mismo Centro de Distribución de imposición.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            MessageBox.Show("Todas las guías seleccionadas deben pertenecer al mismo Centro de Distribución de origen.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            return null;
+        }
+
+        if (entidadesGuias.Any(g => ResolverIdCentroDestino(g) != destinoSeleccionado!.Id))
+        {
+            MessageBox.Show("Todas las guías seleccionadas deben corresponder al Centro de Distribución destino seleccionado.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             return null;
         }
 
@@ -303,7 +314,7 @@ public class EmisionHDRTransporteModelo
             NroHDR = hdr.Id,
             IdServicio = servicio.IdServicio,
             FechaEmision = hdr.FechaEmision,
-            IdCentroDeDistribucionOrigen = origenesGuias.Single(),
+            IdCentroDeDistribucionOrigen = origenesGuias.Single()!.Value,
             IdCentroDeDistribucionDestino = hdr.Destino.Id,
             Guias = hdr.Guias.Select(g => g.NumeroGuia).ToList()
         });
@@ -391,18 +402,21 @@ public class EmisionHDRTransporteModelo
 
         return GuiaAlmacen.Guias
             .Where(g => g.Estado == EstadoGuiaEnum.Admitida)
-            .Where(g => g.TipoImposicion == TipoImposicionEnum.CD)
-            .Where(g => g.TipoEntrega == TipoEntregaEnum.CD)
             .Where(g => !guiasAsignadas.Contains(g.NroGuia))
             .Select(g => new
             {
                 Guia = g,
                 IdCentroOrigen = ResolverIdCentroOrigen(g),
-                IdCentroDestino = ResolverIdCentroDestino(g)
+                IdCentroDestino = ResolverIdCentroDestino(g),
+                LugarOrigen = ResolverLugarOrigen(g),
+                LugarDestino = ResolverLugarDestino(g)
             })
             .Where(x => x.IdCentroOrigen.HasValue
                 && x.IdCentroDestino.HasValue
-                && x.IdCentroOrigen.Value != x.IdCentroDestino.Value
+                && x.LugarOrigen != null
+                && x.LugarDestino != null
+                && !string.Equals(x.LugarOrigen, x.LugarDestino, StringComparison.OrdinalIgnoreCase)
+                && centros.ContainsKey(x.IdCentroOrigen.Value)
                 && centros.ContainsKey(x.IdCentroDestino.Value))
             .Select(g => new GuiaEncomienda
             {
@@ -456,7 +470,7 @@ public class EmisionHDRTransporteModelo
         {
             TipoImposicionEnum.CD => guia.IdCentroDeDistribucionImposicion,
             TipoImposicionEnum.Agencia => ResolverIdCentroPorAgencia(guia.IdAgenciaImposicion),
-            TipoImposicionEnum.EnDomicilio => guia.IdCentroDeDistribucionImposicion,
+            TipoImposicionEnum.EnDomicilio => ResolverIdCentroPorDireccion(guia.DireccionRetiroDomicilio),
             _ => null
         };
     }
@@ -467,7 +481,7 @@ public class EmisionHDRTransporteModelo
         {
             TipoEntregaEnum.CD => guia.IdCentroDeDistribucionEntrega,
             TipoEntregaEnum.Agencia => ResolverIdCentroPorAgencia(guia.IdAgenciaEntrega),
-            TipoEntregaEnum.ADomicilio => guia.IdCentroDeDistribucionEntrega,
+            TipoEntregaEnum.ADomicilio => ResolverIdCentroPorDireccion(guia.DireccionEntrega),
             _ => null
         };
     }
@@ -477,6 +491,77 @@ public class EmisionHDRTransporteModelo
         return CiudadAlmacen.Ciudades
             .FirstOrDefault(c => c.Agencias != null && c.Agencias.Contains(idAgencia))
             ?.IdCentroDeDistribucion;
+    }
+
+    private int? ResolverIdCentroPorDireccion(string? direccion)
+    {
+        var direccionNormalizada = NormalizarTexto(direccion);
+        if (string.IsNullOrWhiteSpace(direccionNormalizada))
+        {
+            return null;
+        }
+
+        if (direccionNormalizada.Contains("caba"))
+        {
+            return CiudadAlmacen.Ciudades
+                .FirstOrDefault(c => NormalizarTexto(c.Nombre) == "buenos aires")
+                ?.IdCentroDeDistribucion;
+        }
+
+        return CiudadAlmacen.Ciudades
+            .FirstOrDefault(c => direccionNormalizada.Contains(NormalizarTexto(c.Nombre)))
+            ?.IdCentroDeDistribucion;
+    }
+
+    private string? ResolverLugarOrigen(GuiaEntidad guia)
+    {
+        return guia.TipoImposicion switch
+        {
+            TipoImposicionEnum.CD => $"CD:{guia.IdCentroDeDistribucionImposicion}",
+            TipoImposicionEnum.Agencia => $"AGENCIA:{guia.IdAgenciaImposicion}",
+            TipoImposicionEnum.EnDomicilio => ResolverLugarDomicilio(guia.DireccionRetiroDomicilio),
+            _ => null
+        };
+    }
+
+    private string? ResolverLugarDestino(GuiaEntidad guia)
+    {
+        return guia.TipoEntrega switch
+        {
+            TipoEntregaEnum.CD => $"CD:{guia.IdCentroDeDistribucionEntrega}",
+            TipoEntregaEnum.Agencia => $"AGENCIA:{guia.IdAgenciaEntrega}",
+            TipoEntregaEnum.ADomicilio => ResolverLugarDomicilio(guia.DireccionEntrega),
+            _ => null
+        };
+    }
+
+    private string? ResolverLugarDomicilio(string? direccion)
+    {
+        var direccionNormalizada = NormalizarTexto(direccion);
+        return string.IsNullOrWhiteSpace(direccionNormalizada)
+            ? null
+            : $"DOMICILIO:{direccionNormalizada}";
+    }
+
+    private string NormalizarTexto(string? texto)
+    {
+        if (string.IsNullOrWhiteSpace(texto))
+        {
+            return string.Empty;
+        }
+
+        var textoNormalizado = texto.Normalize(NormalizationForm.FormD);
+        var resultado = new StringBuilder();
+
+        foreach (var caracter in textoNormalizado)
+        {
+            if (CharUnicodeInfo.GetUnicodeCategory(caracter) != UnicodeCategory.NonSpacingMark)
+            {
+                resultado.Append(char.ToLowerInvariant(caracter));
+            }
+        }
+
+        return resultado.ToString().Normalize(NormalizationForm.FormC).Trim();
     }
 
     private void ActualizarEstadoGuias(IEnumerable<GuiaEncomienda> guias)
