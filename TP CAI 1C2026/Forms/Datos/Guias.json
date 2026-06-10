@@ -2647,7 +2647,7 @@
     "DniDestinatario": "22000111",
     "NombreDestinatario": "Prueba Transporte 1",
     "TipoCaja": 3,
-    "PrecioVenta": 0,
+    "PrecioVenta": 40000,
     "Estado": 10,
     "Historial": [
       {
@@ -2698,7 +2698,7 @@
     "DniDestinatario": "22000111",
     "NombreDestinatario": "Prueba Transporte 2",
     "TipoCaja": 1,
-    "PrecioVenta": 0,
+    "PrecioVenta": 37000,
     "Estado": 10,
     "Historial": [
       {
@@ -2749,7 +2749,7 @@
     "DniDestinatario": "22000111",
     "NombreDestinatario": "Prueba Transporte 3",
     "TipoCaja": 4,
-    "PrecioVenta": 0,
+    "PrecioVenta": 54000,
     "Estado": 10,
     "Historial": [
       {
@@ -2790,7 +2790,7 @@
     "CuitDniCuilCliente": "33-63761744-9",
     "FechaImposicion": "2026-05-31",
     "TipoImposicion": 1,
-    "IdCentroDeDistribucionImposicion": 1,
+    "IdCentroDeDistribucionImposicion": 2,
     "IdAgenciaImposicion": 0,
     "DireccionRetiroDomicilio": "",
     "TipoEntrega": 3,
@@ -2800,7 +2800,7 @@
     "DniDestinatario": "22000111",
     "NombreDestinatario": "Prueba Transporte 4",
     "TipoCaja": 2,
-    "PrecioVenta": 0,
+    "PrecioVenta": 26000,
     "Estado": 10,
     "Historial": [
       {
@@ -2841,7 +2841,7 @@
     "CuitDniCuilCliente": "33-63761744-9",
     "FechaImposicion": "2026-05-31",
     "TipoImposicion": 1,
-    "IdCentroDeDistribucionImposicion": 1,
+    "IdCentroDeDistribucionImposicion": 2,
     "IdAgenciaImposicion": 0,
     "DireccionRetiroDomicilio": "",
     "TipoEntrega": 1,
@@ -2851,7 +2851,7 @@
     "DniDestinatario": "22000111",
     "NombreDestinatario": "Prueba Transporte 5",
     "TipoCaja": 2,
-    "PrecioVenta": 0,
+    "PrecioVenta": 26000,
     "Estado": 10,
     "Historial": [
       {
@@ -2902,7 +2902,7 @@
     "DniDestinatario": "22000111",
     "NombreDestinatario": "Prueba Transporte 6",
     "TipoCaja": 3,
-    "PrecioVenta": 0,
+    "PrecioVenta": 41000,
     "Estado": 10,
     "Historial": [
       {
@@ -2944,7 +2944,7 @@
     "FechaImposicion": "2026-05-31",
     "TipoImposicion": 1,
     "IdCentroDeDistribucionImposicion": 1,
-    "IdAgenciaImposicion": 1,
+    "IdAgenciaImposicion": 0,
     "DireccionRetiroDomicilio": "",
     "TipoEntrega": 2,
     "IdCentroDeDistribucionEntrega": 0,
@@ -2953,7 +2953,7 @@
     "DniDestinatario": "12346578",
     "NombreDestinatario": "Prueba Transporte 7",
     "TipoCaja": 3,
-    "PrecioVenta": 0,
+    "PrecioVenta": 40000,
     "Estado": 10,
     "Historial": [
       {
