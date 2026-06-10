@@ -2,25 +2,25 @@
   {
     "IdEmpresaTransporte": 1,
     "Nombre": "Flechabus",
-    "TarifaMensual": 600000.00,
+    "TarifaMensual": 30000.00,
     "CapacidadEnXL": 20
   },
   {
     "IdEmpresaTransporte": 2,
     "Nombre": "Chevallier",
-    "TarifaMensual": 250000.00,
+    "TarifaMensual": 20000.00,
     "CapacidadEnXL": 7
   },
   {
     "IdEmpresaTransporte": 3,
     "Nombre": "Andesmar",
-    "TarifaMensual": 400000.00,
+    "TarifaMensual": 100000.00,
     "CapacidadEnXL": 10
   },
   {
     "IdEmpresaTransporte": 4,
     "Nombre": "El Rosarino",
-    "TarifaMensual": 150000.00,
+    "TarifaMensual": 40000.00,
     "CapacidadEnXL": 3
   },
   {
@@ -32,7 +32,7 @@
   {
     "IdEmpresaTransporte": 6,
     "Nombre": "Pullman",
-    "TarifaMensual": 420000.00,
+    "TarifaMensual": 42000.00,
     "CapacidadEnXL": 10
   },
   {
