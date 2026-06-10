@@ -68,8 +68,8 @@
             GuiasLST.TabIndex = 15;
             GuiasLST.UseCompatibleStateImageBehavior = false;
             GuiasLST.View = View.Details;
-            GuiasLST.SelectedIndexChanged += GuiasLST_SelectedIndexChanged;
-            GuiasLST.Click += GuiasLST_SelectedIndexChanged;
+            //GuiasLST.SelectedIndexChanged += GuiasLST_SelectedIndexChanged;
+            //GuiasLST.Click += GuiasLST_SelectedIndexChanged;
             // 
             // TipoEncomiendaCol
             // 
