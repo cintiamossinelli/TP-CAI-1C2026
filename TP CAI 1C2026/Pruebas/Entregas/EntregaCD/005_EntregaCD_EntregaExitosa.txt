@@ -1,0 +1,26 @@
+Plan de Prueba: EntregaCD-EntregaExitosa.txt
+
+(Empieza con el menú principal)
+1-  Abrir formulario                        "Entrega de Encomienda - CD"
+2-  Campo DNI Destinatario                  "20333445"
+3-  Botón                                   "Buscar"
+4-  Lista Guías Asociadas muestra           "CD-1-169 | PendienteDeEntrega | L"
+5-  Seleccionar guía                        "CD-1-169"
+6-  Botón                                   "Retirar"
+7-  Mensaje                                 "Entrega registrada correctamente.
+                                             Guias entregadas:
+                                             - CD-1-169 | L"
+8-  Botón                                   "Aceptar"
+9-  Cerrar el sistema
+
+Verificaciones:
+10- Archivo Guias.json — la guía CD-1-169 debe aparecer con los siguientes cambios:
+
+    {
+      "NroGuia": "CD-1-169",
+      "Estado": 17,
+      "Historial": [
+        ...entradas anteriores...,
+        { "Fecha": "<fecha actual>", "Estado": 17 }
+      ]
+    }

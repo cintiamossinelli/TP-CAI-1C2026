@@ -24,5 +24,10 @@ namespace TP_CAI_1C2026.Forms.Almacen
             string json = JsonSerializer.Serialize(hdrEntrega);
             File.WriteAllText(@"Forms\Datos\HDREntrega.json", json);
         }
+
+        public static void Agregar(HDREntregaEntidad hdr)
+        {
+            hdrEntrega.Add(hdr);
+        }
     }
 }

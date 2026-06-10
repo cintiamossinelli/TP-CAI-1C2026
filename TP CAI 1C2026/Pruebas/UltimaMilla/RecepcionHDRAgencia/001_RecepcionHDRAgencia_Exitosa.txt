@@ -1,0 +1,32 @@
+﻿=========================================
+PRUEBA DE CAJA NEGRA N° 1
+RECEPCIÓN EXITOSA DE HDR
+=========================================
+
+Objetivo:
+Verificar que el sistema permita recibir correctamente una Hoja de Ruta (HDR) válida asignada a una agencia.
+
+Precondiciones:
+- Existe una HDR pendiente de recepción.
+- La HDR contiene una o más guías.
+- La HDR aún no fue recibida.
+- En el combobox muestro HDR de entrega con Estado = 2.
+
+Datos de Entrada:
+N° Hoja de Ruta: HDR-0001
+
+Pasos:
+1. Seleccionar una HDR válida en el desplegable.
+2. Verificar que se carguen las guías asociadas.
+3. Presionar el botón "Recibir HDR".
+
+Resultado Esperado:
+- Se muestran las guías correspondientes a la HDR seleccionada.
+- El sistema registra la recepción de la HDR.
+- Se muestra un mensaje indicando que la recepción fue exitosa.
+- Las guías pasan al estado correspondiente según la operatoria de recepción en agencia.
+- La HDR deja de figurar como pendiente de recepción.
+
+Estado Esperado:
+HDR recibida, pasa a Estado = 4 .
+Las Guias pasan a Estado = 15.
