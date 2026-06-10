@@ -1,6 +1,7 @@
 ﻿namespace TP_CAI_1C2026.Forms.Troncal.EmisionHDRTransporte;
 
 using System.Linq;
+using TP_CAI_1C2026.Forms.Almacen;
 
 public class EmisionHDRTransporteModelo
 {
@@ -9,7 +10,7 @@ public class EmisionHDRTransporteModelo
 
     public EmisionHDRTransporteModelo()
     {
-        guiasDisponibles = ObtenerGuiasMock();
+        guiasDisponibles = ObtenerGuiasDesdeAlmacen();
     }
 
     // Valida que el Centro de Distribución seleccionado coincida con los destinos
@@ -55,36 +56,18 @@ public class EmisionHDRTransporteModelo
 
     internal List<CentroDeDistribucion> ObtenerCentrosDeDistribucion()
     {
-        // Lista ampliada de Centros de Distribución representando distintas provincias/ciudades
-        return new List<CentroDeDistribucion>
-        {
-            new CentroDeDistribucion { Id = 1, Nombre = "Rosario" },
-            new CentroDeDistribucion { Id = 2, Nombre = "Santa Fe" },
-            new CentroDeDistribucion { Id = 3, Nombre = "Buenos Aires" },
-            new CentroDeDistribucion { Id = 4, Nombre = "Córdoba" },
-            new CentroDeDistribucion { Id = 5, Nombre = "Mendoza" },
-            new CentroDeDistribucion { Id = 6, Nombre = "Salta" },
-            new CentroDeDistribucion { Id = 7, Nombre = "Jujuy" },
-            new CentroDeDistribucion { Id = 8, Nombre = "San Miguel de Tucumán" },
-            new CentroDeDistribucion { Id = 9, Nombre = "Neuquén" },
-            new CentroDeDistribucion { Id = 10, Nombre = "Mar del Plata" },
-            new CentroDeDistribucion { Id = 11, Nombre = "La Plata" },
-            new CentroDeDistribucion { Id = 12, Nombre = "San Juan" }
-        };
+        return CentroDeDistribucionAlmacen.CentrosDeDistribucion
+            .Select(MapearCentroDeDistribucion)
+            .OrderBy(c => c.Nombre)
+            .ToList();
     }
 
     internal List<EmpresaTransporte> ObtenerEmpresasTransporte()
     {
-        return new List<EmpresaTransporte>
-        {
-            new EmpresaTransporte { Id = 1, Nombre = "Flecha Bus" },
-            new EmpresaTransporte { Id = 2, Nombre = "Chevallier" },
-            new EmpresaTransporte { Id = 3, Nombre = "Andesmar" },
-            new EmpresaTransporte { Id = 4, Nombre = "El Rosarino" },
-            new EmpresaTransporte { Id = 5, Nombre = "Via Bariloche" },
-            new EmpresaTransporte { Id = 6, Nombre = "Pullman" },
-            new EmpresaTransporte { Id = 7, Nombre = "Plusmar" }
-        };
+        return EmpresaTransporteAlmacen.EmpresasTransporte
+            .Select(MapearEmpresaTransporte)
+            .OrderBy(e => e.Nombre)
+            .ToList();
     }
 
         internal List<Transporte> BuscarTransportes(
@@ -98,7 +81,7 @@ public class EmisionHDRTransporteModelo
             return new List<Transporte>();
         }
 
-        var transportes = ObtenerTransportesMock();
+        var transportes = ObtenerTransportesDesdeAlmacen();
 
         var resultado = transportes
             .Where(t => t.Fecha.Date == fecha.Date)
@@ -272,14 +255,62 @@ public class EmisionHDRTransporteModelo
             return null;
         }
 
-        return new HDRTransporte
+        var guiasYaAsignadas = HDRTransporteAlmacen.HDRTransportes
+            .Where(h => h.Guias != null)
+            .SelectMany(h => h.Guias)
+            .ToHashSet(StringComparer.OrdinalIgnoreCase);
+
+        if (guiasAgregadas.Any(g => guiasYaAsignadas.Contains(g.NumeroGuia)))
         {
-            Id = new Random().Next(1000, 9999),
+            MessageBox.Show("Una o más guías seleccionadas ya fueron asignadas a otra HDR.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            return null;
+        }
+
+        var servicio = BuscarServicio(transporteSeleccionado!);
+        if (servicio == null || servicio.Paradas == null || !servicio.Paradas.Any())
+        {
+            MessageBox.Show("No se pudo identificar el servicio seleccionado.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            return null;
+        }
+
+        var numerosGuias = guiasAgregadas
+            .Select(g => g.NumeroGuia)
+            .ToHashSet(StringComparer.OrdinalIgnoreCase);
+
+        var origenesGuias = GuiaAlmacen.Guias
+            .Where(g => numerosGuias.Contains(g.NroGuia))
+            .Select(g => g.IdCentroDeDistribucionImposicion)
+            .Distinct()
+            .ToList();
+
+        if (origenesGuias.Count != 1)
+        {
+            MessageBox.Show("Todas las guías seleccionadas deben pertenecer al mismo Centro de Distribución de imposición.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            return null;
+        }
+
+        var hdr = new HDRTransporte
+        {
+            Id = ObtenerProximoNumeroHDR(),
             FechaEmision = DateTime.Now,
             Destino = destinoSeleccionado!,
             Transporte = transporteSeleccionado!,
             Guias = guiasAgregadas.ToList()
         };
+
+        HDRTransporteAlmacen.Agregar(new HDRTransporteEntidad
+        {
+            NroHDR = hdr.Id,
+            IdServicio = servicio.IdServicio,
+            FechaEmision = hdr.FechaEmision,
+            IdCentroDeDistribucionOrigen = origenesGuias.Single(),
+            IdCentroDeDistribucionDestino = hdr.Destino.Id,
+            Guias = hdr.Guias.Select(g => g.NumeroGuia).ToList()
+        });
+        HDRTransporteAlmacen.Guardar();
+        ActualizarEstadoGuias(hdr.Guias);
+
+        return hdr;
     }
 
     internal List<GuiaEncomienda> ObtenerGuiasDisponibles()
@@ -317,71 +348,154 @@ public class EmisionHDRTransporteModelo
         return true;
     }
 
-    private List<Transporte> ObtenerTransportesMock()
+    private List<Transporte> ObtenerTransportesDesdeAlmacen()
     {
-        var centros = ObtenerCentrosDeDistribucion();
-        var empresas = ObtenerEmpresasTransporte();
+        var centros = CentroDeDistribucionAlmacen.CentrosDeDistribucion
+            .ToDictionary(c => c.IdCentroDeDistribucion, MapearCentroDeDistribucion);
 
-        var fechas = new[] { DateTime.Today.AddDays(-1), DateTime.Today, DateTime.Today.AddDays(1), DateTime.Today.AddDays(2) };
+        var empresas = EmpresaTransporteAlmacen.EmpresasTransporte
+            .ToDictionary(e => e.IdEmpresaTransporte, MapearEmpresaTransporte);
 
-        var lista = new List<Transporte>();
-
-        // Para cada centro generamos varios transportes repartidos en diferentes fechas y empresas
-        var rand = new Random(42);
-        foreach (var centro in centros)
-        {
-            foreach (var fecha in fechas)
+        return ServicioAlmacen.Servicios
+            .SelectMany(servicio =>
             {
-                // Crear 1 o 2 transportes por fecha para el centro, con empresas rotando
-                int count = 1 + (rand.Next() % 2);
-                for (int i = 0; i < count; i++)
+                if (!empresas.TryGetValue(servicio.IdEmpresaTransporte, out var empresa) || servicio.Paradas == null)
                 {
-                    var empresa = empresas[(rand.Next() % empresas.Count)];
-                    var hora = new TimeSpan(6 + rand.Next(12), rand.Next(0, 60), 0);
-                    lista.Add(new Transporte { Fecha = fecha, Hora = hora, Empresa = empresa, Destino = centro });
+                    return Enumerable.Empty<Transporte>();
                 }
-            }
-        }
 
-        // Ordenar por fecha/hora para facilitar la lectura
-        return lista.OrderBy(t => t.Fecha).ThenBy(t => t.Hora).ToList();
+                return servicio.Paradas
+                    .Where(parada => centros.ContainsKey(parada.IdCentroDeDistribucion))
+                    .Select(parada => new Transporte
+                    {
+                        Fecha = parada.Fecha,
+                        Hora = parada.Fecha.TimeOfDay,
+                        Empresa = empresa,
+                        Destino = centros[parada.IdCentroDeDistribucion]
+                    });
+            })
+            .OrderBy(t => t.Fecha)
+            .ThenBy(t => t.Hora)
+            .ToList();
     }
 
-    private List<GuiaEncomienda> ObtenerGuiasMock()
+    private List<GuiaEncomienda> ObtenerGuiasDesdeAlmacen()
     {
-        var centros = ObtenerCentrosDeDistribucion();
+        var centros = CentroDeDistribucionAlmacen.CentrosDeDistribucion
+            .ToDictionary(c => c.IdCentroDeDistribucion, MapearCentroDeDistribucion);
 
-        // Generar múltiples guías por cada centro/provincia
-        var guias = new List<GuiaEncomienda>();
-        var tipos = new[] { "S", "M", "L", "XL" };
+        var guiasAsignadas = HDRTransporteAlmacen.HDRTransportes
+            .Where(h => h.Guias != null)
+            .SelectMany(h => h.Guias)
+            .ToHashSet(StringComparer.OrdinalIgnoreCase);
 
-        foreach (var centro in centros)
-        {
-            // Crear entre 4 y 8 guías por centro para tener variedad
-            for (int i = 1; i <= 6; i++)
+        return GuiaAlmacen.Guias
+            .Where(g => g.Estado == EstadoGuiaEnum.Admitida)
+            .Where(g => g.TipoImposicion == TipoImposicionEnum.CD)
+            .Where(g => g.TipoEntrega == TipoEntregaEnum.CD)
+            .Where(g => !guiasAsignadas.Contains(g.NroGuia))
+            .Select(g => new
             {
-                // Limitar el primer número (id de centro) al rango 1..50
-                var centroCodigo = centro.Id;
-                if (centroCodigo < 1) centroCodigo = 1;
-                if (centroCodigo > 50)
-                {
-                    // Mapear cualquier id fuera de rango al rango 1..50 de forma circular
-                    centroCodigo = ((centroCodigo - 1) % 50) + 1;
-                }
+                Guia = g,
+                IdCentroOrigen = ResolverIdCentroOrigen(g),
+                IdCentroDestino = ResolverIdCentroDestino(g)
+            })
+            .Where(x => x.IdCentroOrigen.HasValue
+                && x.IdCentroDestino.HasValue
+                && x.IdCentroOrigen.Value != x.IdCentroDestino.Value
+                && centros.ContainsKey(x.IdCentroDestino.Value))
+            .Select(g => new GuiaEncomienda
+            {
+                NumeroGuia = g.Guia.NroGuia,
+                TipoEncomienda = g.Guia.TipoCaja.ToString(),
+                Destino = centros[g.IdCentroDestino!.Value]
+            })
+            .OrderBy(g => g.NumeroGuia)
+            .ToList();
+    }
 
-                guias.Add(new GuiaEncomienda
-                {
-                    NumeroGuia = $"CD-{centroCodigo}-{i:D2}",
-                    TipoEncomienda = tipos[(i - 1) % tipos.Length],
-                    Destino = centro
-                });
-            }
+    private CentroDeDistribucion MapearCentroDeDistribucion(CentroDeDistribucionEntidad centroEntidad)
+    {
+        return new CentroDeDistribucion
+        {
+            Id = centroEntidad.IdCentroDeDistribucion,
+            Nombre = centroEntidad.Nombre
+        };
+    }
+
+    private EmpresaTransporte MapearEmpresaTransporte(EmpresaTransporteEntidad empresaEntidad)
+    {
+        return new EmpresaTransporte
+        {
+            Id = empresaEntidad.IdEmpresaTransporte,
+            Nombre = empresaEntidad.Nombre
+        };
+    }
+
+    private int ObtenerProximoNumeroHDR()
+    {
+        return HDRTransporteAlmacen.HDRTransportes.Any()
+            ? HDRTransporteAlmacen.HDRTransportes.Max(h => h.NroHDR) + 1
+            : 1;
+    }
+
+    private ServicioEntidad? BuscarServicio(Transporte transporte)
+    {
+        return ServicioAlmacen.Servicios.FirstOrDefault(servicio =>
+            servicio.IdEmpresaTransporte == transporte.Empresa.Id
+            && servicio.Paradas != null
+            && servicio.Paradas.Any(parada =>
+                parada.IdCentroDeDistribucion == transporte.Destino.Id
+                && parada.Fecha.Date == transporte.Fecha.Date
+                && parada.Fecha.TimeOfDay == transporte.Hora));
+    }
+
+    private int? ResolverIdCentroOrigen(GuiaEntidad guia)
+    {
+        return guia.TipoImposicion switch
+        {
+            TipoImposicionEnum.CD => guia.IdCentroDeDistribucionImposicion,
+            TipoImposicionEnum.Agencia => ResolverIdCentroPorAgencia(guia.IdAgenciaImposicion),
+            TipoImposicionEnum.EnDomicilio => guia.IdCentroDeDistribucionImposicion,
+            _ => null
+        };
+    }
+
+    private int? ResolverIdCentroDestino(GuiaEntidad guia)
+    {
+        return guia.TipoEntrega switch
+        {
+            TipoEntregaEnum.CD => guia.IdCentroDeDistribucionEntrega,
+            TipoEntregaEnum.Agencia => ResolverIdCentroPorAgencia(guia.IdAgenciaEntrega),
+            TipoEntregaEnum.ADomicilio => guia.IdCentroDeDistribucionEntrega,
+            _ => null
+        };
+    }
+
+    private int? ResolverIdCentroPorAgencia(int idAgencia)
+    {
+        return CiudadAlmacen.Ciudades
+            .FirstOrDefault(c => c.Agencias != null && c.Agencias.Contains(idAgencia))
+            ?.IdCentroDeDistribucion;
+    }
+
+    private void ActualizarEstadoGuias(IEnumerable<GuiaEncomienda> guias)
+    {
+        var numerosGuias = guias
+            .Select(g => g.NumeroGuia)
+            .ToHashSet(StringComparer.OrdinalIgnoreCase);
+
+        foreach (var guiaEntidad in GuiaAlmacen.Guias.Where(g => numerosGuias.Contains(g.NroGuia)))
+        {
+            guiaEntidad.Estado = EstadoGuiaEnum.PendienteDeTransporte;
+            guiaEntidad.Historial ??= new List<HistorialGuia>();
+            guiaEntidad.Historial.Add(new HistorialGuia
+            {
+                Fecha = DateTime.Now,
+                Estado = EstadoGuiaEnum.PendienteDeTransporte
+            });
         }
 
-        // Guías adicionales con números diferentes para pruebas de búsqueda (primer número limitado a 1..50)
-        guias.Add(new GuiaEncomienda { NumeroGuia = "CD-50-01", TipoEncomienda = "M", Destino = centros.First() });
-        guias.Add(new GuiaEncomienda { NumeroGuia = "CD-03-99", TipoEncomienda = "L", Destino = centros.First(c => c.Id == 3) });
-
-        return guias;
+        GuiaAlmacen.Guardar();
     }
 }
