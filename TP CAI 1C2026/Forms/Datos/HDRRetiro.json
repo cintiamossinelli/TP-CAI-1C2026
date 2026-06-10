@@ -90,7 +90,7 @@
     "Estado": 3
   },
   {
-    "NroHDR": 11,
+    "NroHDR": 11,                     
     "DniFletero": 24242424,
     "Fecha": "2026-05-31",
     "Domicilio": "Agencia 11 (Córdoba Centro)",
@@ -108,7 +108,7 @@
     "Estado": 3
   },
   {
-    "NroHDR": 13,
+    "NroHDR": 13,  
     "DniFletero": 10101010,
     "Fecha": "2026-06-06",
     "Domicilio": "Agencia 6 (Palermo)",

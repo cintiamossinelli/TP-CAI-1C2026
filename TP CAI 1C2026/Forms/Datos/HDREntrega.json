@@ -3,7 +3,7 @@
     "NroHDR": 1,
     "DniFletero": 32080691,
     "Fecha": "2026-06-01",
-    "Domicilio": "Agencia 6 (Palermo)", 
+    "Domicilio": "Agencia 6 (Palermo)",
     "CantEncomiendas": 1,
     "Guias": [ "AG-5-167" ],
     "Estado": 3
@@ -96,6 +96,8 @@
     "Domicilio": "Agencia 7 (Belgrano)",
     "CantEncomiendas": 1,
     "Guias": [ "AG-6-182" ],
-    "Estado": 1
+    "Estado": 3
   }
+  
+  
 ]

@@ -8,25 +8,32 @@ namespace TP_CAI_1C2026.Forms.UltimaMilla.EmisionResumenHDRConfirmadas
 {
     internal class EmisionResumenHDRConfirmadasModelo
     {
-        private List<HDREnTransito> hdrs = new List<HDREnTransito>
-    {
-        // Asociamos cada HDR a un fletero mediante DniFletero y definimos su Estado
-        new HDREnTransito  { NroHDR = "1001" , Domicilio = "Perú 102 - CABA" , CantEcomiendas = 3, DniFletero = 44445678, Estado = "En Tránsito" },
-        new HDREnTransito  { NroHDR = "1002" , Domicilio = "Cordoba 1112 - CABA" , CantEcomiendas = 4, DniFletero = 12345678, Estado = "En Tránsito" },
-        new HDREnTransito  { NroHDR = "1003" , Domicilio = "Florida 222 - CABA" , CantEcomiendas = 4, DniFletero = 87654321, Estado = "En Tránsito" },
-        new HDREnTransito  { NroHDR = "1004" , Domicilio = "Lavalle 2345 - CABA" , CantEcomiendas = 1, DniFletero = 11223344, Estado = "En Tránsito" },
-        new HDREnTransito  { NroHDR = "1006" , Domicilio = "Mitre 500 - CABA" , CantEcomiendas = 6, DniFletero = 99999999, Estado = "En Tránsito" },
-        new HDREnTransito  { NroHDR = "1007" , Domicilio = "Mitre 600 - CABA" , CantEcomiendas = 7, DniFletero = 99999999, Estado = "En Tránsito" },
-        new HDREnTransito  { NroHDR = "1005" , Domicilio = "Peron 100 - CABA" , CantEcomiendas = 3, DniFletero = 99999999, Estado = "En Tránsito" },
-        new HDREnTransito  { NroHDR = "1008" , Domicilio = "Callao 500 - CABA" , CantEcomiendas = 2, DniFletero = 12345678, Estado = "Confirmada" },
-        new HDREnTransito  { NroHDR = "1009" , Domicilio = "Junin 1200 - CABA" , CantEcomiendas = 2, DniFletero = 11223344, Estado = "Confirmada" }
-    };
-
         // Devuelve las HDR asociadas a un fletero (por DNI)
         internal List<HDREnTransito> ObtenerHDRPorFletero(int dniFletero)
         {
-            // Filtramos la lista de HDRs por el DNI del fletero y por Estado = "En Tránsito"
-            return hdrs.Where(h => h.DniFletero == dniFletero && string.Equals(h.Estado, "En Tránsito", StringComparison.OrdinalIgnoreCase)).ToList();
+            var hdrsEntrega = HDREntregaAlmacen.HDREntregas
+                .Where(h => h.DniFletero == dniFletero && h.Estado == EstadoHDREnum.PendienteRendicion)
+                .Select(h => new HDREnTransito
+                {
+                    NroHDR = h.NroHDR.ToString(),
+                    Domicilio = h.Domicilio,
+                    CantEcomiendas = h.CantEncomiendas,
+                    DniFletero = h.DniFletero,
+                    Estado = h.Estado.ToString()
+                });
+
+            var hdrsRetiro = HDRRetiroAlmacen.HDRRetiros
+                .Where(h => h.DniFletero == dniFletero && h.Estado == EstadoHDREnum.PendienteRendicion)
+                .Select(h => new HDREnTransito
+                {
+                    NroHDR = h.NroHDR.ToString(),
+                    Domicilio = h.Domicilio,
+                    CantEcomiendas = h.CantEncomiendas,
+                    DniFletero = h.DniFletero,
+                    Estado = h.Estado.ToString()
+                });
+
+            return hdrsEntrega.Concat(hdrsRetiro).ToList();
         }
 
         // Intenta buscar un fletero validando el texto del DNI, devuelve mensaje en caso de error
@@ -92,15 +99,6 @@ namespace TP_CAI_1C2026.Forms.UltimaMilla.EmisionResumenHDRConfirmadas
         internal void ActualizarEstados(IEnumerable<HDREnTransito> todas)
         {
             if (todas == null) return;
-
-            foreach (var h in todas)
-            {
-                var existente = hdrs.FirstOrDefault(x => x.NroHDR == h.NroHDR);
-                if (existente != null)
-                {
-                    existente.Estado = h.Estado;
-                }
-            }
         }
 
         internal Fletero? BuscarFletero(string dni)
