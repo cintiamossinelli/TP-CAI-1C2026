@@ -97,7 +97,41 @@
     "CantEncomiendas": 1,
     "Guias": [ "AG-6-182" ],
     "Estado": 3
+  },
+  {
+    "NroHDR": 12,
+    "DniFletero": 11223344,
+    "Fecha": "2026-06-09",
+    "Domicilio": "San Martín 400, Rosario",
+    "CantEncomiendas": 1,
+    "Guias": [ "CC-2-819" ],
+    "Estado": 4
+  },
+  {
+    "NroHDR": 13,
+    "DniFletero": 11223344,
+    "Fecha": "2026-06-09",
+    "Domicilio": "Entre Ríos 600, Rosario",
+    "CantEncomiendas": 1,
+    "Guias": [ "CC-2-820" ],
+    "Estado": 4
+  },
+  {
+    "NroHDR": 14,
+    "DniFletero": 11223344,
+    "Fecha": "2026-06-09",
+    "Domicilio": "Córdoba 800, Rosario",
+    "CantEncomiendas": 1,
+    "Guias": [ "CC-2-821" ],
+    "Estado": 4
+  },
+  {
+    "NroHDR": 15,
+    "DniFletero": 11223344,
+    "Fecha": "2026-06-09",
+    "Domicilio": "Agencia 2 (Rosario Sur)",
+    "CantEncomiendas": 1,
+    "Guias": [ "CC-2-822" ],
+    "Estado": 4
   }
-  
-  
 ]
