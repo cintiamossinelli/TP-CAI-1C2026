@@ -73,6 +73,7 @@
             // 
             // CDdestinoCMB
             // 
+            CDdestinoCMB.DropDownStyle = ComboBoxStyle.DropDownList;
             CDdestinoCMB.FormattingEnabled = true;
             CDdestinoCMB.Location = new Point(231, 25);
             CDdestinoCMB.Margin = new Padding(3, 2, 3, 2);
@@ -167,6 +168,7 @@
             // 
             // transporteCMB
             // 
+            transporteCMB.DropDownStyle = ComboBoxStyle.DropDownList;
             transporteCMB.FormattingEnabled = true;
             transporteCMB.Location = new Point(482, 28);
             transporteCMB.Margin = new Padding(3, 2, 3, 2);
