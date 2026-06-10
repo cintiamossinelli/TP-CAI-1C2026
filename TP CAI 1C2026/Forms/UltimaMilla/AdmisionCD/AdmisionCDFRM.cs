@@ -42,11 +42,8 @@ namespace TP_CAI_1C2026.Forms.UltimaMilla.AdmisionCD
             item.Tag = guia;
             guiasLST.Items.Add(item);
 
-
-
             // Limpio el campo de texto después de agregar
             nGuiaTXT.Text = string.Empty;
-
         }
 
         private void cancelarBTN_Click(object sender, EventArgs e)
@@ -62,7 +59,7 @@ namespace TP_CAI_1C2026.Forms.UltimaMilla.AdmisionCD
             if (!modelo.ValidarHayGuiasParaAdmitir(guias))
                 return;
 
-            modelo.CambiarEstadoDeGuias(guias, "Admitida");
+            modelo.AdmitirGuias(guias);
 
             MessageBox.Show("Las guías han sido admitidas exitosamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
             guiasLST.Items.Clear();
@@ -75,7 +72,7 @@ namespace TP_CAI_1C2026.Forms.UltimaMilla.AdmisionCD
             if (!modelo.ValidarHayGuiasParaRechazar(guias))
                 return;
 
-            modelo.CambiarEstadoDeGuias(guias, "Rechazada");
+            modelo.RechazarGuias(guias);
 
             MessageBox.Show("Las guías han sido rechazadas exitosamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
             guiasLST.Items.Clear();

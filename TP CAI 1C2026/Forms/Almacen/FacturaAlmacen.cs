@@ -25,5 +25,11 @@ namespace TP_CAI_1C2026.Forms.Almacen
             File.WriteAllText(@"Forms\Datos\Facturas.json", json);
         }
 
+        public static void Agregar(FacturaEntidad factura)
+        {
+            facturas.Add(factura);
+            Guardar();
+        }
+
     }
 }

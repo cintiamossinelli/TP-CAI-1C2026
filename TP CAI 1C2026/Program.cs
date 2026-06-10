@@ -21,11 +21,14 @@ namespace TP_CAI_1C2026
 {
     internal static class Program
     {
+        public static int CdActual { get; set; } = 1;
+        public static int AgenciaActual { get; set; } = 1;
+
         [STAThread]
         static void Main()
         {
             ApplicationConfiguration.Initialize();
-            Application.Run(new EmisionHDRTransporteFRM());
+            Application.Run(new EmisionResumenHDRFRM());
         }
     }
 }

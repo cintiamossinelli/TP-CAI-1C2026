@@ -1,48 +1,21 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Linq;
+using System.Windows.Forms;
+using TP_CAI_1C2026.Forms.Almacen;
 
 namespace TP_CAI_1C2026.Forms.UltimaMilla.EmisionResumenHDRConfirmadas
 {
     internal class EmisionResumenHDRConfirmadasModelo
     {
-        private List<Fletero> fleteros = new List<Fletero>
-    {
-        new Fletero { Dni = 12345678, Nombre = "Carlos López" },
-        new Fletero { Dni = 87654321, Nombre = "Roberto Gómez" },
-        new Fletero { Dni = 11223344, Nombre = "Pedro Martínez" },
-        new Fletero { Dni = 99999999, Nombre = "Julián Alvarez" },
-        new Fletero { Dni = 44445678, Nombre = "Pablo Perez" },
-        new Fletero { Dni = 44445678, Nombre = "Marcos Gutierrez" }
-    };
+        // ── Búsqueda de fletero ───────────────────────────────────────
 
-        private List<HDREnTransito> hdrs = new List<HDREnTransito>
-    {
-        // Asociamos cada HDR a un fletero mediante DniFletero y definimos su Estado
-        new HDREnTransito  { NroHDR = "1001" , Domicilio = "Perú 102 - CABA" , CantEcomiendas = 3, DniFletero = 44445678, Estado = "En Tránsito" },
-        new HDREnTransito  { NroHDR = "1002" , Domicilio = "Cordoba 1112 - CABA" , CantEcomiendas = 4, DniFletero = 12345678, Estado = "En Tránsito" },
-        new HDREnTransito  { NroHDR = "1003" , Domicilio = "Florida 222 - CABA" , CantEcomiendas = 4, DniFletero = 87654321, Estado = "En Tránsito" },
-        new HDREnTransito  { NroHDR = "1004" , Domicilio = "Lavalle 2345 - CABA" , CantEcomiendas = 1, DniFletero = 11223344, Estado = "En Tránsito" },
-        new HDREnTransito  { NroHDR = "1006" , Domicilio = "Mitre 500 - CABA" , CantEcomiendas = 6, DniFletero = 99999999, Estado = "En Tránsito" },
-        new HDREnTransito  { NroHDR = "1007" , Domicilio = "Mitre 600 - CABA" , CantEcomiendas = 7, DniFletero = 99999999, Estado = "En Tránsito" },
-        new HDREnTransito  { NroHDR = "1005" , Domicilio = "Peron 100 - CABA" , CantEcomiendas = 3, DniFletero = 99999999, Estado = "En Tránsito" },
-        new HDREnTransito  { NroHDR = "1008" , Domicilio = "Callao 500 - CABA" , CantEcomiendas = 2, DniFletero = 12345678, Estado = "Confirmada" },
-        new HDREnTransito  { NroHDR = "1009" , Domicilio = "Junin 1200 - CABA" , CantEcomiendas = 2, DniFletero = 11223344, Estado = "Confirmada" }
-    };
-
-        // Devuelve las HDR asociadas a un fletero (por DNI)
-        internal List<HDREnTransito> ObtenerHDRPorFletero(int dniFletero)
-        {
-            // Filtramos la lista de HDRs por el DNI del fletero y por Estado = "En Tránsito"
-            return hdrs.Where(h => h.DniFletero == dniFletero && string.Equals(h.Estado, "En Tránsito", StringComparison.OrdinalIgnoreCase)).ToList();
-        }
-
-        // Intenta buscar un fletero validando el texto del DNI, devuelve mensaje en caso de error
         internal bool TryBuscarFletero(string dniText, out Fletero? fletero, out string mensaje)
         {
             mensaje = string.Empty;
             fletero = null;
+
             if (string.IsNullOrWhiteSpace(dniText))
             {
                 mensaje = "Ingrese DNI.";
@@ -65,73 +38,266 @@ namespace TP_CAI_1C2026.Forms.UltimaMilla.EmisionResumenHDRConfirmadas
             return true;
         }
 
-        // Verifica que una colección de HDR pertenezcan al DNI indicado
+        internal Fletero? BuscarFletero(string dni)
+        {
+            if (string.IsNullOrWhiteSpace(dni))
+                return null;
+
+            if (!int.TryParse(dni, out int dniInt) || dniInt <= 0 || dni.Length != 8)
+                return null;
+
+            FleteroEntidad? entidad = FleteroAlmacen.Fleteros
+                .FirstOrDefault(f => f.DNI == dniInt);
+
+            if (entidad == null)
+                return null;
+
+            return new Fletero { Dni = entidad.DNI, Nombre = entidad.Nombre };
+        }
+
+        // ── Obtención de HDRs pendientes ─────────────────────────────
+
+        internal List<HDREnTransito> ObtenerHDRPorFletero(int dniFletero)
+        {
+            var hdrsEntrega = HDREntregaAlmacen.HDREntregas
+                .Where(h => h.DniFletero == dniFletero &&
+                            h.Estado == EstadoHDREnum.PendienteRendicion)
+                .Select(h => new HDREnTransito
+                {
+                    NroHDR = h.NroHDR.ToString(),
+                    Domicilio = h.Domicilio,
+                    CantEcomiendas = h.CantEncomiendas,
+                    DniFletero = h.DniFletero,
+                    Estado = h.Estado.ToString(),
+                    TipoHDR = "Entrega"
+                });
+
+            var hdrsRetiro = HDRRetiroAlmacen.HDRRetiros
+                .Where(h => h.DniFletero == dniFletero &&
+                            h.Estado == EstadoHDREnum.PendienteRendicion)
+                .Select(h => new HDREnTransito
+                {
+                    NroHDR = h.NroHDR.ToString(),
+                    Domicilio = h.Domicilio,
+                    CantEcomiendas = h.CantEncomiendas,
+                    DniFletero = h.DniFletero,
+                    Estado = h.Estado.ToString(),
+                    TipoHDR = "Retiro"
+                });
+
+            return hdrsEntrega.Concat(hdrsRetiro).ToList();
+        }
+
+        // ── Validaciones auxiliares del form ─────────────────────────
+
         internal bool HDRsPertenecenADni(IEnumerable<HDREnTransito> hdrsList, int dni)
         {
             if (hdrsList == null) return false;
             return hdrsList.Any(h => h.DniFletero == dni);
         }
 
-        // Construye el mensaje resumen para mostrar en el dialog
-        internal string ConstruirResumen(IEnumerable<HDREnTransito> seleccionadas, IEnumerable<HDREnTransito> noSeleccionadas, string dniText)
+        // ── Construcción del resumen para mostrar antes de confirmar ─
+
+        internal string ConstruirResumen(
+            IEnumerable<HDREnTransito> seleccionadas,
+            IEnumerable<HDREnTransito> noSeleccionadas,
+            string dniText)
         {
             var sb = new StringBuilder();
             sb.AppendLine($"Resumen Hojas de ruta para el DNI {dniText}:\n");
             sb.AppendLine("Confirmadas:");
 
             foreach (var h in seleccionadas)
-            {
                 sb.AppendLine($"- Nro HDR: {h.NroHDR} | Domicilio: {h.Domicilio} | Cant. Encomiendas: {h.CantEcomiendas}");
-            }
 
             if (noSeleccionadas != null && noSeleccionadas.Any())
             {
                 sb.AppendLine();
                 sb.AppendLine("No Confirmadas:");
                 foreach (var h in noSeleccionadas)
-                {
                     sb.AppendLine($"- Nro HDR: {h.NroHDR} | Domicilio: {h.Domicilio} | Cant. Encomiendas: {h.CantEcomiendas}");
-                }
             }
 
             return sb.ToString();
         }
 
-        // Actualiza estados de HDRs: las seleccionadas pasan a "Confirmada", las otras a "No Confirmada"
-        internal void ActualizarEstados(IEnumerable<HDREnTransito> todas)
-        {
-            if (todas == null) return;
+        // ── Lógica de negocio principal ───────────────────────────────
 
-            foreach (var h in todas)
+        /// Aplica todas las reglas de negocio para las HDRs confirmadas y no confirmadas,
+        /// actualiza guías y HDRs en los almacenes y persiste los cambios.
+   
+        internal void ActualizarEstados(
+            List<HDREnTransito> confirmadas,
+            List<HDREnTransito> noConfirmadas,
+            int dniFletero)
+        {
+            FleteroEntidad? fletero = FleteroAlmacen.Fleteros
+                .FirstOrDefault(f => f.DNI == dniFletero);
+
+            foreach (var hdr in confirmadas)
+                ProcesarHDR(hdr, confirmada: true, fletero);
+
+            foreach (var hdr in noConfirmadas)
+                ProcesarHDR(hdr, confirmada: false, fletero);
+
+            GuiaAlmacen.Guardar();
+            HDRRetiroAlmacen.Guardar();
+            HDREntregaAlmacen.Guardar();
+        }
+
+        // ── Helpers privados ─────────────────────────────────────────
+
+        private void ProcesarHDR(HDREnTransito hdr, bool confirmada, FleteroEntidad? fletero)
+        {
+            if (!int.TryParse(hdr.NroHDR, out int nroHDR))
+                return;
+
+            if (hdr.TipoHDR == "Retiro")
             {
-                var existente = hdrs.FirstOrDefault(x => x.NroHDR == h.NroHDR);
-                if (existente != null)
+                HDRRetiroEntidad? entidad = HDRRetiroAlmacen.HDRRetiros
+                    .FirstOrDefault(h => h.NroHDR == nroHDR);
+                if (entidad == null) return;
+
+                foreach (string nroGuia in entidad.Guias)
                 {
-                    existente.Estado = h.Estado;
+                    GuiaEntidad? guia = GuiaAlmacen.Guias
+                        .FirstOrDefault(g => g.NroGuia == nroGuia);
+                    if (guia == null) continue;
+                    ProcesarGuiaRetiro(guia, confirmada, fletero);
+                }
+
+                entidad.Estado = EstadoHDREnum.Rendida;
+            }
+            else // "Entrega"
+            {
+                HDREntregaEntidad? entidad = HDREntregaAlmacen.HDREntregas
+                    .FirstOrDefault(h => h.NroHDR == nroHDR);
+                if (entidad == null) return;
+
+                foreach (string nroGuia in entidad.Guias)
+                {
+                    GuiaEntidad? guia = GuiaAlmacen.Guias
+                        .FirstOrDefault(g => g.NroGuia == nroGuia);
+                    if (guia == null) continue;
+                    ProcesarGuiaEntrega(guia, confirmada, fletero);
+                }
+
+                entidad.Estado = EstadoHDREnum.Rendida;
+            }
+        }
+
+        private void ProcesarGuiaRetiro(
+            GuiaEntidad guia,
+            bool confirmada,
+            FleteroEntidad? fletero)
+        {
+            guia.Historial ??= new List<HistorialGuia>();
+
+            // Agencia: siempre retira. Domicilio: depende de si está confirmada.
+            bool retira = guia.TipoImposicion == TipoImposicionEnum.Agencia || confirmada;
+
+            if (retira)
+            {
+                // Pasa por Rendida(5) y queda en PendienteDeAdmision(6)
+                guia.Historial.Add(new HistorialGuia
+                {
+                    Fecha = DateTime.Now,
+                    Estado = EstadoGuiaEnum.Rendida
+                });
+                guia.Historial.Add(new HistorialGuia
+                {
+                    Fecha = DateTime.Now,
+                    Estado = EstadoGuiaEnum.PendienteDeAdmision
+                });
+                guia.Estado = EstadoGuiaEnum.PendienteDeAdmision;
+                AgregarComisionFletero(guia, fletero);
+            }
+            else
+            {
+                // No retira (solo puede ocurrir con imposición en domicilio)
+                guia.Historial.Add(new HistorialGuia
+                {
+                    Fecha = DateTime.Now,
+                    Estado = EstadoGuiaEnum.NoRetirada
+                });
+                guia.Estado = EstadoGuiaEnum.NoRetirada;
+            }
+        }
+
+        private void ProcesarGuiaEntrega(
+            GuiaEntidad guia,
+            bool confirmada,
+            FleteroEntidad? fletero)
+        {
+            guia.Historial ??= new List<HistorialGuia>();
+
+            if (guia.TipoEntrega == TipoEntregaEnum.Agencia)
+            {
+                // La guía queda en estado 12; solo la HDR cambia.
+                // Se genera comisión al fletero por haber llevado la encomienda a la agencia.
+                AgregarComisionFletero(guia, fletero);
+                return;
+            }
+
+            // TipoEntrega = ADomicilio
+            if (confirmada)
+            {
+                // Entregó: DistribuidaEnDomicilio(14) → Entregada(17)
+                guia.Historial.Add(new HistorialGuia
+                {
+                    Fecha = DateTime.Now,
+                    Estado = EstadoGuiaEnum.DistribuidaEnDomicilio
+                });
+                guia.Historial.Add(new HistorialGuia
+                {
+                    Fecha = DateTime.Now,
+                    Estado = EstadoGuiaEnum.Entregada
+                });
+                guia.Estado = EstadoGuiaEnum.Entregada;
+                AgregarComisionFletero(guia, fletero);
+            }
+            else
+            {
+                // No entregó
+                guia.IntentosDeEntrega++;
+                guia.Historial.Add(new HistorialGuia
+                {
+                    Fecha = DateTime.Now,
+                    Estado = EstadoGuiaEnum.NoEntregada
+                });
+
+                if (guia.IntentosDeEntrega >= 2)
+                {
+                    // Segundo intento fallido: la guía muere en NoEntregada(16)
+                    guia.Estado = EstadoGuiaEnum.NoEntregada;
+                }
+                else
+                {
+                    // Primer intento fallido: vuelve a PendienteDeDistribucion(12)
+                    guia.Historial.Add(new HistorialGuia
+                    {
+                        Fecha = DateTime.Now,
+                        Estado = EstadoGuiaEnum.PendienteDeDistribucion
+                    });
+                    guia.Estado = EstadoGuiaEnum.PendienteDeDistribucion;
                 }
             }
         }
 
-        internal Fletero? BuscarFletero(string dni)
+        private void AgregarComisionFletero(GuiaEntidad guia, FleteroEntidad? fletero)
         {
-            if (string.IsNullOrWhiteSpace(dni))
+            if (fletero == null) return;
+
+            ComisionFletero? comision = fletero.Comisiones
+                ?.FirstOrDefault(c => c.TamañoEncomienda == guia.TipoCaja);
+            if (comision == null) return;
+
+            guia.ComisionFletero ??= new List<GuiaComisionFletero>();
+            guia.ComisionFletero.Add(new GuiaComisionFletero
             {
-                return null;
-            }
-
-            if (!int.TryParse(dni, out int dniInt) || dniInt <= 0 || dni.Length != 8)
-            {
-                return null;
-            }
-
-            var fletero = fleteros.FirstOrDefault(f => f.Dni == dniInt);
-
-            return fletero;
-
-
+                DniFletero = fletero.DNI,
+                Importe = comision.Importe
+            });
         }
     }
 }
-
-    
-

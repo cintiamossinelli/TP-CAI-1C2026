@@ -1,4 +1,4 @@
-using System.Text;
+﻿using System.Text;
 using TP_CAI_1C2026.Forms.Imposicion.ImposicionCallCenter;
 
 namespace TP_CAI_1C2026.Forms.Imposicion.ImposicionCallCenter
@@ -22,32 +22,31 @@ namespace TP_CAI_1C2026.Forms.Imposicion.ImposicionCallCenter
             tipoCajaCMB.SelectedIndex = -1;
 
             List<CentroDeDistribucion> cds = modelo.ObtenerCDS();
-            ciudadCMB.Items.Clear();
             destinoCDCMB.Items.Clear();
-            ciudadDestinatarioCMB.Items.Clear();
             foreach (var c in cds)
             {
-                ciudadCMB.Items.Add(c);
                 destinoCDCMB.Items.Add(c);
+            }
+            destinoCDCMB.DisplayMember = "Nombre";
+            destinoCDCMB.ValueMember = "Id";
+
+            List<Ciudad> ciudades = modelo.ObtenerCiudades();
+            ciudadCMB.Items.Clear();
+            ciudadAgenciaCMB.Items.Clear();
+            ciudadDestinatarioCMB.Items.Clear();
+            foreach (var c in ciudades)
+            {
+                ciudadCMB.Items.Add(c);
+                ciudadAgenciaCMB.Items.Add(c);
                 ciudadDestinatarioCMB.Items.Add(c);
             }
             ciudadCMB.DisplayMember = "Nombre";
             ciudadCMB.ValueMember = "Id";
-            destinoCDCMB.DisplayMember = "Nombre";
-            destinoCDCMB.ValueMember = "Id";
-            ciudadDestinatarioCMB.DisplayMember = "Nombre";
-            ciudadDestinatarioCMB.ValueMember = "Id";
-
-
-            List<Ciudad> ciudades = modelo.ObtenerCiudades();
-            ciudadAgenciaCMB.Items.Clear();
-            foreach (var c in ciudades)
-            {
-                ciudadAgenciaCMB.Items.Add(c);
-            }
             ciudadAgenciaCMB.DisplayMember = "Nombre";
             ciudadAgenciaCMB.ValueMember = "Id";
             ciudadAgenciaCMB.SelectedIndex = -1;
+            ciudadDestinatarioCMB.DisplayMember = "Nombre";
+            ciudadDestinatarioCMB.ValueMember = "Id";
         }
 
         private void ciudadAgenciaCMB_SelectedIndexChanged(object sender, EventArgs e)
@@ -56,24 +55,21 @@ namespace TP_CAI_1C2026.Forms.Imposicion.ImposicionCallCenter
             if (ciudadAgenciaCMB.SelectedIndex == -1)
             {
                 agenciaCMB.DataSource = null;
-                agenciaCMB.Items.Clear();
                 return;
             }
-
             // Obtengo la ciudad seleccionada y lleno el combo de agencias con las agencias de esa ciudad
             var ciudadSeleccionada = (Ciudad)ciudadAgenciaCMB.SelectedItem;
-            var agencias = ciudadSeleccionada.Agencias
-                .OrderBy(a => a.Nombre, StringComparer.CurrentCultureIgnoreCase)
-                .ToList();
+            var agencias = ciudadSeleccionada.Agencias.OrderBy(a => a.Nombre).ToList();
 
-            // Aseguro que el binding se recree correctamente
             agenciaCMB.DataSource = null;
             agenciaCMB.Items.Clear();
-            // Desactivo el ordenamiento automático para que DisplayMember funcione correctamente
-            agenciaCMB.Sorted = false;
+            foreach (var agencia in agencias)
+            {
+                agenciaCMB.Items.Add(agencia);
+            }
+
             agenciaCMB.DisplayMember = "Nombre";
             agenciaCMB.ValueMember = "Id";
-            agenciaCMB.DataSource = agencias;
             agenciaCMB.SelectedIndex = -1;
         }
 
@@ -120,7 +116,7 @@ namespace TP_CAI_1C2026.Forms.Imposicion.ImposicionCallCenter
             direccionDestinatarioTXT.Enabled = domicilioRDB.Checked;
             destinoCDCMB.SelectedIndex = -1;
             ciudadAgenciaCMB.SelectedIndex = -1;
-            ciudadDestinatarioCMB.SelectedIndex = -1;
+            agenciaCMB.SelectedIndex = -1;
         }
 
         private void agregarBTN_Click(object sender, EventArgs e)
@@ -205,11 +201,11 @@ namespace TP_CAI_1C2026.Forms.Imposicion.ImposicionCallCenter
                 nombreClienteLBL.Text = string.Empty;
                 return;
             }
-            var ciudadRetiroSelected = ciudadCMB.SelectedIndex == -1 ? null : (CentroDeDistribucion)ciudadCMB.SelectedItem;
+            var ciudadRetiroSelected = ciudadCMB.SelectedIndex == -1 ? null : (Ciudad)ciudadCMB.SelectedItem;
             var cdSelected = destinoCDCMB.SelectedIndex == -1 ? null : (CentroDeDistribucion)destinoCDCMB.SelectedItem;
             var ciudadAgSelected = ciudadAgenciaCMB.SelectedIndex == -1 ? null : (Ciudad)ciudadAgenciaCMB.SelectedItem;
             var agenciaSelected = agenciaCMB.SelectedIndex == -1 ? null : (Agencia)agenciaCMB.SelectedItem;
-            var ciudadDestSelected = ciudadDestinatarioCMB.SelectedIndex == -1 ? null : ciudadDestinatarioCMB.SelectedItem;
+            var ciudadDestSelected = ciudadDestinatarioCMB.SelectedIndex == -1 ? null : (Ciudad)ciudadDestinatarioCMB.SelectedItem;
 
             bool valido = modelo.ValidarConfirmacion(
                 ciudadRetiroSelected,
@@ -231,7 +227,20 @@ namespace TP_CAI_1C2026.Forms.Imposicion.ImposicionCallCenter
             }
 
             // Generar números de guía y mostrarlos
-            var guias = modelo.GenerarNumerosGuias();
+            var guias = modelo.GuardarGuias(
+                idClienteTXT.Text,
+                ciudadRetiroSelected,
+                domicilioRemitenteTXT.Text,
+                cdRDB.Checked,
+                cdSelected,
+                agenciaRDB.Checked,
+                ciudadAgSelected,
+                agenciaSelected,
+                domicilioRDB.Checked,
+                ciudadDestSelected,
+                direccionDestinatarioTXT.Text,
+                dniDestinatarioTXT.Text,
+                nombreDestinatarioTXT.Text);
 
             var sb = new StringBuilder();
             sb.AppendLine("Las siguientes guías fueron impuestas correctamente:");

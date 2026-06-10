@@ -1,0 +1,62 @@
+Plan de Prueba: EmisionHDRRetiro-GeneracionExitosa.txt
+
+(Empieza con el menú principal)
+1-  Abrir formulario                        "Emisión de HDR de Retiro"
+2-  Campo DNI Fletero                       "11223344"
+3-  Botón                                   "Buscar"
+4-  Nombre del Fletero muestra              "José Lema"
+5-  Combobox Localidad se selecciona auto   "Rosario"
+6-  Lista guías sin agregar muestra         "CC-1-797 | S | Av. Siempre Viva 123, Rosario"
+                                            "CC-1-798 | M | Av. Siempre Viva 123, Rosario"
+                                            "AG-1-801 | S | Rosario Norte"
+                                            "AG-1-802 | L | Rosario Norte"
+7- Botón                                    "Buscar por Localidad"
+8- Lista guías sin agregar muestra las mismas guías filtradas por "Rosario"
+9- Campo Nº Guía                            "CC-1-797"
+10- Botón                                   "Buscar" (buscar guía)
+11- Lista guías sin agregar muestra         "CC-1-797 | S | Av. Siempre Viva 123, Rosario"
+12- Seleccionar guía                        "CC-1-797"
+13- Botón                                   "Agregar >>>"
+14- Lista guías sin agregar ya no contiene  "CC-1-797"
+15- Lista guías agregadas muestra           "CC-1-797 | S | Av. Siempre Viva 123, Rosario"
+16- Campo Nº Guía                           "CC-1-798"
+17- Botón                                   "Buscar" (buscar guía)
+18- Lista guías sin agregar muestra         "CC-1-798 | M | Av. Siempre Viva 123, Rosario"
+19- Seleccionar guía                        "CC-1-798"
+20- Botón                                   "Agregar >>>"
+21- Lista guías agregadas muestra           "CC-1-797 | S | Av. Siempre Viva 123, Rosario"
+                                            "CC-1-798 | M | Av. Siempre Viva 123, Rosario"
+22- Seleccionar guía del lado derecho       "CC-1-798"
+23- Botón                                   "<<< Quitar"
+24- Lista guías agregadas muestra solo      "CC-1-797 | S | Av. Siempre Viva 123, Rosario"
+25- Lista guías sin agregar vuelve a mostrar "CC-1-798 | M | Av. Siempre Viva 123, Rosario"
+26- Seleccionar guía                        "CC-1-798"
+27- Botón                                   "Agregar >>>"
+28- Lista guías agregadas muestra           "CC-1-797 | S | Av. Siempre Viva 123, Rosario"
+                                            "CC-1-798 | M | Av. Siempre Viva 123, Rosario"
+29- Botón                                   "Generar HDR"
+30- Mensaje                                 "HDR N° 17 generada correctamente para el fletero José Lema."
+31- Botón                                   "Aceptar"
+32- Cerrar el sistema
+
+Verificaciones:
+33- El formulario queda limpio (campos vacíos, listas vacías)
+34- Archivo HDRRetiro.json — última entrada agregada debe ser similar a:
+
+    {
+      "NroHDR": 17,
+      "DniFletero": 11223344,
+      "Fecha": "<fecha actual>",
+      "Domicilio": "Av. Siempre Viva 123, Rosario",
+      "CantEncomiendas": 2,
+      "Guias": [ "CC-1-797", "CC-1-798" ],
+      "Estado": 1
+    }
+
+35- Archivo Guias.json — guía CC-1-797 debe tener:
+    "Estado": 4
+    Última entrada del Historial: { "Fecha": "<fecha actual>", "Estado": 4 }
+
+36- Archivo Guias.json — guía CC-1-798 debe tener:
+    "Estado": 4
+    Última entrada del Historial: { "Fecha": "<fecha actual>", "Estado": 4 }

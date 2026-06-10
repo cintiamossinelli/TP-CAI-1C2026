@@ -1,0 +1,109 @@
+Plan de Prueba: ResumenHDRConfirmadas-GeneracionExitosa.txt
+
+Cubre los 7 casos de negocio en simultáneo:
+  [C]  = Confirmada  (HDR chequeada)
+  [NC] = No confirmada (HDR sin chequear)
+
+  R1 [C]  — Retiro · Agencia       · retira       → guía 5→6
+  R2 [C]  — Retiro · Domicilio     · retira       → guía 5→6
+  R3 [NC] — Retiro · Domicilio     · no retira    → guía NoRetirada(19)
+  E1 [C]  — Entrega · ADomicilio   · entregó      → guía 14→17
+  E2 [NC] — Entrega · ADomicilio   · 1° fallo     → guía queda en 12, intentos=1
+  E3 [NC] — Entrega · ADomicilio   · 2° fallo     → guía pasa a NoEntregada(16)
+  E4 [C]  — Entrega · Agencia      · solo HDR     → guía no cambia estado
+
+(Empieza con el menú principal)
+1-  Abrir formulario                        "Emisión Resumen HDR Confirmadas"
+2-  Campo DNI Fletero                       "11223344"
+3-  Botón                                   "Buscar"
+4-  Nombre del Fletero muestra             "José Lema"
+5-  Lista de HDRs muestra las siguientes entradas:
+      NroHDR | Domicilio                          | Cant.
+      12     | San Martín 400, Rosario            | 1
+      13     | Entre Ríos 600, Rosario            | 1
+      14     | Córdoba 800, Rosario               | 1
+      15     | Agencia 2 (Rosario Sur)            | 1
+      14     | Agencia 1 (Rosario Norte)          | 1
+      15     | Av. Corrientes 500, Rosario        | 1
+      16     | Pellegrini 800, Rosario            | 1
+6-  Marcar (chequear) HDR                  NroHDR=14 · "Agencia 1 (Rosario Norte)"       [R1]
+7-  Marcar (chequear) HDR                  NroHDR=15 · "Av. Corrientes 500, Rosario"     [R2]
+8-  Marcar (chequear) HDR                  NroHDR=12 · "San Martín 400, Rosario"         [E1]
+9-  Marcar (chequear) HDR                  NroHDR=15 · "Agencia 2 (Rosario Sur)"         [E4]
+10- (Dejar sin marcar)                     NroHDR=16 · "Pellegrini 800, Rosario"         [R3]
+11- (Dejar sin marcar)                     NroHDR=13 · "Entre Ríos 600, Rosario"         [E2]
+12- (Dejar sin marcar)                     NroHDR=14 · "Córdoba 800, Rosario"            [E3]
+13- Botón                                  "Generar Resumen de HDR Confirmadas"
+14- Mensaje de resumen muestra:
+      Confirmadas:
+      - Nro HDR: 14 | Domicilio: Agencia 1 (Rosario Norte)       | Cant. Encomiendas: 1
+      - Nro HDR: 15 | Domicilio: Av. Corrientes 500, Rosario      | Cant. Encomiendas: 1
+      - Nro HDR: 12 | Domicilio: San Martín 400, Rosario          | Cant. Encomiendas: 1
+      - Nro HDR: 15 | Domicilio: Agencia 2 (Rosario Sur)          | Cant. Encomiendas: 1
+      No Confirmadas:
+      - Nro HDR: 16 | Domicilio: Pellegrini 800, Rosario          | Cant. Encomiendas: 1
+      - Nro HDR: 13 | Domicilio: Entre Ríos 600, Rosario          | Cant. Encomiendas: 1
+      - Nro HDR: 14 | Domicilio: Córdoba 800, Rosario             | Cant. Encomiendas: 1
+15- Botón                                  "Aceptar"
+16- El formulario queda limpio (campos vacíos, lista vacía)
+17- Cerrar el sistema
+
+Verificaciones:
+
+--- HDRRetiro.json ---
+18- NroHDR=14 (AG-1-816, Retiro Agencia)     debe tener "Estado": 3
+19- NroHDR=15 (CC-1-817, Retiro Domicilio)   debe tener "Estado": 3
+20- NroHDR=16 (CC-1-818, Retiro Domicilio)   debe tener "Estado": 3
+
+--- HDREntrega.json ---
+21- NroHDR=12 (CC-2-819, Entrega Domicilio)  debe tener "Estado": 3
+22- NroHDR=13 (CC-2-820, Entrega Domicilio)  debe tener "Estado": 3
+23- NroHDR=14 (CC-2-821, Entrega Domicilio)  debe tener "Estado": 3
+24- NroHDR=15 (CC-2-822, Entrega Agencia)    debe tener "Estado": 3
+
+--- Guias.json — R1: AG-1-816 (Retiro · Agencia · retira) ---
+25- "Estado": 6
+26- Últimas 2 entradas del Historial:
+      { "Fecha": "<fecha actual>", "Estado": 5 }
+      { "Fecha": "<fecha actual>", "Estado": 6 }
+27- ComisionFletero contiene: { "DniFletero": 11223344, "Importe": 1500.0 }
+
+--- Guias.json — R2: CC-1-817 (Retiro · Domicilio · retira) ---
+28- "Estado": 6
+29- Últimas 2 entradas del Historial:
+      { "Fecha": "<fecha actual>", "Estado": 5 }
+      { "Fecha": "<fecha actual>", "Estado": 6 }
+30- ComisionFletero contiene: { "DniFletero": 11223344, "Importe": 2000.0 }
+
+--- Guias.json — R3: CC-1-818 (Retiro · Domicilio · no retira) ---
+31- "Estado": 19
+32- Última entrada del Historial:
+      { "Fecha": "<fecha actual>", "Estado": 19 }
+33- ComisionFletero sigue vacío: []
+
+--- Guias.json — E1: CC-2-819 (Entrega · ADomicilio · entregó) ---
+34- "Estado": 17
+35- Últimas 2 entradas del Historial:
+      { "Fecha": "<fecha actual>", "Estado": 14 }
+      { "Fecha": "<fecha actual>", "Estado": 17 }
+36- ComisionFletero contiene: { "DniFletero": 11223344, "Importe": 1500.0 }
+
+--- Guias.json — E2: CC-2-820 (Entrega · ADomicilio · 1° intento fallido) ---
+37- "Estado": 12
+38- "IntentosDeEntrega": 1
+39- Últimas 2 entradas del Historial:
+      { "Fecha": "<fecha actual>", "Estado": 16 }
+      { "Fecha": "<fecha actual>", "Estado": 12 }
+40- ComisionFletero sigue vacío: []
+
+--- Guias.json — E3: CC-2-821 (Entrega · ADomicilio · 2° intento fallido → NoEntregada) ---
+41- "Estado": 16
+42- "IntentosDeEntrega": 2
+43- Última entrada del Historial:
+      { "Fecha": "<fecha actual>", "Estado": 16 }
+44- ComisionFletero sigue vacío: []
+
+--- Guias.json — E4: CC-2-822 (Entrega · Agencia · solo HDR cambia) ---
+45- "Estado": 12  (sin cambio)
+46- El Historial no tiene entradas nuevas desde el "Estado": 12 anterior
+47- ComisionFletero contiene: { "DniFletero": 11223344, "Importe": 1500.0 }

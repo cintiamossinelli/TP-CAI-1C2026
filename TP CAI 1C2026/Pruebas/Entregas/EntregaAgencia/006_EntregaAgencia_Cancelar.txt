@@ -1,0 +1,16 @@
+Plan de Prueba: EntregaAgencia-Cancelar.txt
+
+(Empieza con el menú principal)
+1-  Abrir formulario                        "Entrega de Encomienda - Agencia"
+2-  Campo DNI Destinatario                  "20111222"
+3-  Botón                                   "Buscar"
+4-  Lista Guías Asociadas muestra           "AG-5-167 | PendienteDeEntrega | S"
+5-  Botón                                   "Cancelar"
+6-  Mensaje                                 "Operación cancelada."
+7-  Botón                                   "Aceptar"
+8-  Cerrar el sistema
+
+Verificaciones:
+9- El campo DNI Destinatario queda vacío   ""
+10- La lista Guías Asociadas está vacía
+11- Archivo Guias.json — la guía AG-5-167 no debe haber cambiado de estado

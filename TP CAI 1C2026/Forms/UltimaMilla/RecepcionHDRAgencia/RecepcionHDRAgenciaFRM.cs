@@ -14,6 +14,7 @@ namespace TP_CAI_1C2026.Forms.UltimaMilla.RecepcionHDRAgencia
         public RecepcionHDRAgenciaFRM()
         {
             InitializeComponent();
+            HDRnumCMB.DropDownStyle = ComboBoxStyle.DropDownList;
             this.Load += RecepcionHDRAgenciaFRM_Load;
         }
 
@@ -38,6 +39,7 @@ namespace TP_CAI_1C2026.Forms.UltimaMilla.RecepcionHDRAgencia
         {
             if (HDRnumCMB.SelectedIndex == -1)
             {
+                GuiasLST.Items.Clear();
                 return;
             }
 
@@ -56,11 +58,6 @@ namespace TP_CAI_1C2026.Forms.UltimaMilla.RecepcionHDRAgencia
                 item.SubItems.Add(encomienda.TipoEncomienda);
                 GuiasLST.Items.Add(item);
             }
-        }
-
-        private void GuiasLST_SelectedIndexChanged(object sender,EventArgs e)
-        {
-
         }
 
         private void recibirHDRBTN_Click(object sender,EventArgs e)
@@ -88,6 +85,7 @@ namespace TP_CAI_1C2026.Forms.UltimaMilla.RecepcionHDRAgencia
                 MessageBox.Show("HDR recepcionado correctamente.","Información",MessageBoxButtons.OK,MessageBoxIcon.Information);
 
                 LimpiarPantalla();
+                CargarHDRs();
             }
             else
             {

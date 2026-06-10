@@ -1,0 +1,12 @@
+Plan de Prueba: EntregaAgencia-DNISinGuiasPendientes.txt
+
+(Empieza con el menú principal)
+1- Abrir formulario                         "Entrega de Encomienda - Agencia"
+2- Campo DNI Destinatario                   "99999999"
+3- Botón                                    "Buscar"
+4- Mensaje                                  "No se encontró ningún destinatario con DNI 99999999."
+5- Botón                                    "Aceptar"
+6- Cerrar el sistema
+
+Verificaciones:
+7- La lista Guías Asociadas está vacía

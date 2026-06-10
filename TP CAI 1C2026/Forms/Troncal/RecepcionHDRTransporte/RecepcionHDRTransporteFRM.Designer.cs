@@ -34,24 +34,26 @@
             NumGuiaCol = new ColumnHeader();
             TipoEncomiendaCol = new ColumnHeader();
             DestinoCol = new ColumnHeader();
-            servicioOmnibusBTN = new ComboBox();
+            servicioOmnibusCMB = new ComboBox();
             servicioOmnibusLBL = new Label();
             SuspendLayout();
             // 
             // recibirHDRBTN
             // 
-            recibirHDRBTN.Location = new Point(394, 324);
+            recibirHDRBTN.Location = new Point(345, 243);
+            recibirHDRBTN.Margin = new Padding(3, 2, 3, 2);
             recibirHDRBTN.Name = "recibirHDRBTN";
-            recibirHDRBTN.Size = new Size(107, 32);
+            recibirHDRBTN.Size = new Size(94, 24);
             recibirHDRBTN.TabIndex = 11;
             recibirHDRBTN.Text = "Recibir HDR";
             recibirHDRBTN.Click += recibirHDRBTN_Click;
             // 
             // cancelarBTN
             // 
-            cancelarBTN.Location = new Point(519, 324);
+            cancelarBTN.Location = new Point(454, 243);
+            cancelarBTN.Margin = new Padding(3, 2, 3, 2);
             cancelarBTN.Name = "cancelarBTN";
-            cancelarBTN.Size = new Size(80, 32);
+            cancelarBTN.Size = new Size(70, 24);
             cancelarBTN.TabIndex = 12;
             cancelarBTN.Text = "Cancelar";
             cancelarBTN.Click += cancelarBTN_Click;
@@ -60,9 +62,10 @@
             // 
             GuiasLST.Columns.AddRange(new ColumnHeader[] { NumGuiaCol, TipoEncomiendaCol, DestinoCol });
             GuiasLST.GridLines = true;
-            GuiasLST.Location = new Point(43, 85);
+            GuiasLST.Location = new Point(38, 64);
+            GuiasLST.Margin = new Padding(3, 2, 3, 2);
             GuiasLST.Name = "GuiasLST";
-            GuiasLST.Size = new Size(555, 217);
+            GuiasLST.Size = new Size(486, 164);
             GuiasLST.TabIndex = 10;
             GuiasLST.UseCompatibleStateImageBehavior = false;
             GuiasLST.View = View.Details;
@@ -85,34 +88,36 @@
             DestinoCol.TextAlign = HorizontalAlignment.Center;
             DestinoCol.Width = 300;
             // 
-            // servicioOmnibusBTN
+            // servicioOmnibusCMB
             // 
-            servicioOmnibusBTN.FormattingEnabled = true;
-            servicioOmnibusBTN.Location = new Point(113, 37);
-            servicioOmnibusBTN.Name = "servicioOmnibusBTN";
-            servicioOmnibusBTN.Size = new Size(485, 28);
-            servicioOmnibusBTN.TabIndex = 9;
-            servicioOmnibusBTN.SelectedIndexChanged += servicioOmnibusBTN_SelectedIndexChanged;
+            servicioOmnibusCMB.FormattingEnabled = true;
+            servicioOmnibusCMB.Location = new Point(99, 28);
+            servicioOmnibusCMB.Margin = new Padding(3, 2, 3, 2);
+            servicioOmnibusCMB.Name = "servicioOmnibusCMB";
+            servicioOmnibusCMB.Size = new Size(425, 23);
+            servicioOmnibusCMB.TabIndex = 9;
+            servicioOmnibusCMB.SelectedIndexChanged += servicioOmnibusCMB_SelectedIndexChanged;
             // 
             // servicioOmnibusLBL
             // 
             servicioOmnibusLBL.AutoSize = true;
-            servicioOmnibusLBL.Location = new Point(43, 40);
+            servicioOmnibusLBL.Location = new Point(38, 30);
             servicioOmnibusLBL.Name = "servicioOmnibusLBL";
-            servicioOmnibusLBL.Size = new Size(64, 20);
+            servicioOmnibusLBL.Size = new Size(51, 15);
             servicioOmnibusLBL.TabIndex = 8;
             servicioOmnibusLBL.Text = "Servicio:";
             // 
             // RecepcionHDRTransporteFRM
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(645, 377);
+            ClientSize = new Size(564, 283);
             Controls.Add(recibirHDRBTN);
             Controls.Add(cancelarBTN);
             Controls.Add(GuiasLST);
-            Controls.Add(servicioOmnibusBTN);
+            Controls.Add(servicioOmnibusCMB);
             Controls.Add(servicioOmnibusLBL);
+            Margin = new Padding(3, 2, 3, 2);
             Name = "RecepcionHDRTransporteFRM";
             Text = "Recepción de Hoja de Ruta de Ómnibus";
             ResumeLayout(false);
@@ -126,7 +131,7 @@
         private ListView GuiasLST;
         private ColumnHeader TipoEncomiendaCol;
         private ColumnHeader NumGuiaCol;
-        private ComboBox servicioOmnibusBTN;
+        private ComboBox servicioOmnibusCMB;
         private Label servicioOmnibusLBL;
         private ColumnHeader DestinoCol;
     }

@@ -1,0 +1,32 @@
+﻿=========================================
+PRUEBA DE CAJA NEGRA N° 001
+EMISIÓN DE FACTURA EXITOSA
+=========================================
+
+Objetivo:
+Verificar que el sistema permita emitir una factura para un cliente con guías pendientes de facturación.
+
+Precondiciones:
+- Existe un cliente registrado.
+- El cliente posee al menos una guía en estado Entregada pendiente de facturación.
+
+Datos de Entrada:
+CUIT/DNI/CUIL: 33-63761744-9
+
+Pasos:
+1. Ingresar el CUIT/DNI/CUIL del cliente.
+2. Presionar el botón "Buscar".
+3. Verificar que se muestre el nombre del cliente.
+4. Verificar que se carguen las guías pendientes de facturación.
+5. Presionar "Emitir Factura".
+
+Resultado Esperado:
+- Se muestra el nombre del cliente.
+- Se listan las guías pendientes de facturación.
+- Se calcula correctamente el total.
+- Se emite la factura.
+- Se informa la operación exitosa al usuario.
+- Las guías incluidas quedan facturadas y no vuelven a aparecer en futuras emisiones.
+
+Estado Esperado:
+Factura Emitida.
