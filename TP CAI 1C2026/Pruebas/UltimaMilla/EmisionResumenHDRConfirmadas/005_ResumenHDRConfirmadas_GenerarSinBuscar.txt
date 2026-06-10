@@ -1,0 +1,15 @@
+Plan de Prueba: ResumenHDRConfirmadas-GenerarSinBuscar.txt
+
+(Empieza con el menú principal)
+1- Abrir formulario                         "Emisión Resumen HDR Confirmadas"
+2- Botón                                    "Generar Resumen de HDR Confirmadas"
+3- Mensaje                                  "Debe ingresar un DNI y presionar Buscar."
+4- Botón                                    "Aceptar"
+5- Cerrar el sistema
+
+Verificaciones:
+6- El campo Nombre del Fletero muestra      "Nombre del Fletero"
+7- La lista de HDRs está vacía
+8- Archivo HDRRetiro.json — no se modificó ninguna entrada
+9- Archivo HDREntrega.json — no se modificó ninguna entrada
+10- Archivo Guias.json — ninguna guía cambió de estado

@@ -11,6 +11,7 @@ namespace TP_CAI_1C2026.Forms.UltimaMilla.EmisionResumenHDRConfirmadas
         public int CantEcomiendas { get; set; }
         public int DniFletero { get; set; }
         public string Estado { get; set; }
-
+        /// <summary>"Retiro" o "Entrega"</summary>
+        public string TipoHDR { get; set; }
     }
 }

@@ -1,0 +1,14 @@
+Plan de Prueba: ResumenHDRConfirmadas-SinHDRsPendientes.txt
+
+(Empieza con el menú principal)
+1- Abrir formulario                         "Emisión Resumen HDR Confirmadas"
+2- Campo DNI Fletero                        "32080691"
+3- Botón                                    "Buscar"
+4- Nombre del Fletero muestra              "Lionel Messi"
+5- Mensaje                                  "El DNI 32080691 no tiene hojas de rutas en transito."
+6- Botón                                    "Aceptar"
+7- Cerrar el sistema
+
+Verificaciones:
+8- El campo Nombre del Fletero muestra      "Nombre del Fletero"
+9- La lista de HDRs está vacía
