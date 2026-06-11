@@ -224,7 +224,22 @@ public class ImposicionCDModelo
 
             for (int i = 0; i < detalle.Cantidad; i++)
             {
-                EstadoGuiaEnum estado = ObtenerEstadoInicial(cdChecked, cdSelected, agenciaChecked, ciudadAgenciaSelected, domicilioChecked, ciudadDestSelected);
+                const int idCentroDeDistribucionImposicion = 1;
+                TipoEntregaEnum tipoEntrega =
+                    ObtenerTipoEntrega(cdChecked, agenciaChecked, domicilioChecked);
+                int idCentroDeDistribucionEntrega =
+                    ObtenerIdCentroDeDistribucionEntrega(
+                        cdChecked,
+                        cdSelected,
+                        domicilioChecked,
+                        ciudadDestSelected);
+                int idAgenciaEntrega =
+                    agenciaChecked && agenciaSelected != null ? agenciaSelected.Id : 0;
+                EstadoGuiaEnum estado = ObtenerEstadoInicial(
+                    tipoEntrega,
+                    idCentroDeDistribucionImposicion,
+                    idCentroDeDistribucionEntrega,
+                    idAgenciaEntrega);
 
                 guias.Add(new GuiaEntidad
                 {
@@ -232,12 +247,12 @@ public class ImposicionCDModelo
                     CuitDniCuilCliente = cuitCliente,
                     FechaImposicion = fechaActual,
                     TipoImposicion = TipoImposicionEnum.CD,
-                    IdCentroDeDistribucionImposicion = 1,
+                    IdCentroDeDistribucionImposicion = idCentroDeDistribucionImposicion,
                     IdAgenciaImposicion = 0,
                     DireccionRetiroDomicilio = string.Empty,
-                    TipoEntrega = ObtenerTipoEntrega(cdChecked, agenciaChecked, domicilioChecked),
-                    IdCentroDeDistribucionEntrega = ObtenerIdCentroDeDistribucionEntrega(cdChecked, cdSelected, domicilioChecked, ciudadDestSelected),
-                    IdAgenciaEntrega = agenciaChecked && agenciaSelected != null ? agenciaSelected.Id : 0,
+                    TipoEntrega = tipoEntrega,
+                    IdCentroDeDistribucionEntrega = idCentroDeDistribucionEntrega,
+                    IdAgenciaEntrega = idAgenciaEntrega,
                     DireccionEntrega = domicilioChecked ? direccionDest : string.Empty,
                     DniDestinatario = dniDest,
                     NombreDestinatario = nombreDest,
@@ -291,7 +306,9 @@ public class ImposicionCDModelo
 
         if (domicilioChecked && ciudadDestSelected != null)
         {
-            return ciudadDestSelected.Id;
+            return CiudadAlmacen.Ciudades
+                .FirstOrDefault(ciudad => ciudad.IdCiudad == ciudadDestSelected.Id)?
+                .IdCentroDeDistribucion ?? 0;
         }
 
         return 0;
@@ -330,19 +347,32 @@ public class ImposicionCDModelo
     }
 
     private static EstadoGuiaEnum ObtenerEstadoInicial(
-        bool cdChecked,
-        CentroDeDistribucion? cdSelected,
-        bool agenciaChecked,
-        Ciudad? ciudadAgenciaSelected,
-        bool domicilioChecked,
-        Ciudad? ciudadDestSelected)
+        TipoEntregaEnum tipoEntrega,
+        int idCentroDeDistribucionImposicion,
+        int idCentroDeDistribucionEntrega,
+        int idAgenciaEntrega)
     {
-        bool yaEstaEnDestino =
-            cdChecked && cdSelected?.Id == 1 ||
-            agenciaChecked && ciudadAgenciaSelected?.Id == 1 ||
-            domicilioChecked && ciudadDestSelected?.Id == 1;
+        if (tipoEntrega == TipoEntregaEnum.CD &&
+            idCentroDeDistribucionImposicion == idCentroDeDistribucionEntrega)
+        {
+            return EstadoGuiaEnum.PendienteDeEntrega;
+        }
 
-        return yaEstaEnDestino ? EstadoGuiaEnum.EnDestino : EstadoGuiaEnum.Admitida;
+        int? idCentroDeDistribucionAgencia = CiudadAlmacen.Ciudades
+            .FirstOrDefault(ciudad =>
+                ciudad.Agencias != null &&
+                ciudad.Agencias.Contains(idAgenciaEntrega))?
+            .IdCentroDeDistribucion;
+
+        bool yaEstaEnDestino =
+            tipoEntrega == TipoEntregaEnum.Agencia &&
+            idCentroDeDistribucionAgencia == idCentroDeDistribucionImposicion ||
+            tipoEntrega == TipoEntregaEnum.ADomicilio &&
+            idCentroDeDistribucionEntrega == idCentroDeDistribucionImposicion;
+
+        return yaEstaEnDestino
+            ? EstadoGuiaEnum.EnDestino
+            : EstadoGuiaEnum.Admitida;
     }
 
     private static List<HistorialGuia> CrearHistorial(EstadoGuiaEnum estado, DateTime fecha)
@@ -354,7 +384,12 @@ public class ImposicionCDModelo
             new HistorialGuia { Fecha = fecha, Estado = EstadoGuiaEnum.Admitida }
         };
 
-        if (estado == EstadoGuiaEnum.EnDestino)
+        if (estado == EstadoGuiaEnum.PendienteDeEntrega)
+        {
+            historial.Add(new HistorialGuia { Fecha = fecha, Estado = EstadoGuiaEnum.EnDestino });
+            historial.Add(new HistorialGuia { Fecha = fecha, Estado = estado });
+        }
+        else if (estado == EstadoGuiaEnum.EnDestino)
         {
             historial.Add(new HistorialGuia { Fecha = fecha, Estado = EstadoGuiaEnum.EnDestino });
         }

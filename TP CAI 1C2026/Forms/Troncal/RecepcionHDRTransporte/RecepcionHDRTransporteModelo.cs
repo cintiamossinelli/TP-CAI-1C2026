@@ -38,8 +38,9 @@ namespace TP_CAI_1C2026.Forms.Troncal.RecepcionHDRTransporte
             }
 
             DateTime fechaActual = DateTime.Now;
+            Servicio servicioSeleccionado = servicios[indiceServicio];
 
-            foreach (Guias guia in servicios[indiceServicio].GuiasAsociadas)
+            foreach (Guias guia in servicioSeleccionado.GuiasAsociadas)
             {
                 var guiaEntidad = GuiaAlmacen.Guias
                     .FirstOrDefault(entidad => entidad.NroGuia == guia.Id);
@@ -50,6 +51,20 @@ namespace TP_CAI_1C2026.Forms.Troncal.RecepcionHDRTransporte
                 }
 
                 guiaEntidad.Historial ??= new List<HistorialGuia>();
+
+                if (!TieneMismoCentroDeDistribucionDestino(
+                    guiaEntidad,
+                    servicioSeleccionado.IdCentroDeDistribucionDestino))
+                {
+                    guiaEntidad.Estado = EstadoGuiaEnum.Admitida;
+                    guiaEntidad.Historial.Add(new HistorialGuia
+                    {
+                        Fecha = fechaActual,
+                        Estado = EstadoGuiaEnum.Admitida
+                    });
+                    continue;
+                }
+
                 guiaEntidad.Historial.Add(new HistorialGuia
                 {
                     Fecha = fechaActual,
@@ -101,23 +116,56 @@ namespace TP_CAI_1C2026.Forms.Troncal.RecepcionHDRTransporte
                     .FirstOrDefault(empresa =>
                         empresa.IdEmpresaTransporte == servicioEntidad.IdEmpresaTransporte);
 
+                var paradaDestino = servicioEntidad.Paradas
+                    .FirstOrDefault(parada =>
+                        parada.IdCentroDeDistribucion ==
+                        hdrEntidad.IdCentroDeDistribucionDestino);
+
+                if (paradaDestino == null)
+                {
+                    continue;
+                }
+
                 List<Guias> guiasAsociadas = ObtenerGuias(hdrEntidad);
 
-                foreach (var paradaEntidad in servicioEntidad.Paradas)
+                resultado.Add(new Servicio
                 {
-                    resultado.Add(new Servicio
-                    {
-                        Id = servicioEntidad.IdServicio,
-                        Empresa = empresaEntidad?.Nombre ?? "Empresa sin identificar",
-                        FechayHora = paradaEntidad.Fecha,
-                        GuiasAsociadas = guiasAsociadas
-                    });
-                }
+                    Id = servicioEntidad.IdServicio,
+                    IdCentroDeDistribucionDestino =
+                        hdrEntidad.IdCentroDeDistribucionDestino,
+                    Empresa = empresaEntidad?.Nombre ?? "Empresa sin identificar",
+                    FechayHora = paradaDestino.Fecha,
+                    GuiasAsociadas = guiasAsociadas
+                });
             }
 
             return resultado
                 .OrderByDescending(servicio => servicio.FechayHora)
                 .ToList();
+        }
+
+        private static bool TieneMismoCentroDeDistribucionDestino(
+            GuiaEntidad guiaEntidad,
+            int idCentroDeDistribucionDestinoHDR)
+        {
+            if (guiaEntidad.IdCentroDeDistribucionEntrega > 0)
+            {
+                return guiaEntidad.IdCentroDeDistribucionEntrega ==
+                    idCentroDeDistribucionDestinoHDR;
+            }
+
+            if (guiaEntidad.IdAgenciaEntrega > 0)
+            {
+                var ciudadAgencia = CiudadAlmacen.Ciudades
+                    .FirstOrDefault(ciudad =>
+                        ciudad.Agencias != null &&
+                        ciudad.Agencias.Contains(guiaEntidad.IdAgenciaEntrega));
+
+                return ciudadAgencia?.IdCentroDeDistribucion ==
+                    idCentroDeDistribucionDestinoHDR;
+            }
+
+            return false;
         }
 
         private static bool TieneTodasLasGuiasPendientesDeRecepcion(

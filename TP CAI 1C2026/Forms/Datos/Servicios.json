@@ -144,11 +144,11 @@
     "IdEmpresaTransporte": 4,
     "Paradas": [
       {
-        "Fecha": "2026-06-04T21:00:00Z",
+        "Fecha": "2026-06-08T21:00:00Z",
         "IdCentroDeDistribucion": 3
       },
       {
-        "Fecha": "2026-06-05T21:30:00Z",
+        "Fecha": "2026-06-09T21:30:00Z",
         "IdCentroDeDistribucion": 4
       }
     ]

@@ -107,15 +107,36 @@ namespace TP_CAI_1C2026.Forms.UltimaMilla.AdmisionCD
                     Estado = EstadoGuiaEnum.Admitida
                 });
 
-                if (EsMismaCiudadOrigenYDestino(guiaEntidad))
+                bool destinoLocal =
+                    guiaEntidad.TipoImposicion == TipoImposicionEnum.EnDomicilio
+                        ? EsDestinoDelCentroDeImposicion(guiaEntidad)
+                        : EsMismaCiudadOrigenYDestino(guiaEntidad);
+
+                if (destinoLocal)
                 {
-                    guiaEntidad.Estado = EstadoGuiaEnum.EnDestino;
                     guiaEntidad.Historial.Add(new HistorialGuia
                     {
                         Fecha = fechaActual,
                         Estado = EstadoGuiaEnum.EnDestino
                     });
-                    g.Estado = "EnDestino";
+
+                    if ((guiaEntidad.TipoImposicion == TipoImposicionEnum.Agencia ||
+                         guiaEntidad.TipoImposicion == TipoImposicionEnum.EnDomicilio) &&
+                        guiaEntidad.TipoEntrega == TipoEntregaEnum.CD)
+                    {
+                        guiaEntidad.Estado = EstadoGuiaEnum.PendienteDeEntrega;
+                        guiaEntidad.Historial.Add(new HistorialGuia
+                        {
+                            Fecha = fechaActual,
+                            Estado = EstadoGuiaEnum.PendienteDeEntrega
+                        });
+                        g.Estado = EstadoGuiaEnum.PendienteDeEntrega.ToString();
+                    }
+                    else
+                    {
+                        guiaEntidad.Estado = EstadoGuiaEnum.EnDestino;
+                        g.Estado = EstadoGuiaEnum.EnDestino.ToString();
+                    }
                 }
                 else
                 {
@@ -125,6 +146,35 @@ namespace TP_CAI_1C2026.Forms.UltimaMilla.AdmisionCD
             }
 
             GuiaAlmacen.Guardar();
+        }
+
+        private static bool EsDestinoDelCentroDeImposicion(GuiaEntidad guia)
+        {
+            if (guia.IdCentroDeDistribucionImposicion <= 0)
+            {
+                return false;
+            }
+
+            if (guia.TipoEntrega == TipoEntregaEnum.CD ||
+                guia.TipoEntrega == TipoEntregaEnum.ADomicilio)
+            {
+                return guia.IdCentroDeDistribucionImposicion ==
+                    guia.IdCentroDeDistribucionEntrega;
+            }
+
+            if (guia.TipoEntrega == TipoEntregaEnum.Agencia)
+            {
+                int? idCentroDeDistribucionAgencia = CiudadAlmacen.Ciudades
+                    .FirstOrDefault(ciudad =>
+                        ciudad.Agencias != null &&
+                        ciudad.Agencias.Contains(guia.IdAgenciaEntrega))?
+                    .IdCentroDeDistribucion;
+
+                return idCentroDeDistribucionAgencia ==
+                    guia.IdCentroDeDistribucionImposicion;
+            }
+
+            return false;
         }
 
         private static decimal CalcularPrecioVenta(GuiaEntidad guia)
