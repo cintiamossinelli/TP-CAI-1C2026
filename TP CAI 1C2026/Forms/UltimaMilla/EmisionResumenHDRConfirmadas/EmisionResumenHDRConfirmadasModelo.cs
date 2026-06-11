@@ -64,7 +64,7 @@ namespace TP_CAI_1C2026.Forms.UltimaMilla.EmisionResumenHDRConfirmadas
                             h.Estado == EstadoHDREnum.PendienteRendicion)
                 .Select(h => new HDREnTransito
                 {
-                    NroHDR = h.NroHDR.ToString(),
+                    NroHDR = $"ENT{h.NroHDR}",
                     Domicilio = h.Domicilio,
                     CantEcomiendas = h.CantEncomiendas,
                     DniFletero = h.DniFletero,
@@ -77,7 +77,7 @@ namespace TP_CAI_1C2026.Forms.UltimaMilla.EmisionResumenHDRConfirmadas
                             h.Estado == EstadoHDREnum.PendienteRendicion)
                 .Select(h => new HDREnTransito
                 {
-                    NroHDR = h.NroHDR.ToString(),
+                    NroHDR = $"RET{h.NroHDR}",
                     Domicilio = h.Domicilio,
                     CantEcomiendas = h.CantEncomiendas,
                     DniFletero = h.DniFletero,
@@ -149,7 +149,7 @@ namespace TP_CAI_1C2026.Forms.UltimaMilla.EmisionResumenHDRConfirmadas
 
         private void ProcesarHDR(HDREnTransito hdr, bool confirmada, FleteroEntidad? fletero)
         {
-            if (!int.TryParse(hdr.NroHDR, out int nroHDR))
+            if (!TryObtenerNumeroHDR(hdr, out int nroHDR))
                 return;
 
             if (hdr.TipoHDR == "Retiro")
@@ -184,6 +184,19 @@ namespace TP_CAI_1C2026.Forms.UltimaMilla.EmisionResumenHDRConfirmadas
 
                 entidad.Estado = EstadoHDREnum.Rendida;
             }
+        }
+
+        private bool TryObtenerNumeroHDR(HDREnTransito hdr, out int nroHDR)
+        {
+            string numeroHDR = hdr.NroHDR;
+
+            if (hdr.TipoHDR == "Entrega" && numeroHDR.StartsWith("ENT"))
+                numeroHDR = numeroHDR.Substring(3);
+
+            if (hdr.TipoHDR == "Retiro" && numeroHDR.StartsWith("RET"))
+                numeroHDR = numeroHDR.Substring(3);
+
+            return int.TryParse(numeroHDR, out nroHDR);
         }
 
         private void ProcesarGuiaRetiro(
@@ -221,6 +234,7 @@ namespace TP_CAI_1C2026.Forms.UltimaMilla.EmisionResumenHDRConfirmadas
                     Estado = EstadoGuiaEnum.NoRetirada
                 });
                 guia.Estado = EstadoGuiaEnum.NoRetirada;
+                AgregarComisionFletero(guia, fletero);
             }
         }
 
@@ -270,6 +284,7 @@ namespace TP_CAI_1C2026.Forms.UltimaMilla.EmisionResumenHDRConfirmadas
                 {
                     // Segundo intento fallido: la guía muere en NoEntregada(16)
                     guia.Estado = EstadoGuiaEnum.NoEntregada;
+                    AgregarComisionFletero(guia, fletero);
                 }
                 else
                 {
