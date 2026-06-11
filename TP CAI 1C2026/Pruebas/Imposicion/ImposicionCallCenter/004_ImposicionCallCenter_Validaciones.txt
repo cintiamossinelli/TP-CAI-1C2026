@@ -1,0 +1,132 @@
+Plan de Prueba: ImposicionCallCenter-Validaciones.txt
+
+Precondición:
+- Restaurar Forms\Datos\Guias.json a su estado inicial.
+
+(Empieza con el menú principal)
+1-  Abrir formulario                        "Imposición de Encomienda - Call Center"
+2-  Botón                                   "Cancelar"
+3-  Campo CUIT / DNI / CUIL                 ""
+4-  Botón                                   "Buscar"
+5-  Mensaje                                 "El CUIT, CUIL o DNI del cliente no puede estar vacío."
+6-  Botón                                   "Aceptar"
+7-  Campo CUIT / DNI / CUIL                 "123ABC"
+8-  Botón                                   "Buscar"
+9-  Mensaje                                 "El CUIT, CUIL o DNI del cliente debe ser un número válido."
+10- Botón                                   "Aceptar"
+11- Campo CUIT / DNI / CUIL                 "99999999"
+12- Botón                                   "Buscar"
+13- Mensaje                                 "No se encontró un cliente con CUIT, CUIL o DNI 99999999."
+14- Botón                                   "Aceptar"
+15- Campo CUIT / DNI / CUIL                 "24078369"
+16- Botón                                   "Buscar"
+17- Nombre del Cliente muestra              "Marcelo Gallardo"
+18- Combobox Tipo de Caja                   (sin selección)
+19- Campo Cantidad                          "1"
+20- Botón                                   "Agregar"
+21- Mensaje                                 "Seleccione un tamaño de caja."
+22- Botón                                   "Aceptar"
+23- Combobox Tipo de Caja                   "S"
+24- Campo Cantidad                          "ABC"
+25- Botón                                   "Agregar"
+26- Mensaje                                 "La cantidad debe ser un número entero positivo."
+27- Botón                                   "Aceptar"
+28- Combobox Tipo de Caja                   "S"
+29- Campo Cantidad                          "0"
+30- Botón                                   "Agregar"
+31- Mensaje                                 "La cantidad debe ser mayor a cero."
+32- Botón                                   "Aceptar"
+33- Botón                                   "Quitar Item" (sin seleccionar un item)
+34- Mensaje                                 "Seleccione un (y solo un) item para quitar."
+35- Botón                                   "Aceptar"
+36- Combobox Ciudad de retiro               (sin selección)
+37- Campo Domicilio Remitente               "Corrientes 4444"
+38- Botón                                   "Confirmar"
+39- Mensaje                                 "Debe seleccionar una ciudad de retiro de la encomienda."
+40- Botón                                   "Aceptar"
+41- Combobox Ciudad de retiro               "Rosario"
+42- Campo Domicilio Remitente               ""
+43- Botón                                   "Confirmar"
+44- Mensaje                                 "La dirección de retiro de la encomienda no puede estar vacía."
+45- Botón                                   "Aceptar"
+46- Campo Domicilio Remitente               "Corrientes 4444"
+47- Radio button                            "Agencia"
+48- Radio button                            "CD"
+49- Combobox CD destino                     (sin selección)
+50- Campo DNI Destinatario                  "30123456"
+51- Campo Nombre Destinatario               "Ana Ruiz"
+52- Botón                                   "Confirmar"
+53- Mensaje                                 "Debe seleccionar un CD destino."
+54- Botón                                   "Aceptar"
+55- Radio button                            "Agencia"
+56- Combobox Ciudad                         (sin selección)
+57- Combobox Agencia                        (sin selección)
+58- Botón                                   "Confirmar"
+59- Mensaje                                 "Debe seleccionar una ciudad y una agencia."
+60- Botón                                   "Aceptar"
+61- Combobox Ciudad                         "Cordoba"
+62- Combobox Agencia                        (sin selección)
+63- Botón                                   "Confirmar"
+64- Mensaje                                 "Debe seleccionar una ciudad y una agencia."
+65- Botón                                   "Aceptar"
+66- Radio button                            "A domicilio"
+67- Combobox Ciudad                         (sin selección)
+68- Campo Dirección                         ""
+69- Botón                                   "Confirmar"
+70- Mensaje                                 "Debe seleccionar una ciudad e ingresar un domicilio destino."
+71- Botón                                   "Aceptar"
+72- Combobox Ciudad                         "Santa Fe"
+73- Campo Dirección                         ""
+74- Botón                                   "Confirmar"
+75- Mensaje                                 "Debe seleccionar una ciudad e ingresar un domicilio destino."
+76- Botón                                   "Aceptar"
+77- Campo Dirección                         "Laprida 200"
+78- Campo DNI Destinatario                  ""
+79- Botón                                   "Confirmar"
+80- Mensaje                                 "El DNI del destinatario no puede estar vacío."
+81- Botón                                   "Aceptar"
+82- Campo DNI Destinatario                  "ABC123"
+83- Botón                                   "Confirmar"
+84- Mensaje                                 "Debe ingresar un DNI válido."
+85- Botón                                   "Aceptar"
+86- Campo DNI Destinatario                  "30123456"
+87- Campo Nombre Destinatario               ""
+88- Botón                                   "Confirmar"
+89- Mensaje                                 "El nombre del destinatario no puede estar vacío."
+90- Botón                                   "Aceptar"
+91- Campo Nombre Destinatario               "Ana123"
+92- Botón                                   "Confirmar"
+93- Mensaje                                 "Ha ingresado un número en el nombre del destinatario."
+94- Botón                                   "Aceptar"
+95- Campo Nombre Destinatario               "Ana Ruiz"
+96- Botón                                   "Confirmar" (sin encomiendas agregadas)
+97- Mensaje                                 "Debe ingresar al menos una encomienda en la lista."
+98- Botón                                   "Aceptar"
+99- Combobox Tipo de Caja                   "S"
+100- Campo Cantidad                         "1"
+101- Botón                                  "Agregar"
+102- Lista Detalle de Encomienda muestra    "S | 1"
+103- Combobox Tipo de Caja                  "M"
+104- Campo Cantidad                         "1"
+105- Botón                                  "Agregar"
+106- Lista Detalle de Encomienda muestra    "S | 1"
+                                             "M | 1"
+107- Seleccionar simultáneamente            "S | 1" y "M | 1"
+108- Botón                                  "Quitar Item"
+109- Mensaje                                "Seleccione un (y solo un) item para quitar."
+110- Botón                                  "Aceptar"
+111- Botón                                  "Cancelar"
+112- Cerrar el sistema
+
+Verificaciones:
+113- El formulario queda limpio:
+    - Campo CUIT / DNI / CUIL vacío
+    - Nombre del Cliente vacío
+    - Ciudad y domicilio de retiro vacíos
+    - Radio button "CD" seleccionado
+    - Combobox CD destino sin selección
+    - Combobox de ciudad y agencia sin selección
+    - Campos del destinatario vacíos
+    - Campos de detalle vacíos
+    - Lista Detalle de Encomienda vacía
+114- Archivo Guias.json - no se agregó ninguna guía

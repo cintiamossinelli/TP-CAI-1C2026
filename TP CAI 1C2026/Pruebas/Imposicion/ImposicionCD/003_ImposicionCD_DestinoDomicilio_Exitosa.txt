@@ -1,0 +1,59 @@
+Plan de Prueba: ImposicionCD-DestinoDomicilio-Exitosa.txt
+
+Precondición:
+- Restaurar Forms\Datos\Guias.json a su estado inicial.
+- El mayor correlativo de guía existente debe ser 839.
+
+(Empieza con el menú principal)
+1-  Abrir formulario                        "Imposición de Encomienda - Centro de Distribución"
+2-  Campo CUIT / DNI / CUIL                 "24078369"
+3-  Botón                                   "Buscar"
+4-  Nombre del Cliente muestra              "Marcelo Gallardo"
+5-  Radio button                            "A domicilio"
+6-  Combobox Ciudad                         "Rosario"
+7-  Campo Dirección                         "Av. Pellegrini 450"
+8-  Campo DNI Destinatario                  "23654321"
+9-  Campo Nombre Destinatario               "Lucía Ramírez"
+10- Combobox Tipo de Caja                   "L"
+11- Campo Cantidad                          "1"
+12- Botón                                   "Agregar"
+13- Lista Detalle de Encomienda muestra     "L | 1"
+14- Botón                                   "Confirmar"
+15- Mensaje                                 "Las siguientes guías fueron impuestas correctamente:
+                                             CD-1-840"
+16- Botón                                   "Aceptar"
+17- Cerrar el sistema
+
+Verificaciones:
+18- El formulario queda limpio
+
+19- Archivo Guias.json - la última entrada agregada debe ser similar a:
+
+    {
+      "NroGuia": "CD-1-840",
+      "CuitDniCuilCliente": "24078369",
+      "FechaImposicion": "<fecha actual>",
+      "TipoImposicion": 1,
+      "IdCentroDeDistribucionImposicion": 1,
+      "IdAgenciaImposicion": 0,
+      "DireccionRetiroDomicilio": "",
+      "TipoEntrega": 3,
+      "IdCentroDeDistribucionEntrega": 1,
+      "IdAgenciaEntrega": 0,
+      "DireccionEntrega": "Av. Pellegrini 450",
+      "DniDestinatario": "23654321",
+      "NombreDestinatario": "Lucía Ramírez",
+      "TipoCaja": 3,
+      "PrecioVenta": 23800.0,
+      "Estado": 11,
+      "Historial": [
+        { "Fecha": "<fecha actual>", "Estado": 3 },
+        { "Fecha": "<fecha actual>", "Estado": 6 },
+        { "Fecha": "<fecha actual>", "Estado": 8 },
+        { "Fecha": "<fecha actual>", "Estado": 11 }
+      ],
+      "ComisionFletero": [],
+      "ComisionAgencia": [],
+      "IntentosDeEntrega": 0
+    }
+

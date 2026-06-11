@@ -1,0 +1,58 @@
+Plan de Prueba: ImposicionCallCenter-DestinoAgencia-Exitosa.txt
+
+Precondición:
+- Restaurar Forms\Datos\Guias.json a su estado inicial.
+- El mayor correlativo de guía existente debe ser 839.
+
+(Empieza con el menú principal)
+1-  Abrir formulario                        "Imposición de Encomienda - Call Center"
+2-  Campo CUIT / DNI / CUIL                 "24078369"
+3-  Botón                                   "Buscar"
+4-  Nombre del Cliente muestra              "Marcelo Gallardo"
+5-  Combobox Ciudad de retiro               "Rosario"
+6-  Campo Domicilio Remitente               "Corrientes 4444"
+7-  Radio button                            "Agencia"
+8-  Combobox Ciudad                         "Cordoba"
+9-  Combobox Agencia                        "Cordoba Centro"
+10- Campo DNI Destinatario                  "31234567"
+11- Campo Nombre Destinatario               "Carlos Vera"
+12- Combobox Tipo de Caja                   "M"
+13- Campo Cantidad                          "1"
+14- Botón                                   "Agregar"
+15- Lista Detalle de Encomienda muestra     "M | 1"
+16- Botón                                   "Confirmar"
+17- Mensaje                                 "Las siguientes guías fueron impuestas correctamente:
+                                             CC-1-840"
+18- Botón                                   "Aceptar"
+19- Cerrar el sistema
+
+Verificaciones:
+20- El formulario queda limpio
+
+21- Archivo Guias.json - la última entrada agregada debe ser similar a:
+
+    {
+      "NroGuia": "CC-1-840",
+      "CuitDniCuilCliente": "24078369",
+      "FechaImposicion": "<fecha actual>",
+      "TipoImposicion": 3,
+      "IdCentroDeDistribucionImposicion": 1,
+      "IdAgenciaImposicion": 0,
+      "DireccionRetiroDomicilio": "Corrientes 4444",
+      "TipoEntrega": 2,
+      "IdCentroDeDistribucionEntrega": 0,
+      "IdAgenciaEntrega": 11,
+      "DireccionEntrega": "",
+      "DniDestinatario": "31234567",
+      "NombreDestinatario": "Carlos Vera",
+      "TipoCaja": 2,
+      "PrecioVenta": 0,
+      "Estado": 1,
+      "Historial": [
+        { "Fecha": "<fecha actual>", "Estado": 1 }
+      ],
+      "ComisionFletero": [],
+      "ComisionAgencia": [],
+      "IntentosDeEntrega": 0
+    }
+

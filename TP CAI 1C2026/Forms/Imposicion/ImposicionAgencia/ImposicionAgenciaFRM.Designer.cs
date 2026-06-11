@@ -229,7 +229,7 @@
             destinatarioGBX.Location = new Point(13, 106);
             destinatarioGBX.Name = "destinatarioGBX";
             destinatarioGBX.Size = new Size(649, 257);
-            destinatarioGBX.TabIndex = 6;
+            destinatarioGBX.TabIndex = 1;
             destinatarioGBX.TabStop = false;
             destinatarioGBX.Text = "Destinatario";
             // 
@@ -238,7 +238,7 @@
             nombreAgenciaLBL.Location = new Point(34, 89);
             nombreAgenciaLBL.Name = "nombreAgenciaLBL";
             nombreAgenciaLBL.Size = new Size(166, 23);
-            nombreAgenciaLBL.TabIndex = 18;
+            nombreAgenciaLBL.TabIndex = 4;
             nombreAgenciaLBL.Text = "Agencia:";
             nombreAgenciaLBL.TextAlign = ContentAlignment.MiddleRight;
             // 
@@ -250,7 +250,7 @@
             agenciaCMB.Name = "agenciaCMB";
             agenciaCMB.Size = new Size(430, 23);
             agenciaCMB.Sorted = true;
-            agenciaCMB.TabIndex = 17;
+            agenciaCMB.TabIndex = 5;
             // 
             // label1
             // 
@@ -287,7 +287,7 @@
             ciudadDestinatarioCMB.Name = "ciudadDestinatarioCMB";
             ciudadDestinatarioCMB.Size = new Size(430, 23);
             ciudadDestinatarioCMB.Sorted = true;
-            ciudadDestinatarioCMB.TabIndex = 14;
+            ciudadDestinatarioCMB.TabIndex = 7;
             // 
             // nombreDestinatarioTXT
             // 
@@ -322,7 +322,7 @@
             agenciaRDB.Location = new Point(43, 57);
             agenciaRDB.Name = "agenciaRDB";
             agenciaRDB.Size = new Size(70, 23);
-            agenciaRDB.TabIndex = 1;
+            agenciaRDB.TabIndex = 2;
             agenciaRDB.Text = "Agencia";
             agenciaRDB.CheckedChanged += agenciaRDB_CheckedChanged;
             // 
@@ -331,7 +331,7 @@
             domicilioRDB.Location = new Point(43, 129);
             domicilioRDB.Name = "domicilioRDB";
             domicilioRDB.Size = new Size(87, 26);
-            domicilioRDB.TabIndex = 2;
+            domicilioRDB.TabIndex = 6;
             domicilioRDB.Text = "A domicilio";
             domicilioRDB.CheckedChanged += domicilioRDB_CheckedChanged;
             // 
@@ -342,7 +342,7 @@
             destinoCDCMB.Name = "destinoCDCMB";
             destinoCDCMB.Size = new Size(498, 23);
             destinoCDCMB.Sorted = true;
-            destinoCDCMB.TabIndex = 4;
+            destinoCDCMB.TabIndex = 1;
             // 
             // ciudadAgenciaCMB
             // 
@@ -352,7 +352,7 @@
             ciudadAgenciaCMB.Name = "ciudadAgenciaCMB";
             ciudadAgenciaCMB.Size = new Size(430, 23);
             ciudadAgenciaCMB.Sorted = true;
-            ciudadAgenciaCMB.TabIndex = 6;
+            ciudadAgenciaCMB.TabIndex = 3;
             ciudadAgenciaCMB.SelectedIndexChanged += ciudadAgenciaCMB_SelectedIndexChanged;
             // 
             // direccionDestinatarioTXT
