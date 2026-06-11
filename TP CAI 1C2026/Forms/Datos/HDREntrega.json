@@ -133,5 +133,41 @@
     "CantEncomiendas": 1,
     "Guias": [ "CC-2-822" ],
     "Estado": 4
+  },
+  {
+    "NroHDR": 16,
+    "DniFletero": 10101010,
+    "Fecha": "2026-06-09",
+    "Domicilio": "Agencia 5 (Microcentro)",
+    "CantEncomiendas": 1,
+    "Guias": ["CD-2-174"],
+    "Estado": 1
+  },
+  {
+    "NroHDR": 17,
+    "DniFletero": 10101010,
+    "Fecha": "2026-06-09",
+    "Domicilio": "Agencia 6 (Palermo)",
+    "CantEncomiendas": 1,
+    "Guias": [ "AG-9-176" ],
+    "Estado": 1
+  },
+  {
+    "NroHDR": 18,
+    "DniFletero": 10101010,
+    "Fecha": "2026-06-09",
+    "Domicilio": "Lavalle 215",
+    "CantEncomiendas": 1,
+    "Guias": [ "CC-2-836" ],
+    "Estado": 1
+  },
+  {
+    "NroHDR": 19,
+    "DniFletero": 10101010,
+    "Fecha": "2026-06-09",
+    "Domicilio": "Sarmiento 525",
+    "CantEncomiendas": 1,
+    "Guias": [ "CC-2-837" ],
+    "Estado": 1
   }
 ]

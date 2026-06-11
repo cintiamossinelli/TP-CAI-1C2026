@@ -147,36 +147,36 @@
     "NroHDR": 17,
     "DniFletero": 10101010,
     "Fecha": "2026-06-06",
-    "Domicilio": "Agencia 6 (Palermo)",
+    "Domicilio": "Av Corrientes 500",
     "CantEncomiendas": 1,
-    "Guias": [],
+    "Guias": ["CC-2-831"],
     "Estado": 1
   },
   {
     "NroHDR": 18,
-    "DniFletero": 11223344,
+    "DniFletero": 10101010,
     "Fecha": "2026-06-09",
-    "Domicilio": "Agencia 1 (Rosario Norte)",
+    "Domicilio": "Av Corrientes 850",
     "CantEncomiendas": 1,
-    "Guias": [],
+    "Guias": ["CC-2-832"],
     "Estado": 1
   },
   {
     "NroHDR": 19,
-    "DniFletero": 11223344,
+    "DniFletero": 10101010,
     "Fecha": "2026-06-09",
-    "Domicilio": "Av. Corrientes 500, Rosario",
+    "Domicilio": "Av. Libertador 300",
     "CantEncomiendas": 1,
-    "Guias": [],
+    "Guias": [ "CC-2-833" ],
     "Estado": 1
   },
   {
     "NroHDR": 20,
-    "DniFletero": 11223344,
+    "DniFletero": 10101010,
     "Fecha": "2026-06-09",
-    "Domicilio": "Pellegrini 800, Rosario",
-    "CantEncomiendas": 1,
-    "Guias": [],
+    "Domicilio": "Lavalle 350",
+    "CantEncomiendas": 2,
+    "Guias": [ "CC-2-834", "CC-2-835" ],
     "Estado": 1
   }
 ]
