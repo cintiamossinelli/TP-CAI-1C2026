@@ -1,0 +1,340 @@
+================================================================================
+PLAN DE PRUEBAS MANUALES - EMISION DE HOJA DE RUTA DE OMNIBUS
+================================================================================
+
+IMPORTANTE:
+- Estas pruebas utilizan los datos reales incluidos actualmente en el sistema.
+- Ejecutar las pruebas en el orden indicado.
+- La prueba N° 010 genera una nueva HDR y modifica datos. Ejecutarla al final.
+
+================================================================================
+PRUEBA DE CAJA NEGRA N° 001
+APERTURA DEL FORMULARIO
+================================================================================
+
+Objetivo:
+Verificar que la pantalla se abra correctamente y quede lista para operar.
+
+Precondiciones:
+- Iniciar el sistema con los archivos de datos originales.
+
+Datos de Entrada:
+- No se ingresan datos.
+
+Pasos:
+1. Abrir la pantalla "Emision de Hoja de Ruta de Omnibus".
+2. Observar los campos y listas.
+
+Resultado Esperado:
+- "Centro de Distribucion Destino" queda sin seleccion.
+- "Empresa de Transporte" queda sin seleccion.
+- La fecha muestra el dia actual.
+- La lista de transportes esta vacia y deshabilitada.
+- La seccion "Guias de encomienda a enviar" esta deshabilitada.
+- Los centros disponibles son: Buenos Aires, Cordoba, Mendoza, Olavarria,
+  Rosario y Santa Fe.
+
+Estado Esperado:
+No se modifican datos.
+
+================================================================================
+PRUEBA DE CAJA NEGRA N° 002
+BUSQUEDA SIN SELECCIONAR CENTRO DE DISTRIBUCION
+================================================================================
+
+Objetivo:
+Verificar que el Centro de Distribucion destino sea obligatorio.
+
+Precondiciones:
+- El formulario se encuentra en su estado inicial.
+
+Datos de Entrada:
+- Fecha: 12/06/2026.
+- Centro de Distribucion Destino: sin seleccion.
+- Empresa de Transporte: sin seleccion.
+
+Pasos:
+1. Ingresar la fecha 12/06/2026.
+2. Dejar ambos combos sin seleccion.
+3. Presionar el boton "Buscar" ubicado junto a la fecha.
+
+Resultado Esperado:
+- Se muestra el mensaje "Debe seleccionar un Centro de Distribucion destino".
+- No se muestran transportes.
+- La seccion de guias permanece deshabilitada.
+
+Estado Esperado:
+No se modifican datos.
+
+================================================================================
+PRUEBA DE CAJA NEGRA N° 003
+BUSQUEDA CON FECHA ANTERIOR AL DIA ACTUAL
+================================================================================
+
+Objetivo:
+Verificar que no se permita buscar transportes de una fecha pasada.
+
+Precondiciones:
+- La fecha actual del equipo es 11/06/2026.
+
+Datos de Entrada:
+- Fecha: 10/06/2026.
+- Centro de Distribucion Destino: Buenos Aires.
+
+Pasos:
+1. Seleccionar "Buenos Aires".
+2. Ingresar la fecha 10/06/2026.
+3. Presionar "Buscar".
+
+Resultado Esperado:
+- Se muestra el mensaje "La fecha debe ser igual a hoy o posterior".
+- No se muestran transportes.
+
+Estado Esperado:
+No se modifican datos.
+
+================================================================================
+PRUEBA DE CAJA NEGRA N° 004
+BUSQUEDA DE TRANSPORTE SIN RESULTADOS
+================================================================================
+
+Objetivo:
+Verificar el mensaje mostrado cuando no existe un transporte para los filtros.
+
+Precondiciones:
+- El formulario esta abierto.
+
+Datos de Entrada:
+- Fecha: 12/06/2026.
+- Centro de Distribucion Destino: Buenos Aires.
+- Empresa de Transporte: sin seleccion.
+
+Pasos:
+1. Seleccionar "Buenos Aires".
+2. Ingresar la fecha 12/06/2026.
+3. Presionar "Buscar".
+
+Resultado Esperado:
+- Se muestra "No se encontraron transportes para los filtros ingresados".
+- La lista de transportes queda vacia y deshabilitada.
+- La seccion de guias permanece deshabilitada.
+
+Estado Esperado:
+No se modifican datos.
+
+================================================================================
+PRUEBA DE CAJA NEGRA N° 005
+BUSQUEDA EXITOSA DE TRANSPORTE
+================================================================================
+
+Objetivo:
+Verificar que se encuentre el transporte real disponible para Buenos Aires.
+
+Precondiciones:
+- El formulario esta abierto.
+
+Datos de Entrada:
+- Fecha: 15/06/2026.
+- Centro de Distribucion Destino: Buenos Aires.
+- Empresa de Transporte: Chevallier.
+
+Pasos:
+1. Seleccionar "Buenos Aires".
+2. Ingresar la fecha 15/06/2026.
+3. Seleccionar "Chevallier".
+4. Presionar cualquiera de los botones "Buscar".
+
+Resultado Esperado:
+- La lista de transportes queda habilitada.
+- Se muestra exactamente una fila:
+  Fecha: 15/06/2026
+  Hora: 17:35
+  Empresa: Chevallier
+  Destino: Buenos Aires
+
+Estado Esperado:
+No se modifican datos.
+
+================================================================================
+PRUEBA DE CAJA NEGRA N° 006
+SELECCION DEL TRANSPORTE Y CARGA DE GUIAS REALES
+================================================================================
+
+Objetivo:
+Verificar que al seleccionar el transporte se muestren las guias disponibles.
+
+Precondiciones:
+- Se completo exitosamente la prueba N° 005.
+
+Datos de Entrada:
+- Seleccionar la unica fila de transporte mostrada.
+
+Pasos:
+1. Hacer clic sobre la fila del transporte Chevallier.
+2. Observar la seccion de guias.
+
+Resultado Esperado:
+- La seccion de guias queda habilitada.
+- Se muestran estas 10 guias, ordenadas por numero:
+  AG-12-817 - Tipo M - Destino Buenos Aires
+  CC-1-822  - Tipo L - Destino Mendoza
+  CC-3-823  - Tipo XL - Destino Santa Fe
+  CD-1-816  - Tipo S - Destino Buenos Aires
+  CD-1-820  - Tipo S - Destino Buenos Aires
+  CD-1-824  - Tipo M - Destino Buenos Aires
+  CD-2-819  - Tipo XL - Destino Cordoba
+  CD-2-821  - Tipo M - Destino Cordoba
+  CD-2-825  - Tipo L - Destino Cordoba
+  CD-3-826  - Tipo XL - Destino Santa Fe
+
+Estado Esperado:
+No se modifican datos.
+
+================================================================================
+PRUEBA DE CAJA NEGRA N° 007
+BUSQUEDA PARCIAL DE GUIAS
+================================================================================
+
+Objetivo:
+Verificar que se puedan buscar guias escribiendo una parte de su numero.
+
+Precondiciones:
+- Se completo exitosamente la prueba N° 006.
+
+Datos de Entrada:
+- Numero de guia: CD-1-8
+
+Pasos:
+1. Escribir "CD-1-8" en el campo N° Guia.
+2. Presionar el boton "Buscar" de la seccion de guias.
+
+Resultado Esperado:
+- Se muestran exactamente estas tres guias:
+  CD-1-816 - Tipo S - Destino Buenos Aires
+  CD-1-820 - Tipo S - Destino Buenos Aires
+  CD-1-824 - Tipo M - Destino Buenos Aires
+
+Estado Esperado:
+No se modifican datos.
+
+================================================================================
+PRUEBA DE CAJA NEGRA N° 008
+AGREGAR Y QUITAR UNA GUIA
+================================================================================
+
+Objetivo:
+Verificar que una guia pueda agregarse y quitarse antes de generar la HDR.
+
+Precondiciones:
+- Se muestran las tres guias de la prueba N° 007.
+
+Datos de Entrada:
+- Guia seleccionada: CD-1-816.
+
+Pasos:
+1. Marcar la casilla de la guia CD-1-816.
+2. Presionar "Agregar >>>".
+3. Verificar que CD-1-816 aparezca en la lista derecha.
+4. Marcar la casilla de CD-1-816 en la lista derecha.
+5. Presionar "Quitar <<<".
+
+Resultado Esperado:
+- Al agregar, CD-1-816 pasa a la lista derecha.
+- El campo N° Guia se limpia.
+- Al quitar, CD-1-816 desaparece de la lista derecha y vuelve a la izquierda.
+- No se genera ninguna HDR.
+
+Estado Esperado:
+No se modifican datos guardados.
+
+================================================================================
+PRUEBA DE CAJA NEGRA N° 009
+GENERAR HDR SIN GUIAS AGREGADAS
+================================================================================
+
+Objetivo:
+Verificar que no se genere una HDR vacia.
+
+Precondiciones:
+- Esta seleccionado el transporte Chevallier del 15/06/2026 a Buenos Aires.
+- La lista derecha no contiene guias.
+
+Datos de Entrada:
+- No agregar ninguna guia.
+
+Pasos:
+1. Presionar "Generar HDR".
+
+Resultado Esperado:
+- Se muestra "Debe agregar al menos una guia para generar la HDR".
+- No se genera ninguna HDR.
+
+Estado Esperado:
+No se modifican datos.
+
+================================================================================
+PRUEBA DE CAJA NEGRA N° 010
+GENERACION EXITOSA DE HDR CON DATOS REALES - EJECUTAR AL FINAL
+================================================================================
+
+Objetivo:
+Verificar la generacion completa de una HDR usando guias reales compatibles.
+
+Precondiciones:
+- Ejecutar esta prueba solamente una vez y al final del plan.
+- Las guias CD-1-816, CD-1-820 y CD-1-824 continuan disponibles.
+- El mayor numero de HDR existente es 7.
+
+Datos de Entrada:
+- Fecha: 15/06/2026.
+- Centro de Distribucion Destino: Buenos Aires.
+- Empresa de Transporte: Chevallier.
+- Guias: CD-1-816, CD-1-820 y CD-1-824.
+
+Pasos:
+1. Presionar "Cancelar" para limpiar el formulario.
+2. Seleccionar "Buenos Aires".
+3. Ingresar la fecha 15/06/2026.
+4. Seleccionar "Chevallier" y presionar "Buscar".
+5. Seleccionar la unica fila de transporte mostrada.
+6. Escribir "CD-1-8" en N° Guia y presionar "Buscar".
+7. Marcar CD-1-816, CD-1-820 y CD-1-824.
+8. Presionar "Agregar >>>".
+9. Verificar que las tres guias aparezcan en la lista derecha.
+10. Presionar "Generar HDR".
+
+Resultado Esperado:
+- Se muestra el mensaje "HDR generado: 8".
+- La pantalla vuelve a su estado inicial.
+- La nueva HDR contiene las tres guias indicadas.
+- Las tres guias dejan de aparecer como disponibles para una nueva HDR.
+
+Estado Esperado:
+- Se guarda la HDR N° 8 para el servicio Chevallier con destino Buenos Aires.
+- CD-1-816, CD-1-820 y CD-1-824 cambian a estado PendienteDeTransporte.
+
+================================================================================
+PRUEBA DE CAJA NEGRA N° 011
+CANCELAR LIMPIA EL FORMULARIO
+================================================================================
+
+Objetivo:
+Verificar que Cancelar elimine las selecciones sin guardar una HDR.
+
+Precondiciones:
+- El formulario contiene filtros, un transporte seleccionado o guias agregadas.
+
+Datos de Entrada:
+- Cualquier seleccion realizada durante las pruebas anteriores.
+
+Pasos:
+1. Presionar "Cancelar".
+
+Resultado Esperado:
+- Los combos quedan sin seleccion.
+- La fecha vuelve al dia actual.
+- Las listas quedan vacias.
+- La lista de transportes y la seccion de guias quedan deshabilitadas.
+
+Estado Esperado:
+No se genera una HDR por presionar Cancelar.
