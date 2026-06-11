@@ -7,9 +7,8 @@
         public DespachoHDRTransporte()
         {
             InitializeComponent();
-            HDRnumCMB.DropDownStyle = ComboBoxStyle.DropDownList; //solo selección
+            HDRnumCMB.DropDownStyle = ComboBoxStyle.DropDownList;
 
-            // Cargar servicios entre hoy y los próximos 10 días
             var fechaHoy = DateTime.Today;
             var fechaLimite = fechaHoy.AddDays(+10);
             var servicios = modelo.ObtenerServicios()
@@ -36,7 +35,6 @@
                 .OrderBy(s => s.FechayHora)
                 .ToList();
 
-            // Verificación defensiva
             if (HDRnumCMB.SelectedIndex < 0 || HDRnumCMB.SelectedIndex >= servicios.Count)
             {
                 return;
@@ -72,6 +70,13 @@
             {
                 return;
             }
+
+            var numerosGuias = listView1.Items
+                .Cast<ListViewItem>()
+                .Select(item => item.Text)
+                .ToList();
+
+            modelo.DespacharGuias(numerosGuias);
 
             MessageBox.Show("Se han despachado las guía/s con éxito.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
 

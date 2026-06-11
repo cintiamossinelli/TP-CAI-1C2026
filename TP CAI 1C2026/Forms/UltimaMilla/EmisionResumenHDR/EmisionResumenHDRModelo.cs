@@ -64,7 +64,7 @@ namespace TP_CAI_1C2026.Forms.UltimaMilla.EmisionResumenHDR
         public List<HDREntrega> BuscarEntregasPorDni(string dni)
         {
             return HDREntregaAlmacen.HDREntregas
-                .Where(e => e.DniFletero.ToString() == dni)
+                .Where(e => e.DniFletero.ToString() == dni && e.Estado == EstadoHDREnum.Emitida)
                 .Select(e => new HDREntrega(
                     e.NroHDR,
                     e.Domicilio,
@@ -77,7 +77,7 @@ namespace TP_CAI_1C2026.Forms.UltimaMilla.EmisionResumenHDR
         public List<HDRRetiro> BuscarRetirosPorDni(string dni)
         {
             return HDRRetiroAlmacen.HDRRetiros
-                .Where(r => r.DniFletero.ToString() == dni)
+                .Where(r => r.DniFletero.ToString() == dni && r.Estado == EstadoHDREnum.Emitida)
                 .Select(r => new HDRRetiro(
                     r.NroHDR,
                     r.Domicilio,
@@ -107,6 +107,41 @@ namespace TP_CAI_1C2026.Forms.UltimaMilla.EmisionResumenHDR
 
             mensaje = string.Empty;
             return true;
+        }
+
+        public void EmitirResumen(string dni)
+        {
+            var hdrRetiros = HDRRetiroAlmacen.HDRRetiros
+                .Where(r => r.DniFletero.ToString() == dni && r.Estado == EstadoHDREnum.Emitida)
+                .ToList();
+
+            foreach (var retiro in hdrRetiros)
+            {
+                retiro.Estado = EstadoHDREnum.PendienteRendicion;
+            }
+
+            var hdrEntregas = HDREntregaAlmacen.HDREntregas
+                .Where(e => e.DniFletero.ToString() == dni && e.Estado == EstadoHDREnum.Emitida)
+                .ToList();
+
+            foreach (var entrega in hdrEntregas)
+            {
+                var guiasDeLaHDR = GuiaAlmacen.Guias
+                    .Where(g => entrega.Guias.Contains(g.NroGuia))
+                    .ToList();
+
+                if (guiasDeLaHDR.Any(g => (int)g.TipoEntrega == 2))
+                {
+                    entrega.Estado = EstadoHDREnum.EntregadaAlFletero;
+                }
+                else if (guiasDeLaHDR.Any(g => (int)g.TipoEntrega == 3))
+                {
+                    entrega.Estado = EstadoHDREnum.PendienteRendicion;
+                }
+            }
+
+            HDRRetiroAlmacen.Guardar();
+            HDREntregaAlmacen.Guardar();
         }
     }
 }

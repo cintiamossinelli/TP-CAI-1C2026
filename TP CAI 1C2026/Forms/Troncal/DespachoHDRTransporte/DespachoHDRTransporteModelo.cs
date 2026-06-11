@@ -65,6 +65,22 @@ namespace TP_CAI_1C2026.Forms.Troncal.DespachoHDRTransporte
             return resultado;
         }
 
+        internal void DespacharGuias(List<string> numerosGuias)
+        {
+            foreach (var nroGuia in numerosGuias)
+            {
+                var guia = GuiaAlmacen.Guias
+                    .FirstOrDefault(g => g.NroGuia == nroGuia);
+
+                if (guia != null)
+                {
+                    guia.Estado = EstadoGuiaEnum.PendienteDeRecepcion;
+                }
+            }
+
+            GuiaAlmacen.Guardar();
+        }
+
         private string ObtenerDestino(GuiaEntidad guia)
         {
             if (!string.IsNullOrWhiteSpace(guia.DireccionEntrega))
