@@ -1,0 +1,32 @@
+Plan de Prueba: EntregaAgencia-Validaciones.txt
+
+(Empieza con el menú principal)
+1-  Abrir formulario                        "Entrega de Encomienda - Agencia"
+2-  Campo DNI Destinatario                  ""
+3-  Botón                                   "Buscar"
+4-  Mensaje                                 "El DNI no puede estar vacío."
+5-  Botón                                   "Aceptar"
+6-  Campo DNI Destinatario                  "1234ABC"
+7-  Botón                                   "Buscar"
+8-  Mensaje                                 "El DNI debe ser numérico y de 8 dígitos."
+9-  Botón                                   "Aceptar"
+10- Campo DNI Destinatario                  "99999999"
+11- Botón                                   "Buscar"
+12- Mensaje                                 "No se encontró ningún destinatario con DNI 99999999."
+13- Botón                                   "Aceptar"
+14- Campo DNI Destinatario                  "20111222"
+15- Botón                                   "Buscar"
+16- Lista Guías Asociadas muestra           "AG-5-167 | PendienteDeEntrega | S"
+17- (No se selecciona ninguna guía)
+18- Botón                                   "Retirar"
+19- Mensaje                                 "Debe seleccionar al menos una guía para entregar."
+20- Botón                                   "Aceptar"
+21- Botón                                   "Cancelar"
+22- Mensaje                                 "Operación cancelada."
+23- Botón                                   "Aceptar"
+24- Cerrar el sistema
+
+Verificaciones:
+25- El campo DNI Destinatario queda vacío   ""
+26- La lista Guías Asociadas está vacía
+27- Archivo Guias.json — la guía AG-5-167 no debe haber cambiado de estado

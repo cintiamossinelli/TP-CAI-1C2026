@@ -1,0 +1,66 @@
+Plan de Prueba: EmisionHDRRetiro-Validaciones.txt
+
+(Empieza con el menú principal)
+1-  Abrir formulario                        "Emisión de HDR de Retiro"
+2-  Campo DNI Fletero                       ""
+3-  Botón                                   "Buscar"
+4-  Mensaje                                 "El DNI no puede estar vacío."
+5-  Botón                                   "Aceptar"
+6-  Campo DNI Fletero                       "1234ABC"
+7-  Botón                                   "Buscar"
+8-  Mensaje                                 "El DNI debe ser numérico, positivo y de 8 dígitos."
+9-  Botón                                   "Aceptar"
+10- Campo DNI Fletero                       "99999999"
+11- Botón                                   "Buscar"
+12- Mensaje                                 "No se encontró ningún fletero con DNI 99999999."
+13- Botón                                   "Aceptar"
+14- Botón                                   "Buscar por Localidad"
+15- Mensaje                                 "Debe seleccionar una localidad."
+16- Botón                                   "Aceptar"
+17- Campo DNI Fletero                       "11223344"
+18- Botón                                   "Buscar"
+19- Nombre del Fletero muestra              "José Lema"
+20- Combobox Localidad se selecciona auto   "Rosario"
+21- Campo Nº Guía                           ""
+22- Botón                                   "Buscar" (buscar guía)
+23- Mensaje                                 "Debe ingresar un número de guía."
+24- Botón                                   "Aceptar"
+25- Campo Nº Guía                           "CC-1-999"
+26- Botón                                   "Buscar" (buscar guía)
+27- Mensaje                                 "No se encontró ninguna guía con el número CC-1-999."
+28- Botón                                   "Aceptar"
+29- (No se selecciona ninguna guía)
+30- Botón                                   "Agregar >>>"
+31- Mensaje                                 "Debe seleccionar al menos una guía para agregar."
+32- Botón                                   "Aceptar"
+33- (No se agrega ninguna guía)
+34- Botón                                   "Generar HDR"
+35- Mensaje                                 "Debe agregar al menos una guía a la HDR."
+36- Botón                                   "Aceptar"
+37- Seleccionar guía                        "CC-1-797"
+38- Botón                                   "Agregar >>>"
+39- Lista guías agregadas muestra           "CC-1-797 | S | Av. Siempre Viva 123, Rosario"
+40- (No se selecciona ninguna guía del lado derecho)
+41- Botón                                   "<<< Quitar"
+42- Mensaje                                 "Debe seleccionar al menos una guía para quitar."
+43- Botón                                   "Aceptar"
+44- Seleccionar guía                        "AG-1-801"
+45- Botón                                   "Agregar >>>"
+46- Lista guías agregadas muestra           "CC-1-797 | S | Av. Siempre Viva 123, Rosario"
+                                            "AG-1-801 | S | Rosario Norte"
+47- Botón                                   "Generar HDR"
+48- Mensaje                                 "Todas las guías deben tener el mismo lugar de retiro."
+49- Botón                                   "Aceptar"
+50- Botón                                   "Cancelar"
+51- Mensaje                                 "Operación cancelada."
+52- Botón                                   "Aceptar"
+53- Cerrar el sistema
+
+Verificaciones:
+54- El campo DNI Fletero queda vacío        ""
+55- El campo Nombre del Fletero muestra     "Nombre del Fletero"
+56- El combobox Localidad está vacío
+57- La lista de guías sin agregar está vacía
+58- La lista de guías agregadas está vacía
+59- Archivo HDRRetiro.json — no se agregó ninguna entrada nueva
+60- Archivo Guias.json — ninguna guía cambió de estado

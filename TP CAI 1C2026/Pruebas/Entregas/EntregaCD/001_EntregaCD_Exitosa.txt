@@ -1,4 +1,4 @@
-Plan de Prueba: EntregaCD-EntregaExitosa.txt
+Plan de Prueba: EntregaCD-Exitosa.txt
 
 (Empieza con el menú principal)
 1-  Abrir formulario                        "Entrega de Encomienda - CD"

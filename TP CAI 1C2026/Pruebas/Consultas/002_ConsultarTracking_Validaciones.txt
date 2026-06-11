@@ -1,0 +1,20 @@
+Plan de Prueba: ConsultarTracking-Validaciones.txt
+
+(Empieza con el menú principal)
+1-  Abrir formulario                        "Consulta de Estado de la Guía"
+2-  Campo Guía                              ""
+3-  Botón                                   "Buscar"
+4-  Mensaje                                 "El número de guía no puede estar vacío."
+5-  Botón                                   "Aceptar"
+6-  Campo Guía                              "XX-9-999"
+7-  Botón                                   "Buscar"
+8-  Mensaje                                 "No se encontró ninguna guía con el número XX-9-999."
+9-  Botón                                   "Aceptar"
+10- Cerrar el sistema
+
+Verificaciones:
+11- El campo CUIT/DNI/CUIL muestra          "CUIT/DNI/CUIL"
+12- El campo Origen muestra                 "Origen"
+13- El campo Destino muestra                "Destino"
+14- El campo Tipo de Caja muestra           "Tipo de Caja"
+15- La lista Historial está vacía

@@ -1,4 +1,4 @@
-Plan de Prueba: EmisionHDREntrega-GeneracionExitosa.txt
+Plan de Prueba: EmisionHDREntrega-Exitosa.txt
 
 (Empieza con el menú principal)
 1-  Abrir formulario                        "Emisión de HDR de Entrega"
@@ -10,7 +10,7 @@ Plan de Prueba: EmisionHDREntrega-GeneracionExitosa.txt
                                             "CC-1-828 | M | Av. Pellegrini 450, Rosario"
                                             "AG-1-829 | L | Rosario Norte"
                                             "CC-1-830 | XL | Bv. Oroño 200, Rosario"
-7-  Botón                                   "Buscar por Localidad"
+7-  Botón                                   "Buscar" (por localidad)
 8-  Lista guías sin agregar muestra las mismas guías filtradas por "Rosario"
 9-  Campo Nº Guía                           "CC-1-827"
 10- Botón                                   "Buscar" (buscar guía)
@@ -35,7 +35,7 @@ Plan de Prueba: EmisionHDREntrega-GeneracionExitosa.txt
 28- Lista guías agregadas muestra           "CC-1-827 | S | Av. Pellegrini 450, Rosario"
                                             "CC-1-828 | M | Av. Pellegrini 450, Rosario"
 29- Botón                                   "Generar HDR"
-30- Mensaje                                 "HDR N° 16 generada correctamente para el fletero José Lema."
+30- Mensaje                                 "HDR N° 20 generada correctamente para el fletero José Lema."
 31- Botón                                   "Aceptar"
 32- Cerrar el sistema
 
@@ -44,7 +44,7 @@ Verificaciones:
 34- Archivo HDREntrega.json — última entrada agregada debe ser similar a:
 
     {
-      "NroHDR": 16,
+      "NroHDR": 20,
       "DniFletero": 11223344,
       "Fecha": "<fecha actual>",
       "Domicilio": "Av. Pellegrini 450, Rosario",

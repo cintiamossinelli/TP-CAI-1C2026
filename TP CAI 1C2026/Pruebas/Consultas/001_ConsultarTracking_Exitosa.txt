@@ -1,4 +1,4 @@
-Plan de Prueba: ConsultarTracking-Cancelar.txt
+Plan de Prueba: ConsultarTracking-Exitosa.txt
 
 (Empieza con el menú principal)
 1-  Abrir formulario                        "Consulta de Estado de la Guía"
@@ -8,7 +8,21 @@ Plan de Prueba: ConsultarTracking-Cancelar.txt
 5-  Campo Origen muestra                    "Av. Corrientes 3400, CABA"
 6-  Campo Destino muestra                   "Belgrano"
 7-  Campo Tipo de Caja muestra              "XL"
-8-  La lista Historial tiene entradas
+8-  La lista Historial muestra las siguientes entradas en orden:
+
+    Fecha           Estado de Encomienda
+    31/05/2026      ImpuestaEnCallCenter
+    31/05/2026      PendienteDeRetiro
+    31/05/2026      Rendida
+    31/05/2026      PendienteDeAdmision
+    01/06/2026      Admitida
+    02/06/2026      PendienteDeTransporte
+    02/06/2026      PendienteDeRecepcion
+    03/06/2026      EnDestino
+    03/06/2026      PendienteDeDistribucion
+    03/06/2026      DistribuidaEnDomicilio
+    03/06/2026      PendienteDeEntrega
+
 9-  Botón                                   "Cancelar"
 
 Verificaciones:

@@ -1,4 +1,4 @@
-Plan de Prueba: EntregaAgencia-EntregaExitosa.txt
+Plan de Prueba: EntregaAgencia-Exitosa.txt
 
 (Empieza con el menú principal)
 1-  Abrir formulario                        "Entrega de Encomienda - Agencia"
@@ -11,7 +11,7 @@ Plan de Prueba: EntregaAgencia-EntregaExitosa.txt
                                              Guias entregadas:
                                              - AG-5-167 | S"
 8-  Botón                                   "Aceptar"
-9- Cerrar el sistema
+9-  Cerrar el sistema
 
 Verificaciones:
 10- Archivo Guias.json — la guía AG-5-167 debe aparecer con los siguientes cambios:
