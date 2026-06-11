@@ -1,0 +1,31 @@
+﻿Plan de Prueba: EmisionResumenHDR-DniNoCoincideConHDR.txt
+
+(Empieza con el menú principal)
+
+1- Botón                         "Emisión de Resumen HDR"
+2- DNI Fletero                   "10101010"
+3- Botón                         "Buscar"
+4- Nombre Fletero                (Se muestra el nombre del fletero)
+5- HDR a Entregar                (Se muestran las HDR asociadas al fletero)
+6- HDR a Retirar                 (Se muestran las HDR asociadas al fletero)
+
+7- DNI Fletero                   "32080691"
+8- Botón                         "Generar"
+
+9- Mensaje                       "El DNI ingresado no coincide con la HDR N° [número] en la lista de Entregas."
+   o
+   Mensaje                       "El DNI ingresado no coincide con la HDR N° [número] en la lista de Retiros."
+
+10- Botón                        "Aceptar"
+
+Verificaciones:
+
+11- No se debe mostrar el mensaje de emisión exitosa.
+
+12- No deben modificarse los estados de las HDR cargadas.
+
+13- No deben realizarse modificaciones en HDREntrega.json.
+
+14- No deben realizarse modificaciones en HDRRetiro.json.
+
+(Termino cerrando el programa)

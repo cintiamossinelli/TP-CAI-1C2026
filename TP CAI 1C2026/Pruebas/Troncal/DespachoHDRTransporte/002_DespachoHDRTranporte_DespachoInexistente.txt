@@ -1,1 +1,25 @@
-﻿
+﻿Plan de Prueba: DespachoHDRTransporte-DespachoInexistente.txt
+
+(Empieza con el menú principal)
+
+1- Botón                         "Despacho HDR Transporte"
+
+2- No seleccionar ningún servicio de ómnibus.
+
+3- Botón                         "Despachar HDR"
+
+4- Mensaje                       "Debe seleccionar un servicio de transporte."
+
+5- Botón                         "Aceptar"
+
+Verificaciones:
+
+6- No deben modificarse registros en Guias.json.
+
+7- No debe cambiar el estado de ninguna guía.
+
+8- El combo de servicios debe permanecer sin selección.
+
+9- La grilla de guías debe permanecer vacía.
+
+(Termino cerrando el programa)
