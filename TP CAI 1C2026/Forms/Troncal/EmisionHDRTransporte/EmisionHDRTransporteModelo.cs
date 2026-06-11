@@ -112,19 +112,13 @@ public class EmisionHDRTransporteModelo
             return null;
         }
 
-        if (destinoSeleccionado == null)
-        {
-            MessageBox.Show("Debe seleccionar un Centro de Distribución destino antes de buscar guías.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            return null;
-        }
-
         var numeroNormalizado = numeroGuia.Trim().ToUpper();
 
         var guiaEncontrada = guiasDisponibles.FirstOrDefault(g => g.NumeroGuia.ToUpper() == numeroNormalizado);
 
-        if (guiaEncontrada == null || guiaEncontrada.Destino.Id != destinoSeleccionado.Id)
+        if (guiaEncontrada == null)
         {
-            MessageBox.Show("La guía no existe o no corresponde al destino seleccionado.", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            MessageBox.Show("La guía no existe.", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
             return null;
         }
 
@@ -134,12 +128,6 @@ public class EmisionHDRTransporteModelo
     // Busca guías disponibles por número (coincidencia parcial, case-insensitive) filtradas por destino
     internal List<GuiaEncomienda> BuscarGuiasPorNumero(string numeroParcial, CentroDeDistribucion? destinoSeleccionado)
     {
-        if (destinoSeleccionado == null)
-        {
-            MessageBox.Show("Debe seleccionar un Centro de Distribución destino antes de buscar guías.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            return new List<GuiaEncomienda>();
-        }
-
         if (string.IsNullOrWhiteSpace(numeroParcial))
         {
             // Retornar lista vacía para que el formulario decida mostrar todo
@@ -148,7 +136,7 @@ public class EmisionHDRTransporteModelo
 
         var term = numeroParcial.Trim().ToUpper();
         var matches = guiasDisponibles
-            .Where(g => g.NumeroGuia != null && g.NumeroGuia.ToUpper().Contains(term) && g.Destino.Id == destinoSeleccionado.Id)
+            .Where(g => g.NumeroGuia != null && g.NumeroGuia.ToUpper().Contains(term))
             .ToList();
 
         if (!matches.Any())
@@ -395,28 +383,19 @@ public class EmisionHDRTransporteModelo
         var centros = CentroDeDistribucionAlmacen.CentrosDeDistribucion
             .ToDictionary(c => c.IdCentroDeDistribucion, MapearCentroDeDistribucion);
 
-        var guiasAsignadas = HDRTransporteAlmacen.HDRTransportes
-            .Where(h => h.Guias != null)
-            .SelectMany(h => h.Guias)
-            .ToHashSet(StringComparer.OrdinalIgnoreCase);
-
         return GuiaAlmacen.Guias
             .Where(g => g.Estado == EstadoGuiaEnum.Admitida)
-            .Where(g => !guiasAsignadas.Contains(g.NroGuia))
             .Select(g => new
             {
                 Guia = g,
-                IdCentroOrigen = ResolverIdCentroOrigen(g),
                 IdCentroDestino = ResolverIdCentroDestino(g),
                 LugarOrigen = ResolverLugarOrigen(g),
                 LugarDestino = ResolverLugarDestino(g)
             })
-            .Where(x => x.IdCentroOrigen.HasValue
-                && x.IdCentroDestino.HasValue
+            .Where(x => x.IdCentroDestino.HasValue
                 && x.LugarOrigen != null
                 && x.LugarDestino != null
                 && !string.Equals(x.LugarOrigen, x.LugarDestino, StringComparison.OrdinalIgnoreCase)
-                && centros.ContainsKey(x.IdCentroOrigen.Value)
                 && centros.ContainsKey(x.IdCentroDestino.Value))
             .Select(g => new GuiaEncomienda
             {

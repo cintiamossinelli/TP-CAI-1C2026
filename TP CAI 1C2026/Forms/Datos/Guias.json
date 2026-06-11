@@ -4290,6 +4290,68 @@
     "ComisionFletero": [],
     "ComisionAgencia": [],
     "IntentosDeEntrega": 0
+  },
+  {
+    "NroGuia": "CC-2-838",
+    "CuitDniCuilCliente": "27444555",
+    "FechaImposicion": "2026-06-08",
+    "TipoImposicion": 3,
+    "IdCentroDeDistribucionImposicion": 2,
+    "IdAgenciaImposicion": 0,
+    "DireccionRetiroDomicilio": "Lavalle 350",
+    "TipoEntrega": 3,
+    "IdCentroDeDistribucionEntrega": 3,
+    "IdAgenciaEntrega": 0,
+    "DireccionEntrega": "Sarmiento 525",
+    "DniDestinatario": "25222333",
+    "NombreDestinatario": "Jorge Pérez",
+    "TipoCaja": 2,
+    "PrecioVenta": 20000.0,
+    "Estado": 9,
+    "Historial": [
+      {
+        "Fecha": "2026-06-08",
+        "Estado": 3
+      },
+      {
+        "Fecha": "2026-06-09",
+        "Estado": 4
+      }
+    ],
+    "ComisionFletero": [],
+    "ComisionAgencia": [],
+    "IntentosDeEntrega": 0
+  },
+  {
+    "NroGuia": "CC-1-839",
+    "CuitDniCuilCliente": "27444555",
+    "FechaImposicion": "2026-06-08",
+    "TipoImposicion": 3,
+    "IdCentroDeDistribucionImposicion": 1,
+    "IdAgenciaImposicion": 0,
+    "DireccionRetiroDomicilio": "Lavalle 350",
+    "TipoEntrega": 3,
+    "IdCentroDeDistribucionEntrega": 3,
+    "IdAgenciaEntrega": 0,
+    "DireccionEntrega": "Sarmiento 525",
+    "DniDestinatario": "25222333",
+    "NombreDestinatario": "Jorge Pérez",
+    "TipoCaja": 2,
+    "PrecioVenta": 20000.0,
+    "Estado": 9,
+    "Historial": [
+      {
+        "Fecha": "2026-06-08",
+        "Estado": 3
+      },
+      {
+        "Fecha": "2026-06-09",
+        "Estado": 4
+      }
+    ],
+    "ComisionFletero": [],
+    "ComisionAgencia": [],
+    "IntentosDeEntrega": 0
   }
 
 ]

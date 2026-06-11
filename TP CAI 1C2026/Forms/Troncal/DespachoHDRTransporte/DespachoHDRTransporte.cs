@@ -8,39 +8,30 @@
         {
             InitializeComponent();
             HDRnumCMB.DropDownStyle = ComboBoxStyle.DropDownList;
+            HDRnumCMB.DisplayMember = nameof(Servicio.Descripcion);
+            CargarServiciosDisponibles();
+        }
 
+        private void CargarServiciosDisponibles()
+        {
             var fechaHoy = DateTime.Today;
-            var fechaLimite = fechaHoy.AddDays(+10);
-            var servicios = modelo.ObtenerServicios()
-                .Where(s => s.FechayHora.Date >= fechaHoy && s.FechayHora.Date <= fechaLimite)
-                .OrderBy(s => s.FechayHora)
-                .ToList();
+            var fechaLimite = fechaHoy.AddDays(10);
 
-            HDRnumCMB.Items.Clear();
-            foreach (var servicio in servicios)
-            {
-                HDRnumCMB.Items.Add(servicio.Empresa + " - " + servicio.FechayHora.ToString("dd/MM/yyyy HH:mm"));
-            }
+            HDRnumCMB.DataSource = null;
+            HDRnumCMB.DataSource = modelo.ObtenerServiciosDisponibles(fechaHoy, fechaLimite);
+            HDRnumCMB.DisplayMember = nameof(Servicio.Descripcion);
+            HDRnumCMB.SelectedIndex = -1;
+            listView1.Items.Clear();
         }
 
         private void HDRnumCMB_SelectedIndexChanged(object sender, EventArgs e)
         {
             listView1.Items.Clear();
 
-            var fechaHoy = DateTime.Today;
-            var fechaLimite = fechaHoy.AddDays(+10);
-
-            var servicios = modelo.ObtenerServicios()
-                .Where(s => s.FechayHora.Date >= fechaHoy && s.FechayHora.Date <= fechaLimite)
-                .OrderBy(s => s.FechayHora)
-                .ToList();
-
-            if (HDRnumCMB.SelectedIndex < 0 || HDRnumCMB.SelectedIndex >= servicios.Count)
+            if (HDRnumCMB.SelectedItem is not Servicio servicioSeleccionado)
             {
                 return;
             }
-
-            Servicio servicioSeleccionado = servicios[HDRnumCMB.SelectedIndex];
 
             foreach (var guia in servicioSeleccionado.GuiasAsociadas)
             {
@@ -80,8 +71,7 @@
 
             MessageBox.Show("Se han despachado las guía/s con éxito.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-            HDRnumCMB.SelectedIndex = -1;
-            listView1.Items.Clear();
+            CargarServiciosDisponibles();
         }
 
         private void cancelarBTN_Click(object sender, EventArgs e)
