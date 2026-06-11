@@ -37,7 +37,7 @@ No se modifican datos.
 
 ================================================================================
 PRUEBA DE CAJA NEGRA N° 002
-MES CON TEXTO O FUERA DE RANGO
+MES FUERA DE RANGO
 ================================================================================
 
 Objetivo:
@@ -47,16 +47,14 @@ Precondiciones:
 - El formulario esta abierto.
 
 Datos de Entrada:
-- Caso A: Mes="AA", Año="2026".
-- Caso B: Mes="13", Año="2026".
+
+- Mes="13", Año="2026".
 
 Pasos:
-1. Ingresar "AA" en Mes y "2026" en Año. Presionar "Buscar".
-2. Reemplazar Mes por "13". Presionar "Buscar".
+1. Ingresar "13" en Mes y "2026" en Año. Presionar "Buscar".
 
 Resultado Esperado:
-- Caso A: se muestra "El Mes debe ser un valor numerico entero".
-- Caso B: se muestra "El Mes debe estar entre 1 y 12".
+- Se muestra "El Mes debe estar entre 1 y 12".
 - No se muestran resultados.
 
 Estado Esperado:
@@ -64,7 +62,7 @@ No se modifican datos.
 
 ================================================================================
 PRUEBA DE CAJA NEGRA N° 003
-AÑO VACIO, CON TEXTO O FUERA DE RANGO
+AÑO VACIO O FUERA DE RANGO
 ================================================================================
 
 Objetivo:
@@ -76,18 +74,15 @@ Precondiciones:
 Datos de Entrada:
 - Mes: 6.
 - Caso A: Año vacio.
-- Caso B: Año="AAAA".
-- Caso C: Año="1999".
+- Caso B: Año="1999".
 
 Pasos:
 1. Ingresar Mes "6", dejar Año vacio y presionar "Buscar".
-2. Ingresar Año "AAAA" y presionar "Buscar".
-3. Ingresar Año "1999" y presionar "Buscar".
+2. Ingresar Año "1999" y presionar "Buscar".
 
 Resultado Esperado:
 - Caso A: se muestra "El campo Año no puede estar vacio".
-- Caso B: se muestra "El Año debe ser un valor numerico entero".
-- Caso C: se muestra "El Año debe estar entre 2000 y 3000".
+- Caso B: se muestra "El Año debe estar entre 2000 y 3000".
 
 Estado Esperado:
 No se modifican datos.

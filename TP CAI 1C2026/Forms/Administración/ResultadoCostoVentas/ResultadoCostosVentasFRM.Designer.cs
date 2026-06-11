@@ -53,6 +53,7 @@
             mesTXT.Location = new Point(49, 16);
             mesTXT.MaxLength = 2;
             mesTXT.Name = "mesTXT";
+            mesTXT.KeyPress += mesTXT_KeyPress;
             mesTXT.Size = new Size(141, 23);
             mesTXT.TabIndex = 1;
             // 
@@ -70,6 +71,7 @@
             anioTXT.Location = new Point(242, 15);
             anioTXT.MaxLength = 4;
             anioTXT.Name = "anioTXT";
+            anioTXT.KeyPress += anioTXT_KeyPress;
             anioTXT.Size = new Size(141, 23);
             anioTXT.TabIndex = 3;
             // 
