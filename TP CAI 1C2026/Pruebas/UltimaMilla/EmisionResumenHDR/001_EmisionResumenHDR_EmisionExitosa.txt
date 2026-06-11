@@ -1,0 +1,50 @@
+﻿Plan de Prueba: EmisionResumenHDR-EmisionExitosa.txt
+
+(Empieza con el menú principal)
+
+1- Botón                         "Emisión de Resumen HDR"
+2- DNI Fletero                   "10101010"
+3- Botón                         "Buscar"
+4- Nombre Fletero                (Se muestra el nombre del fletero)
+5- HDR a Entregar                (Se muestran las HDR asociadas)
+6- HDR a Retirar                 (Se muestran las HDR asociadas)
+7- Botón                         "Generar"
+8- Mensaje                       "¿Está seguro de que desea generar y emitir el resumen de HDR para este fletero?"
+9- Botón                         "Sí"
+10- Mensaje                      "¡Resumen de Emisión HDR generado con éxito! Se registró la orden de despacho."
+11- Botón                        "Aceptar"
+12- Volver al menú principal
+
+Verificaciones:
+
+13- Archivo HDREntrega.json
+
+La HDR N° 17 debe quedar similar a:
+
+{
+    "NroHDR": 17,
+    "DniFletero": 10101010,
+    "Guias": [ "AG-9-176" ],
+    "Estado": 2
+}
+
+14- Archivo HDREntrega.json
+
+La HDR N° 19 debe quedar similar a:
+
+{
+    "NroHDR": 19,
+    "DniFletero": 10101010,
+    "Guias": [ "CC-2-837" ],
+    "Estado": 4
+}
+
+15- Archivo HDRRetiro.json
+
+Las HDR N° 17, 18, 19 y 20 deben quedar con:
+
+{
+    "Estado": 4
+}
+
+(Termino cerrando el programa)

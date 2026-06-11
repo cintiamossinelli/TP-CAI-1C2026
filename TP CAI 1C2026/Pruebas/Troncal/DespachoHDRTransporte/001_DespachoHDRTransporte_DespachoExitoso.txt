@@ -1,1 +1,38 @@
-﻿
+﻿Plan de Prueba: DespachoHDRTransporte-DespachoExitoso.txt
+
+(Empieza con el menú principal)
+
+1- Botón                         "Despacho HDR Transporte"
+
+2- Servicio de Ómnibus           "Flechabus - 12/06/2026 22:10"
+
+3- Verificar que se visualice la guía:
+                                "CC-2-838"
+
+4- Botón                         "Despachar HDR"
+
+5- Mensaje                       "¿Está seguro que desea despachar 1 guía/s para el servicio seleccionado?"
+
+6- Botón                         "Sí"
+
+7- Mensaje                       "Se han despachado las guía/s con éxito."
+
+8- Botón                         "Aceptar"
+
+Verificaciones:
+
+9- Archivo Guias.json
+
+La guía CC-2-838 debe quedar con:
+
+{
+  "NroGuia": "CC-2-838",
+  ...
+  "Estado": 10
+}
+
+10- Al finalizar la operación el combo de servicios debe quedar sin selección.
+
+11- La grilla de guías debe quedar vacía.
+
+(Termino cerrando el programa)
