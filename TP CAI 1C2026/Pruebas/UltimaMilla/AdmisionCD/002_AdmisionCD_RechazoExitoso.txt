@@ -1,0 +1,25 @@
+Plan de Prueba: AdmisionCD-RechazoExitoso.txt
+
+(Empieza con el menú principal)
+1-  Abrir formulario                        "Admisión en Centro de Distribución"
+2-  Campo N° Guía                           "AG-12-811"
+3-  Botón                                   "Buscar"
+4-  Lista de guías muestra                  "AG-12-811 | L"
+5-  Botón                                   "Rechazar"
+6-  Mensaje                                 "Las guías han sido rechazadas exitosamente."
+7-  Botón                                   "Aceptar"
+8-  Cerrar el sistema
+
+Verificaciones:
+9-  La lista de guías queda vacía
+
+10- Archivo Guias.json - la guía AG-12-811 debe aparecer con los siguientes cambios:
+
+    {
+      "NroGuia": "AG-12-811",
+      "Estado": 7,
+      "Historial": [
+        ...entradas anteriores...,
+        { "Fecha": "<fecha actual>", "Estado": 7 }
+      ]
+    }

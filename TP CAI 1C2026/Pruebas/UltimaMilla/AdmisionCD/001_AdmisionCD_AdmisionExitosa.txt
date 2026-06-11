@@ -1,0 +1,61 @@
+Plan de Prueba: AdmisionCD-AdmisionExitosa.txt
+
+(Empieza con el menú principal)
+1-  Abrir formulario                        "Admisión en Centro de Distribución"
+2-  Campo N° Guía                           "AG-12-810"
+3-  Botón                                   "Buscar"
+4-  Lista de guías muestra                  "AG-12-810 | M"
+5-  Campo N° Guía                           "AG-12-812"
+6-  Botón                                   "Buscar"
+7-  Lista de guías muestra                  "AG-12-810 | M"
+                                             "AG-12-812 | L"
+8-  Campo N° Guía                           "CC-1-814"
+9-  Botón                                   "Buscar"
+10- Lista de guías muestra                  "AG-12-810 | M"
+                                             "AG-12-812 | L"
+                                             "CC-1-814 | L"
+11- Botón                                   "Admitir"
+12- Mensaje                                 "Las guías han sido admitidas exitosamente."
+13- Botón                                   "Aceptar"
+14- Cerrar el sistema
+
+Verificaciones:
+15- La lista de guías queda vacía
+
+16- Archivo Guias.json - la guía AG-12-810 debe aparecer con los siguientes cambios:
+
+    {
+      "NroGuia": "AG-12-810",
+      "PrecioVenta": 20000.0,
+      "Estado": 11,
+      "Historial": [
+        ...entradas anteriores...,
+        { "Fecha": "<fecha actual>", "Estado": 8 },
+        { "Fecha": "<fecha actual>", "Estado": 11 }
+      ]
+    }
+
+17- Archivo Guias.json - la guía AG-12-812 debe aparecer con los siguientes cambios:
+
+    {
+      "NroGuia": "AG-12-812",
+      "PrecioVenta": 24000.0,
+      "Estado": 8,
+      "Historial": [
+        ...entradas anteriores...,
+        { "Fecha": "<fecha actual>", "Estado": 8 }
+      ]
+    }
+
+18- Archivo Guias.json - la guía CC-1-814 debe aparecer con los siguientes cambios:
+
+    {
+      "NroGuia": "CC-1-814",
+      "PrecioVenta": 24300.0,
+      "Estado": 11,
+      "Historial": [
+        ...entradas anteriores...,
+        { "Fecha": "<fecha actual>", "Estado": 8 },
+        { "Fecha": "<fecha actual>", "Estado": 11 }
+      ]
+    }

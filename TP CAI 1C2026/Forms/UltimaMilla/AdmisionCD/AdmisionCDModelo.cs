@@ -238,6 +238,7 @@ namespace TP_CAI_1C2026.Forms.UltimaMilla.AdmisionCD
                     continue;
                 }
 
+                guiaEntidad.PrecioVenta = 0;
                 guiaEntidad.Estado = EstadoGuiaEnum.Rechazada;
                 guiaEntidad.Historial ??= new List<HistorialGuia>();
                 guiaEntidad.Historial.Add(new HistorialGuia
