@@ -56,12 +56,7 @@ namespace TP_CAI_1C2026.Forms.Troncal.EmisionHDRTransporte
         private void CargarGuiasDisponibles()
         {
             GuiasLST.Items.Clear();
-            var destino = CDdestinoCMB.SelectedItem as CentroDeDistribucion;
-            if (destino == null) return;
-
-            var guias = _modelo.ObtenerGuiasDisponibles()
-                .Where(g => g.Destino.Id == destino.Id)
-                .ToList();
+            var guias = _modelo.ObtenerGuiasDisponibles();
 
             foreach (var g in guias)
             {
