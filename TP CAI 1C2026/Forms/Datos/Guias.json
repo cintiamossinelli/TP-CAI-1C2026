@@ -2896,7 +2896,7 @@
     "IdAgenciaImposicion": 5,
     "DireccionRetiroDomicilio": "",
     "TipoEntrega": 3,
-    "IdCentroDeDistribucionEntrega": 3,
+    "IdCentroDeDistribucionEntrega": 5,
     "IdAgenciaEntrega": 0,
     "DireccionEntrega": "Corrientes 2125",
     "DniDestinatario": "22000111",
