@@ -1,0 +1,429 @@
+﻿
+Tipo de prueba: Caja negra / Aceptación
+Formulario: Cuenta Corriente Cliente
+
+002_CuentaCorrienteCliente_ConsultaNoExitosa.txt
+
+Objetivo: Validar los escenarios en los que no se puede concretar la consulta de cuenta corriente del cliente.
+
+ACLARACIÓN
+Estas pruebas se diseñan desde el punto de vista del usuario. No se evalúa el código interno, sino las entradas ingresadas en pantalla, las acciones realizadas y los resultados visibles esperados.
+
+DATOS DE REFERENCIA
+Clientes existentes:
+- 33-63761744-9 - Adidas S.A.
+- 30-64621216-9 - Nike S.A.
+- 24078369 - Marcelo Gallardo
+
+Controles principales del formulario:
+- Campo CUIT / DNI / CUIL
+- Botón Buscar Cliente
+- Selector Fecha Desde
+- Selector Fecha Hasta
+- Botón Buscar
+- Grilla/ListView de movimientos
+- Campo Saldo
+- Botón Cancelar
+
+========================================================================================================
+CASO DE PRUEBA 1
+========================================================================================================
+Nombre:
+Consulta de Cuenta Corriente sin informar cliente
+
+Objetivo:
+Verificar que el sistema no permita consultar la cuenta corriente si no se ingresa CUIT, CUIL o DNI.
+
+Datos de Entrada:
+- CUIT / DNI / CUIL: vacío
+- Fecha Desde: 01/01/2026
+- Fecha Hasta: 10/06/2026
+
+Precondiciones:
+- El formulario se encuentra abierto.
+- No hay cliente cargado.
+
+Pasos:
+1. Dejar vacío el campo CUIT / DNI / CUIL.
+2. Presionar el botón Buscar Cliente.
+
+Resultado Esperado:
+- El sistema informa que el CUIT, CUIL o DNI del cliente no puede estar vacío.
+- No se muestra razón social.
+- No se cargan movimientos.
+- El saldo permanece vacío o en cero.
+- La consulta no se concreta.
+
+Resultado Obtenido: El sistema informa que que el CUIT, CUIL o DNI del cliente no puede estar vacío.
+
+========================================================================================================
+CASO DE PRUEBA 2
+========================================================================================================
+
+Nombre:
+Consulta de Cuenta Corriente con dato no numérico
+
+Objetivo:
+Verificar que el sistema rechace datos alfabéticos o no numéricos en el campo de identificación del cliente.
+
+Datos de Entrada:
+- CUIT / DNI / CUIL: ABCD
+- Fecha Desde: 01/01/2026
+- Fecha Hasta: 10/06/2026
+
+Precondiciones:
+- El formulario se encuentra abierto.
+
+Pasos:
+1. Ingresar ABCD en el campo CUIT / DNI / CUIL.
+2. Presionar el botón Buscar Cliente.
+
+Resultado Esperado:
+- El sistema informa que el CUIT, CUIL o DNI debe ser un número válido.
+- No se muestra razón social.
+- No se cargan movimientos.
+- No se calcula saldo.
+- La consulta no se concreta.
+
+Resultado Obtenido: El sistema informa que el CUIT, CUIL o DNI debe ser un número válido.
+
+========================================================================================================
+CASO DE PRUEBA 3
+========================================================================================================
+
+Nombre:
+Consulta de Cuenta Corriente con CUIT inválido
+
+Objetivo:
+Verificar que el sistema rechace un CUIT con formato numérico pero inválido.
+
+Datos de Entrada:
+- CUIT / DNI / CUIL: 30646212167
+- Fecha Desde: 01/01/2026
+- Fecha Hasta: 10/06/2026
+
+Precondiciones:
+- El formulario se encuentra abierto.
+
+Pasos:
+1. Ingresar +346212169 en el campo CUIT / DNI / CUIL.
+2. Presionar el botón Buscar Cliente.
+
+Resultado Esperado:
+- El sistema informa que el CUIT, CUIL o DNI debe ser un número válido.
+- No se muestra razón social.
+- No se cargan movimientos.
+- La consulta no se concreta.
+
+Resultado Obtenido:El sistema informa que el CUIT, CUIL o DNI debe ser un número válido.
+
+
+========================================================================================================
+CASO DE PRUEBA 4
+========================================================================================================
+
+Nombre:
+Consulta de Cuenta Corriente de cliente inexistente
+
+Objetivo:
+Verificar que el sistema informe correctamente cuando el cliente ingresado no existe.
+
+Datos de Entrada:
+- CUIT / DNI / CUIL: 99999999
+- Fecha Desde: 01/01/2026
+- Fecha Hasta: 10/06/2026
+
+Precondiciones:
+- El cliente 99999999 no se encuentra registrado en los datos de prueba.
+
+Pasos:
+1. Ingresar 99999999 en el campo CUIT / DNI / CUIL.
+2. Presionar el botón Buscar Cliente.
+
+Resultado Esperado:
+- El sistema informa que no se encontró un cliente con el CUIT, CUIL o DNI ingresado.
+- No se muestra razón social.
+- No se cargan movimientos.
+- No se calcula saldo.
+- La consulta no se concreta.
+
+Resultado Obtenido: El sistema informa que no se encontró un cliente con el CUIT, CUIL o DNI 99999999.
+
+
+========================================================================================================
+CASO DE PRUEBA 5
+========================================================================================================
+
+Nombre:
+Consulta con Fecha Desde posterior a la fecha actual
+
+Objetivo:
+Verificar que el sistema no permita consultar movimientos cuando la Fecha Desde es posterior a la fecha actual.
+
+Datos de Entrada:
+- CUIT / DNI / CUIL: 33-63761744-9
+- Fecha Desde: fecha posterior a hoy
+- Fecha Hasta: fecha actual
+
+Precondiciones:
+- El cliente Adidas S.A. existe.
+- El campo cliente contiene un dato válido.
+
+Pasos:
+1. Ingresar 33-63761744-9 en el campo CUIT / DNI / CUIL.
+2. Presionar Buscar Cliente.
+3. Seleccionar una Fecha Desde posterior a la fecha actual.
+4. Seleccionar Fecha Hasta igual a la fecha actual.
+5. Presionar el botón Buscar.
+
+Resultado Esperado:
+- El sistema informa que la Fecha Desde debe ser anterior a hoy.
+- No se cargan movimientos.
+- No se calcula saldo para la consulta.
+- La consulta no se concreta.
+
+Resultado Obtenido: El sistema informa que la Fecha Desde debe ser anterior a hoy.
+
+========================================================================================================
+CASO DE PRUEBA 6
+========================================================================================================
+
+Nombre:
+Consulta con Fecha Hasta posterior a la fecha actual
+
+Objetivo:
+Verificar que el sistema no permita consultar movimientos cuando la Fecha Hasta es posterior a la fecha actual.
+
+Datos de Entrada:
+- CUIT / DNI / CUIL: 33-63761744-9
+- Fecha Desde: fecha actual
+- Fecha Hasta: fecha posterior a hoy
+
+Precondiciones:
+- El cliente Adidas S.A. existe.
+- El campo cliente contiene un dato válido.
+
+Pasos:
+1. Ingresar 33-63761744-9 en el campo CUIT / DNI / CUIL.
+2. Presionar Buscar Cliente.
+3. Seleccionar Fecha Desde igual a la fecha actual.
+4. Seleccionar una Fecha Hasta posterior a la fecha actual.
+5. Presionar el botón Buscar.
+
+Resultado Esperado:
+- El sistema informa que la Fecha Hasta debe ser anterior a hoy.
+- No se cargan movimientos.
+- No se calcula saldo para la consulta.
+- La consulta no se concreta.
+
+Resultado Obtenido: El sistema informa que la Fecha Hasta debe ser anterior a hoy.
+
+========================================================================================================
+CASO DE PRUEBA 7
+========================================================================================================
+
+Nombre:
+Consulta con Fecha Hasta menor que Fecha Desde
+
+Objetivo:
+Verificar que el sistema no permita consultar con un rango de fechas inconsistente.
+
+Datos de Entrada:
+- CUIT / DNI / CUIL: 33-63761744-9
+- Fecha Desde: 10/06/2026
+- Fecha Hasta: 01/06/2026
+
+Precondiciones:
+- El cliente Adidas S.A. existe.
+- El campo cliente contiene un dato válido.
+
+Pasos:
+1. Ingresar 33-63761744-9 en el campo CUIT / DNI / CUIL.
+2. Presionar Buscar Cliente.
+3. Seleccionar 10/06/2026 como Fecha Desde.
+4. Seleccionar 01/06/2026 como Fecha Hasta.
+5. Presionar el botón Buscar.
+
+Resultado Esperado:
+- El sistema informa que la Fecha Hasta no puede ser menor que la Fecha Desde.
+- No se cargan movimientos.
+- No se calcula saldo para la consulta.
+- La consulta no se concreta.
+
+Resultado Obtenido: El sistema informa que la Fecha Hasta no puede ser menor que la Fecha Desde.
+
+========================================================================================================
+CASO DE PRUEBA 8
+========================================================================================================
+
+Nombre:
+Consulta de cliente existente sin movimientos en el rango
+
+Objetivo:
+Verificar que el sistema informe cuando el cliente existe pero no posee movimientos dentro del período seleccionado.
+
+Datos de Entrada:
+- CUIT / DNI / CUIL: 33-63761744-9
+- Fecha Desde: 01/03/2026
+- Fecha Hasta: 31/03/2026
+
+Precondiciones:
+- El cliente Adidas S.A. existe.
+- No existen movimientos del cliente en marzo de 2026 dentro de los datos de prueba.
+
+Pasos:
+1. Ingresar 33-63761744-9 en el campo CUIT / DNI / CUIL.
+2. Presionar Buscar Cliente.
+3. Seleccionar 01/03/2026 como Fecha Desde.
+4. Seleccionar 31/03/2026 como Fecha Hasta.
+5. Presionar el botón Buscar.
+
+Resultado Esperado:
+- El sistema muestra la razón social Adidas S.A.
+- El sistema informa que no hay movimientos en el rango de fechas indicado.
+- La grilla/ListView de movimientos queda vacía.
+- El saldo queda en 0,00.
+- No se concreta una consulta con movimientos.
+
+Resultado Obtenido: El sistema informa que no hay movimientos en el rango de fechas indicado.
+
+========================================================================================================
+CASO DE PRUEBA 9
+========================================================================================================
+
+Nombre:
+Consulta de cliente existente con rango anterior a todos los movimientos
+
+Objetivo:
+Verificar que el sistema no muestre movimientos si el rango consultado es anterior a los movimientos existentes.
+
+Datos de Entrada:
+- CUIT / DNI / CUIL: 30-64621216-9
+- Fecha Desde: 01/01/2025
+- Fecha Hasta: 31/12/2025
+
+Precondiciones:
+- El cliente Nike S.A. existe.
+- Los movimientos de los datos de prueba corresponden al año 2026.
+
+Pasos:
+1. Ingresar 30-64621216-9 en el campo CUIT / DNI / CUIL.
+2. Presionar Buscar Cliente.
+3. Seleccionar 01/01/2025 como Fecha Desde.
+4. Seleccionar 31/12/2025 como Fecha Hasta.
+5. Presionar el botón Buscar.
+
+Resultado Esperado:
+- El sistema muestra la razón social Nike S.A.
+- El sistema informa que no hay movimientos en el rango indicado.
+- No se listan movimientos.
+- El saldo queda en 0,00.
+
+Resultado Obtenido: El sistema informa que no hay movimientos en el rango indicado.
+
+========================================================================================================
+CASO DE PRUEBA 10
+========================================================================================================
+
+Nombre:
+Consulta con DNI inexistente
+
+Objetivo:
+Verificar que el sistema informe correctamente cuando se ingresa un DNI válido en formato, pero inexistente.
+
+Datos de Entrada:
+- CUIT / DNI / CUIL: 12345678
+- Fecha Desde: 01/01/2026
+- Fecha Hasta: 10/06/2026
+
+Precondiciones:
+- El DNI 12345678 no corresponde a ningún cliente existente en los datos de prueba.
+
+Pasos:
+1. Ingresar 12345678 en el campo CUIT / DNI / CUIL.
+2. Presionar el botón Buscar Cliente.
+
+Resultado Esperado:
+- El sistema informa que no se encontró un cliente con el DNI ingresado.
+- No se muestra razón social.
+- No se cargan movimientos.
+- No se calcula saldo.
+- La consulta no se concreta.
+
+Resultado Obtenido:El sistema informa que no se encontró un cliente con el DNI 12345678.
+
+========================================================================================================
+CASO DE PRUEBA 01
+========================================================================================================
+
+Nombre:
+Consulta con campo Cliente compuesto solo por espacios
+
+Objetivo:
+Verificar que el sistema considere inválido un campo que no contiene información útil.
+
+Datos de Entrada:
+- CUIT / DNI / CUIL: espacios en blanco
+
+Precondiciones:
+- El formulario se encuentra abierto.
+
+Pasos:
+1. Ingresar espacios en blanco en el campo CUIT / DNI / CUIL.
+2. Presionar Buscar Cliente.
+
+Resultado Esperado:
+- El sistema informa que el CUIT, CUIL o DNI no puede estar vacío.
+- No se muestra razón social.
+- No se cargan movimientos.
+- El saldo no se calcula.
+- La consulta no se concreta.
+
+Resultado Obtenido: El sistema informa que el CUIT, CUIL o DNI no puede estar vacío.
+
+========================================================================================================
+CASO DE PRUEBA 12
+========================================================================================================
+
+Nombre:
+Cancelación luego de una consulta no exitosa
+
+Objetivo:
+Verificar que el botón Cancelar limpie la pantalla luego de una búsqueda no exitosa.
+
+Datos de Entrada:
+- CUIT / DNI / CUIL: 99999999
+
+Precondiciones:
+- El cliente ingresado no existe.
+- Ya se intentó realizar una consulta no exitosa.
+
+Pasos:
+1. Ingresar 99999999 en el campo CUIT / DNI / CUIL.
+2. Presionar Buscar Cliente.
+3. Verificar el mensaje de cliente inexistente.
+4. Presionar el boton Aceptar al mensaje de error.
+5. Presionar el botón Cancelar.
+
+Resultado Esperado:
+- Se limpia el campo CUIT / DNI / CUIL.
+- Se limpia la razón social.
+- Se limpia la grilla/ListView de movimientos.
+- Se limpia o reinicia el saldo.
+- Las fechas vuelven a sus valores iniciales.
+- El formulario queda disponible para una nueva consulta.
+
+Resultado Obtenido: El sistema muestra el formulario queda disponible para una nueva consulta.
+
+
+========================================================================================================
+
+
+CRITERIO DE ACEPTACIÓN DE LOS CASOS NO EXITOSOS
+
+Los casos no exitosos se consideran aprobados si:
+- El sistema muestra mensajes claros de validación.
+- No se cargan movimientos cuando los datos son inválidos.
+- No se calcula saldo cuando la consulta no corresponde.
+- El formulario no se bloquea ni se cierra inesperadamente.
+- El usuario puede corregir los datos y volver a intentar la consulta.
