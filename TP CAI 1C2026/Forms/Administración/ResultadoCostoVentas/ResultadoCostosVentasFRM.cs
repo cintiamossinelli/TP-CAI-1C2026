@@ -88,5 +88,22 @@ namespace TP_CAI_1C2026.Forms.Administracion.ResultadoCostoVentas
             resultadoTotalValorLBL.Text = 0m.ToString("C", arCulture);
             mesTXT.Focus();
         }
+
+        // Permitir solo dígitos y teclas de control (ej. backspace)
+        private void mesTXT_KeyPress(object? sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void anioTXT_KeyPress(object? sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+        }
     }
 }
