@@ -36,4 +36,4 @@ No se muestran mensajes de error.
 
 Resultado Obtenido:
 
-Se muestra el Saldo de la Cuenta Corriente del Cliente Buscado
+El sistema muestra el Saldo de la Cuenta Corriente del Cliente Buscado

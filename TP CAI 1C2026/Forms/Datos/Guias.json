@@ -1382,9 +1382,9 @@
     "IdCentroDeDistribucionImposicion": 2,
     "IdAgenciaImposicion": 0,
     "DireccionRetiroDomicilio": "",
-    "TipoEntrega": 1,
-    "IdCentroDeDistribucionEntrega": 5,
-    "IdAgenciaEntrega": 0,
+    "TipoEntrega": 2,
+    "IdCentroDeDistribucionEntrega": 0,
+    "IdAgenciaEntrega": 5,
     "DireccionEntrega": "",
     "DniDestinatario": "20888990",
     "NombreDestinatario": "Santiago Bravo",
@@ -1506,9 +1506,9 @@
     "IdCentroDeDistribucionImposicion": 0,
     "IdAgenciaImposicion": 9,
     "DireccionRetiroDomicilio": "",
-    "TipoEntrega": 1,
-    "IdCentroDeDistribucionEntrega": 6,
-    "IdAgenciaEntrega": 0,
+    "TipoEntrega": 2,
+    "IdCentroDeDistribucionEntrega": 0,
+    "IdAgenciaEntrega": 6,
     "DireccionEntrega": "",
     "DniDestinatario": "21000112",
     "NombreDestinatario": "Natalia Ruiz",
@@ -3319,8 +3319,14 @@
     "PrecioVenta": 15000.0,
     "Estado": 4,
     "Historial": [
-      { "Fecha": "2026-06-08", "Estado": 3 },
-      { "Fecha": "2026-06-09", "Estado": 4 }
+      {
+        "Fecha": "2026-06-08",
+        "Estado": 3
+      },
+      {
+        "Fecha": "2026-06-09",
+        "Estado": 4
+      }
     ],
     "ComisionFletero": [],
     "ComisionAgencia": [],
@@ -3640,12 +3646,30 @@
     "PrecioVenta": 15000.0,
     "Estado": 11,
     "Historial": [
-      { "Fecha": "2026-06-07", "Estado": 3 },
-      { "Fecha": "2026-06-07", "Estado": 6 },
-      { "Fecha": "2026-06-08", "Estado": 8 },
-      { "Fecha": "2026-06-09", "Estado": 9 },
-      { "Fecha": "2026-06-09", "Estado": 10 },
-      { "Fecha": "2026-06-10", "Estado": 11 }
+      {
+        "Fecha": "2026-06-07",
+        "Estado": 3
+      },
+      {
+        "Fecha": "2026-06-07",
+        "Estado": 6
+      },
+      {
+        "Fecha": "2026-06-08",
+        "Estado": 8
+      },
+      {
+        "Fecha": "2026-06-09",
+        "Estado": 9
+      },
+      {
+        "Fecha": "2026-06-09",
+        "Estado": 10
+      },
+      {
+        "Fecha": "2026-06-10",
+        "Estado": 11
+      }
     ],
     "ComisionFletero": [],
     "ComisionAgencia": [],
@@ -3669,12 +3693,30 @@
     "PrecioVenta": 20000.0,
     "Estado": 11,
     "Historial": [
-      { "Fecha": "2026-06-07", "Estado": 3 },
-      { "Fecha": "2026-06-07", "Estado": 6 },
-      { "Fecha": "2026-06-08", "Estado": 8 },
-      { "Fecha": "2026-06-09", "Estado": 9 },
-      { "Fecha": "2026-06-09", "Estado": 10 },
-      { "Fecha": "2026-06-10", "Estado": 11 }
+      {
+        "Fecha": "2026-06-07",
+        "Estado": 3
+      },
+      {
+        "Fecha": "2026-06-07",
+        "Estado": 6
+      },
+      {
+        "Fecha": "2026-06-08",
+        "Estado": 8
+      },
+      {
+        "Fecha": "2026-06-09",
+        "Estado": 9
+      },
+      {
+        "Fecha": "2026-06-09",
+        "Estado": 10
+      },
+      {
+        "Fecha": "2026-06-10",
+        "Estado": 11
+      }
     ],
     "ComisionFletero": [],
     "ComisionAgencia": [],
@@ -3698,14 +3740,38 @@
     "PrecioVenta": 25000.0,
     "Estado": 11,
     "Historial": [
-      { "Fecha": "2026-06-07", "Estado": 2 },
-      { "Fecha": "2026-06-07", "Estado": 4 },
-      { "Fecha": "2026-06-07", "Estado": 5 },
-      { "Fecha": "2026-06-07", "Estado": 6 },
-      { "Fecha": "2026-06-08", "Estado": 8 },
-      { "Fecha": "2026-06-09", "Estado": 9 },
-      { "Fecha": "2026-06-09", "Estado": 10 },
-      { "Fecha": "2026-06-10", "Estado": 11 }
+      {
+        "Fecha": "2026-06-07",
+        "Estado": 2
+      },
+      {
+        "Fecha": "2026-06-07",
+        "Estado": 4
+      },
+      {
+        "Fecha": "2026-06-07",
+        "Estado": 5
+      },
+      {
+        "Fecha": "2026-06-07",
+        "Estado": 6
+      },
+      {
+        "Fecha": "2026-06-08",
+        "Estado": 8
+      },
+      {
+        "Fecha": "2026-06-09",
+        "Estado": 9
+      },
+      {
+        "Fecha": "2026-06-09",
+        "Estado": 10
+      },
+      {
+        "Fecha": "2026-06-10",
+        "Estado": 11
+      }
     ],
     "ComisionFletero": [],
     "ComisionAgencia": [],
@@ -3729,12 +3795,30 @@
     "PrecioVenta": 30000.0,
     "Estado": 11,
     "Historial": [
-      { "Fecha": "2026-06-07", "Estado": 3 },
-      { "Fecha": "2026-06-07", "Estado": 6 },
-      { "Fecha": "2026-06-08", "Estado": 8 },
-      { "Fecha": "2026-06-09", "Estado": 9 },
-      { "Fecha": "2026-06-09", "Estado": 10 },
-      { "Fecha": "2026-06-10", "Estado": 11 }
+      {
+        "Fecha": "2026-06-07",
+        "Estado": 3
+      },
+      {
+        "Fecha": "2026-06-07",
+        "Estado": 6
+      },
+      {
+        "Fecha": "2026-06-08",
+        "Estado": 8
+      },
+      {
+        "Fecha": "2026-06-09",
+        "Estado": 9
+      },
+      {
+        "Fecha": "2026-06-09",
+        "Estado": 10
+      },
+      {
+        "Fecha": "2026-06-10",
+        "Estado": 11
+      }
     ],
     "ComisionFletero": [],
     "ComisionAgencia": [],
@@ -3758,8 +3842,14 @@
     "PrecioVenta": 15000.0,
     "Estado": 4,
     "Historial": [
-      { "Fecha": "2026-06-08", "Estado": 2 },
-      { "Fecha": "2026-06-09", "Estado": 4 }
+      {
+        "Fecha": "2026-06-08",
+        "Estado": 2
+      },
+      {
+        "Fecha": "2026-06-09",
+        "Estado": 4
+      }
     ],
     "ComisionFletero": [],
     "ComisionAgencia": [],
@@ -3783,8 +3873,14 @@
     "PrecioVenta": 20000.0,
     "Estado": 4,
     "Historial": [
-      { "Fecha": "2026-06-08", "Estado": 3 },
-      { "Fecha": "2026-06-09", "Estado": 4 }
+      {
+        "Fecha": "2026-06-08",
+        "Estado": 3
+      },
+      {
+        "Fecha": "2026-06-09",
+        "Estado": 4
+      }
     ],
     "ComisionFletero": [],
     "ComisionAgencia": [],
@@ -3808,12 +3904,30 @@
     "PrecioVenta": 15000.0,
     "Estado": 12,
     "Historial": [
-      { "Fecha": "2026-06-07", "Estado": 3 },
-      { "Fecha": "2026-06-08", "Estado": 8 },
-      { "Fecha": "2026-06-08", "Estado": 9 },
-      { "Fecha": "2026-06-09", "Estado": 10 },
-      { "Fecha": "2026-06-09", "Estado": 11 },
-      { "Fecha": "2026-06-10", "Estado": 12 }
+      {
+        "Fecha": "2026-06-07",
+        "Estado": 3
+      },
+      {
+        "Fecha": "2026-06-08",
+        "Estado": 8
+      },
+      {
+        "Fecha": "2026-06-08",
+        "Estado": 9
+      },
+      {
+        "Fecha": "2026-06-09",
+        "Estado": 10
+      },
+      {
+        "Fecha": "2026-06-09",
+        "Estado": 11
+      },
+      {
+        "Fecha": "2026-06-10",
+        "Estado": 12
+      }
     ],
     "ComisionFletero": [],
     "ComisionAgencia": [],
@@ -3837,12 +3951,30 @@
     "PrecioVenta": 20000.0,
     "Estado": 12,
     "Historial": [
-      { "Fecha": "2026-06-07", "Estado": 3 },
-      { "Fecha": "2026-06-08", "Estado": 8 },
-      { "Fecha": "2026-06-08", "Estado": 9 },
-      { "Fecha": "2026-06-09", "Estado": 10 },
-      { "Fecha": "2026-06-09", "Estado": 11 },
-      { "Fecha": "2026-06-10", "Estado": 12 }
+      {
+        "Fecha": "2026-06-07",
+        "Estado": 3
+      },
+      {
+        "Fecha": "2026-06-08",
+        "Estado": 8
+      },
+      {
+        "Fecha": "2026-06-08",
+        "Estado": 9
+      },
+      {
+        "Fecha": "2026-06-09",
+        "Estado": 10
+      },
+      {
+        "Fecha": "2026-06-09",
+        "Estado": 11
+      },
+      {
+        "Fecha": "2026-06-10",
+        "Estado": 12
+      }
     ],
     "ComisionFletero": [],
     "ComisionAgencia": [],
@@ -3866,12 +3998,30 @@
     "PrecioVenta": 25000.0,
     "Estado": 12,
     "Historial": [
-      { "Fecha": "2026-06-07", "Estado": 3 },
-      { "Fecha": "2026-06-08", "Estado": 8 },
-      { "Fecha": "2026-06-08", "Estado": 9 },
-      { "Fecha": "2026-06-09", "Estado": 10 },
-      { "Fecha": "2026-06-09", "Estado": 11 },
-      { "Fecha": "2026-06-10", "Estado": 12 }
+      {
+        "Fecha": "2026-06-07",
+        "Estado": 3
+      },
+      {
+        "Fecha": "2026-06-08",
+        "Estado": 8
+      },
+      {
+        "Fecha": "2026-06-08",
+        "Estado": 9
+      },
+      {
+        "Fecha": "2026-06-09",
+        "Estado": 10
+      },
+      {
+        "Fecha": "2026-06-09",
+        "Estado": 11
+      },
+      {
+        "Fecha": "2026-06-10",
+        "Estado": 12
+      }
     ],
     "ComisionFletero": [],
     "ComisionAgencia": [],
@@ -3895,15 +4045,313 @@
     "PrecioVenta": 15000.0,
     "Estado": 12,
     "Historial": [
-      { "Fecha": "2026-06-07", "Estado": 3 },
-      { "Fecha": "2026-06-08", "Estado": 8 },
-      { "Fecha": "2026-06-08", "Estado": 9 },
-      { "Fecha": "2026-06-09", "Estado": 10 },
-      { "Fecha": "2026-06-09", "Estado": 11 },
-      { "Fecha": "2026-06-10", "Estado": 12 }
+      {
+        "Fecha": "2026-06-07",
+        "Estado": 3
+      },
+      {
+        "Fecha": "2026-06-08",
+        "Estado": 8
+      },
+      {
+        "Fecha": "2026-06-08",
+        "Estado": 9
+      },
+      {
+        "Fecha": "2026-06-09",
+        "Estado": 10
+      },
+      {
+        "Fecha": "2026-06-09",
+        "Estado": 11
+      },
+      {
+        "Fecha": "2026-06-10",
+        "Estado": 12
+      }
+    ],
+    "ComisionFletero": [],
+    "ComisionAgencia": [],
+    "IntentosDeEntrega": 0
+  },
+  {
+    "NroGuia": "CC-2-831",
+    "CuitDniCuilCliente": "27444555",
+    "FechaImposicion": "2026-06-08",
+    "TipoImposicion": 3,
+    "IdCentroDeDistribucionImposicion": 2,
+    "IdAgenciaImposicion": 0,
+    "DireccionRetiroDomicilio": "Av. Corrientes 500",
+    "TipoEntrega": 3,
+    "IdCentroDeDistribucionEntrega": 1,
+    "IdAgenciaEntrega": 0,
+    "DireccionEntrega": "Rioja 300",
+    "DniDestinatario": "25222333",
+    "NombreDestinatario": "Jorge Pérez",
+    "TipoCaja": 2,
+    "PrecioVenta": 20000.0,
+    "Estado": 4,
+    "Historial": [
+      {
+        "Fecha": "2026-06-08",
+        "Estado": 3
+      },
+      {
+        "Fecha": "2026-06-09",
+        "Estado": 4
+      }
+    ],
+    "ComisionFletero": [],
+    "ComisionAgencia": [],
+    "IntentosDeEntrega": 0
+  },
+  {
+    "NroGuia": "CC-2-832",
+    "CuitDniCuilCliente": "27444555",
+    "FechaImposicion": "2026-06-08",
+    "TipoImposicion": 3,
+    "IdCentroDeDistribucionImposicion": 2,
+    "IdAgenciaImposicion": 0,
+    "DireccionRetiroDomicilio": "Av. Corrientes 850",
+    "TipoEntrega": 3,
+    "IdCentroDeDistribucionEntrega": 1,
+    "IdAgenciaEntrega": 0,
+    "DireccionEntrega": "Rioja 300",
+    "DniDestinatario": "25222333",
+    "NombreDestinatario": "Jorge Pérez",
+    "TipoCaja": 2,
+    "PrecioVenta": 20000.0,
+    "Estado": 4,
+    "Historial": [
+      {
+        "Fecha": "2026-06-08",
+        "Estado": 3
+      },
+      {
+        "Fecha": "2026-06-09",
+        "Estado": 4
+      }
+    ],
+    "ComisionFletero": [],
+    "ComisionAgencia": [],
+    "IntentosDeEntrega": 0
+  },
+  {
+    "NroGuia": "CC-2-833",
+    "CuitDniCuilCliente": "27444555",
+    "FechaImposicion": "2026-06-08",
+    "TipoImposicion": 3,
+    "IdCentroDeDistribucionImposicion": 2,
+    "IdAgenciaImposicion": 0,
+    "DireccionRetiroDomicilio": "Av. Libertador 300",
+    "TipoEntrega": 3,
+    "IdCentroDeDistribucionEntrega": 1,
+    "IdAgenciaEntrega": 0,
+    "DireccionEntrega": "Rioja 300",
+    "DniDestinatario": "25222333",
+    "NombreDestinatario": "Jorge Pérez",
+    "TipoCaja": 2,
+    "PrecioVenta": 20000.0,
+    "Estado": 4,
+    "Historial": [
+      {
+        "Fecha": "2026-06-08",
+        "Estado": 3
+      },
+      {
+        "Fecha": "2026-06-09",
+        "Estado": 4
+      }
+    ],
+    "ComisionFletero": [],
+    "ComisionAgencia": [],
+    "IntentosDeEntrega": 0
+  },
+  {
+    "NroGuia": "CC-2-834",
+    "CuitDniCuilCliente": "27444555",
+    "FechaImposicion": "2026-06-08",
+    "TipoImposicion": 3,
+    "IdCentroDeDistribucionImposicion": 2,
+    "IdAgenciaImposicion": 0,
+    "DireccionRetiroDomicilio": "Lavalle 350",
+    "TipoEntrega": 3,
+    "IdCentroDeDistribucionEntrega": 1,
+    "IdAgenciaEntrega": 0,
+    "DireccionEntrega": "Rioja 300",
+    "DniDestinatario": "25222333",
+    "NombreDestinatario": "Jorge Pérez",
+    "TipoCaja": 2,
+    "PrecioVenta": 20000.0,
+    "Estado": 4,
+    "Historial": [
+      {
+        "Fecha": "2026-06-08",
+        "Estado": 3
+      },
+      {
+        "Fecha": "2026-06-09",
+        "Estado": 4
+      }
+    ],
+    "ComisionFletero": [],
+    "ComisionAgencia": [],
+    "IntentosDeEntrega": 0
+  },
+  {
+    "NroGuia": "CC-2-835",
+    "CuitDniCuilCliente": "27444555",
+    "FechaImposicion": "2026-06-08",
+    "TipoImposicion": 3,
+    "IdCentroDeDistribucionImposicion": 2,
+    "IdAgenciaImposicion": 0,
+    "DireccionRetiroDomicilio": "Lavalle 350",
+    "TipoEntrega": 3,
+    "IdCentroDeDistribucionEntrega": 1,
+    "IdAgenciaEntrega": 0,
+    "DireccionEntrega": "Rioja 300",
+    "DniDestinatario": "25222333",
+    "NombreDestinatario": "Jorge Pérez",
+    "TipoCaja": 2,
+    "PrecioVenta": 20000.0,
+    "Estado": 4,
+    "Historial": [
+      {
+        "Fecha": "2026-06-08",
+        "Estado": 3
+      },
+      {
+        "Fecha": "2026-06-09",
+        "Estado": 4
+      }
+    ],
+    "ComisionFletero": [],
+    "ComisionAgencia": [],
+    "IntentosDeEntrega": 0
+  },
+  {
+    "NroGuia": "CC-2-836",
+    "CuitDniCuilCliente": "27444555",
+    "FechaImposicion": "2026-06-08",
+    "TipoImposicion": 3,
+    "IdCentroDeDistribucionImposicion": 2,
+    "IdAgenciaImposicion": 0,
+    "DireccionRetiroDomicilio": "Lavalle 350",
+    "TipoEntrega": 3,
+    "IdCentroDeDistribucionEntrega": 1,
+    "IdAgenciaEntrega": 0,
+    "DireccionEntrega": "Lavalle 215",
+    "DniDestinatario": "25222333",
+    "NombreDestinatario": "Jorge Pérez",
+    "TipoCaja": 2,
+    "PrecioVenta": 20000.0,
+    "Estado": 12,
+    "Historial": [
+      {
+        "Fecha": "2026-06-08",
+        "Estado": 3
+      },
+      {
+        "Fecha": "2026-06-09",
+        "Estado": 4
+      }
+    ],
+    "ComisionFletero": [],
+    "ComisionAgencia": [],
+    "IntentosDeEntrega": 0
+  },
+  {
+    "NroGuia": "CC-2-837",
+    "CuitDniCuilCliente": "27444555",
+    "FechaImposicion": "2026-06-08",
+    "TipoImposicion": 3,
+    "IdCentroDeDistribucionImposicion": 2,
+    "IdAgenciaImposicion": 0,
+    "DireccionRetiroDomicilio": "Lavalle 350",
+    "TipoEntrega": 3,
+    "IdCentroDeDistribucionEntrega": 2,
+    "IdAgenciaEntrega": 0,
+    "DireccionEntrega": "Sarmiento 525",
+    "DniDestinatario": "25222333",
+    "NombreDestinatario": "Jorge Pérez",
+    "TipoCaja": 2,
+    "PrecioVenta": 20000.0,
+    "Estado": 12,
+    "Historial": [
+      {
+        "Fecha": "2026-06-08",
+        "Estado": 3
+      },
+      {
+        "Fecha": "2026-06-09",
+        "Estado": 4
+      }
+    ],
+    "ComisionFletero": [],
+    "ComisionAgencia": [],
+    "IntentosDeEntrega": 0
+  },
+  {
+    "NroGuia": "CC-2-838",
+    "CuitDniCuilCliente": "27444555",
+    "FechaImposicion": "2026-06-08",
+    "TipoImposicion": 3,
+    "IdCentroDeDistribucionImposicion": 2,
+    "IdAgenciaImposicion": 0,
+    "DireccionRetiroDomicilio": "Lavalle 350",
+    "TipoEntrega": 3,
+    "IdCentroDeDistribucionEntrega": 3,
+    "IdAgenciaEntrega": 0,
+    "DireccionEntrega": "Sarmiento 525",
+    "DniDestinatario": "25222333",
+    "NombreDestinatario": "Jorge Pérez",
+    "TipoCaja": 2,
+    "PrecioVenta": 20000.0,
+    "Estado": 9,
+    "Historial": [
+      {
+        "Fecha": "2026-06-08",
+        "Estado": 3
+      },
+      {
+        "Fecha": "2026-06-09",
+        "Estado": 4
+      }
+    ],
+    "ComisionFletero": [],
+    "ComisionAgencia": [],
+    "IntentosDeEntrega": 0
+  },
+  {
+    "NroGuia": "CC-1-839",
+    "CuitDniCuilCliente": "27444555",
+    "FechaImposicion": "2026-06-08",
+    "TipoImposicion": 3,
+    "IdCentroDeDistribucionImposicion": 1,
+    "IdAgenciaImposicion": 0,
+    "DireccionRetiroDomicilio": "Lavalle 350",
+    "TipoEntrega": 3,
+    "IdCentroDeDistribucionEntrega": 3,
+    "IdAgenciaEntrega": 0,
+    "DireccionEntrega": "Sarmiento 525",
+    "DniDestinatario": "25222333",
+    "NombreDestinatario": "Jorge Pérez",
+    "TipoCaja": 2,
+    "PrecioVenta": 20000.0,
+    "Estado": 9,
+    "Historial": [
+      {
+        "Fecha": "2026-06-08",
+        "Estado": 3
+      },
+      {
+        "Fecha": "2026-06-09",
+        "Estado": 4
+      }
     ],
     "ComisionFletero": [],
     "ComisionAgencia": [],
     "IntentosDeEntrega": 0
   }
+
 ]

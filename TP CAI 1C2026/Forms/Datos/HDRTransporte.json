@@ -38,6 +38,22 @@
     "IdCentroDeDistribucionOrigen": 1,
     "IdCentroDeDistribucionDestino": 3,
     "Guias": [ "CD-1-809" ]
+  },
+  {
+    "NroHDR": 6,
+    "IdServicio": 15,
+    "FechaEmision": "2026-06-10",
+    "IdCentroDeDistribucionOrigen": 1,
+    "IdCentroDeDistribucionDestino": 5,
+    "Guias": [ "CC-2-838" ]
+  },
+  {
+    "NroHDR": 7,
+    "IdServicio": 16,
+    "FechaEmision": "2026-06-10",
+    "IdCentroDeDistribucionOrigen": 1,
+    "IdCentroDeDistribucionDestino": 2,
+    "Guias": [ "CC-1-839" ]
   }
 ]
 

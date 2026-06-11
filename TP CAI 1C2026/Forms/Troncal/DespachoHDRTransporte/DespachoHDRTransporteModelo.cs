@@ -13,6 +13,17 @@ namespace TP_CAI_1C2026.Forms.Troncal.DespachoHDRTransporte
 
             foreach (var hdr in HDRTransporteAlmacen.HDRTransportes)
             {
+                var guiasHDR = GuiaAlmacen.Guias
+                    .Where(g => hdr.Guias.Contains(g.NroGuia))
+                    .ToList();
+
+                if (guiasHDR.Count == 0
+                    || guiasHDR.Count != hdr.Guias.Count
+                    || guiasHDR.Any(g => g.Estado != EstadoGuiaEnum.PendienteDeTransporte))
+                {
+                    continue;
+                }
+
                 var servicioEntidad = ServicioAlmacen.Servicios
                     .FirstOrDefault(s => s.IdServicio == hdr.IdServicio);
 
@@ -63,6 +74,39 @@ namespace TP_CAI_1C2026.Forms.Troncal.DespachoHDRTransporte
             }
 
             return resultado;
+        }
+
+        internal List<Servicio> ObtenerServiciosDisponibles(DateTime fechaDesde, DateTime fechaHasta)
+        {
+            return ObtenerServicios()
+                .Where(s => s.FechayHora.Date >= fechaDesde.Date
+                    && s.FechayHora.Date <= fechaHasta.Date)
+                .OrderBy(s => s.FechayHora)
+                .ToList();
+        }
+
+        internal void DespacharGuias(List<string> numerosGuias)
+        {
+            var fechaActual = DateTime.Now;
+
+            foreach (var nroGuia in numerosGuias)
+            {
+                var guia = GuiaAlmacen.Guias
+                    .FirstOrDefault(g => g.NroGuia == nroGuia);
+
+                if (guia != null)
+                {
+                    guia.Estado = EstadoGuiaEnum.PendienteDeRecepcion;
+                    guia.Historial ??= new List<HistorialGuia>();
+                    guia.Historial.Add(new HistorialGuia
+                    {
+                        Fecha = fechaActual,
+                        Estado = EstadoGuiaEnum.PendienteDeRecepcion
+                    });
+                }
+            }
+
+            GuiaAlmacen.Guardar();
         }
 
         private string ObtenerDestino(GuiaEntidad guia)
