@@ -1,0 +1,59 @@
+Plan de Prueba: RecepcionHDRTransporte-Exitosa.txt
+
+Precondiciones:
+- Restaurar Forms\Datos\Guias.json y Forms\Datos\HDRTransporte.json
+  a su estado inicial.
+- Configurar la fecha del equipo en 11/06/2026.
+
+(Empieza con el menú principal)
+1-  Abrir formulario                        "Recepción de Hoja de Ruta de Ómnibus"
+2-  Combobox Servicio                       "Andesmar - 10/06/2026 20:30"
+3-  Lista de guías muestra                  "AG-1-803 | L | Cordoba"
+                                             "AG-1-804 | S | Olavarria"
+                                             "CD-1-805 | XL | Agencia 9"
+4-  Botón                                   "Recibir HDR"
+5-  Mensaje                                 "¿Está seguro que desea confirmar la recepción de 3 guía/s para el servicio seleccionado?"
+6-  Botón                                   "Sí"
+7-  Cerrar el sistema
+
+Verificaciones:
+8-  El combobox Servicio queda sin selección
+9-  La lista de guías queda vacía
+10- El servicio "Andesmar - 10/06/2026 20:30" deja de aparecer entre los servicios disponibles
+
+11- Archivo Guias.json - la guía AG-1-803 debe aparecer con:
+
+    {
+      "NroGuia": "AG-1-803",
+      "Estado": 15,
+      "Historial": [
+        ...entradas anteriores...,
+        { "Fecha": "<fecha actual>", "Estado": 11 },
+        { "Fecha": "<fecha actual>", "Estado": 15 }
+      ]
+    }
+
+12- Archivo Guias.json - la guía AG-1-804 debe aparecer con:
+
+    {
+      "NroGuia": "AG-1-804",
+      "Estado": 8,
+      "Historial": [
+        ...entradas anteriores...,
+        { "Fecha": "<fecha actual>", "Estado": 8 }
+      ]
+    }
+
+13- Archivo Guias.json - la guía CD-1-805 debe aparecer con:
+
+    {
+      "NroGuia": "CD-1-805",
+      "Estado": 11,
+      "Historial": [
+        ...entradas anteriores...,
+        { "Fecha": "<fecha actual>", "Estado": 11 }
+      ]
+    }
+
+14- Archivo HDRTransporte.json - no se modificó ninguna HDR
+
