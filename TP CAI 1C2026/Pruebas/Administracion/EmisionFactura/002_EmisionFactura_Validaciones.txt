@@ -1,0 +1,56 @@
+Plan de Prueba: EmisionFactura-Validaciones.txt
+
+Precondición:
+- Restaurar Forms\Datos\Facturas.json, Forms\Datos\Clientes.json y
+  Forms\Datos\Guias.json a su estado inicial.
+
+(Empieza con el menú principal)
+1-  Abrir formulario                        "Emisión de Factura"
+2-  Botón                                   "Emitir Factura"
+3-  Mensaje                                 "No existen guías pendientes para facturar."
+4-  Botón                                   "Aceptar"
+5-  Campo CUIT / DNI / CUIL                 ""
+6-  Botón                                   "Buscar"
+7-  Mensaje                                 "El CUIT, CUIL o DNI del cliente no puede estar vacío."
+8-  Botón                                   "Aceptar"
+9-  Campo CUIT / DNI / CUIL                 "123ABC"
+10- Botón                                   "Buscar"
+11- Mensaje                                 "El CUIT, CUIL o DNI del cliente debe ser un número válido."
+12- Botón                                   "Aceptar"
+13- Campo CUIT / DNI / CUIL                 "99999999"
+14- Botón                                   "Buscar"
+15- Mensaje                                 "No se encontró un cliente con CUIT, CUIL o DNI 99999999."
+16- Botón                                   "Aceptar"
+17- Campo CUIT / DNI / CUIL                 "30-64621216-9"
+18- Botón                                   "Buscar"
+19- Nombre del Cliente muestra              "Nike S.A."
+20- Mensaje                                 "El cliente no posee guías pendientes de facturación."
+21- Botón                                   "Aceptar"
+22- Lista de guías queda vacía
+23- Total a Facturar muestra                "0,00"
+24- Botón                                   "Emitir Factura"
+25- Mensaje                                 "No existen guías pendientes para facturar."
+26- Botón                                   "Aceptar"
+27- Campo CUIT / DNI / CUIL                 "33-63761744-9"
+28- Botón                                   "Buscar"
+29- Nombre del Cliente muestra              "Adidas S.A."
+30- Lista de guías muestra                  "AG-5-168 | 31/05/2026 | 20.000,00"
+                                             "CD-6-173 | 29/05/2026 | 25.000,00"
+31- Total a Facturar muestra                "45.000,00"
+32- Botón                                   "Emitir Factura"
+33- Mensaje                                 "¿Desea emitir la factura?"
+34- Botón                                   "No"
+35- Verificar que las guías y el total continúan visibles
+36- Botón                                   "Cancelar"
+37- Cerrar el sistema
+
+Verificaciones:
+38- El formulario queda limpio:
+    - Campo CUIT / DNI / CUIL vacío
+    - Nombre del Cliente vacío
+    - Lista de guías vacía
+    - Total a Facturar muestra "0,00"
+39- Archivo Facturas.json - no se agregó ninguna factura
+40- Archivo Clientes.json - no se agregó ningún número de factura
+41- Archivo Guias.json - ninguna guía cambió de estado o historial
+

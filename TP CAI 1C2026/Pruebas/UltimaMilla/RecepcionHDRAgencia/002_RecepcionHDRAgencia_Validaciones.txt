@@ -1,0 +1,27 @@
+Plan de Prueba: RecepcionHDRAgencia-Validaciones.txt
+
+Precondición:
+- Restaurar Forms\Datos\HDREntrega.json y Forms\Datos\Guias.json
+  a su estado inicial.
+
+(Empieza con el menú principal)
+1-  Abrir formulario                        "Recepción de Hoja de Ruta en Agencia"
+2-  No seleccionar ninguna HDR
+3-  Botón                                   "Recibir HDR"
+4-  Mensaje                                 "Debe seleccionar un HDR."
+5-  Botón                                   "Aceptar"
+6-  Combobox N° Hoja de Ruta                "6"
+7-  Lista de guías muestra                  "CC-1-175 | M"
+8-  Botón                                   "Recibir HDR"
+9-  Mensaje                                 "¿Desea confirmar la recepción del HDR?"
+10- Botón                                   "No"
+11- Verificar que la HDR N° 6 y su guía continúan visibles
+12- Botón                                   "Cancelar"
+13- Cerrar el sistema
+
+Verificaciones:
+14- El combobox N° Hoja de Ruta queda sin selección
+15- La lista de guías queda vacía
+16- Archivo HDREntrega.json - la HDR N° 6 conserva el estado 2
+17- Archivo Guias.json - la guía CC-1-175 conserva el estado 12
+18- Archivo Guias.json - no se agregaron entradas al historial de CC-1-175

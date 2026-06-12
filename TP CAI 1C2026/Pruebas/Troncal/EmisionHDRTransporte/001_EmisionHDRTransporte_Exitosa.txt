@@ -1,0 +1,99 @@
+Plan de Prueba: EmisionHDRTransporte-Exitosa.txt
+
+Precondiciones:
+- Restaurar Forms\Datos\HDRTransporte.json y Forms\Datos\Guias.json
+  a su estado inicial.
+- Configurar la fecha del equipo en 11/06/2026.
+- El mayor número de HDR de transporte existente debe ser 7.
+
+(Empieza con el menú principal)
+1-  Abrir formulario                        "Emisión de Hoja de Ruta de Ómnibus"
+2-  Verificar estado inicial:
+    - Centro de Distribución Destino sin selección
+    - Empresa de Transporte sin selección
+    - Fecha "11/06/2026"
+    - Lista de transportes vacía y deshabilitada
+    - Sección de guías deshabilitada
+3-  Combobox Centro de Distribución Destino "Buenos Aires"
+4-  Campo Fecha                             "15/06/2026"
+5-  Combobox Empresa de Transporte          "Chevallier"
+6-  Botón                                   "Buscar" (buscar transporte)
+7-  Lista de transportes muestra            "15/06/2026 | 17:35 | Chevallier | Buenos Aires"
+8-  Seleccionar transporte                  "15/06/2026 | 17:35 | Chevallier | Buenos Aires"
+9-  Sección de guías queda habilitada
+10- Campo N° Guía                           "CD-1-8"
+11- Botón                                   "Buscar" (buscar guía)
+12- Lista de guías disponibles muestra      "S | Buenos Aires | CD-1-816"
+                                             "S | Buenos Aires | CD-1-820"
+                                             "M | Buenos Aires | CD-1-824"
+13- Marcar las guías                        "CD-1-816", "CD-1-820" y "CD-1-824"
+14- Botón                                   "Agregar >>>"
+15- Lista de guías agregadas muestra        "CD-1-816 | S | Buenos Aires"
+                                             "CD-1-820 | S | Buenos Aires"
+                                             "CD-1-824 | M | Buenos Aires"
+16- Campo N° Guía queda vacío
+17- Marcar guía agregada                    "CD-1-816"
+18- Botón                                   "Quitar <<<"
+19- La lista de guías disponibles muestra   "S | Buenos Aires | CD-1-816"
+20- La lista de guías agregadas muestra     "CD-1-820 | S | Buenos Aires"
+                                             "CD-1-824 | M | Buenos Aires"
+21- Marcar guía disponible                  "CD-1-816"
+22- Botón                                   "Agregar >>>"
+23- Lista de guías agregadas vuelve a mostrar las tres guías
+24- Botón                                   "Generar HDR"
+25- Mensaje                                 "HDR generado: 8"
+26- Botón                                   "Aceptar"
+27- Cerrar el sistema
+
+Verificaciones:
+28- El formulario queda en su estado inicial:
+    - Centro de Distribución Destino sin selección
+    - Empresa de Transporte sin selección
+    - Fecha "11/06/2026"
+    - Campo N° Guía vacío
+    - Listas vacías
+    - Lista de transportes y sección de guías deshabilitadas
+
+29- Archivo HDRTransporte.json - la última entrada agregada debe ser similar a:
+
+    {
+      "NroHDR": 8,
+      "IdServicio": 16,
+      "FechaEmision": "<fecha actual>",
+      "IdCentroDeDistribucionOrigen": 1,
+      "IdCentroDeDistribucionDestino": 2,
+      "Guias": [ "CD-1-820", "CD-1-824", "CD-1-816" ]
+    }
+
+30- Archivo Guias.json - la guía CD-1-816 debe aparecer con:
+
+    {
+      "NroGuia": "CD-1-816",
+      "Estado": 9,
+      "Historial": [
+        ...entradas anteriores...,
+        { "Fecha": "<fecha actual>", "Estado": 9 }
+      ]
+    }
+
+31- Archivo Guias.json - la guía CD-1-820 debe aparecer con:
+
+    {
+      "NroGuia": "CD-1-820",
+      "Estado": 9,
+      "Historial": [
+        ...entradas anteriores...,
+        { "Fecha": "<fecha actual>", "Estado": 9 }
+      ]
+    }
+
+32- Archivo Guias.json - la guía CD-1-824 debe aparecer con:
+
+    {
+      "NroGuia": "CD-1-824",
+      "Estado": 9,
+      "Historial": [
+        ...entradas anteriores...,
+        { "Fecha": "<fecha actual>", "Estado": 9 }
+      ]
+    }
