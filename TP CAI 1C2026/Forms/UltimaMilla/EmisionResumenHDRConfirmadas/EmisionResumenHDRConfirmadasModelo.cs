@@ -144,8 +144,7 @@ namespace TP_CAI_1C2026.Forms.UltimaMilla.EmisionResumenHDRConfirmadas
             HDRRetiroAlmacen.Guardar();
             HDREntregaAlmacen.Guardar();
         }
-
-        // ── Helpers privados ─────────────────────────────────────────
+ 
 
         private void ProcesarHDR(HDREnTransito hdr, bool confirmada, FleteroEntidad? fletero)
         {
@@ -295,6 +294,7 @@ namespace TP_CAI_1C2026.Forms.UltimaMilla.EmisionResumenHDRConfirmadas
                         Estado = EstadoGuiaEnum.PendienteDeDistribucion
                     });
                     guia.Estado = EstadoGuiaEnum.PendienteDeDistribucion;
+                    AgregarComisionFletero(guia, fletero);
                 }
             }
         }

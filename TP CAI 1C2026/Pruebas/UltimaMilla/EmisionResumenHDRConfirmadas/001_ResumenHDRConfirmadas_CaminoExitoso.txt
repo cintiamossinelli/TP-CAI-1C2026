@@ -1,0 +1,135 @@
+Plan de Prueba: ResumenHDRConfirmadas-CaminoExitoso.txt
+
+Objetivo:
+Validar la emision del resumen de HDR confirmadas para un fletero con HDR de entrega y retiro pendientes de rendicion, verificando la carga en pantalla y los cambios en HDR, guias, historial, comisiones e intentos de entrega.
+
+Datos de prueba:
+- Fletero:
+  DNI: 11223344
+  Nombre: Jose Lema
+- Comisiones del fletero Jose Lema:
+  TipoCaja 1: 1500.00
+  TipoCaja 2: 2000.00
+  TipoCaja 3: 2500.00
+  TipoCaja 4: 3000.00
+- HDR de Retiro pendientes de rendicion:
+  RET14 | Agencia 1 (Rosario Norte) | Guia AG-1-816 | Estado HDR inicial 4
+  RET15 | Av. Corrientes 500, Rosario | Guia CC-1-817 | Estado HDR inicial 4
+  RET16 | Pellegrini 800, Rosario | Guia CC-1-818 | Estado HDR inicial 4
+- HDR de Entrega pendientes de rendicion:
+  ENT12 | San Martin 400, Rosario | Guia CC-2-819 | Estado HDR inicial 4
+  ENT13 | Entre Rios 600, Rosario | Guia CC-2-820 | Estado HDR inicial 4
+  ENT14 | Cordoba 800, Rosario | Guia CC-2-821 | Estado HDR inicial 4
+  ENT15 | Agencia 2 (Rosario Sur) | Guia CC-2-822 | Estado HDR inicial 4
+
+(Empieza con el menu principal)
+1-  Abrir formulario                         "Emision Resumen HDR Confirmadas"
+2-  Campo DNI Fletero                        "11223344"
+3-  Boton                                    "Buscar"
+4-  Nombre del Fletero muestra               "Jose Lema"
+5-  ListView HDR en transito muestra         "ENT12 | San Martin 400, Rosario | 1"
+                                             "ENT13 | Entre Rios 600, Rosario | 1"
+                                             "ENT14 | Cordoba 800, Rosario | 1"
+                                             "ENT15 | Agencia 2 (Rosario Sur) | 1"
+                                             "RET14 | Agencia 1 (Rosario Norte) | 1"
+                                             "RET15 | Av. Corrientes 500, Rosario | 1"
+                                             "RET16 | Pellegrini 800, Rosario | 1"
+6-  Marcar en el ListView                    "ENT12"
+7-  Marcar en el ListView                    "RET14"
+8-  Marcar en el ListView                    "RET15"
+9-  Dejar sin marcar                         "ENT13"
+10- Dejar sin marcar                         "ENT14"
+11- Dejar sin marcar                         "ENT15"
+12- Dejar sin marcar                         "RET16"
+13- Boton                                    "Generar Resumen de HDR Confirmadas"
+14- Mensaje muestra resumen para DNI         "11223344"
+15- Mensaje muestra Confirmadas              "ENT12 | San Martin 400, Rosario | 1"
+                                             "RET14 | Agencia 1 (Rosario Norte) | 1"
+                                             "RET15 | Av. Corrientes 500, Rosario | 1"
+16- Mensaje muestra No Confirmadas           "ENT13 | Entre Rios 600, Rosario | 1"
+                                             "ENT14 | Cordoba 800, Rosario | 1"
+                                             "ENT15 | Agencia 2 (Rosario Sur) | 1"
+                                             "RET16 | Pellegrini 800, Rosario | 1"
+17- Boton del mensaje                        "Aceptar"
+18- El formulario queda limpio               DNI vacio, nombre "Nombre del Fletero", ListView vacio
+19- Cerrar el sistema
+
+Verificaciones en HDRRetiro.json:
+20- HDR Retiro NroHDR 14 debe quedar:
+    "Estado": 3
+21- HDR Retiro NroHDR 15 debe quedar:
+    "Estado": 3
+22- HDR Retiro NroHDR 16 debe quedar:
+    "Estado": 3
+
+Verificaciones en HDREntrega.json:
+23- HDR Entrega NroHDR 12 debe quedar:
+    "Estado": 3
+24- HDR Entrega NroHDR 13 debe quedar:
+    "Estado": 3
+25- HDR Entrega NroHDR 14 debe quedar:
+    "Estado": 3
+26- HDR Entrega NroHDR 15 debe quedar:
+    "Estado": 3
+
+Verificaciones en Guias.json - HDR confirmadas:
+27- Guia CC-2-819, asociada a ENT12, entrega a domicilio confirmada:
+    Estado final esperado: 17
+    Historial agrega dos entradas al final:
+      { "Fecha": "<fecha actual>", "Estado": 14 }
+      { "Fecha": "<fecha actual>", "Estado": 17 }
+    IntentosDeEntrega permanece en 0
+    ComisionFletero agrega:
+      { "DniFletero": 11223344, "Importe": 1500.00 }
+
+28- Guia AG-1-816, asociada a RET14, retiro confirmado desde agencia:
+    Estado final esperado: 6
+    Historial agrega dos entradas al final:
+      { "Fecha": "<fecha actual>", "Estado": 5 }
+      { "Fecha": "<fecha actual>", "Estado": 6 }
+    ComisionFletero agrega:
+      { "DniFletero": 11223344, "Importe": 1500.00 }
+
+29- Guia CC-1-817, asociada a RET15, retiro domiciliario confirmado:
+    Estado final esperado: 6
+    Historial agrega dos entradas al final:
+      { "Fecha": "<fecha actual>", "Estado": 5 }
+      { "Fecha": "<fecha actual>", "Estado": 6 }
+    ComisionFletero agrega:
+      { "DniFletero": 11223344, "Importe": 2000.00 }
+
+Verificaciones en Guias.json - HDR no confirmadas:
+30- Guia CC-2-820, asociada a ENT13, entrega a domicilio no confirmada con primer intento:
+    Estado final esperado: 12
+    IntentosDeEntrega pasa de 0 a 1
+    Historial agrega dos entradas al final:
+      { "Fecha": "<fecha actual>", "Estado": 16 }
+      { "Fecha": "<fecha actual>", "Estado": 12 }
+    ComisionFletero agrega:
+      { "DniFletero": 11223344, "Importe": 2000.00 }
+
+31- Guia CC-2-821, asociada a ENT14, entrega a domicilio no confirmada con segundo intento:
+    Estado final esperado: 16
+    IntentosDeEntrega pasa de 1 a 2
+    Historial agrega una entrada al final:
+      { "Fecha": "<fecha actual>", "Estado": 16 }
+    ComisionFletero agrega:
+      { "DniFletero": 11223344, "Importe": 2500.00 }
+
+32- Guia CC-2-822, asociada a ENT15, entrega en agencia:
+    Estado final esperado: 12
+    IntentosDeEntrega permanece en 0
+    No agrega historial por guia de entrega en agencia
+    ComisionFletero agrega:
+      { "DniFletero": 11223344, "Importe": 1500.00 }
+
+33- Guia CC-1-818, asociada a RET16, retiro domiciliario no confirmado:
+    Estado final esperado: 19
+    Historial agrega una entrada al final:
+      { "Fecha": "<fecha actual>", "Estado": 19 }
+    ComisionFletero agrega:
+      { "DniFletero": 11223344, "Importe": 1500.00 }
+
+Notas:
+34- El prefijo ENT o RET solo se muestra en el formulario y en el resumen; el modelo lo quita internamente para buscar la HDR real en el almacen.
+35- Las HDR seleccionadas y no seleccionadas se procesan al aceptar el resumen. Todas las HDR mostradas pasan a estado Rendida(3).
