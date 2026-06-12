@@ -1,9 +1,10 @@
 ﻿
-Tipo de prueba: Caja negra / Aceptación
-Formulario: Cuenta Corriente Cliente
+PRUEBA: Caja negra / Aceptación
+========================================================================================================
+
+Formulario: CuentaCorrienteCliente
 
 001_CuentaCorrienteCliente_ConsultaExitosa.txt
-
 
 Objetivo: Validar los escenarios en los que se concreta exitosamente la consulta de cuenta corriente del cliente.
 
@@ -26,8 +27,9 @@ Controles principales del formulario:
 - Campo Saldo
 - Botón Cancelar
 
-
+========================================================================================================
 CASO DE PRUEBA 1
+========================================================================================================
 
 Nombre:
 Consulta de Cuenta Corriente del Cliente Exitosa
@@ -70,10 +72,10 @@ Resultado Obtenido:
 - El sistema muestra la razón social Adidas S.A.
 - Se visualizan en el ListView las facturas, recibos y notas de crédito correspondientes al cliente.
 - Se muestra el Saldo: $ 110.000,00
-______________________________
 
-
+========================================================================================================
 CASO DE PRUEBA 2
+========================================================================================================
 
 Nombre:
 Consulta Exitosa de Cuenta Corriente para Cliente Nike S.A.
@@ -114,10 +116,10 @@ Resultado Obtenido:
 - Se visualizan las facturas correspondientes.
 - Se muestra el Saldo: $ 330.000,00
 
-______________________________
 
-
+========================================================================================================
 CASO DE PRUEBA 3
+========================================================================================================
 
 Nombre:
 Consulta Exitosa de Cuenta Corriente usando DNI
@@ -160,9 +162,9 @@ Resultado Obtenido:
 - Se visualizan las facturas, recibos y notas de crédito correspondientes.
 - Se muestra el Saldo: $ 125.000,00
 
-______________________________
-
-CASO DE PRUEBA 6
+========================================================================================================
+CASO DE PRUEBA 4
+========================================================================================================
 
 Nombre:
 Consulta Exitosa con rango que incluye recibo y nota de crédito
@@ -202,9 +204,10 @@ Resultado Obtenido:
 - El sistema muestra la razón social Adidas S.A.
 - Se visualizan en el ListView los recibos y notas de crédito correspondientes al cliente.
 - Se muestra el Saldo: - $ 150.000,00
-______________________________
 
-CASO DE PRUEBA 7
+========================================================================================================
+CASO DE PRUEBA 5
+========================================================================================================
 
 Nombre:
 Consulta Exitosa con Fecha Desde igual a Fecha Hasta
@@ -242,9 +245,10 @@ Resultado Obtenido:
 - El sistema muestra la razón social Adidas S.A.
 - Se visualizan en el ListView las facturas correspondientes al cliente.
 - Se muestra el Saldo: $ 120.000,00
-______________________________
 
-CASO DE PRUEBA 8
+========================================================================================================
+CASO DE PRUEBA 6
+========================================================================================================
 
 Nombre:
 Consulta Exitosa ejecutando directamente el botón Buscar
@@ -278,10 +282,10 @@ Resultado Obtenido:
 - El sistema muestra la razón social Nike S.A.
 - Se visualizan en el ListView las facturas correspondientes al cliente.
 - Se muestra el Saldo: $ 330.000,00
-______________________________
 
-
-CASO DE PRUEBA 9
+========================================================================================================
+CASO DE PRUEBA 7
+========================================================================================================
 
 Nombre:
 Consulta Exitosa sin duplicación de movimientos
@@ -314,10 +318,10 @@ Resultado Obtenido:
 - El sistema muestra la razón social Adidas S.A.
 - Se visualizan en el ListView las facturas correspondientes al cliente.
 - Se muestra el Saldo: $ 260.000,00
-______________________________
 
-
-CASO DE PRUEBA 10
+========================================================================================================
+CASO DE PRUEBA 8
+========================================================================================================
 
 Nombre:
 Consulta Exitosa y posterior cancelación
@@ -353,8 +357,8 @@ Resultado Esperado:
 - El formulario queda disponible para una nueva consulta.
 
 Resultado Obtenido: El formulario queda disponible para una nueva consulta.
-______________________________
 
+========================================================================================================
 
 CRITERIO DE ACEPTACIÓN DE LOS CASOS EXITOSOS
 
