@@ -1,32 +1,45 @@
-﻿=========================================
-PRUEBA DE CAJA NEGRA N° 1
-RECEPCIÓN EXITOSA DE HDR
-=========================================
+Plan de Prueba: RecepcionHDRAgencia-Exitosa.txt
 
-Objetivo:
-Verificar que el sistema permita recibir correctamente una Hoja de Ruta (HDR) válida asignada a una agencia.
+Precondición:
+- Restaurar Forms\Datos\HDREntrega.json y Forms\Datos\Guias.json
+  a su estado inicial.
 
-Precondiciones:
-- Existe una HDR pendiente de recepción.
-- La HDR contiene una o más guías.
-- La HDR aún no fue recibida.
-- En el combobox muestro HDR de entrega con Estado = 2.
+(Empieza con el menú principal)
+1-  Abrir formulario                        "Recepción de Hoja de Ruta en Agencia"
+2-  Combobox N° Hoja de Ruta                "6"
+3-  Lista de guías muestra                  "CC-1-175 | M"
+4-  Botón                                   "Recibir HDR"
+5-  Mensaje                                 "¿Desea confirmar la recepción del HDR?"
+6-  Botón                                   "Sí"
+7-  Mensaje                                 "HDR recepcionado correctamente."
+8-  Botón                                   "Aceptar"
+9-  Cerrar el sistema
 
-Datos de Entrada:
-N° Hoja de Ruta: HDR-0001
+Verificaciones:
+10- El combobox N° Hoja de Ruta queda sin selección
+11- La lista de guías queda vacía
+12- La HDR N° 6 deja de aparecer entre las HDR pendientes de recepción
 
-Pasos:
-1. Seleccionar una HDR válida en el desplegable.
-2. Verificar que se carguen las guías asociadas.
-3. Presionar el botón "Recibir HDR".
+13- Archivo HDREntrega.json - la HDR N° 6 debe aparecer con:
 
-Resultado Esperado:
-- Se muestran las guías correspondientes a la HDR seleccionada.
-- El sistema registra la recepción de la HDR.
-- Se muestra un mensaje indicando que la recepción fue exitosa.
-- Las guías pasan al estado correspondiente según la operatoria de recepción en agencia.
-- La HDR deja de figurar como pendiente de recepción.
+    {
+      "NroHDR": 6,
+      "DniFletero": 45000123,
+      "Fecha": "2026-06-06",
+      "Domicilio": "Agencia 9 (Córdoba Norte)",
+      "CantEncomiendas": 1,
+      "Guias": [ "CC-1-175" ],
+      "Estado": 4
+    }
 
-Estado Esperado:
-HDR recibida, pasa a Estado = 4 .
-Las Guias pasan a Estado = 15.
+14- Archivo Guias.json - la guía CC-1-175 debe aparecer con:
+
+    {
+      "NroGuia": "CC-1-175",
+      "Estado": 15,
+      "Historial": [
+        ...entradas anteriores...,
+        { "Fecha": "<fecha actual>", "Estado": 13 },
+        { "Fecha": "<fecha actual>", "Estado": 15 }
+      ]
+    }

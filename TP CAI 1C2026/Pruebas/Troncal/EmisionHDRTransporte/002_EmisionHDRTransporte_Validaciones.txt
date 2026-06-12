@@ -1,0 +1,63 @@
+Plan de Prueba: EmisionHDRTransporte-Validaciones.txt
+
+Precondiciones:
+- Restaurar Forms\Datos\HDRTransporte.json y Forms\Datos\Guias.json
+  a su estado inicial.
+- Configurar la fecha del equipo en 11/06/2026.
+
+(Empieza con el menú principal)
+1-  Abrir formulario                        "Emisión de Hoja de Ruta de Ómnibus"
+2-  Campo Fecha                             "15/06/2026"
+3-  Centro de Distribución Destino          (sin selección)
+4-  Botón                                   "Buscar" (buscar transporte)
+5-  Mensaje                                 "Debe seleccionar un Centro de Distribución destino."
+6-  Botón                                   "Aceptar"
+7-  Centro de Distribución Destino          "Buenos Aires"
+8-  Campo Fecha                             "10/06/2026"
+9-  Botón                                   "Buscar" (buscar transporte)
+10- Mensaje                                 "La fecha  debe ser igual a hoy o posterior."
+11- Botón                                   "Aceptar"
+12- Campo Fecha                             "12/06/2026"
+13- Empresa de Transporte                   (sin selección)
+14- Botón                                   "Buscar" (buscar transporte)
+15- Mensaje                                 "No se encontraron transportes para los filtros ingresados."
+16- Botón                                   "Aceptar"
+17- Campo Fecha                             "15/06/2026"
+18- Empresa de Transporte                   "Chevallier"
+19- Botón                                   "Buscar" (buscar transporte)
+20- Lista de transportes muestra            "15/06/2026 | 17:35 | Chevallier | Buenos Aires"
+21- Botón                                   "Generar HDR" (sin seleccionar transporte)
+22- Mensaje                                 "Debe seleccionar un transporte."
+23- Botón                                   "Aceptar"
+24- Seleccionar transporte                  "15/06/2026 | 17:35 | Chevallier | Buenos Aires"
+25- Campo N° Guía                           "XX-9-999"
+26- Botón                                   "Buscar" (buscar guía)
+27- Mensaje                                 "No existen guías que coincidan con la búsqueda."
+28- Botón                                   "Aceptar"
+29- Botón                                   "Agregar >>>" (sin marcar guías)
+30- Mensaje                                 "Seleccione un Item y vuelva a intentar"
+31- Botón                                   "Aceptar"
+32- Botón                                   "Quitar <<<" (sin guías agregadas)
+33- Mensaje                                 "Seleccione un Item y vuelva a intentar"
+34- Botón                                   "Aceptar"
+35- Botón                                   "Generar HDR" (sin guías agregadas)
+36- Mensaje                                 "Debe agregar al menos una guía para generar la HDR."
+37- Botón                                   "Aceptar"
+38- Campo N° Guía                           "CD-1-8"
+39- Botón                                   "Buscar" (buscar guía)
+40- Marcar guía                             "CD-1-816"
+41- Botón                                   "Agregar >>>"
+42- Lista de guías agregadas muestra        "CD-1-816 | S | Buenos Aires"
+43- Botón                                   "Cancelar"
+44- Cerrar el sistema
+
+Verificaciones:
+45- El formulario queda en su estado inicial:
+    - Centro de Distribución Destino sin selección
+    - Empresa de Transporte sin selección
+    - Fecha "11/06/2026"
+    - Campo N° Guía vacío
+    - Listas vacías
+    - Lista de transportes y sección de guías deshabilitadas
+46- Archivo HDRTransporte.json - no se agregó ninguna HDR
+47- Archivo Guias.json - ninguna guía cambió de estado o historial

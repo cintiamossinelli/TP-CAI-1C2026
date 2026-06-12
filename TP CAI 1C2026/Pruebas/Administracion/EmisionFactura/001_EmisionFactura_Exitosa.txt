@@ -1,32 +1,73 @@
-﻿=========================================
-PRUEBA DE CAJA NEGRA N° 001
-EMISIÓN DE FACTURA EXITOSA
-=========================================
+Plan de Prueba: EmisionFactura-Exitosa.txt
 
-Objetivo:
-Verificar que el sistema permita emitir una factura para un cliente con guías pendientes de facturación.
+Precondición:
+- Restaurar Forms\Datos\Facturas.json, Forms\Datos\Clientes.json y
+  Forms\Datos\Guias.json a su estado inicial.
+- La última factura tipo A existente debe ser A-0001-00002002.
 
-Precondiciones:
-- Existe un cliente registrado.
-- El cliente posee al menos una guía en estado Entregada pendiente de facturación.
+(Empieza con el menú principal)
+1-  Abrir formulario                        "Emisión de Factura"
+2-  Campo CUIT / DNI / CUIL                 "33-63761744-9"
+3-  Botón                                   "Buscar"
+4-  Nombre del Cliente muestra              "Adidas S.A."
+5-  Lista de guías muestra                  "AG-5-168 | 31/05/2026 | 20.000,00"
+                                             "CD-6-173 | 29/05/2026 | 25.000,00"
+6-  Total a Facturar muestra                "45.000,00"
+7-  Botón                                   "Emitir Factura"
+8-  Mensaje                                 "¿Desea emitir la factura?"
+9-  Botón                                   "Sí"
+10- Mensaje                                 "Factura A-0001-00002003 emitida correctamente."
+11- Botón                                   "Aceptar"
+12- Cerrar el sistema
 
-Datos de Entrada:
-CUIT/DNI/CUIL: 33-63761744-9
+Verificaciones:
+13- El formulario queda limpio:
+    - Campo CUIT / DNI / CUIL vacío
+    - Nombre del Cliente vacío
+    - Lista de guías vacía
+    - Total a Facturar muestra "0,00"
 
-Pasos:
-1. Ingresar el CUIT/DNI/CUIL del cliente.
-2. Presionar el botón "Buscar".
-3. Verificar que se muestre el nombre del cliente.
-4. Verificar que se carguen las guías pendientes de facturación con Estados = 16, 17 y 19.
-5. Presionar "Emitir Factura".
+14- Archivo Facturas.json - la última entrada agregada debe ser similar a:
 
-Resultado Esperado:
-- Se muestra el nombre del cliente.
-- Se listan las guías pendientes de facturación.
-- Se calcula correctamente el total.
-- Se emite la factura.
-- Se informa la operación exitosa al usuario.
-- Las guías incluidas quedan facturadas y no vuelven a aparecer en futuras emisiones.
+    {
+      "NumeroFactura": "A-0001-00002003",
+      "Fecha": "<fecha actual>",
+      "Total": 45000.0,
+      "Descripcion": "Factura",
+      "Guias": [ "AG-5-168", "CD-6-173" ]
+    }
 
-Estado Esperado:
-Factura Emitida, Guias cambian a Estado = 18.
+15- Archivo Clientes.json - el cliente Adidas S.A. debe incluir la nueva factura:
+
+    {
+      "CuitDniCuilCliente": "33-63761744-9",
+      "RazonSocial": "Adidas S.A.",
+      "Factura": [
+        "A-0001-00001001",
+        "A-0001-00001005",
+        "A-0001-00002003"
+      ]
+    }
+
+16- Archivo Guias.json - la guía AG-5-168 debe aparecer con:
+
+    {
+      "NroGuia": "AG-5-168",
+      "Estado": 18,
+      "Historial": [
+        ...entradas anteriores...,
+        { "Fecha": "<fecha actual>", "Estado": 18 }
+      ]
+    }
+
+17- Archivo Guias.json - la guía CD-6-173 debe aparecer con:
+
+    {
+      "NroGuia": "CD-6-173",
+      "Estado": 18,
+      "Historial": [
+        ...entradas anteriores...,
+        { "Fecha": "<fecha actual>", "Estado": 18 }
+      ]
+    }
+
