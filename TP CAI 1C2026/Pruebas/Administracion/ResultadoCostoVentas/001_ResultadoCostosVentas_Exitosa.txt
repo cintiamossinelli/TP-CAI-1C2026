@@ -1,0 +1,51 @@
+Plan de Prueba: ResultadoCostosVentas-Exitosa.txt
+
+Precondiciones:
+- Restaurar Forms\Datos\HDRTransporte.json, Forms\Datos\Guias.json,
+  Forms\Datos\Servicios.json y Forms\Datos\EmpresasTransporte.json
+  a su estado inicial.
+- Ejecutar esta prueba antes de generar nuevas HDR de transporte.
+
+(Empieza con el menú principal)
+1-  Abrir formulario                        "Resultado de Costos vs Ventas"
+2-  Verificar estado inicial:
+    - Campo Mes vacío
+    - Campo Año vacío
+    - Lista de resultados vacía
+    - Total Costos "$ 0,00"
+    - Total Ventas "$ 0,00"
+    - Resultado "$ 0,00"
+3-  Campo Mes                               "6"
+4-  Campo Año                               "2026"
+5-  Botón                                   "Buscar"
+6-  Lista de resultados muestra:
+
+    "Pullman | 3 | $ 42.000,00 | $ 51.000,00 | $ 9.000,00"
+    "Andesmar | 3 | $ 100.000,00 | $ 131.000,00 | $ 31.000,00"
+    "El Rosarino | 3 | $ 40.000,00 | $ 93.000,00 | $ 53.000,00"
+    "Chevallier | 2 | $ 20.000,00 | $ 60.000,00 | $ 40.000,00"
+    "Flechabus | 1 | $ 30.000,00 | $ 20.000,00 | -$ 10.000,00"
+
+7-  Totales muestran:
+    - Total Costos                         "$ 232.000,00"
+    - Total Ventas                         "$ 355.000,00"
+    - Resultado                            "$ 123.000,00"
+8-  Campo Mes                               "5"
+9-  Campo Año mantiene                      "2026"
+10- Botón                                   "Buscar"
+11- La lista anterior es reemplazada y muestra solamente:
+
+    "Flechabus | 3 | $ 30.000,00 | $ 51.000,00 | $ 21.000,00"
+
+12- Totales muestran:
+    - Total Costos                         "$ 30.000,00"
+    - Total Ventas                         "$ 51.000,00"
+    - Resultado                            "$ 21.000,00"
+13- Cerrar el sistema
+
+Verificaciones:
+14- La consulta de junio muestra una fila por cada empresa con envíos.
+15- Las empresas aparecen ordenadas de mayor a menor cantidad de envíos.
+16- Cada resultado corresponde a Ventas Total menos Costo Total.
+17- La consulta de mayo reemplaza completamente los resultados de junio.
+18- Los archivos de datos no fueron modificados.
