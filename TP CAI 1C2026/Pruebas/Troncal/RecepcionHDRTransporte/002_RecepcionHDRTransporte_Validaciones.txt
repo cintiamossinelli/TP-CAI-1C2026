@@ -1,0 +1,30 @@
+Plan de Prueba: RecepcionHDRTransporte-Validaciones.txt
+
+Precondiciones:
+- Restaurar Forms\Datos\Guias.json y Forms\Datos\HDRTransporte.json
+  a su estado inicial.
+- Configurar la fecha del equipo en 11/06/2026.
+
+(Empieza con el menú principal)
+1-  Abrir formulario                        "Recepción de Hoja de Ruta de Ómnibus"
+2-  No seleccionar ningún servicio
+3-  Botón                                   "Recibir HDR"
+4-  Mensaje                                 "Debe seleccionar un servicio de transporte."
+5-  Botón                                   "Aceptar"
+6-  Combobox Servicio                       "Andesmar - 10/06/2026 20:30"
+7-  Lista de guías muestra                  "AG-1-803 | L | Cordoba"
+                                             "AG-1-804 | S | Olavarria"
+                                             "CD-1-805 | XL | Agencia 9"
+8-  Botón                                   "Recibir HDR"
+9-  Mensaje                                 "¿Está seguro que desea confirmar la recepción de 3 guía/s para el servicio seleccionado?"
+10- Botón                                   "No"
+11- Verificar que el servicio y sus tres guías continúan visibles
+12- Botón                                   "Cancelar"
+13- Cerrar el sistema
+
+Verificaciones:
+14- El combobox Servicio queda sin selección
+15- La lista de guías queda vacía
+16- Archivo Guias.json - las guías AG-1-803, AG-1-804 y CD-1-805 conservan el estado 10
+17- Archivo Guias.json - no se agregaron entradas a sus historiales
+18- Archivo HDRTransporte.json - no se modificó ninguna HDR
