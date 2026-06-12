@@ -1,0 +1,223 @@
+﻿
+PLAN DE PRUEBAS DE CAJA NEGRA - RECEPCIÓN HDR TRANSPORTE - CASOS EXITOSOS
+Formulario: Recepción HDR Transporte
+Archivo: 001_RecepcionHDRTransporte_Exitoso.txt
+Tipo de prueba: Caja negra / Aceptación
+
+OBJETIVO
+Validar los escenarios en los que el usuario puede concretar correctamente la recepción de una Hoja de Ruta de Transporte, seleccionando un servicio disponible, visualizando sus guías asociadas y confirmando la recepción.
+
+ACLARACIÓN
+Estas pruebas se diseñan desde el punto de vista del usuario. No se evalúa código interno, sino las entradas, acciones y resultados visibles en pantalla.
+
+CONTROLES PRINCIPALES DEL FORMULARIO
+- ComboBox Servicio
+- ListView / Grilla de Guías
+- Botón Recibir HDR
+- Botón Cancelar
+- Mensajes de confirmación / validación
+
+DATOS DE REFERENCIA
+El combo de servicios debe mostrar únicamente servicios que tengan HDR asociada y guías pendientes de recepción.
+Las guías asociadas al servicio seleccionado deben mostrarse en la grilla con:
+- N° Guía
+- Tipo de Encomienda
+- Destino
+
+CASO DE PRUEBA 1
+
+Nombre:
+Recepción de HDR Transporte exitosa
+
+Objetivo:
+Verificar que el sistema permita recibir correctamente una HDR de transporte seleccionando un servicio válido con guías pendientes de recepción.
+
+Datos de Entrada:
+- Servicio: seleccionar un servicio disponible en el combo.
+- Confirmación: Sí.
+
+Precondiciones:
+- Existen servicios disponibles en el combo.
+- El servicio seleccionado tiene guías asociadas pendientes de recepción.
+- Las guías se encuentran en estado Pendiente de Recepción.
+
+Pasos:
+1. Abrir el formulario Recepción HDR Transporte.
+2. Desplegar el combo Servicio.
+3. Seleccionar un servicio disponible.
+4. Verificar que se carguen las guías asociadas en la grilla.
+5. Presionar el botón Recibir HDR.
+6. Confirmar la operación seleccionando Sí en el mensaje de confirmación.
+
+Resultado Esperado:
+- El sistema muestra las guías asociadas al servicio seleccionado.
+- El sistema solicita confirmación antes de recibir la HDR.
+- Al confirmar, el sistema registra la recepción.
+- Las guías recibidas cambian de estado según corresponda.
+- Se informa que la operación fue realizada correctamente.
+- El servicio recibido deja de estar disponible en el combo si ya no posee guías pendientes de recepción.
+- La grilla queda limpia o actualizada.
+
+Resultado Obtenido:
+- El sistema muestra las guías asociadas al servicio seleccionado.
+- El sistema solicita confirmación antes de recibir la HDR.
+- Al confirmar, el sistema registra la recepción.
+- Las guías recibidas cambian de estado según corresponda.
+- Se informa que la operación fue realizada correctamente.
+- El servicio recibido deja de estar disponible en el combo si ya no posee guías pendientes de recepción.
+- La grilla queda limpia o actualizada.
+______________________________
+
+
+CASO DE PRUEBA 2
+
+Nombre:
+Carga correcta de guías al seleccionar un servicio
+
+Objetivo:
+Verificar que al seleccionar un servicio válido se muestren correctamente las guías asociadas.
+
+Datos de Entrada:
+- Servicio: seleccionar un servicio disponible en el combo.
+
+Precondiciones:
+- Existen servicios disponibles.
+- El servicio seleccionado posee guías asociadas.
+
+Pasos:
+1. Abrir el formulario.
+2. Seleccionar un servicio del combo.
+3. Observar la grilla de guías.
+
+Resultado Esperado:
+- La grilla muestra las guías asociadas al servicio.
+- Cada fila muestra N° Guía, Tipo de Encomienda y Destino.
+- No se muestran guías que no correspondan al servicio seleccionado.
+- No se muestran guías duplicadas.
+
+Resultado Obtenido:
+- La grilla muestra las guías asociadas al servicio.
+- Cada fila muestra N° Guía, Tipo de Encomienda y Destino.
+- No se muestran guías que no correspondan al servicio seleccionado.
+- No se muestran guías duplicadas.
+______________________________
+
+
+
+CASO DE PRUEBA 3
+
+Nombre:
+Actualización del combo luego de recibir una HDR
+
+Objetivo:
+Verificar que, luego de una recepción exitosa, el combo de servicios se actualice.
+
+Datos de Entrada:
+- Servicio: seleccionar un servicio disponible.
+- Confirmación: Sí.
+
+Precondiciones:
+- El servicio seleccionado tiene guías pendientes de recepción.
+- Luego de recibir la HDR, esas guías dejan de estar pendientes de recepción.
+
+Pasos:
+1. Seleccionar un servicio disponible.
+2. Presionar Recibir HDR.
+3. Confirmar la operación.
+4. Desplegar nuevamente el combo Servicio.
+
+Resultado Esperado:
+- El servicio recibido ya no aparece en el combo si no posee más guías pendientes de recepción.
+- El combo muestra solamente servicios pendientes de recibir.
+- La grilla queda sin datos o actualizada.
+
+Resultado Obtenido:
+- El servicio recibido ya no aparece en el combo si no posee más guías pendientes de recepción.
+- El combo muestra solamente servicios pendientes de recibir.
+- La grilla queda sin datos o actualizada.
+
+______________________________
+
+
+CASO DE PRUEBA 4
+
+Nombre:
+Limpieza correcta mediante botón Cancelar luego de seleccionar servicio
+
+Objetivo:
+Verificar que el botón Cancelar limpie la selección y la grilla sin modificar estados.
+
+Datos de Entrada:
+- Servicio: seleccionar un servicio disponible.
+
+Precondiciones:
+- Existe al menos un servicio disponible.
+- El servicio seleccionado carga guías en la grilla.
+
+Pasos:
+1. Seleccionar un servicio disponible.
+2. Verificar que se carguen guías.
+3. Presionar el botón Cancelar.
+
+Resultado Esperado:
+- Se limpia la selección del servicio.
+- Se limpia la grilla de guías.
+- No se modifica el estado de las guías.
+- El formulario queda disponible para una nueva operación.
+
+Resultado Obtenido:
+- Se limpia la selección del servicio.
+- Se limpia la grilla de guías.
+- No se modifica el estado de las guías.
+- El formulario queda disponible para una nueva operación.
+
+______________________________
+
+CASO DE PRUEBA 5
+
+Nombre:
+Recepción exitosa y posterior nueva selección
+
+Objetivo:
+Verificar que luego de recibir una HDR el usuario pueda continuar trabajando con otro servicio.
+
+Datos de Entrada:
+- Primer servicio disponible.
+- Segundo servicio disponible.
+- Confirmación: Sí para el primer servicio.
+
+Precondiciones:
+- Existen al menos dos servicios disponibles para recepción.
+
+Pasos:
+1. Seleccionar el primer servicio.
+2. Presionar Recibir HDR.
+3. Confirmar la operación.
+4. Seleccionar otro servicio disponible en el combo.
+5. Verificar que se carguen sus guías.
+
+Resultado Esperado:
+- La primera recepción se completa correctamente.
+- El formulario queda operativo.
+- El segundo servicio se puede seleccionar.
+- Se cargan correctamente las guías del segundo servicio.
+
+Resultado Obtenido:
+- La primera recepción se completa correctamente.
+- El formulario queda operativo.
+- El segundo servicio se puede seleccionar.
+- Se cargan correctamente las guías del segundo servicio.
+______________________________
+
+
+CRITERIO DE ACEPTACIÓN DE LOS CASOS EXITOSOS
+
+Los casos exitosos se consideran aprobados si:
+- El combo muestra servicios válidos para recepción.
+- Al seleccionar un servicio, se muestran solo sus guías asociadas.
+- Las guías listadas poseen información visible de número, tipo y destino.
+- El sistema solicita confirmación antes de recibir.
+- Al confirmar, se actualizan los estados correspondientes.
+- Se informa la operación exitosa.
+- El combo y la grilla se actualizan luego de la recepción.
+- El formulario continúa operativo después de la operación.
