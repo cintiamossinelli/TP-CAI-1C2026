@@ -18,7 +18,7 @@
   {
     "NroHDR": 3,
     "IdServicio": 10,
-    "FechaEmision": "2026-06-03",
+    "FechaEmision": "2026-06-10",
     "IdCentroDeDistribucionOrigen": 1,
     "IdCentroDeDistribucionDestino": 3,
     "Guias": [ "AG-1-803", "AG-1-804", "CD-1-805" ]
@@ -34,7 +34,7 @@
   {
     "NroHDR": 5,
     "IdServicio": 9,
-    "FechaEmision": "2026-06-01",
+    "FechaEmision": "2026-06-10",
     "IdCentroDeDistribucionOrigen": 1,
     "IdCentroDeDistribucionDestino": 3,
     "Guias": [ "CD-1-809" ]

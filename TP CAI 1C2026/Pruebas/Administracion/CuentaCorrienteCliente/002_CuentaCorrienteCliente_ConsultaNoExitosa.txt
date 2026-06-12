@@ -1,5 +1,7 @@
 ﻿
-Tipo de prueba: Caja negra / Aceptación
+PRUEBA: Caja negra / Aceptación
+========================================================================================================
+
 Formulario: Cuenta Corriente Cliente
 
 002_CuentaCorrienteCliente_ConsultaNoExitosa.txt
@@ -28,6 +30,7 @@ Controles principales del formulario:
 ========================================================================================================
 CASO DE PRUEBA 1
 ========================================================================================================
+
 Nombre:
 Consulta de Cuenta Corriente sin informar cliente
 
@@ -353,7 +356,7 @@ Resultado Esperado:
 Resultado Obtenido:El sistema informa que no se encontró un cliente con el DNI 12345678.
 
 ========================================================================================================
-CASO DE PRUEBA 01
+CASO DE PRUEBA 11
 ========================================================================================================
 
 Nombre:
