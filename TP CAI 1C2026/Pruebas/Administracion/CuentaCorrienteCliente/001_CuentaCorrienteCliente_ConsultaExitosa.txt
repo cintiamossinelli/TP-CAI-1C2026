@@ -1,373 +1,162 @@
-﻿
-PRUEBA: Caja negra / Aceptación
-========================================================================================================
-
-Formulario: CuentaCorrienteCliente
-
-001_CuentaCorrienteCliente_ConsultaExitosa.txt
-
-Objetivo: Validar los escenarios en los que se concreta exitosamente la consulta de cuenta corriente del cliente.
-
-ACLARACIÓN
-Estas pruebas se diseñan desde el punto de vista del usuario. No se evalúa código interno, sino las entradas ingresadas en pantalla, las acciones realizadas y los resultados visibles esperados.
-
-DATOS DE REFERENCIA
-Clientes existentes:
-- 33-63761744-9 - Adidas S.A.
-- 30-64621216-9 - Nike S.A.
-- 24078369 - Marcelo Gallardo
-
-Controles principales del formulario:
-- Campo CUIT / DNI / CUIL
-- Botón Buscar Cliente
-- Selector Fecha Desde
-- Selector Fecha Hasta
-- Botón Buscar
-- Grilla/ListView de movimientos
-- Campo Saldo
-- Botón Cancelar
-
-========================================================================================================
-CASO DE PRUEBA 1
-========================================================================================================
-
-Nombre:
-Consulta de Cuenta Corriente del Cliente Exitosa
-
-Objetivo:
-Verificar que el sistema permita consultar correctamente la cuenta corriente de un cliente existente con movimientos dentro del rango de fechas seleccionado.
-
-Datos de Entrada:
-- CUIT / DNI / CUIL: 33-63761744-9
-- Fecha Desde: 01/01/2026
-- Fecha Hasta: 10/06/2026
-
-Precondiciones:
-- El cliente Adidas S.A. existe.
-- El cliente posee facturas, recibos y notas de crédito dentro del período consultado.
-
-Pasos:
-1. Ingresar 33-63761744-9 en el campo CUIT / DNI / CUIL.
-2. Presionar el botón Buscar Cliente.
-3. Verificar que se muestre la razón social Adidas S.A.
-4. Seleccionar 01/01/2026 como Fecha Desde.
-5. Seleccionar 10/06/2026 como Fecha Hasta.
-6. Presionar el botón Buscar.
-
-Resultado Esperado:
-- El sistema muestra la razón social Adidas S.A.
-- Se muestran los movimientos del cliente dentro del rango indicado.
-- Se visualizan facturas, recibos y notas de crédito correspondientes al cliente.
-- El saldo se calcula correctamente.
-- No se muestran mensajes de error.
-- La consulta se concreta exitosamente.
-
-Cálculo esperado:
-- Facturas: 120000 + 140000 = 260000
-- Nota de crédito: -30000
-- Recibo: -120000
-- Saldo esperado: 110000
-
-Resultado Obtenido: 
-- El sistema muestra la razón social Adidas S.A.
-- Se visualizan en el ListView las facturas, recibos y notas de crédito correspondientes al cliente.
-- Se muestra el Saldo: $ 110.000,00
-
-========================================================================================================
-CASO DE PRUEBA 2
-========================================================================================================
-
-Nombre:
-Consulta Exitosa de Cuenta Corriente para Cliente Nike S.A.
-
-Objetivo:
-Verificar que el sistema consulte correctamente la cuenta corriente de otro cliente existente.
-
-Datos de Entrada:
-- CUIT / DNI / CUIL: 30-64621216-9
-- Fecha Desde: 01/01/2026
-- Fecha Hasta: 10/06/2026
-
-Precondiciones:
-- El cliente Nike S.A. existe.
-- El cliente posee facturas, recibos y notas de crédito dentro del período consultado.
-
-Pasos:
-1. Ingresar 30-64621216-9 en el campo CUIT / DNI / CUIL.
-2. Presionar el botón Buscar Cliente.
-3. Verificar que se muestre la razón social Nike S.A.
-4. Seleccionar 01/01/2026 como Fecha Desde.
-5. Seleccionar 10/06/2026 como Fecha Hasta.
-6. Presionar el botón Buscar.
-
-Resultado Esperado:
-- El sistema muestra la razón social Nike S.A.
-- Se muestran los movimientos del cliente dentro del rango indicado.
-- Se visualizan las facturas, recibos y notas de crédito correspondientes.
-- El saldo se calcula correctamente.
-- La consulta se concreta exitosamente.
-
-Cálculo esperado:
-- Facturas: 200000 + 130000 = 330000
-- Saldo esperado: 330000
-
-Resultado Obtenido:
-- El sistema muestra la razón social Nike S.A.
-- Se visualizan las facturas correspondientes.
-- Se muestra el Saldo: $ 330.000,00
-
-
-========================================================================================================
-CASO DE PRUEBA 3
-========================================================================================================
-
-Nombre:
-Consulta Exitosa de Cuenta Corriente usando DNI
-
-Objetivo:
-Verificar que el sistema permita consultar la cuenta corriente de un cliente identificado por DNI.
-
-Datos de Entrada:
-- CUIT / DNI / CUIL: 24078369
-- Fecha Desde: 01/01/2026
-- Fecha Hasta: 10/06/2026
-
-Precondiciones:
-- El cliente Marcelo Gallardo existe.
-- El cliente posee movimientos dentro del período consultado.
-
-Pasos:
-1. Ingresar 24078369 en el campo CUIT / DNI / CUIL.
-2. Presionar el botón Buscar Cliente.
-3. Verificar que se muestre la razón social Marcelo Gallardo.
-4. Seleccionar 01/01/2026 como Fecha Desde.
-5. Seleccionar 10/06/2026 como Fecha Hasta.
-6. Presionar el botón Buscar.
-
-Resultado Esperado:
-- El sistema muestra el nombre y apellido Marcelo Gallardo.
-- Se muestran los movimientos del cliente dentro del rango seleccionado.
-- El saldo se calcula correctamente.
-- No se muestran mensajes de error.
-- La consulta se concreta exitosamente.
-
-Cálculo esperado:
-- Facturas: 70000 + 150000 = 220000
-- Nota de crédito: -15000
-- Recibo: -80000
-- Saldo esperado: 125000
-
-Resultado Obtenido:
-- El sistema el nombre y apellido Marcelo Gallardo.
-- Se visualizan las facturas, recibos y notas de crédito correspondientes.
-- Se muestra el Saldo: $ 125.000,00
-
-========================================================================================================
-CASO DE PRUEBA 4
-========================================================================================================
-
-Nombre:
-Consulta Exitosa con rango que incluye recibo y nota de crédito
-
-Objetivo:
-Verificar que el sistema muestre correctamente movimientos que descuentan saldo.
-
-Datos de Entrada:
-- CUIT / DNI / CUIL: 33-63761744-9
-- Fecha Desde: 01/01/2026
-- Fecha Hasta: 31/01/2026
-
-Precondiciones:
-- El cliente Adidas S.A. existe.
-- En enero de 2026 existen un recibo y una nota de crédito asociados al cliente.
-
-Pasos:
-1. Ingresar 33-63761744-9 en el campo CUIT / DNI / CUIL.
-2. Presionar el botón Buscar Cliente.
-3. Seleccionar 01/01/2026 como Fecha Desde.
-4. Seleccionar 31/01/2026 como Fecha Hasta.
-5. Presionar el botón Buscar.
-
-Resultado Esperado:
-- El sistema muestra la razón social Adidas S.A.
-- Se muestran los movimientos correspondientes al rango seleccionado.
-- Los recibos y notas de crédito impactan restando en el saldo.
-- El saldo se calcula correctamente.
-- La consulta se concreta exitosamente.
-
-Cálculo esperado:
-- Nota de crédito: -30000
-- Recibo: -120000
-- Saldo esperado: -150000
-
-Resultado Obtenido:
-- El sistema muestra la razón social Adidas S.A.
-- Se visualizan en el ListView los recibos y notas de crédito correspondientes al cliente.
-- Se muestra el Saldo: - $ 150.000,00
-
-========================================================================================================
-CASO DE PRUEBA 5
-========================================================================================================
-
-Nombre:
-Consulta Exitosa con Fecha Desde igual a Fecha Hasta
-
-Objetivo:
-Verificar que el sistema acepte una consulta de un solo día y muestre los movimientos de esa fecha.
-
-Datos de Entrada:
-- CUIT / DNI / CUIL: 33-63761744-9
-- Fecha Desde: 01/06/2026
-- Fecha Hasta: 01/06/2026
-
-Precondiciones:
-- El cliente Adidas S.A. existe.
-- Existe una factura del cliente con fecha 01/06/2026.
-
-Pasos:
-1. Ingresar 33-63761744-9 en el campo CUIT / DNI / CUIL.
-2. Presionar el botón Buscar Cliente.
-3. Seleccionar 01/06/2026 como Fecha Desde.
-4. Seleccionar 01/06/2026 como Fecha Hasta.
-5. Presionar el botón Buscar.
-
-Resultado Esperado:
-- El sistema acepta la consulta porque la Fecha Desde es igual a la Fecha Hasta.
-- Se muestran únicamente los movimientos del día seleccionado.
-- El saldo corresponde a los movimientos de ese día.
-- La consulta se concreta exitosamente.
-
-Cálculo esperado:
-- Factura: 120000
-- Saldo esperado: 120000
-
-Resultado Obtenido:
-- El sistema muestra la razón social Adidas S.A.
-- Se visualizan en el ListView las facturas correspondientes al cliente.
-- Se muestra el Saldo: $ 120.000,00
-
-========================================================================================================
-CASO DE PRUEBA 6
-========================================================================================================
-
-Nombre:
-Consulta Exitosa ejecutando directamente el botón Buscar
-
-Objetivo:
-Verificar que el sistema permita consultar la cuenta corriente aunque el usuario no presione previamente Buscar Cliente.
-
-Datos de Entrada:
-- CUIT / DNI / CUIL: 30-64621216-9
-- Fecha Desde: 01/01/2026
-- Fecha Hasta: 10/06/2026
-
-Precondiciones:
-- El cliente Nike S.A. existe.
-- El rango de fechas es válido.
-
-Pasos:
-1. Ingresar 30-64621216-9 en el campo CUIT / DNI / CUIL.
-2. Seleccionar 01/01/2026 como Fecha Desde.
-3. Seleccionar 10/06/2026 como Fecha Hasta.
-4. Presionar directamente el botón Buscar.
-
-Resultado Esperado:
-- El sistema identifica correctamente al cliente.
-- Se muestra la razón social Nike S.A.
-- Se cargan los movimientos correspondientes.
-- Se calcula el saldo.
-- La consulta se concreta exitosamente.
-
-Resultado Obtenido:
-- El sistema muestra la razón social Nike S.A.
-- Se visualizan en el ListView las facturas correspondientes al cliente.
-- Se muestra el Saldo: $ 330.000,00
-
-========================================================================================================
-CASO DE PRUEBA 7
-========================================================================================================
-
-Nombre:
-Consulta Exitosa sin duplicación de movimientos
-
-Objetivo:
-Verificar que al repetir una consulta exitosa no se dupliquen los movimientos en la grilla.
-
-Datos de Entrada:
-- CUIT / DNI / CUIL: 33-63761744-9
-- Fecha Desde: 01/01/2026
-- Fecha Hasta: 10/06/2026
-
-Precondiciones:
-- El cliente Adidas S.A. existe.
-- La primera consulta ya fue ejecutada correctamente.
-
-Pasos:
-1. Ingresar 33-63761744-9 en el campo CUIT / DNI / CUIL.
-2. Seleccionar el rango de fechas indicado.
-3. Presionar el botón Buscar.
-4. Volver a presionar el botón Buscar con los mismos datos.
-
-Resultado Esperado:
-- La grilla/ListView se limpia antes de recargar los movimientos.
-- Los movimientos no se duplican.
-- El saldo se mantiene correcto.
-- La consulta se concreta exitosamente en ambas ejecuciones.
-
-Resultado Obtenido:
-- El sistema muestra la razón social Adidas S.A.
-- Se visualizan en el ListView las facturas correspondientes al cliente.
-- Se muestra el Saldo: $ 260.000,00
-
-========================================================================================================
-CASO DE PRUEBA 8
-========================================================================================================
-
-Nombre:
-Consulta Exitosa y posterior cancelación
-
-Objetivo:
-Verificar que luego de una consulta exitosa el botón Cancelar limpie correctamente la pantalla.
-
-Datos de Entrada:
-- CUIT / DNI / CUIL: 24078369
-- Fecha Desde: 01/01/2026
-- Fecha Hasta: 10/06/2026
-
-Precondiciones:
-- El cliente Marcelo Gallardo existe.
-- La consulta se ejecuta correctamente.
-
-Pasos:
-1. Ingresar 24078369 en el campo CUIT / DNI / CUIL.
-2. Presionar el botón Buscar Cliente.
-3. Seleccionar el rango de fechas indicado.
-4. Presionar el botón Buscar.
-5. Verificar que se carguen los movimientos.
-6. Presionar el botón Cancelar.
-
-Resultado Esperado:
-- Primero se concreta exitosamente la consulta.
-- Luego, al presionar Cancelar:
-  - Se limpia el campo CUIT / DNI / CUIL.
-  - Se limpia la razón social.
-  - Se limpia la grilla/ListView.
-  - Se reinicia o limpia el saldo.
-  - Las fechas vuelven a sus valores iniciales.
-- El formulario queda disponible para una nueva consulta.
-
-Resultado Obtenido: El formulario queda disponible para una nueva consulta.
-
-========================================================================================================
-
-CRITERIO DE ACEPTACIÓN DE LOS CASOS EXITOSOS
-
-Los casos exitosos se consideran aprobados si:
-- El sistema identifica correctamente al cliente ingresado.
-- Se muestra la razón social correspondiente.
-- Se cargan únicamente los movimientos del cliente y del período seleccionado.
-- Las facturas suman al saldo.
-- Los recibos y notas de crédito restan al saldo.
-- El saldo final coincide con el cálculo esperado.
-- La consulta no duplica movimientos.
-- El formulario permanece operativo luego de cada consulta.
+Plan de Prueba: CuentaCorrienteCliente-CasosExitosos.txt
+
+Precondición general:
+- Restaurar Forms\Datos\Clientes.json, Forms\Datos\Facturas.json,
+  Forms\Datos\Recibos.json y Forms\Datos\NotasDeCredito.json a su estado inicial.
+- La fecha actual debe ser igual o posterior al 10/06/2026.
+
+================================================================================
+CASO EXITOSO 1: Consulta completa de Adidas S.A.
+================================================================================
+
+(Empieza con el menú principal)
+1-  Abrir formulario                        "Cuenta Corriente Cliente"
+2-  Campo CUIT / DNI / CUIL                 "33-63761744-9"
+3-  Botón                                   "Buscar Cliente"
+4-  Nombre del Cliente muestra              "Adidas S.A."
+5-  Fecha Desde                             "01/01/2026"
+6-  Fecha Hasta                             "10/06/2026"
+7-  Botón                                   "Buscar"
+
+Verificaciones:
+8-  La lista de movimientos muestra, ordenados por fecha:
+    "05/01/2026 | Recibo R-0001-00001001          | 120.000,00"
+    "08/01/2026 | Nota de Crédito A-0001-00000102 | 30.000,00"
+    "01/06/2026 | Factura A-0001-00001001         | 120.000,00"
+    "02/06/2026 | Factura A-0001-00001005         | 140.000,00"
+
+9-  Saldo muestra                           "110.000,00"
+
+    Cálculo:
+    120.000,00 + 140.000,00 - 120.000,00 - 30.000,00 = 110.000,00
+
+10- No se muestran mensajes de error.
+
+================================================================================
+CASO EXITOSO 2: Consulta completa de Nike S.A.
+================================================================================
+
+(Empieza con el menú principal)
+1-  Abrir formulario                        "Cuenta Corriente Cliente"
+2-  Campo CUIT / DNI / CUIL                 "30-64621216-9"
+3-  Botón                                   "Buscar Cliente"
+4-  Nombre del Cliente muestra              "Nike S.A."
+5-  Fecha Desde                             "01/01/2026"
+6-  Fecha Hasta                             "10/06/2026"
+7-  Botón                                   "Buscar"
+
+Verificaciones:
+8-  La lista de movimientos muestra, ordenados por fecha:
+    "05/01/2026 | Recibo R-0001-00001002          | 40.000,00"
+    "09/02/2026 | Nota de Crédito A-0001-00000203 | 20.000,00"
+    "03/06/2026 | Factura A-0001-00002001         | 200.000,00"
+    "04/06/2026 | Factura A-0001-00002002         | 130.000,00"
+
+9-  Saldo muestra                           "270.000,00"
+
+    Cálculo:
+    200.000,00 + 130.000,00 - 40.000,00 - 20.000,00 = 270.000,00
+
+10- No se muestran mensajes de error.
+
+================================================================================
+CASO EXITOSO 3: Consulta mediante DNI de Marcelo Gallardo
+================================================================================
+
+(Empieza con el menú principal)
+1-  Abrir formulario                        "Cuenta Corriente Cliente"
+2-  Campo CUIT / DNI / CUIL                 "24078369"
+3-  Botón                                   "Buscar Cliente"
+4-  Nombre del Cliente muestra              "Marcelo Gallardo"
+5-  Fecha Desde                             "01/01/2026"
+6-  Fecha Hasta                             "10/06/2026"
+7-  Botón                                   "Buscar"
+
+Verificaciones:
+8-  La lista de movimientos muestra, ordenados por fecha:
+    "05/02/2026 | Recibo R-0001-00001015          | 80.000,00"
+    "10/05/2026 | Nota de Crédito B-0001-00000309 | 15.000,00"
+    "05/06/2026 | Factura B-0001-00001101         | 70.000,00"
+    "06/06/2026 | Factura B-0001-00001115         | 150.000,00"
+
+9-  Saldo muestra                           "125.000,00"
+
+    Cálculo:
+    70.000,00 + 150.000,00 - 80.000,00 - 15.000,00 = 125.000,00
+
+10- No se muestran mensajes de error.
+
+================================================================================
+CASO EXITOSO 4: Consulta de movimientos de un único día
+================================================================================
+
+(Empieza con el menú principal)
+1-  Abrir formulario                        "Cuenta Corriente Cliente"
+2-  Campo CUIT / DNI / CUIL                 "33-63761744-9"
+3-  Botón                                   "Buscar Cliente"
+4-  Nombre del Cliente muestra              "Adidas S.A."
+5-  Fecha Desde                             "01/06/2026"
+6-  Fecha Hasta                             "01/06/2026"
+7-  Botón                                   "Buscar"
+
+Verificaciones:
+8-  La lista de movimientos muestra únicamente:
+    "01/06/2026 | Factura A-0001-00001001 | 120.000,00"
+
+9-  Saldo muestra                           "120.000,00"
+10- No se muestran mensajes de error.
+
+================================================================================
+CASO EXITOSO 5: Consulta directa sin presionar Buscar Cliente
+================================================================================
+
+(Empieza con el menú principal)
+1-  Abrir formulario                        "Cuenta Corriente Cliente"
+2-  Campo CUIT / DNI / CUIL                 "30-64621216-9"
+3-  Fecha Desde                             "01/01/2026"
+4-  Fecha Hasta                             "10/06/2026"
+5-  Botón                                   "Buscar"
+
+Verificaciones:
+6-  Nombre del Cliente muestra              "Nike S.A."
+7-  La lista muestra los cuatro movimientos de Nike S.A. indicados en el
+    Caso Exitoso 2.
+8-  Saldo muestra                           "270.000,00"
+9-  No se muestran mensajes de error.
+
+================================================================================
+CASO EXITOSO 6: Repetición de consulta sin duplicar movimientos
+================================================================================
+
+(Empieza luego de completar el Caso Exitoso 1)
+1-  Botón                                   "Buscar"
+
+Verificaciones:
+2-  La lista continúa mostrando exactamente los cuatro movimientos de
+    Adidas S.A., sin duplicados.
+3-  Saldo continúa mostrando                "110.000,00"
+4-  No se muestran mensajes de error.
+
+================================================================================
+CASO EXITOSO 7: Limpiar el formulario luego de una consulta exitosa
+================================================================================
+
+(Empieza luego de completar cualquiera de los casos anteriores)
+1-  Botón                                   "Cancelar"
+
+Verificaciones:
+2-  El formulario queda limpio:
+    - Campo CUIT / DNI / CUIL vacío.
+    - Nombre del Cliente vacío.
+    - Lista de movimientos vacía.
+    - Saldo vacío.
+    - Fecha Desde vuelve a 30 días antes de la fecha actual.
+    - Fecha Hasta vuelve a la fecha actual.
+
+3-  El formulario queda disponible para una nueva consulta.
+4-  Cerrar el sistema.
+
+Verificación general:
+- Los archivos Clientes.json, Facturas.json, Recibos.json y
+  NotasDeCredito.json no deben sufrir modificaciones, porque el formulario
+  solamente consulta información.
