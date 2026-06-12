@@ -1,0 +1,103 @@
+Plan de Prueba: ImposicionCallCenter-DestinoCD-Exitosa.txt
+
+Precondición:
+- Restaurar Forms\Datos\Guias.json a su estado inicial.
+- El mayor correlativo de guía existente debe ser 839.
+
+(Empieza con el menú principal)
+1-  Abrir formulario                        "Imposición de Encomienda - Call Center"
+2-  Campo CUIT / DNI / CUIL                 "24078369"
+3-  Botón                                   "Buscar"
+4-  Nombre del Cliente muestra              "Marcelo Gallardo"
+5-  Combobox Ciudad de retiro               "Rosario"
+6-  Campo Domicilio Remitente               "Corrientes 4444"
+7-  Radio button                            "CD"
+8-  Combobox CD destino                     "Buenos Aires"
+9-  Campo DNI Destinatario                  "30123456"
+10- Campo Nombre Destinatario               "Ana Ruiz"
+11- Combobox Tipo de Caja                   "S"
+12- Campo Cantidad                          "1"
+13- Botón                                   "Agregar"
+14- Lista Detalle de Encomienda muestra     "S | 1"
+15- Combobox Tipo de Caja                   "S"
+16- Campo Cantidad                          "1"
+17- Botón                                   "Agregar"
+18- Lista Detalle de Encomienda actualiza   "S | 2"
+19- Combobox Tipo de Caja                   "M"
+20- Campo Cantidad                          "1"
+21- Botón                                   "Agregar"
+22- Lista Detalle de Encomienda muestra     "S | 2"
+                                             "M | 1"
+23- Seleccionar item                        "M | 1"
+24- Botón                                   "Quitar Item"
+25- Lista Detalle de Encomienda muestra     "S | 2"
+26- Botón                                   "Confirmar"
+27- Mensaje                                 "Las siguientes guías fueron impuestas correctamente:
+                                             CC-1-840
+                                             CC-1-841"
+28- Botón                                   "Aceptar"
+29- Cerrar el sistema
+
+Verificaciones:
+30- El formulario queda limpio:
+    - Campo CUIT / DNI / CUIL vacío
+    - Nombre del Cliente vacío
+    - Ciudad y domicilio de retiro vacíos
+    - Radio button "CD" seleccionado
+    - Combobox CD destino sin selección
+    - Campos del destinatario vacíos
+    - Campos de detalle vacíos
+    - Lista Detalle de Encomienda vacía
+
+31- Archivo Guias.json - las dos últimas entradas agregadas deben ser similares a:
+
+    {
+      "NroGuia": "CC-1-840",
+      "CuitDniCuilCliente": "24078369",
+      "FechaImposicion": "<fecha actual>",
+      "TipoImposicion": 3,
+      "IdCentroDeDistribucionImposicion": 1,
+      "IdAgenciaImposicion": 0,
+      "DireccionRetiroDomicilio": "Corrientes 4444",
+      "TipoEntrega": 1,
+      "IdCentroDeDistribucionEntrega": 2,
+      "IdAgenciaEntrega": 0,
+      "DireccionEntrega": "",
+      "DniDestinatario": "30123456",
+      "NombreDestinatario": "Ana Ruiz",
+      "TipoCaja": 1,
+      "PrecioVenta": 0,
+      "Estado": 1,
+      "Historial": [
+        { "Fecha": "<fecha actual>", "Estado": 1 }
+      ],
+      "ComisionFletero": [],
+      "ComisionAgencia": [],
+      "IntentosDeEntrega": 0
+    }
+
+    {
+      "NroGuia": "CC-1-841",
+      "CuitDniCuilCliente": "24078369",
+      "FechaImposicion": "<fecha actual>",
+      "TipoImposicion": 3,
+      "IdCentroDeDistribucionImposicion": 1,
+      "IdAgenciaImposicion": 0,
+      "DireccionRetiroDomicilio": "Corrientes 4444",
+      "TipoEntrega": 1,
+      "IdCentroDeDistribucionEntrega": 2,
+      "IdAgenciaEntrega": 0,
+      "DireccionEntrega": "",
+      "DniDestinatario": "30123456",
+      "NombreDestinatario": "Ana Ruiz",
+      "TipoCaja": 1,
+      "PrecioVenta": 0,
+      "Estado": 1,
+      "Historial": [
+        { "Fecha": "<fecha actual>", "Estado": 1 }
+      ],
+      "ComisionFletero": [],
+      "ComisionAgencia": [],
+      "IntentosDeEntrega": 0
+    }
+

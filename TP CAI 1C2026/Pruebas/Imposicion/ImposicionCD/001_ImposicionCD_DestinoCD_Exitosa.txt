@@ -1,0 +1,108 @@
+Plan de Prueba: ImposicionCD-DestinoCD-Exitosa.txt
+
+Precondición:
+- Restaurar Forms\Datos\Guias.json a su estado inicial.
+- El mayor correlativo de guía existente debe ser 839.
+
+(Empieza con el menú principal)
+1-  Abrir formulario                        "Imposición de Encomienda - Centro de Distribución"
+2-  Campo CUIT / DNI / CUIL                 "24078369"
+3-  Botón                                   "Buscar"
+4-  Nombre del Cliente muestra              "Marcelo Gallardo"
+5-  Radio button                            "CD"
+6-  Combobox CD destino                     "Rosario"
+7-  Campo DNI Destinatario                  "30123456"
+8-  Campo Nombre Destinatario               "Ana Ruiz"
+9-  Combobox Tipo de Caja                   "S"
+10- Campo Cantidad                          "1"
+11- Botón                                   "Agregar"
+12- Lista Detalle de Encomienda muestra     "S | 1"
+13- Combobox Tipo de Caja                   "S"
+14- Campo Cantidad                          "1"
+15- Botón                                   "Agregar"
+16- Lista Detalle de Encomienda actualiza   "S | 2"
+17- Combobox Tipo de Caja                   "M"
+18- Campo Cantidad                          "1"
+19- Botón                                   "Agregar"
+20- Lista Detalle de Encomienda muestra     "S | 2"
+                                             "M | 1"
+21- Seleccionar item                        "M | 1"
+22- Botón                                   "Quitar Item"
+23- Lista Detalle de Encomienda muestra     "S | 2"
+24- Botón                                   "Confirmar"
+25- Mensaje                                 "Las siguientes guías fueron impuestas correctamente:
+                                             CD-1-840
+                                             CD-1-841"
+26- Botón                                   "Aceptar"
+27- Cerrar el sistema
+
+Verificaciones:
+28- El formulario queda limpio:
+    - Campo CUIT / DNI / CUIL vacío
+    - Nombre del Cliente vacío
+    - Radio button "CD" seleccionado
+    - Combobox CD destino sin selección
+    - Campos del destinatario vacíos
+    - Campos de detalle vacíos
+    - Lista Detalle de Encomienda vacía
+
+29- Archivo Guias.json - las dos últimas entradas agregadas deben ser similares a:
+
+    {
+      "NroGuia": "CD-1-840",
+      "CuitDniCuilCliente": "24078369",
+      "FechaImposicion": "<fecha actual>",
+      "TipoImposicion": 1,
+      "IdCentroDeDistribucionImposicion": 1,
+      "IdAgenciaImposicion": 0,
+      "DireccionRetiroDomicilio": "",
+      "TipoEntrega": 1,
+      "IdCentroDeDistribucionEntrega": 1,
+      "IdAgenciaEntrega": 0,
+      "DireccionEntrega": "",
+      "DniDestinatario": "30123456",
+      "NombreDestinatario": "Ana Ruiz",
+      "TipoCaja": 1,
+      "PrecioVenta": 14000.0,
+      "Estado": 15,
+      "Historial": [
+        { "Fecha": "<fecha actual>", "Estado": 3 },
+        { "Fecha": "<fecha actual>", "Estado": 6 },
+        { "Fecha": "<fecha actual>", "Estado": 8 },
+        { "Fecha": "<fecha actual>", "Estado": 11 },
+        { "Fecha": "<fecha actual>", "Estado": 15 }
+      ],
+      "ComisionFletero": [],
+      "ComisionAgencia": [],
+      "IntentosDeEntrega": 0
+    }
+
+    {
+      "NroGuia": "CD-1-841",
+      "CuitDniCuilCliente": "24078369",
+      "FechaImposicion": "<fecha actual>",
+      "TipoImposicion": 1,
+      "IdCentroDeDistribucionImposicion": 1,
+      "IdAgenciaImposicion": 0,
+      "DireccionRetiroDomicilio": "",
+      "TipoEntrega": 1,
+      "IdCentroDeDistribucionEntrega": 1,
+      "IdAgenciaEntrega": 0,
+      "DireccionEntrega": "",
+      "DniDestinatario": "30123456",
+      "NombreDestinatario": "Ana Ruiz",
+      "TipoCaja": 1,
+      "PrecioVenta": 14000.0,
+      "Estado": 15,
+      "Historial": [
+        { "Fecha": "<fecha actual>", "Estado": 3 },
+        { "Fecha": "<fecha actual>", "Estado": 6 },
+        { "Fecha": "<fecha actual>", "Estado": 8 },
+        { "Fecha": "<fecha actual>", "Estado": 11 },
+        { "Fecha": "<fecha actual>", "Estado": 15 }
+      ],
+      "ComisionFletero": [],
+      "ComisionAgencia": [],
+      "IntentosDeEntrega": 0
+    }
+

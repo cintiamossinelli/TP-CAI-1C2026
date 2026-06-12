@@ -322,13 +322,23 @@ Objetivo:
 Verificar que Cancelar elimine las selecciones sin guardar una HDR.
 
 Precondiciones:
-- El formulario contiene filtros, un transporte seleccionado o guias agregadas.
+- El formulario se encuentra abierto en su estado inicial.
 
 Datos de Entrada:
-- Cualquier seleccion realizada durante las pruebas anteriores.
+- Fecha: 15/06/2026.
+- Centro de Distribucion Destino: Buenos Aires.
+- Empresa de Transporte: Chevallier.
 
 Pasos:
-1. Presionar "Cancelar".
+1. Seleccionar "Buenos Aires" en Centro de Distribucion Destino.
+2. Ingresar la fecha 15/06/2026.
+3. Seleccionar "Chevallier" en Empresa de Transporte.
+4. Presionar "Buscar".
+5. Verificar que se muestre el transporte Chevallier del 15/06/2026 con
+   destino Buenos Aires.
+6. Seleccionar la fila del transporte para habilitar y cargar la seccion de
+   guias.
+7. Presionar "Cancelar".
 
 Resultado Esperado:
 - Los combos quedan sin seleccion.
