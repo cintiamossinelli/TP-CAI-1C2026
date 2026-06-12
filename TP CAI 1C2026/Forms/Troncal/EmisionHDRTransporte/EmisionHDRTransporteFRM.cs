@@ -1,9 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Text;
 using System.Linq;
 using System.Windows.Forms;
 
@@ -74,18 +70,6 @@ namespace TP_CAI_1C2026.Forms.Troncal.EmisionHDRTransporte
             var empresa = transporteCMB.SelectedItem as EmpresaTransporte;
             var fecha = fechaDTP.Value.Date;
 
-            //Validacion fecha correcta
-            DateTime fechaControl = fechaDTP.Value.Date;
-            DateTime hoy = DateTime.Today;
-
-            if (fechaControl < hoy)
-            {
-
-                MessageBox.Show("La fecha  debe ser igual a hoy o posterior.");
-                fechaDTP.Focus();
-                return;
-            }
-
             var transportes = _modelo.BuscarTransportes(fecha, empresa, destino);
 
             transportesLST.Items.Clear();
@@ -110,7 +94,7 @@ namespace TP_CAI_1C2026.Forms.Troncal.EmisionHDRTransporte
 
         private void transportesLST_SelectedIndexChanged(object? sender, EventArgs e)
         {
-            // Cuando el usuario selecciona un transporte, habilitar la sección de guías y cargar guías del CD destino
+            // Cuando el usuario selecciona un transporte, habilitar la sección de guías.
             if (transportesLST.SelectedItems.Count > 0)
             {
                 guiasGBX.Enabled = true;
@@ -124,7 +108,6 @@ namespace TP_CAI_1C2026.Forms.Troncal.EmisionHDRTransporte
 
         private void buscarGuiaBTN_Click(object? sender, EventArgs e)
         {
-            var destino = CDdestinoCMB.SelectedItem as CentroDeDistribucion;
             var numero = nGuiaTXT.Text ?? string.Empty;
 
             // Si no se ingresó texto, recargar todas las guías del CD
@@ -134,7 +117,7 @@ namespace TP_CAI_1C2026.Forms.Troncal.EmisionHDRTransporte
                 return;
             }
 
-            var matches = _modelo.BuscarGuiasPorNumero(numero, destino);
+            var matches = _modelo.BuscarGuiasPorNumero(numero);
             // Mostrar solo los resultados coincidentes en GuiasLST
             GuiasLST.Items.Clear();
             foreach (var g in matches)
@@ -150,7 +133,11 @@ namespace TP_CAI_1C2026.Forms.Troncal.EmisionHDRTransporte
         private void agregarBTN_Click(object? sender, EventArgs e)
         {
             // Mover guías seleccionadas de GuiasLST a guiasAgregadasLST usando el modelo
-            var seleccionadas = GuiasLST.CheckedItems.Cast<ListViewItem>().Select(i => i.Tag as GuiaEncomienda).Where(g => g != null).ToList();
+            var seleccionadas = GuiasLST.CheckedItems
+                .Cast<ListViewItem>()
+                .Select(i => i.Tag)
+                .OfType<GuiaEncomienda>()
+                .ToList();
 
             var agregadas = _modelo.AgregarGuias(seleccionadas);
             if (!agregadas.Any())
@@ -183,11 +170,17 @@ namespace TP_CAI_1C2026.Forms.Troncal.EmisionHDRTransporte
             var seleccionadas = new List<GuiaEncomienda>();
             if (guiasAgregadasLST.CheckedItems.Count > 0)
             {
-                seleccionadas.AddRange(guiasAgregadasLST.CheckedItems.Cast<ListViewItem>().Select(i => i.Tag as GuiaEncomienda).Where(g => g != null)!);
+                seleccionadas.AddRange(guiasAgregadasLST.CheckedItems
+                    .Cast<ListViewItem>()
+                    .Select(i => i.Tag)
+                    .OfType<GuiaEncomienda>());
             }
             else
             {
-                seleccionadas.AddRange(guiasAgregadasLST.SelectedItems.Cast<ListViewItem>().Select(i => i.Tag as GuiaEncomienda).Where(g => g != null)!);
+                seleccionadas.AddRange(guiasAgregadasLST.SelectedItems
+                    .Cast<ListViewItem>()
+                    .Select(i => i.Tag)
+                    .OfType<GuiaEncomienda>());
             }
 
             var quitadas = _modelo.QuitarGuias(seleccionadas);
@@ -215,14 +208,6 @@ namespace TP_CAI_1C2026.Forms.Troncal.EmisionHDRTransporte
         {
             var destino = CDdestinoCMB.SelectedItem as CentroDeDistribucion;
             var transporte = transportesLST.SelectedItems.Cast<ListViewItem>().FirstOrDefault()?.Tag as Transporte;
-            // Validar que el CD seleccionado coincida con los transportes y guías que están en los ListView
-            var transportesEnLista = transportesLST.Items.Cast<ListViewItem>().Select(i => i.Tag as Transporte).Where(t => t != null).ToList();
-            var guiasEnLista = guiasAgregadasLST.Items.Cast<ListViewItem>().Select(i => i.Tag as GuiaEncomienda).Where(g => g != null).ToList();
-
-            if (!_modelo.ValidarCentrosEnListas(destino, transportesEnLista, guiasEnLista))
-            {
-                return;
-            }
 
             var hdr = _modelo.GenerarHDR(destino, transporte);
             if (hdr != null)
@@ -261,9 +246,5 @@ namespace TP_CAI_1C2026.Forms.Troncal.EmisionHDRTransporte
             guiasGBX.Enabled = false;
         }
 
-        private void fechaDTP_ValueChanged(object sender, EventArgs e)
-        {
-
-        }
     }
 }

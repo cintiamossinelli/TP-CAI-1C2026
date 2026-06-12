@@ -1,50 +1,68 @@
-﻿Plan de Prueba: EmisionResumenHDR-EmisionExitosa.txt
+Plan de Prueba: EmisionResumenHDR-EmisionExitosa.txt
 
-(Empieza con el menú principal)
+Objetivo:
+Validar la emision exitosa del resumen de HDR para un fletero con hojas de ruta emitidas, verificando la carga de entregas y retiros y los estados finales segun el tipo de entrega.
 
-1- Botón                         "Emisión de Resumen HDR"
-2- DNI Fletero                   "10101010"
-3- Botón                         "Buscar"
-4- Nombre Fletero                (Se muestra el nombre del fletero)
-5- HDR a Entregar                (Se muestran las HDR asociadas)
-6- HDR a Retirar                 (Se muestran las HDR asociadas)
-7- Botón                         "Generar"
-8- Mensaje                       "¿Está seguro de que desea generar y emitir el resumen de HDR para este fletero?"
-9- Botón                         "Sí"
-10- Mensaje                      "¡Resumen de Emisión HDR generado con éxito! Se registró la orden de despacho."
-11- Botón                        "Aceptar"
-12- Volver al menú principal
+Datos de prueba:
+- Fletero:
+  DNI: 10101010
+  Nombre: Diego Maradona
+- HDR de entrega en estado Emitida(1):
+  16 | Agencia 5 (Microcentro) | 1 | Guia CD-2-174 | Entrega en agencia
+  17 | Agencia 6 (Palermo) | 1 | Guia AG-9-176 | Entrega en agencia
+  18 | Lavalle 215 | 1 | Guia CC-2-836 | Entrega a domicilio
+  19 | Sarmiento 525 | 1 | Guia CC-2-837 | Entrega a domicilio
+- HDR de retiro en estado Emitida(1):
+  1  | Agencia 8 (Recoleta) | 1 | Guia AG-8-300
+  17 | Av Corrientes 500 | 1 | Guia CC-2-831
+  18 | Av Corrientes 850 | 1 | Guia CC-2-832
+  19 | Av. Libertador 300 | 1 | Guia CC-2-833
+  20 | Lavalle 350 | 2 | Guias CC-2-834 y CC-2-835
 
-Verificaciones:
+(Empieza con el menu principal)
+1-  Abrir formulario                         "Emisión de Resumen de HDR"
+2-  Campo DNI Fletero                        "10101010"
+3-  Boton                                    "Buscar"
+4-  Nombre del Fletero muestra               "Diego Maradona"
+5-  ListView HDR a Entregar muestra          "16 | Agencia 5 (Microcentro) | 1"
+                                             "17 | Agencia 6 (Palermo) | 1"
+                                             "18 | Lavalle 215 | 1"
+                                             "19 | Sarmiento 525 | 1"
+6-  ListView HDR a Retirar muestra           "1 | Agencia 8 (Recoleta) | 1"
+                                             "17 | Av Corrientes 500 | 1"
+                                             "18 | Av Corrientes 850 | 1"
+                                             "19 | Av. Libertador 300 | 1"
+                                             "20 | Lavalle 350 | 2"
+7-  Boton                                    "Generar"
+8-  Mensaje                                  "¿Está seguro de que desea generar y emitir el resumen de HDR para este fletero?"
+9-  Boton del mensaje                        "Sí"
+10- Mensaje                                  "¡Resumen de Emisión HDR generado con éxito! Se registró la orden de despacho."
+11- Boton del mensaje                        "Aceptar"
+12- El formulario queda limpio               DNI vacio, nombre "Nombre del Fletero" y ambos ListView vacios
+13- Cerrar el sistema
 
-13- Archivo HDREntrega.json
-
-La HDR N° 17 debe quedar similar a:
-
-{
-    "NroHDR": 17,
-    "DniFletero": 10101010,
-    "Guias": [ "AG-9-176" ],
+Verificaciones en HDREntrega.json:
+14- HDR Entrega NroHDR 16, entrega en agencia:
     "Estado": 2
-}
-
-14- Archivo HDREntrega.json
-
-La HDR N° 19 debe quedar similar a:
-
-{
-    "NroHDR": 19,
-    "DniFletero": 10101010,
-    "Guias": [ "CC-2-837" ],
+15- HDR Entrega NroHDR 17, entrega en agencia:
+    "Estado": 2
+16- HDR Entrega NroHDR 18, entrega a domicilio:
     "Estado": 4
-}
-
-15- Archivo HDRRetiro.json
-
-Las HDR N° 17, 18, 19 y 20 deben quedar con:
-
-{
+17- HDR Entrega NroHDR 19, entrega a domicilio:
     "Estado": 4
-}
 
-(Termino cerrando el programa)
+Verificaciones en HDRRetiro.json:
+18- HDR Retiro NroHDR 1 debe quedar:
+    "Estado": 4
+19- HDR Retiro NroHDR 17 debe quedar:
+    "Estado": 4
+20- HDR Retiro NroHDR 18 debe quedar:
+    "Estado": 4
+21- HDR Retiro NroHDR 19 debe quedar:
+    "Estado": 4
+22- HDR Retiro NroHDR 20 debe quedar:
+    "Estado": 4
+
+Verificaciones generales:
+23- Solo se modifican las HDR del fletero 10101010 que estaban en estado Emitida(1).
+24- Las guias asociadas no cambian de estado ni agregan entradas a su historial.

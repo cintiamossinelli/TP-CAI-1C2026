@@ -223,7 +223,6 @@
             fechaDTP.Name = "fechaDTP";
             fechaDTP.Size = new Size(120, 23);
             fechaDTP.TabIndex = 12;
-            fechaDTP.ValueChanged += fechaDTP_ValueChanged;
             // 
             // generarHDRBTN
             // 

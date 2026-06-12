@@ -1,0 +1,92 @@
+Plan de Prueba: EmisionResumenHDR-Validaciones.txt
+
+Objetivo:
+Validar en un unico caso los mensajes y controles del formulario Emision de Resumen de HDR sin modificar los almacenes.
+
+(Empieza con el menu principal)
+1-  Abrir formulario                         "Emisión de Resumen de HDR"
+
+Validacion DNI vacio:
+2-  Campo DNI Fletero                        ""
+3-  Boton                                    "Buscar"
+4-  Mensaje                                  "El DNI del fletero no puede estar vacío."
+5-  Boton del mensaje                        "Aceptar"
+6-  Pantalla queda sin HDR                   Nombre vacio y ambos ListView vacios
+
+Validacion DNI no numerico:
+7-  Campo DNI Fletero                        "ABCDEFGH"
+8-  Boton                                    "Buscar"
+9-  Mensaje                                  "El DNI del fletero debe ser un número válido."
+10- Boton del mensaje                        "Aceptar"
+11- Pantalla queda sin HDR                   Nombre vacio y ambos ListView vacios
+
+Validacion DNI con longitud incorrecta:
+12- Campo DNI Fletero                        "1234"
+13- Boton                                    "Buscar"
+14- Mensaje                                  "El DNI del fletero debe ser un número válido."
+15- Boton del mensaje                        "Aceptar"
+16- Pantalla queda sin HDR                   Nombre vacio y ambos ListView vacios
+
+Validacion fletero inexistente:
+17- Campo DNI Fletero                        "99999999"
+18- Boton                                    "Buscar"
+19- Mensaje                                  "No se encontró un fletero con DNI 99999999."
+20- Boton del mensaje                        "Aceptar"
+21- Pantalla queda sin HDR                   Nombre vacio y ambos ListView vacios
+
+Validacion fletero sin HDR emitidas:
+22- Campo DNI Fletero                        "12354678"
+23- Boton                                    "Buscar"
+24- Nombre del Fletero se carga inicialmente "Claudio Úbeda"
+25- Mensaje                                  "El DNI 12354678 no tiene hojas de ruta asociadas."
+26- Boton del mensaje                        "Aceptar"
+27- Luego del mensaje queda                  Nombre vacio y ambos ListView vacios
+
+Validacion generar sin HDR cargadas:
+28- Boton                                    "Cancelar"
+29- Verificar pantalla                       DNI vacio, nombre "Nombre del Fletero" y ambos ListView vacios
+30- Boton                                    "Generar"
+31- Mensaje                                  "No hay Hojas de Ruta cargadas para procesar la emisión de este fletero."
+32- Boton del mensaje                        "Aceptar"
+33- La pantalla permanece limpia
+
+Validacion DNI borrado luego de buscar:
+34- Campo DNI Fletero                        "10101010"
+35- Boton                                    "Buscar"
+36- Nombre del Fletero muestra               "Diego Maradona"
+37- Ambos ListView muestran las HDR emitidas del fletero
+38- Borrar Campo DNI Fletero                 ""
+39- Boton                                    "Generar"
+40- Mensaje                                  "El DNI ingresado no es válido."
+41- Boton del mensaje                        "Aceptar"
+42- Las HDR continúan cargadas y no se procesan
+
+Validacion DNI cambiado luego de buscar:
+43- Campo DNI Fletero                        "10101010"
+44- Boton                                    "Buscar"
+45- Nombre del Fletero muestra               "Diego Maradona"
+46- Ambos ListView muestran las HDR emitidas del fletero
+47- Cambiar Campo DNI Fletero a              "32080691"
+48- Boton                                    "Generar"
+49- Mensaje                                  "El DNI ingresado no coincide con la HDR N° 16 en la lista de Entregas."
+50- Boton del mensaje                        "Aceptar"
+51- Las HDR continúan cargadas y no se procesan
+
+Validacion cancelar confirmacion:
+52- Campo DNI Fletero                        "10101010"
+53- Boton                                    "Buscar"
+54- Boton                                    "Generar"
+55- Mensaje                                  "¿Está seguro de que desea generar y emitir el resumen de HDR para este fletero?"
+56- Boton del mensaje                        "No"
+57- No se muestra el mensaje de operacion exitosa
+58- El formulario conserva DNI, nombre y HDR cargadas
+
+Validacion boton Cancelar:
+59- Boton                                    "Cancelar"
+60- El formulario queda limpio               DNI vacio, nombre "Nombre del Fletero" y ambos ListView vacios
+61- Cerrar el sistema
+
+Verificaciones generales:
+62- En las validaciones 2 a 61 no cambia HDREntrega.json.
+63- En las validaciones 2 a 61 no cambia HDRRetiro.json.
+64- En las validaciones 2 a 61 no cambia Guias.json.

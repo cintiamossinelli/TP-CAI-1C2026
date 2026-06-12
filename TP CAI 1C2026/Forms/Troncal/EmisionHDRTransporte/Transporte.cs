@@ -2,6 +2,8 @@
 
 internal class Transporte
 {
+    public int IdServicio { get; set; }
+
     public DateTime Fecha { get; set; }
 
     public TimeSpan Hora { get; set; }

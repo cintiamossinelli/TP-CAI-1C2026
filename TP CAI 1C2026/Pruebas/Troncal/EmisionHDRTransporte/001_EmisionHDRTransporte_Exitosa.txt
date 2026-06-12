@@ -62,7 +62,7 @@ Verificaciones:
       "FechaEmision": "<fecha actual>",
       "IdCentroDeDistribucionOrigen": 1,
       "IdCentroDeDistribucionDestino": 2,
-      "Guias": [ "CD-1-820", "CD-1-824", "CD-1-816" ]
+      "Guias": [ "CD-1-820", "CD-1-824", "CD-1-816"]
     }
 
 30- Archivo Guias.json - la guía CD-1-816 debe aparecer con:
@@ -97,3 +97,8 @@ Verificaciones:
         { "Fecha": "<fecha actual>", "Estado": 9 }
       ]
     }
+
+33- La HDR se genera correctamente aunque las guías agregadas tengan destinos concretos diferentes.
+    No se valida que todas las guías tengan el mismo destino.
+34- La HDR también puede generarse con guías de distintos Centros de Distribución de origen.
+    IdCentroDeDistribucionOrigen toma el primer origen que el modelo puede determinar.

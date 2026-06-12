@@ -1,38 +1,48 @@
-﻿Plan de Prueba: DespachoHDRTransporte-DespachoExitoso.txt
+Plan de Prueba: DespachoHDRTransporte-DespachoExitoso.txt
 
-(Empieza con el menú principal)
+Objetivo:
+Validar el despacho exitoso de las guias asociadas a una HDR de transporte cuyo servicio se encuentra dentro de los proximos 10 dias y cuyas guias estan pendientes de transporte.
 
-1- Botón                         "Despacho HDR Transporte"
+Datos de prueba:
+- HDR Transporte:
+  NroHDR: 6
+  IdServicio: 15
+  Guia: CC-2-838
+- Servicio:
+  Empresa: Flechabus
+  Primera parada: 12/06/2026 22:10
+- Guia CC-2-838:
+  TipoCaja: 2
+  Destino: Sarmiento 525
+  Estado inicial: PendienteDeTransporte(9)
 
-2- Servicio de Ómnibus           "Flechabus - 12/06/2026 22:10"
+(Empieza con el menu principal)
+1-  Abrir formulario                         "Despacho de Hoja de Ruta de Ómnibus"
+2-  Combo Servicio de Ómnibus muestra        "Flechabus - 12/06/2026 22:10"
+                                             "Chevallier - 14/06/2026 20:05"
+3-  Seleccionar servicio                     "Flechabus - 12/06/2026 22:10"
+4-  ListView muestra                         "CC-2-838 | 2 | Sarmiento 525"
+5-  Boton                                    "Despachar HDR"
+6-  Mensaje                                  "¿Está seguro que desea despachar 1 guía/s para el servicio seleccionado?"
+7-  Boton del mensaje                        "Sí"
+8-  Mensaje                                  "Se han despachado las guía/s con éxito."
+9-  Boton del mensaje                        "Aceptar"
+10- Combo Servicio de Ómnibus queda          Sin seleccion
+11- ListView queda                           Vacio
+12- Cerrar el sistema
 
-3- Verificar que se visualice la guía:
-                                "CC-2-838"
+Verificaciones en Guias.json:
+13- Guia CC-2-838 debe quedar:
+    "Estado": 10
+    El Historial agrega una entrada al final:
+      {
+        "Fecha": "<fecha y hora actual>",
+        "Estado": 10
+      }
 
-4- Botón                         "Despachar HDR"
-
-5- Mensaje                       "¿Está seguro que desea despachar 1 guía/s para el servicio seleccionado?"
-
-6- Botón                         "Sí"
-
-7- Mensaje                       "Se han despachado las guía/s con éxito."
-
-8- Botón                         "Aceptar"
-
-Verificaciones:
-
-9- Archivo Guias.json
-
-La guía CC-2-838 debe quedar con:
-
-{
-  "NroGuia": "CC-2-838",
-  ...
-  "Estado": 10
-}
-
-10- Al finalizar la operación el combo de servicios debe quedar sin selección.
-
-11- La grilla de guías debe quedar vacía.
-
-(Termino cerrando el programa)
+Verificaciones generales:
+14- La guia queda en estado PendienteDeRecepcion(10).
+15- No se modifican las demas propiedades de CC-2-838.
+16- No se modifican otras guias.
+17- No se modifica HDRTransporte.json ni Servicios.json.
+18- Al recargar los servicios, la HDR 6 deja de aparecer porque su guia ya no esta en estado PendienteDeTransporte(9).

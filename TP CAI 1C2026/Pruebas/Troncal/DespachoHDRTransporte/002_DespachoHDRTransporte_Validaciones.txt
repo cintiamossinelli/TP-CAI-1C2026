@@ -1,0 +1,38 @@
+Plan de Prueba: DespachoHDRTransporte-Validaciones.txt
+
+Objetivo:
+Validar en un unico caso los controles del formulario Despacho de Hoja de Ruta de Ómnibus sin modificar los almacenes.
+
+(Empieza con el menu principal)
+1-  Abrir formulario                         "Despacho de Hoja de Ruta de Ómnibus"
+
+Validacion despachar sin seleccionar servicio:
+2-  Combo Servicio de Ómnibus                Sin seleccion
+3-  ListView                                 Vacio
+4-  Boton                                    "Despachar HDR"
+5-  Mensaje                                  "Debe seleccionar un servicio de transporte."
+6-  Boton del mensaje                        "Aceptar"
+7-  Combo Servicio de Ómnibus permanece      Sin seleccion
+8-  ListView permanece                       Vacio
+
+Validacion cancelar la confirmacion:
+9-  Seleccionar servicio                     "Flechabus - 12/06/2026 22:10"
+10- ListView muestra                         "CC-2-838 | 2 | Sarmiento 525"
+11- Boton                                    "Despachar HDR"
+12- Mensaje                                  "¿Está seguro que desea despachar 1 guía/s para el servicio seleccionado?"
+13- Boton del mensaje                        "No"
+14- No se muestra el mensaje de exito
+15- Combo conserva la seleccion              "Flechabus - 12/06/2026 22:10"
+16- ListView conserva                        "CC-2-838 | 2 | Sarmiento 525"
+
+Validacion boton Cancelar:
+17- Boton                                    "Cancelar"
+18- Combo Servicio de Ómnibus queda          Sin seleccion
+19- ListView queda                           Vacio
+20- Cerrar el sistema
+
+Verificaciones generales:
+21- En las validaciones 2 a 20 no cambia el Estado de ninguna guia.
+22- En las validaciones 2 a 20 no se agregan entradas al Historial de las guias.
+23- En las validaciones 2 a 20 no cambia Guias.json.
+24- En las validaciones 2 a 20 no cambia HDRTransporte.json ni Servicios.json.

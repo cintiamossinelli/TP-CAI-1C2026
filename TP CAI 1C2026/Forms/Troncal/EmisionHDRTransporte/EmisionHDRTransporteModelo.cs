@@ -15,47 +15,6 @@ public class EmisionHDRTransporteModelo
         guiasDisponibles = ObtenerGuiasDesdeAlmacen();
     }
 
-    // Valida que el Centro de Distribución seleccionado coincida con los destinos
-    // de las colecciones mostradas en los ListView del formulario.
-    internal bool ValidarCentrosEnListas(CentroDeDistribucion? seleccionado, IEnumerable<Transporte>? transportes, IEnumerable<GuiaEncomienda>? guias)
-    {
-        if (seleccionado == null)
-        {
-            MessageBox.Show("Debe seleccionar un Centro de Distribución destino.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            return false;
-        }
-
-        if (transportes != null)
-        {
-            foreach (var t in transportes)
-            {
-                if (t == null) continue;
-                if (t.Destino == null) continue;
-                if (t.Destino.Id != seleccionado.Id)
-                {
-                    MessageBox.Show("El Centro de Distribución seleccionado no coincide con los transportes listados.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    return false;
-                }
-            }
-        }
-
-        if (guias != null)
-        {
-            foreach (var g in guias)
-            {
-                if (g == null) continue;
-                if (g.Destino == null) continue;
-                if (g.Destino.Id != seleccionado.Id)
-                {
-                    MessageBox.Show("El Centro de Distribución seleccionado no coincide con las guías listadas.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    return false;
-                }
-            }
-        }
-
-        return true;
-    }
-
     internal List<CentroDeDistribucion> ObtenerCentrosDeDistribucion()
     {
         return CentroDeDistribucionAlmacen.CentrosDeDistribucion
@@ -72,11 +31,21 @@ public class EmisionHDRTransporteModelo
             .ToList();
     }
 
-        internal List<Transporte> BuscarTransportes(
+    internal List<Transporte> BuscarTransportes(
         DateTime fecha,
         EmpresaTransporte? empresaSeleccionada,
         CentroDeDistribucion? destinoSeleccionado)
     {
+        if (fecha.Date < DateTime.Today)
+        {
+            MessageBox.Show(
+                "La fecha debe ser igual a hoy o posterior.",
+                "Error",
+                MessageBoxButtons.OK,
+                MessageBoxIcon.Error);
+            return new List<Transporte>();
+        }
+
         if (destinoSeleccionado == null)
         {
             MessageBox.Show("Debe seleccionar un Centro de Distribución destino.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -104,29 +73,8 @@ public class EmisionHDRTransporteModelo
         return lista;
     }
 
-        internal GuiaEncomienda? BuscarGuia(string numeroGuia, CentroDeDistribucion? destinoSeleccionado)
-    {
-        if (string.IsNullOrWhiteSpace(numeroGuia))
-        {
-            MessageBox.Show("Debe ingresar un N° de guía.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            return null;
-        }
-
-        var numeroNormalizado = numeroGuia.Trim().ToUpper();
-
-        var guiaEncontrada = guiasDisponibles.FirstOrDefault(g => g.NumeroGuia.ToUpper() == numeroNormalizado);
-
-        if (guiaEncontrada == null)
-        {
-            MessageBox.Show("La guía no existe.", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            return null;
-        }
-
-        return guiaEncontrada;
-    }
-
-    // Busca guías disponibles por número (coincidencia parcial, case-insensitive) filtradas por destino
-    internal List<GuiaEncomienda> BuscarGuiasPorNumero(string numeroParcial, CentroDeDistribucion? destinoSeleccionado)
+    // Busca guías disponibles por número, sin restringir su destino.
+    internal List<GuiaEncomienda> BuscarGuiasPorNumero(string numeroParcial)
     {
         if (string.IsNullOrWhiteSpace(numeroParcial))
         {
@@ -145,26 +93,6 @@ public class EmisionHDRTransporteModelo
         }
 
         return matches;
-    }
-
-    internal bool AgregarGuia(GuiaEncomienda? guia)
-    {
-        if (guia == null)
-        {
-            MessageBox.Show("Debe seleccionar una guía para agregar.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            return false;
-        }
-
-        if (guiasAgregadas.Any(g => g.NumeroGuia == guia.NumeroGuia))
-        {
-            MessageBox.Show("La guía ya fue agregada.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            return false;
-        }
-
-        guiasAgregadas.Add(guia);
-        guiasDisponibles.Remove(guia);
-
-        return true;
     }
 
     // Añade varias guías a la vez. Si la colección está vacía o nula muestra mensaje y retorna lista vacía.
@@ -193,20 +121,6 @@ public class EmisionHDRTransporteModelo
         }
 
         return agregadas;
-    }
-
-    internal bool QuitarGuia(GuiaEncomienda? guia)
-    {
-        if (guia == null)
-        {
-            MessageBox.Show("Debe seleccionar una guía para quitar.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            return false;
-        }
-
-        guiasAgregadas.Remove(guia);
-        guiasDisponibles.Add(guia);
-
-        return true;
     }
 
     // Quitar varias guías a la vez. Si la colección está vacía o nula muestra mensaje y retorna lista vacía.
@@ -271,20 +185,13 @@ public class EmisionHDRTransporteModelo
             .Where(g => numerosGuias.Contains(g.NroGuia))
             .ToList();
 
-        var origenesGuias = entidadesGuias
+        int? idCentroOrigen = entidadesGuias
             .Select(ResolverIdCentroOrigen)
-            .Distinct()
-            .ToList();
+            .FirstOrDefault(idCentro => idCentro.HasValue);
 
-        if (origenesGuias.Count != 1 || !origenesGuias.Single().HasValue)
+        if (!idCentroOrigen.HasValue)
         {
-            MessageBox.Show("Todas las guías seleccionadas deben pertenecer al mismo Centro de Distribución de origen.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            return null;
-        }
-
-        if (entidadesGuias.Any(g => ResolverIdCentroDestino(g) != destinoSeleccionado!.Id))
-        {
-            MessageBox.Show("Todas las guías seleccionadas deben corresponder al Centro de Distribución destino seleccionado.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            MessageBox.Show("No se pudo determinar el Centro de Distribución de origen.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             return null;
         }
 
@@ -302,7 +209,7 @@ public class EmisionHDRTransporteModelo
             NroHDR = hdr.Id,
             IdServicio = servicio.IdServicio,
             FechaEmision = hdr.FechaEmision,
-            IdCentroDeDistribucionOrigen = origenesGuias.Single()!.Value,
+            IdCentroDeDistribucionOrigen = idCentroOrigen.Value,
             IdCentroDeDistribucionDestino = hdr.Destino.Id,
             Guias = hdr.Guias.Select(g => g.NumeroGuia).ToList()
         });
@@ -315,11 +222,6 @@ public class EmisionHDRTransporteModelo
     internal List<GuiaEncomienda> ObtenerGuiasDisponibles()
     {
         return guiasDisponibles.ToList();
-    }
-
-    internal List<GuiaEncomienda> ObtenerGuiasAgregadas()
-    {
-        return guiasAgregadas.ToList();
     }
 
     private bool ValidarGeneracionHDR(
@@ -335,6 +237,17 @@ public class EmisionHDRTransporteModelo
         if (transporteSeleccionado == null)
         {
             MessageBox.Show("Debe seleccionar un transporte.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            return false;
+        }
+
+        if (transporteSeleccionado.Destino == null
+            || transporteSeleccionado.Destino.Id != destinoSeleccionado.Id)
+        {
+            MessageBox.Show(
+                "El Centro de Distribución destino seleccionado no coincide con el destino del servicio seleccionado.",
+                "Error",
+                MessageBoxButtons.OK,
+                MessageBoxIcon.Error);
             return false;
         }
 
@@ -367,6 +280,7 @@ public class EmisionHDRTransporteModelo
                     .Where(parada => centros.ContainsKey(parada.IdCentroDeDistribucion))
                     .Select(parada => new Transporte
                     {
+                        IdServicio = servicio.IdServicio,
                         Fecha = parada.Fecha,
                         Hora = parada.Fecha.TimeOfDay,
                         Empresa = empresa,
@@ -434,13 +348,8 @@ public class EmisionHDRTransporteModelo
 
     private ServicioEntidad? BuscarServicio(Transporte transporte)
     {
-        return ServicioAlmacen.Servicios.FirstOrDefault(servicio =>
-            servicio.IdEmpresaTransporte == transporte.Empresa.Id
-            && servicio.Paradas != null
-            && servicio.Paradas.Any(parada =>
-                parada.IdCentroDeDistribucion == transporte.Destino.Id
-                && parada.Fecha.Date == transporte.Fecha.Date
-                && parada.Fecha.TimeOfDay == transporte.Hora));
+        return ServicioAlmacen.Servicios
+            .FirstOrDefault(servicio => servicio.IdServicio == transporte.IdServicio);
     }
 
     private int? ResolverIdCentroOrigen(GuiaEntidad guia)
