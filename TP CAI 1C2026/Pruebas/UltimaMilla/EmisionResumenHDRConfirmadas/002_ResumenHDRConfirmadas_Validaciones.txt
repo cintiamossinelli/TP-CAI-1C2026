@@ -98,19 +98,20 @@ Validacion boton Cancelar:
 72- Al presionar Cancelar limpia formulario  DNI vacio, nombre "Nombre del Fletero", ListView vacio
 73- Verificar almacenes                      No cambia HDRRetiro.json, HDREntrega.json ni Guias.json
 
-Caso observado - generar sin seleccionar HDR:
+Validacion HDR de entrega en agencia sin marcar:
 74- Campo DNI Fletero                        "11223344"
 75- Boton                                    "Buscar"
-76- No marcar ninguna HDR del ListView
-77- Boton                                    "Generar Resumen de HDR Confirmadas"
-78- Resultado actual del sistema             Muestra resumen con seccion "Confirmadas:" vacia y todas las HDR en "No Confirmadas:"
-79- Boton del mensaje                        "Aceptar"
-80- Al aceptar el resumen limpia formulario  DNI vacio, nombre "Nombre del Fletero", ListView vacio
-81- Resultado actual del sistema             Procesa todas las HDR mostradas como no confirmadas
-82- Observacion                              Este comportamiento modifica HDRRetiro.json, HDREntrega.json y Guias.json. Ejecutarlo solo si se desea validar la regla actual del modelo.
+76- Marcar cualquier HDR excepto              "ENT15"
+77- Dejar sin marcar                         "ENT15 | Agencia 2 (Rosario Sur) | 1"
+78- Boton                                    "Generar Resumen de HDR Confirmadas"
+79- Mensaje                                  "Las HDR de entrega en agencia deben estar marcadas."
+80- Boton del mensaje                        "Aceptar"
+81- El formulario conserva los datos         DNI, nombre y ListView sin cambios
+82- Verificar almacenes                      No cambia HDRRetiro.json, HDREntrega.json ni Guias.json
 
 Verificaciones generales:
-83- En las validaciones 2 a 73 no deben cambiar estados de HDR.
-84- En las validaciones 2 a 73 no deben agregarse entradas al Historial de Guias.
-85- En las validaciones 2 a 73 no deben agregarse ComisionFletero.
-86- En las validaciones 2 a 73 no deben cambiar IntentosDeEntrega.
+83- En las validaciones 2 a 82 no deben cambiar estados de HDR.
+84- En las validaciones 2 a 82 no deben agregarse entradas al Historial de Guias.
+85- En las validaciones 2 a 82 no deben agregarse ComisionFletero.
+86- En las validaciones 2 a 82 no deben cambiar IntentosDeEntrega.
+87- En las validaciones 2 a 82 no debe cambiar PrecioVenta.

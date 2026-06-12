@@ -130,6 +130,18 @@ namespace TP_CAI_1C2026.Forms.UltimaMilla.EmisionResumenHDRConfirmadas
                 }
             }
 
+            if (noSeleccionadasHdrs.Any(hdr =>
+                hdr.TipoHDR == "Entrega" &&
+                hdr.EsEntregaEnAgencia))
+            {
+                MessageBox.Show(
+                    "Las HDR de entrega en agencia deben estar marcadas.",
+                    "Error",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Error);
+                return;
+            }
+
             var resumenTexto = modelo.ConstruirResumen(seleccionadasHdrs, noSeleccionadasHdrs, dniText);
             var result = MessageBox.Show(resumenTexto, "Resumen HDR Confirmadas", MessageBoxButtons.OK, MessageBoxIcon.Information);
 

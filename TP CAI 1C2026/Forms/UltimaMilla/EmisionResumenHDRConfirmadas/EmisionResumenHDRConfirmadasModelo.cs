@@ -69,7 +69,11 @@ namespace TP_CAI_1C2026.Forms.UltimaMilla.EmisionResumenHDRConfirmadas
                     CantEcomiendas = h.CantEncomiendas,
                     DniFletero = h.DniFletero,
                     Estado = h.Estado.ToString(),
-                    TipoHDR = "Entrega"
+                    TipoHDR = "Entrega",
+                    EsEntregaEnAgencia = h.Guias.Any(nroGuia =>
+                        GuiaAlmacen.Guias.Any(guia =>
+                            guia.NroGuia == nroGuia &&
+                            guia.IdAgenciaEntrega != 0))
                 });
 
             var hdrsRetiro = HDRRetiroAlmacen.HDRRetiros
@@ -233,6 +237,7 @@ namespace TP_CAI_1C2026.Forms.UltimaMilla.EmisionResumenHDRConfirmadas
                     Estado = EstadoGuiaEnum.NoRetirada
                 });
                 guia.Estado = EstadoGuiaEnum.NoRetirada;
+                AgregarPrecioBaseCliente(guia);
                 AgregarComisionFletero(guia, fletero);
             }
         }
@@ -297,6 +302,19 @@ namespace TP_CAI_1C2026.Forms.UltimaMilla.EmisionResumenHDRConfirmadas
                     AgregarComisionFletero(guia, fletero);
                 }
             }
+        }
+
+        private void AgregarPrecioBaseCliente(GuiaEntidad guia)
+        {
+            decimal precioBase = ClienteAlmacen.Clientes
+                .FirstOrDefault(cliente =>
+                    cliente.CuitDniCuilCliente == guia.CuitDniCuilCliente)?
+                .Tarifario?
+                .FirstOrDefault(precio =>
+                    precio.TamañoEncomienda == guia.TipoCaja)?
+                .Importe ?? 0;
+
+            guia.PrecioVenta += precioBase;
         }
 
         private void AgregarComisionFletero(GuiaEntidad guia, FleteroEntidad? fletero)
