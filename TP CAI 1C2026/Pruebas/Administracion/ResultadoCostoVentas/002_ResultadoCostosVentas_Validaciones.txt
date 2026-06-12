@@ -1,0 +1,55 @@
+Plan de Prueba: ResultadoCostosVentas-Validaciones.txt
+
+Precondiciones:
+- Restaurar Forms\Datos\HDRTransporte.json, Forms\Datos\Guias.json,
+  Forms\Datos\Servicios.json y Forms\Datos\EmpresasTransporte.json
+  a su estado inicial.
+- Ejecutar esta prueba antes de generar nuevas HDR de transporte.
+
+(Empieza con el menú principal)
+1-  Abrir formulario                        "Resultado de Costos vs Ventas"
+2-  Campo Mes                               (vacío)
+3-  Campo Año                               "2026"
+4-  Botón                                   "Buscar"
+5-  Mensaje                                 "El campo Mes no puede estar vacío."
+6-  Botón                                   "Aceptar"
+7-  Campo Mes                               "13"
+8-  Botón                                   "Buscar"
+9-  Mensaje                                 "El Mes debe estar entre 1 y 12."
+10- Botón                                   "Aceptar"
+11- Campo Mes                               "6"
+12- Campo Año                               (vacío)
+13- Botón                                   "Buscar"
+14- Mensaje                                 "El campo Año no puede estar vacío."
+15- Botón                                   "Aceptar"
+16- Campo Año                               "1999"
+17- Botón                                   "Buscar"
+18- Mensaje                                 "El Año debe estar entre 2000 y 3000."
+19- Botón                                   "Aceptar"
+20- Campo Mes                               "4"
+21- Campo Año                               "2026"
+22- Botón                                   "Buscar"
+23- Mensaje                                 "No se encontraron envíos para el mes seleccionado."
+24- Botón                                   "Aceptar"
+25- Lista de resultados queda vacía
+26- Totales muestran:
+    - Total Costos                         "$ 0,00"
+    - Total Ventas                         "$ 0,00"
+    - Resultado                            "$ 0,00"
+27- Campo Mes                               "5"
+28- Campo Año mantiene                      "2026"
+29- Botón                                   "Buscar"
+30- Lista de resultados muestra             "Flechabus | 3 | $ 30.000,00 | $ 51.000,00 | $ 21.000,00"
+31- Botón                                   "Cancelar"
+32- Cerrar el sistema
+
+Verificaciones:
+33- El formulario queda en su estado inicial:
+    - Campo Mes vacío
+    - Campo Año vacío
+    - Lista de resultados vacía
+    - Total Costos "$ 0,00"
+    - Total Ventas "$ 0,00"
+    - Resultado "$ 0,00"
+    - El cursor queda ubicado en el campo Mes
+34- Los archivos de datos no fueron modificados.
