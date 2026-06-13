@@ -89,7 +89,13 @@ namespace TP_CAI_1C2026.Forms.Administracion.ResultadoCostoVentas
                 return false;
             }
 
-            if (anio < 2000 || anio > 3000)
+            if (anio > DateTime.Today.Year)
+            {
+                mensaje = "El año ingresado no puede ser mayor al año actual";
+                return false;
+            }
+
+            if (anio < 2000)
             {
                 mensaje = "El Año debe estar entre 2000 y 3000.";
                 return false;
