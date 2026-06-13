@@ -4,6 +4,8 @@ Precondiciones:
 - Restaurar Forms\Datos\Guias.json y Forms\Datos\HDRTransporte.json
   a su estado inicial.
 - Configurar la fecha del equipo en 11/06/2026.
+- Iniciar sesión con tipo de acceso "Centro de distribución" y seleccionar
+  "Cordoba" (IdCentroDeDistribucion 3).
 
 (Empieza con el menú principal)
 1-  Abrir formulario                        "Recepción de Hoja de Ruta de Ómnibus"
@@ -20,6 +22,9 @@ Verificaciones:
 8-  El combobox Servicio queda sin selección
 9-  La lista de guías queda vacía
 10- El servicio "Andesmar - 10/06/2026 20:30" deja de aparecer entre los servicios disponibles
+10.1- Todos los servicios ofrecidos pertenecen a HDR de transporte cuyo
+      IdCentroDeDistribucionDestino es 3, correspondiente al CD "Cordoba"
+      en el que se inició sesión.
 
 11- Archivo Guias.json - la guía AG-1-803 debe aparecer con:
 
@@ -56,4 +61,3 @@ Verificaciones:
     }
 
 14- Archivo HDRTransporte.json - no se modificó ninguna HDR
-

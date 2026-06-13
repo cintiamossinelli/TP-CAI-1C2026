@@ -4,6 +4,8 @@ Precondiciones:
 - Restaurar Forms\Datos\Guias.json y Forms\Datos\HDRTransporte.json
   a su estado inicial.
 - Configurar la fecha del equipo en 11/06/2026.
+- Iniciar sesión con tipo de acceso "Centro de distribución" y seleccionar
+  "Cordoba" (IdCentroDeDistribucion 3).
 
 (Empieza con el menú principal)
 1-  Abrir formulario                        "Recepción de Hoja de Ruta de Ómnibus"
@@ -28,3 +30,5 @@ Verificaciones:
 16- Archivo Guias.json - las guías AG-1-803, AG-1-804 y CD-1-805 conservan el estado 10
 17- Archivo Guias.json - no se agregaron entradas a sus historiales
 18- Archivo HDRTransporte.json - no se modificó ninguna HDR
+19- El combobox no ofrece servicios asociados a HDR de transporte cuyo
+    IdCentroDeDistribucionDestino sea distinto de 3.

@@ -40,6 +40,16 @@ namespace TP_CAI_1C2026.Forms.Troncal.RecepcionHDRTransporte
             DateTime fechaActual = DateTime.Now;
             Servicio servicioSeleccionado = servicios[indiceServicio];
 
+            if (servicioSeleccionado.IdCentroDeDistribucionDestino != Program.CdActual)
+            {
+                MessageBox.Show(
+                    "La Hoja de Ruta de Transporte debe tener como destino el CD logueado.",
+                    "Validación",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Warning);
+                return;
+            }
+
             foreach (Guias guia in servicioSeleccionado.GuiasAsociadas)
             {
                 var guiaEntidad = GuiaAlmacen.Guias
@@ -97,6 +107,7 @@ namespace TP_CAI_1C2026.Forms.Troncal.RecepcionHDRTransporte
 
             var hdrsRecientes = HDRTransporteAlmacen.HDRTransportes
                 .Where(hdr =>
+                    hdr.IdCentroDeDistribucionDestino == Program.CdActual &&
                     hdr.FechaEmision.Date >= fechaDesde &&
                     hdr.FechaEmision.Date <= fechaActual &&
                     TieneTodasLasGuiasPendientesDeRecepcion(hdr));
