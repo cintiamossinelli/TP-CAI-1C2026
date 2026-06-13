@@ -11,7 +11,13 @@ Plan de Prueba: EmisionHDREntrega-Exitosa.txt
                                             "AG-1-829 | L | Rosario Norte"
                                             "CC-1-830 | XL | Bv. Oroño 200, Rosario"
 7-  Botón                                   "Buscar" (por localidad)
-8-  Lista guías sin agregar muestra las mismas guías filtradas por "Rosario"
+8-  Lista guías sin agregar muestra las mismas guías filtradas por "Rosario":
+                                            "CC-1-827 | S | Av. Pellegrini 450, Rosario"
+                                            "CC-1-828 | M | Av. Pellegrini 450, Rosario"
+                                            "AG-1-829 | L | Rosario Norte"
+                                            "CC-1-830 | XL | Bv. Oroño 200, Rosario"
+    La guía AG-1-829 debe figurar porque su agencia de entrega pertenece
+    a la ciudad Rosario; el filtro no depende del texto "Rosario Norte".
 9-  Campo Nº Guía                           "CC-1-827"
 10- Botón                                   "Buscar" (buscar guía)
 11- Lista guías sin agregar muestra         "CC-1-827 | S | Av. Pellegrini 450, Rosario"

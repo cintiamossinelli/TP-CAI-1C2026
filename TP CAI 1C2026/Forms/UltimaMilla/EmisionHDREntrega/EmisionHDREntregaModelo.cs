@@ -112,6 +112,32 @@ internal class EmisionHDREntregaModelo
             .ToList();
     }
 
+    internal List<Guia> ObtenerGuiasPendientesPorLocalidad(
+        string localidad)
+    {
+        CiudadEntidad? ciudad = CiudadAlmacen.Ciudades
+            .FirstOrDefault(c => c.Nombre == localidad);
+
+        if (ciudad == null)
+        {
+            return new List<Guia>();
+        }
+
+        var numerosGuiasDeLaLocalidad = GuiaAlmacen.Guias
+            .Where(g =>
+                (g.TipoEntrega == TipoEntregaEnum.ADomicilio
+                    && g.IdCentroDeDistribucionEntrega ==
+                        ciudad.IdCentroDeDistribucion)
+                || (g.TipoEntrega == TipoEntregaEnum.Agencia
+                    && ciudad.Agencias.Contains(g.IdAgenciaEntrega)))
+            .Select(g => g.NroGuia)
+            .ToHashSet();
+
+        return ObtenerGuiasPendientes()
+            .Where(g => numerosGuiasDeLaLocalidad.Contains(g.NGuia))
+            .ToList();
+    }
+
     internal Guia? BuscarGuia(string nGuia)
     {
         if (string.IsNullOrWhiteSpace(nGuia))

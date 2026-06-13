@@ -111,6 +111,32 @@ internal class EmisionHDRRetiroModelo
             .ToList();
     }
 
+    internal List<Guia> ObtenerGuiasPendientesPorLocalidad(
+        string localidad)
+    {
+        CiudadEntidad? ciudad = CiudadAlmacen.Ciudades
+            .FirstOrDefault(c => c.Nombre == localidad);
+
+        if (ciudad == null)
+        {
+            return new List<Guia>();
+        }
+
+        var numerosGuiasDeLaLocalidad = GuiaAlmacen.Guias
+            .Where(g =>
+                (g.TipoImposicion == TipoImposicionEnum.EnDomicilio
+                    && g.IdCentroDeDistribucionImposicion ==
+                        ciudad.IdCentroDeDistribucion)
+                || (g.TipoImposicion == TipoImposicionEnum.Agencia
+                    && ciudad.Agencias.Contains(g.IdAgenciaImposicion)))
+            .Select(g => g.NroGuia)
+            .ToHashSet();
+
+        return ObtenerGuiasPendientes()
+            .Where(g => numerosGuiasDeLaLocalidad.Contains(g.NGuia))
+            .ToList();
+    }
+
     internal Guia? BuscarGuia(string nGuia)
     {
         if (string.IsNullOrWhiteSpace(nGuia))

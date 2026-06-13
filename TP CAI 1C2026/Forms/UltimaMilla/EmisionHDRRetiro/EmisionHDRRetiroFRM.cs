@@ -70,15 +70,15 @@
             }
 
             guiasSinAgregarLST.Items.Clear();
-            foreach (Guia guia in modelo.ObtenerGuiasPendientes())
+            string localidad = localidadCMB.SelectedItem!.ToString()!;
+
+            foreach (Guia guia in
+                modelo.ObtenerGuiasPendientesPorLocalidad(localidad))
             {
-                if (guia.LugarRetiro.Contains(localidadCMB.SelectedItem!.ToString()!) && !modelo.guiasAgregadas.Contains(guia))
-                {
-                    ListViewItem item = new ListViewItem(guia.NGuia);
-                    item.SubItems.Add(guia.TipoCaja);
-                    item.SubItems.Add(guia.LugarRetiro);
-                    guiasSinAgregarLST.Items.Add(item);
-                }
+                ListViewItem item = new ListViewItem(guia.NGuia);
+                item.SubItems.Add(guia.TipoCaja);
+                item.SubItems.Add(guia.LugarRetiro);
+                guiasSinAgregarLST.Items.Add(item);
             }
         }
 
