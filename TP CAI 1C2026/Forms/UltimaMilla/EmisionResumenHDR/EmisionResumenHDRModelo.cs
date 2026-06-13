@@ -24,7 +24,8 @@ namespace TP_CAI_1C2026.Forms.UltimaMilla.EmisionResumenHDR
             }
 
             var fleteroEntidad = FleteroAlmacen.Fleteros
-                .FirstOrDefault(f => f.DNI.ToString() == dniNormalizado);
+                .FirstOrDefault(f => f.DNI.ToString() == dniNormalizado
+                && f.IdCentroDeDistribucion == Program.CdActual);
 
             if (fleteroEntidad == null)
             {

@@ -11,7 +11,8 @@ namespace TP_CAI_1C2026.Forms.Troncal.DespachoHDRTransporte
         {
             var resultado = new List<Servicio>();
 
-            foreach (var hdr in HDRTransporteAlmacen.HDRTransportes)
+            foreach (var hdr in HDRTransporteAlmacen.HDRTransportes
+                .Where(h => h.IdCentroDeDistribucionOrigen == Program.CdActual))
             {
                 var guiasHDR = GuiaAlmacen.Guias
                     .Where(g => hdr.Guias.Contains(g.NroGuia))
