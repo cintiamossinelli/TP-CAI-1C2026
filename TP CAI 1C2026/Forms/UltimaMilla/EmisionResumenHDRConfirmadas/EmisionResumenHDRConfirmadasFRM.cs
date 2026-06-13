@@ -24,7 +24,7 @@ namespace TP_CAI_1C2026.Forms.UltimaMilla.EmisionResumenHDRConfirmadas
         // Manejador del botón "Cancelar": cierra el formulario
         private void cancelarBTN_Click(object sender, EventArgs e)
         {
-            
+
             hdrEnTransitoLSVT.Items.Clear();
             dniFleteroTXT.Clear();
             nombreFleteroLBL.Text = "Nombre del Fletero";

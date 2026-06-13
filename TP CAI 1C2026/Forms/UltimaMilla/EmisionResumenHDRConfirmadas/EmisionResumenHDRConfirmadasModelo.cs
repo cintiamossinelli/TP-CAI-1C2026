@@ -293,13 +293,13 @@ namespace TP_CAI_1C2026.Forms.UltimaMilla.EmisionResumenHDRConfirmadas
                 }
                 else
                 {
-                    // Primer intento fallido: vuelve a PendienteDeDistribucion(12)
+                    // Primer intento fallido: vuelve a EnDestino(11)
                     guia.Historial.Add(new HistorialGuia
                     {
                         Fecha = DateTime.Now,
-                        Estado = EstadoGuiaEnum.PendienteDeDistribucion
+                        Estado = EstadoGuiaEnum.EnDestino
                     });
-                    guia.Estado = EstadoGuiaEnum.PendienteDeDistribucion;
+                    guia.Estado = EstadoGuiaEnum.EnDestino;
                     AgregarComisionFletero(guia, fletero);
                 }
             }

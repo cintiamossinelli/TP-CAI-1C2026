@@ -163,17 +163,6 @@ public class EmisionHDRTransporteModelo
             return null;
         }
 
-        var guiasYaAsignadas = HDRTransporteAlmacen.HDRTransportes
-            .Where(h => h.Guias != null)
-            .SelectMany(h => h.Guias)
-            .ToHashSet(StringComparer.OrdinalIgnoreCase);
-
-        if (guiasAgregadas.Any(g => guiasYaAsignadas.Contains(g.NumeroGuia)))
-        {
-            MessageBox.Show("Una o más guías seleccionadas ya fueron asignadas a otra HDR.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            return null;
-        }
-
         var servicio = BuscarServicio(transporteSeleccionado!);
         if (servicio == null || servicio.Paradas == null || !servicio.Paradas.Any())
         {

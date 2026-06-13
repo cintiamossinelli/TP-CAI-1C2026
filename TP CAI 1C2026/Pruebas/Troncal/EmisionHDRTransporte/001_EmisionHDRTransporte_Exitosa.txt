@@ -115,3 +115,7 @@ Verificaciones:
     seleccionado en el Login.
 35- Un mismo IdServicio puede aparecer en otra HDR solamente si tiene un
     IdCentroDeDistribucionDestino diferente, es decir, otra parada.
+36- Una guía puede estar asociada a más de una HDR de transporte a lo largo
+    de su recorrido. Que su número figure en una HDR anterior no impide
+    volver a seleccionarla cuando su estado actual sea Admitida (8).
+37- Dentro de una misma HDR, cada guía se agrega una sola vez.

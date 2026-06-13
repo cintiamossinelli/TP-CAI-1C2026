@@ -111,11 +111,11 @@ Verificaciones en Guias.json - HDR confirmadas:
 
 Verificaciones en Guias.json - HDR no confirmadas:
 31- Guia CC-2-820, asociada a ENT13, entrega a domicilio no confirmada con primer intento:
-    Estado final esperado: 12
+    Estado final esperado: 11
     IntentosDeEntrega pasa de 0 a 1
     Historial agrega dos entradas al final:
       { "Fecha": "<fecha actual>", "Estado": 16 }
-      { "Fecha": "<fecha actual>", "Estado": 12 }
+      { "Fecha": "<fecha actual>", "Estado": 11 }
     ComisionFletero agrega:
       { "DniFletero": 11223344, "Importe": 2000.00 }
 

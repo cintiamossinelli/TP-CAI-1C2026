@@ -99,6 +99,7 @@
             GenerarResumenBTN.TabIndex = 5;
             GenerarResumenBTN.Text = "Generar Resumen de HDR Confirmadas";
             GenerarResumenBTN.UseVisualStyleBackColor = true;
+            //GenerarResumenBTN.Click += GenerarResumenBTN_Click_1;
             // 
             // buscarBTN
             // 
