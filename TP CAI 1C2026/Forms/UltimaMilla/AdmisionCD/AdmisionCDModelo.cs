@@ -33,6 +33,16 @@ namespace TP_CAI_1C2026.Forms.UltimaMilla.AdmisionCD
                         return null;
                     }
 
+                    if (!CorrespondeAlCentroDeDistribucionActual(guiaEntidad))
+                    {
+                        MessageBox.Show(
+                            $"La guía con el número {text} no corresponde al centro de distribución actual.",
+                            "Error",
+                            MessageBoxButtons.OK,
+                            MessageBoxIcon.Error);
+                        return null;
+                    }
+
                     guiaEncontrada = new GuiasImpuestas
                     {
                         Id = guiaEntidad.NroGuia,
@@ -55,6 +65,30 @@ namespace TP_CAI_1C2026.Forms.UltimaMilla.AdmisionCD
                 return guiaEncontrada;
             }
 
+        private static bool CorrespondeAlCentroDeDistribucionActual(
+            GuiaEntidad guia)
+        {
+            if (guia.IdCentroDeDistribucionImposicion > 0)
+            {
+                return guia.IdCentroDeDistribucionImposicion ==
+                    Program.CdActual;
+            }
+
+            if (guia.IdAgenciaImposicion > 0)
+            {
+                int? idCentroDeDistribucionAgencia =
+                    CiudadAlmacen.Ciudades
+                        .FirstOrDefault(ciudad =>
+                            ciudad.Agencias.Contains(
+                                guia.IdAgenciaImposicion))?
+                        .IdCentroDeDistribucion;
+
+                return idCentroDeDistribucionAgencia == Program.CdActual;
+            }
+
+            return false;
+        }
+
         internal bool ValidarHayGuiasParaAdmitir(IEnumerable<GuiasImpuestas> guias)
         {
             if (guias == null || !guias.Any())
@@ -63,6 +97,11 @@ namespace TP_CAI_1C2026.Forms.UltimaMilla.AdmisionCD
                 return false;
             }
             return true;
+        }
+
+        internal void LimpiarGuias()
+        {
+            guiasAgregadas.Clear();
         }
 
         internal bool ValidarHayGuiasParaRechazar(IEnumerable<GuiasImpuestas> guias)

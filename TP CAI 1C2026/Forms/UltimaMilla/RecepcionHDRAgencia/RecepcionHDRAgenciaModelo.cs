@@ -18,6 +18,7 @@ namespace TP_CAI_1C2026.Forms.UltimaMilla.RecepcionHDRAgencia
             return HDREntregaAlmacen.HDREntregas
                 .Where(hdrEntidad =>
                     hdrEntidad.Estado == EstadoHDREnum.EntregadaAlFletero)
+                .Where(CorrespondeALaAgenciaActual)
                 .Select(hdrEntidad => new HDR
                 {
                     NumeroHDR = hdrEntidad.NroHDR.ToString()
@@ -86,7 +87,8 @@ namespace TP_CAI_1C2026.Forms.UltimaMilla.RecepcionHDRAgencia
             var hdrEntidad = HDREntregaAlmacen.HDREntregas
                 .FirstOrDefault(entidad => entidad.NroHDR == nroHDR);
 
-            if (hdrEntidad == null || hdrEntidad.Guias == null)
+            if (hdrEntidad == null ||
+                !CorrespondeALaAgenciaActual(hdrEntidad))
             {
                 return false;
             }
@@ -122,6 +124,24 @@ namespace TP_CAI_1C2026.Forms.UltimaMilla.RecepcionHDRAgencia
             GuiaAlmacen.Guardar();
             HDREntregaAlmacen.Guardar();
             return true;
+        }
+
+        private static bool CorrespondeALaAgenciaActual(
+            HDREntregaEntidad hdr)
+        {
+            if (hdr.Guias == null || hdr.Guias.Count == 0)
+            {
+                return false;
+            }
+
+            return hdr.Guias.All(nroGuia =>
+            {
+                var guia = GuiaAlmacen.Guias.FirstOrDefault(entidad =>
+                    entidad.NroGuia == nroGuia);
+
+                return guia != null &&
+                    guia.IdAgenciaEntrega == Program.AgenciaActual;
+            });
         }
     }
 }

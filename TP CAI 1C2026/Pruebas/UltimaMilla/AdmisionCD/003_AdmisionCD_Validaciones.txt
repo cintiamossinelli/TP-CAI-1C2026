@@ -1,5 +1,9 @@
 Plan de Prueba: AdmisionCD-Validaciones.txt
 
+Precondición:
+- Restaurar Forms\Datos\Guias.json a su estado inicial.
+- Iniciar sesión con tipo de acceso "Centro de distribución" y seleccionar "Cordoba" (IdCentroDeDistribucion 3).
+
 (Empieza con el menú principal)
 1-  Abrir formulario                        "Admisión en Centro de Distribución"
 2-  Campo N° Guía                           ""
@@ -10,28 +14,32 @@ Plan de Prueba: AdmisionCD-Validaciones.txt
 7-  Botón                                   "Buscar"
 8-  Mensaje                                 "No se encontró una guía con el número XX-9-999."
 9-  Botón                                   "Aceptar"
-10- Campo N° Guía                           "CC-1-817"
+10- Campo N° Guía                           "CC-1-814"
 11- Botón                                   "Buscar"
-12- Mensaje                                 "La guía con el número CC-1-817 no está en estado 'Pendiente de admisión'."
+12- Mensaje                                 "La guía con el número CC-1-814 no corresponde al centro de distribución actual."
 13- Botón                                   "Aceptar"
-14- Campo N° Guía                           "AG-12-305"
+14- Campo N° Guía                           "AG-12-817"
 15- Botón                                   "Buscar"
-16- Lista de guías muestra                  "AG-12-305 | S"
-17- Campo N° Guía                           "AG-12-305"
-18- Botón                                   "Buscar"
-19- Mensaje                                 "La guía ya ha sido agregada previamente en la lista a admitir"
-20- Botón                                   "Aceptar"
-21- Botón                                   "Cancelar"
-22- Lista de guías queda vacía
-23- Botón                                   "Admitir"
-24- Mensaje                                 "No hay guías para admitir. Por favor, agregue al menos una guía."
-25- Botón                                   "Aceptar"
-26- Botón                                   "Rechazar"
-27- Mensaje                                 "No hay guías para rechazar. Por favor, agregue al menos una guía."
-28- Botón                                   "Aceptar"
-29- Cerrar el sistema
+16- Mensaje                                 "La guía con el número AG-12-817 no está en estado 'Pendiente de admisión'."
+17- Botón                                   "Aceptar"
+18- Campo N° Guía                           "AG-12-305"
+19- Botón                                   "Buscar"
+20- Lista de guías muestra                  "AG-12-305 | S"
+21- Campo N° Guía                           "AG-12-305"
+22- Botón                                   "Buscar"
+23- Mensaje                                 "La guía ya ha sido agregada previamente en la lista a admitir"
+24- Botón                                   "Aceptar"
+25- Botón                                   "Cancelar"
+26- Lista de guías queda vacía
+27- Botón                                   "Admitir"
+28- Mensaje                                 "No hay guías para admitir. Por favor, agregue al menos una guía."
+29- Botón                                   "Aceptar"
+30- Botón                                   "Rechazar"
+31- Mensaje                                 "No hay guías para rechazar. Por favor, agregue al menos una guía."
+32- Botón                                   "Aceptar"
+33- Cerrar el sistema
 
 Verificaciones:
-30- El campo N° Guía queda vacío            ""
-31- La lista de guías está vacía
-32- Archivo Guias.json - ninguna guía cambió de estado, precio o historial
+34- El campo N° Guía queda vacío            ""
+35- La lista de guías está vacía
+36- Archivo Guias.json - ninguna guía cambió de estado, precio o historial

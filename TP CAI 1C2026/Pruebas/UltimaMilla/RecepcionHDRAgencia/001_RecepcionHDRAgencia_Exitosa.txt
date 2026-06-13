@@ -3,39 +3,61 @@ Plan de Prueba: RecepcionHDRAgencia-Exitosa.txt
 Precondición:
 - Restaurar Forms\Datos\HDREntrega.json y Forms\Datos\Guias.json
   a su estado inicial.
+- Iniciar sesión con tipo de acceso "Agencia" y seleccionar
+  "Rosario Norte" (IdAgencia 1).
 
 (Empieza con el menú principal)
 1-  Abrir formulario                        "Recepción de Hoja de Ruta en Agencia"
-2-  Combobox N° Hoja de Ruta                "6"
-3-  Lista de guías muestra                  "CC-1-175 | M"
-4-  Botón                                   "Recibir HDR"
-5-  Mensaje                                 "¿Desea confirmar la recepción del HDR?"
-6-  Botón                                   "Sí"
-7-  Mensaje                                 "HDR recepcionado correctamente."
-8-  Botón                                   "Aceptar"
-9-  Cerrar el sistema
+2-  Combobox N° Hoja de Ruta muestra        "20"
+                                             "21"
+3-  Combobox N° Hoja de Ruta no muestra     "6"
+                                             "22"
+4-  Combobox N° Hoja de Ruta                "21"
+5-  Lista de guías muestra                  "CC-1-103 | M"
+                                             "CC-1-104 | L"
+6-  Botón                                   "Recibir HDR"
+7-  Mensaje                                 "¿Desea confirmar la recepción del HDR?"
+8-  Botón                                   "Sí"
+9-  Mensaje                                 "HDR recepcionado correctamente."
+10- Botón                                   "Aceptar"
+11- Cerrar el sistema
 
 Verificaciones:
-10- El combobox N° Hoja de Ruta queda sin selección
-11- La lista de guías queda vacía
-12- La HDR N° 6 deja de aparecer entre las HDR pendientes de recepción
+12- El combobox N° Hoja de Ruta queda sin selección
+13- La lista de guías queda vacía
+14- La HDR N° 21 deja de aparecer entre las HDR pendientes de recepción
+15- La HDR N° 20 continúa disponible para la agencia Rosario Norte
 
-13- Archivo HDREntrega.json - la HDR N° 6 debe aparecer con:
+16- Archivo HDREntrega.json - la HDR N° 21 debe aparecer con:
 
     {
-      "NroHDR": 6,
-      "DniFletero": 45000123,
-      "Fecha": "2026-06-06",
-      "Domicilio": "Agencia 9 (Córdoba Norte)",
-      "CantEncomiendas": 1,
-      "Guias": [ "CC-1-175" ],
+      "NroHDR": 21,
+      "DniFletero": 11223344,
+      "Fecha": "2026-06-12",
+      "Domicilio": "Agencia 1 (Rosario Norte)",
+      "CantEncomiendas": 2,
+      "Guias": [ "CC-1-103", "CC-1-104" ],
       "Estado": 4
     }
 
-14- Archivo Guias.json - la guía CC-1-175 debe aparecer con:
+17- Archivo Guias.json - la guía CC-1-103 debe aparecer con:
 
     {
-      "NroGuia": "CC-1-175",
+      "NroGuia": "CC-1-103",
+      "IdAgenciaEntrega": 1,
+      "Estado": 15,
+      "Historial": [
+        ...entradas anteriores...,
+        { "Fecha": "<fecha actual>", "Estado": 13 },
+        { "Fecha": "<fecha actual>", "Estado": 15 }
+      ]
+    }
+
+18- Archivo Guias.json - la guía CC-1-104 debe aparecer con:
+
+    {
+      "NroGuia": "CC-1-104",
+      "IdAgenciaEntrega": 1,
       "Estado": 15,
       "Historial": [
         ...entradas anteriores...,

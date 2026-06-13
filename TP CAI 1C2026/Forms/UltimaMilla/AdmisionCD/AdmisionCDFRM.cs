@@ -50,6 +50,7 @@ namespace TP_CAI_1C2026.Forms.UltimaMilla.AdmisionCD
         {
             nGuiaTXT.Text = string.Empty;
             guiasLST.Items.Clear();
+            modelo.LimpiarGuias();
         }
 
         private void admitirBTN_Click(object sender, EventArgs e)
@@ -63,6 +64,7 @@ namespace TP_CAI_1C2026.Forms.UltimaMilla.AdmisionCD
 
             MessageBox.Show("Las guías han sido admitidas exitosamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
             guiasLST.Items.Clear();
+            modelo.LimpiarGuias();
         }
 
         private void rechazarBTN_Click(object sender, EventArgs e)
@@ -76,6 +78,7 @@ namespace TP_CAI_1C2026.Forms.UltimaMilla.AdmisionCD
 
             MessageBox.Show("Las guías han sido rechazadas exitosamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
             guiasLST.Items.Clear();
+            modelo.LimpiarGuias();
         }
 
         private void AdmisionCDFRM_Load(object sender, EventArgs e)

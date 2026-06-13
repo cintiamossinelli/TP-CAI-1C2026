@@ -1,5 +1,9 @@
 Plan de Prueba: AdmisionCD-RechazoExitoso.txt
 
+Precondición:
+- Restaurar Forms\Datos\Guias.json a su estado inicial.
+- Iniciar sesión con tipo de acceso "Centro de distribución" y seleccionar "Cordoba" (IdCentroDeDistribucion 3).
+
 (Empieza con el menú principal)
 1-  Abrir formulario                        "Admisión en Centro de Distribución"
 2-  Campo N° Guía                           "AG-12-811"

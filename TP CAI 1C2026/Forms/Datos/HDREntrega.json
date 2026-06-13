@@ -169,5 +169,86 @@
     "CantEncomiendas": 1,
     "Guias": [ "CC-2-837" ],
     "Estado": 1
+  },
+  {
+    "NroHDR": 20,
+    "DniFletero": 11223344,
+    "Fecha": "2026-06-12",
+    "Domicilio": "Agencia 1 (Rosario Norte)",
+    "CantEncomiendas": 1,
+    "Guias": [ "CC-1-102" ],
+    "Estado": 2
+  },
+  {
+    "NroHDR": 21,
+    "DniFletero": 11223344,
+    "Fecha": "2026-06-12",
+    "Domicilio": "Agencia 1 (Rosario Norte)",
+    "CantEncomiendas": 2,
+    "Guias": [ "CC-1-103", "CC-1-104" ],
+    "Estado": 2
+  },
+  {
+    "NroHDR": 22,
+    "DniFletero": 11223344,
+    "Fecha": "2026-06-12",
+    "Domicilio": "Agencia 2 (Rosario Sur)",
+    "CantEncomiendas": 1,
+    "Guias": [ "CC-1-105" ],
+    "Estado": 2
+  },
+  {
+    "NroHDR": 23,
+    "DniFletero": 32080691,
+    "Fecha": "2026-06-12",
+    "Domicilio": "Agencia 5 (Microcentro)",
+    "CantEncomiendas": 1,
+    "Guias": [ "CC-1-106" ],
+    "Estado": 2
+  },
+  {
+    "NroHDR": 24,
+    "DniFletero": 32080691,
+    "Fecha": "2026-06-12",
+    "Domicilio": "Agencia 6 (Palermo)",
+    "CantEncomiendas": 1,
+    "Guias": [ "CC-1-107" ],
+    "Estado": 2
+  },
+  {
+    "NroHDR": 25,
+    "DniFletero": 24242424,
+    "Fecha": "2026-06-12",
+    "Domicilio": "Agencia 9 (Cordoba Norte)",
+    "CantEncomiendas": 1,
+    "Guias": [ "CC-1-108" ],
+    "Estado": 2
+  },
+  {
+    "NroHDR": 26,
+    "DniFletero": 24242424,
+    "Fecha": "2026-06-12",
+    "Domicilio": "Agencia 10 (Cordoba Sur)",
+    "CantEncomiendas": 1,
+    "Guias": [ "CC-1-109" ],
+    "Estado": 2
+  },
+  {
+    "NroHDR": 27,
+    "DniFletero": 40404040,
+    "Fecha": "2026-06-12",
+    "Domicilio": "Agencia 13 (Santa Fe Norte)",
+    "CantEncomiendas": 1,
+    "Guias": [ "CC-1-112" ],
+    "Estado": 2
+  },
+  {
+    "NroHDR": 28,
+    "DniFletero": 40404040,
+    "Fecha": "2026-06-12",
+    "Domicilio": "Agencia 14 (Santa Fe Sur)",
+    "CantEncomiendas": 1,
+    "Guias": [ "CC-1-113" ],
+    "Estado": 2
   }
 ]
