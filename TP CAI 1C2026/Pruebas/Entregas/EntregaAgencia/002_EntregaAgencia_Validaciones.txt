@@ -1,6 +1,6 @@
 Plan de Prueba: EntregaAgencia-Validaciones.txt
 
-(Empieza con el menú principal — logueado como Agencia N° 6)
+(Empieza con el menú principal — logueado en la agencia "Palermo" (IdAgencia 6))
 1-  Abrir formulario                        "Entrega de Encomienda - Agencia"
 2-  Campo DNI Destinatario                  ""
 3-  Botón                                   "Buscar"
@@ -14,12 +14,13 @@ Plan de Prueba: EntregaAgencia-Validaciones.txt
 11- Botón                                   "Buscar"
 12- Mensaje                                 "No se encontró ningún destinatario con DNI 99999999."
 13- Botón                                   "Aceptar"
-(Cambiar Program.AgenciaActual a un valor distinto al de la guía para probar la validación)
-14- Campo DNI Destinatario                  "20111222"
+14- Campo DNI Destinatario                  "20444556"
 15- Botón                                   "Buscar"
-16- Mensaje                                 "No se encontró ningún destinatario con DNI 20111222."
+16- Mensaje                                 "No se encontró ningún destinatario con DNI 20444556."
 17- Botón                                   "Aceptar"
-(Restaurar Program.AgenciaActual al valor original)
+    Dato de referencia: el DNI 20444556 tiene la guía CC-1-170 pendiente
+    en la agencia "Belgrano" (IdAgencia 7), pero el usuario está logueado
+    en la agencia "Palermo" (IdAgencia 6).
 18- Campo DNI Destinatario                  "20111222"
 19- Botón                                   "Buscar"
 20- Lista Guías Asociadas muestra           "AG-5-167 | PendienteDeEntrega | S"

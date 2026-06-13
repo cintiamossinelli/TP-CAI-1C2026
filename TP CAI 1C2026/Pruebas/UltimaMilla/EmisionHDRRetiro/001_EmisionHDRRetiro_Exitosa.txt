@@ -1,6 +1,6 @@
 Plan de Prueba: EmisionHDRRetiro-Exitosa.txt
 
-(Empieza con el menú principal — logueado como CD N° 1)
+(Empieza con el menú principal — logueado en el CD "Rosario" (IdCentroDeDistribucion 1))
 1-  Abrir formulario                        "Emisión de HDR de Retiro"
 2-  Campo DNI Fletero                       "11223344"
 3-  Botón                                   "Buscar"

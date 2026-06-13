@@ -1,6 +1,6 @@
 Plan de Prueba: EmisionHDRRetiro-Validaciones.txt
 
-(Empieza con el menú principal — logueado como CD N° 1)
+(Empieza con el menú principal — logueado en el CD "Rosario" (IdCentroDeDistribucion 1))
 1-  Abrir formulario                        "Emisión de HDR de Retiro"
 2-  Campo DNI Fletero                       ""
 3-  Botón                                   "Buscar"
@@ -14,12 +14,13 @@ Plan de Prueba: EmisionHDRRetiro-Validaciones.txt
 11- Botón                                   "Buscar"
 12- Mensaje                                 "No se encontró ningún fletero con DNI 99999999."
 13- Botón                                   "Aceptar"
-(Cambiar Program.CdActual a un valor distinto al del fletero para probar la validación)
-14- Campo DNI Fletero                       "11223344"
+14- Campo DNI Fletero                       "10101010"
 15- Botón                                   "Buscar"
 16- Mensaje                                 "El fletero no pertenece al CD logueado."
 17- Botón                                   "Aceptar"
-(Restaurar Program.CdActual al valor original)
+    Dato de referencia: el DNI 10101010 pertenece al CD "Buenos Aires"
+    (IdCentroDeDistribucion 2), pero el usuario está logueado en el CD
+    "Rosario" (IdCentroDeDistribucion 1).
 18- Botón                                   "Buscar por Localidad"
 19- Mensaje                                 "Debe seleccionar una localidad."
 20- Botón                                   "Aceptar"

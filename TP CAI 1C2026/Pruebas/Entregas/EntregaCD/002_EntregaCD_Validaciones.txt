@@ -1,6 +1,6 @@
 Plan de Prueba: EntregaCD-Validaciones.txt
 
-(Empieza con el menú principal — logueado como CD N° 2)
+(Empieza con el menú principal — logueado en el CD "Buenos Aires" (IdCentroDeDistribucion 2))
 1-  Abrir formulario                        "Entrega de Encomienda - CD"
 2-  Campo DNI Destinatario                  ""
 3-  Botón                                   "Buscar"
@@ -14,12 +14,13 @@ Plan de Prueba: EntregaCD-Validaciones.txt
 11- Botón                                   "Buscar"
 12- Mensaje                                 "No se encontró ningún destinatario con DNI 30123456."
 13- Botón                                   "Aceptar"
-(Cambiar Program.CdActual a un valor distinto al de la guía para probar la validación)
-14- Campo DNI Destinatario                  "20333445"
+14- Campo DNI Destinatario                  "20555667"
 15- Botón                                   "Buscar"
-16- Mensaje                                 "No se encontró ningún destinatario con DNI 20333445."
+16- Mensaje                                 "No se encontró ningún destinatario con DNI 20555667."
 17- Botón                                   "Aceptar"
-(Restaurar Program.CdActual al valor original)
+    Dato de referencia: el DNI 20555667 tiene la guía AG-5-171 pendiente
+    en el CD "Cordoba" (IdCentroDeDistribucion 3), pero el usuario está
+    logueado en el CD "Buenos Aires" (IdCentroDeDistribucion 2).
 18- Campo DNI Destinatario                  "20333445"
 19- Botón                                   "Buscar"
 20- Lista Guías Asociadas muestra           "CD-1-169 | PendienteDeEntrega | L"

@@ -1,6 +1,6 @@
 Plan de Prueba: EntregaAgencia-Exitosa.txt
 
-(Empieza con el menú principal — logueado como Agencia N° 6)
+(Empieza con el menú principal — logueado en la agencia "Palermo" (IdAgencia 6))
 1-  Abrir formulario                        "Entrega de Encomienda - Agencia"
 2-  Campo DNI Destinatario                  "20111222"
 3-  Botón                                   "Buscar"
