@@ -191,7 +191,7 @@ public class ImposicionCDModelo
         {
             for (int i = 0; i < det.Cantidad; i++)
             {
-                resultado.Add($"CD-1-{contador}");
+                resultado.Add($"CD-{Program.CdActual}-{contador}");
                 contador++;
             }
         }
@@ -224,7 +224,6 @@ public class ImposicionCDModelo
 
             for (int i = 0; i < detalle.Cantidad; i++)
             {
-                const int idCentroDeDistribucionImposicion = 1;
                 TipoEntregaEnum tipoEntrega =
                     ObtenerTipoEntrega(cdChecked, agenciaChecked, domicilioChecked);
                 int idCentroDeDistribucionEntrega =
@@ -237,7 +236,7 @@ public class ImposicionCDModelo
                     agenciaChecked && agenciaSelected != null ? agenciaSelected.Id : 0;
                 EstadoGuiaEnum estado = ObtenerEstadoInicial(
                     tipoEntrega,
-                    idCentroDeDistribucionImposicion,
+                    Program.CdActual,
                     idCentroDeDistribucionEntrega,
                     idAgenciaEntrega);
 
@@ -247,7 +246,7 @@ public class ImposicionCDModelo
                     CuitDniCuilCliente = cuitCliente,
                     FechaImposicion = fechaActual,
                     TipoImposicion = TipoImposicionEnum.CD,
-                    IdCentroDeDistribucionImposicion = idCentroDeDistribucionImposicion,
+                    IdCentroDeDistribucionImposicion = Program.CdActual,
                     IdAgenciaImposicion = 0,
                     DireccionRetiroDomicilio = string.Empty,
                     TipoEntrega = tipoEntrega,

@@ -118,11 +118,18 @@ namespace TP_CAI_1C2026.Forms
             Hide();
 
             using var principal = new Principal();
-            principal.ShowDialog();
+            var resultado = principal.ShowDialog();
 
             Program.AccesoActual = TipoAcceso.Ninguno;
             Program.CdActual = 0;
             Program.AgenciaActual = 0;
+
+            if (resultado == DialogResult.Abort)
+            {
+                Close();
+                return;
+            }
+
             Show();
         }
     }

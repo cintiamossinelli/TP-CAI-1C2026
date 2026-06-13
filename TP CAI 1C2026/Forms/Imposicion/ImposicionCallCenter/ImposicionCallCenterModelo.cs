@@ -241,7 +241,8 @@ namespace TP_CAI_1C2026.Forms.Imposicion.ImposicionCallCenter
                         CuitDniCuilCliente = cuitCliente,
                         FechaImposicion = fechaActual,
                         TipoImposicion = TipoImposicionEnum.EnDomicilio,
-                        IdCentroDeDistribucionImposicion = ciudadRetiroSelected.Id,
+                        IdCentroDeDistribucionImposicion =
+                            ObtenerIdCentroDeDistribucion(ciudadRetiroSelected.Id),
                         IdAgenciaImposicion = 0,
                         DireccionRetiroDomicilio = direccionCliente,
                         TipoEntrega = ObtenerTipoEntrega(cdChecked, agenciaChecked, domicilioChecked),
@@ -307,11 +308,19 @@ namespace TP_CAI_1C2026.Forms.Imposicion.ImposicionCallCenter
 
             if (domicilioChecked && ciudadDestSelected != null)
             {
-                return ciudadDestSelected.Id;
+                return ObtenerIdCentroDeDistribucion(ciudadDestSelected.Id);
             }
 
             return 0;
         }
+
+        private static int ObtenerIdCentroDeDistribucion(int idCiudad)
+        {
+            return CiudadAlmacen.Ciudades
+                .FirstOrDefault(ciudad => ciudad.IdCiudad == idCiudad)?
+                .IdCentroDeDistribucion ?? 0;
+        }
+
         internal bool ValidarConfirmacion(
             Ciudad? ciudadRetiroSelected,
             string direccionCliente,

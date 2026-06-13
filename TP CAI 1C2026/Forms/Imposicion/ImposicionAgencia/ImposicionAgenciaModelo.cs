@@ -65,6 +65,7 @@ namespace TP_CAI_1C2026.Forms.Imposicion.ImposicionAgencia
                     Nombre = ciudad.Nombre,
                     Agencias = AgenciaAlmacen.Agencias
                         .Where(agencia => ciudad.Agencias.Contains(agencia.IdAgencia))
+                        .Where(agencia => agencia.IdAgencia != Program.AgenciaActual)
                         .Select(agencia => new Agencia
                         {
                             Id = agencia.IdAgencia,
@@ -198,7 +199,7 @@ namespace TP_CAI_1C2026.Forms.Imposicion.ImposicionAgencia
                 {
                     for (int i = 0; i < det.Cantidad; i++)
                     {
-                        resultado.Add($"AG-1-{contador}");
+                        resultado.Add($"AG-{Program.AgenciaActual}-{contador}");
                         contador++;
                     }
                 }
@@ -208,17 +209,17 @@ namespace TP_CAI_1C2026.Forms.Imposicion.ImposicionAgencia
         }
 
         internal List<string> GuardarGuias(
-    string cuitDniCuilCliente,
-    bool cdChecked,
-    CentroDeDistribucion? cdSelected,
-    bool agenciaChecked,
-    Ciudad? ciudadAgenciaSelected,
-    Agencia? agenciaSelected,
-    bool domicilioChecked,
-    Ciudad? ciudadDestSelected,
-    string direccionDest,
-    string dniDest,
-    string nombreDest)
+            string cuitDniCuilCliente,
+            bool cdChecked,
+            CentroDeDistribucion? cdSelected,
+            bool agenciaChecked,
+            Ciudad? ciudadAgenciaSelected,
+            Agencia? agenciaSelected,
+            bool domicilioChecked,
+            Ciudad? ciudadDestSelected,
+            string direccionDest,
+            string dniDest,
+            string nombreDest)
         {
             string cuitCliente = NormalizarCuit(cuitDniCuilCliente) ?? cuitDniCuilCliente;
             DateTime fechaActual = DateTime.Now;
@@ -239,7 +240,7 @@ namespace TP_CAI_1C2026.Forms.Imposicion.ImposicionAgencia
                         FechaImposicion = fechaActual,
                         TipoImposicion = TipoImposicionEnum.Agencia,
                         IdCentroDeDistribucionImposicion = 0,
-                        IdAgenciaImposicion = 1,
+                        IdAgenciaImposicion = Program.AgenciaActual,
                         DireccionRetiroDomicilio = string.Empty,
                         TipoEntrega = ObtenerTipoEntrega(cdChecked, agenciaChecked, domicilioChecked),
                         IdCentroDeDistribucionEntrega = ObtenerIdCentroDeDistribucionEntrega(cdChecked, cdSelected, domicilioChecked, ciudadDestSelected),
@@ -304,11 +305,19 @@ namespace TP_CAI_1C2026.Forms.Imposicion.ImposicionAgencia
 
             if (domicilioChecked && ciudadDestSelected != null)
             {
-                return ciudadDestSelected.Id;
+                return ObtenerIdCentroDeDistribucion(ciudadDestSelected.Id);
             }
 
             return 0;
         }
+
+        private static int ObtenerIdCentroDeDistribucion(int idCiudad)
+        {
+            return CiudadAlmacen.Ciudades
+                .FirstOrDefault(ciudad => ciudad.IdCiudad == idCiudad)?
+                .IdCentroDeDistribucion ?? 0;
+        }
+
         internal bool ValidarConfirmacion(
             bool cdChecked,
             CentroDeDistribucion? cdSelected,

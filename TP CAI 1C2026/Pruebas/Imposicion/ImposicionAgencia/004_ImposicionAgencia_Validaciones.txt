@@ -2,6 +2,7 @@ Plan de Prueba: ImposicionAgencia-Validaciones.txt
 
 Precondición:
 - Restaurar Forms\Datos\Guias.json a su estado inicial.
+- Iniciar sesión con tipo de acceso "Agencia" y seleccionar "Rosario Sur" (IdAgencia 2).
 
 (Empieza con el menú principal)
 1-  Abrir formulario                        "Imposición de Encomienda - Agencia"

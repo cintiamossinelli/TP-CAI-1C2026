@@ -151,5 +151,11 @@ namespace TP_CAI_1C2026.Forms
         {
             Close();
         }
+
+        private void salirToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            DialogResult = DialogResult.Abort;
+            Close();
+        }
     }
 }

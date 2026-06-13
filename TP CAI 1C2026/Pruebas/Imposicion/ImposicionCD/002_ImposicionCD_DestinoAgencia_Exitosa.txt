@@ -3,6 +3,7 @@ Plan de Prueba: ImposicionCD-DestinoAgencia-Exitosa.txt
 Precondición:
 - Restaurar Forms\Datos\Guias.json a su estado inicial.
 - El mayor correlativo de guía existente debe ser 839.
+- Iniciar sesión con tipo de acceso "Centro de distribución" y seleccionar "Buenos Aires" (IdCentroDeDistribucion 2).
 
 (Empieza con el menú principal)
 1-  Abrir formulario                        "Imposición de Encomienda - Centro de Distribución"
@@ -20,7 +21,7 @@ Precondición:
 13- Lista Detalle de Encomienda muestra     "M | 1"
 14- Botón                                   "Confirmar"
 15- Mensaje                                 "Las siguientes guías fueron impuestas correctamente:
-                                             CD-1-840"
+                                             CD-2-840"
 16- Botón                                   "Aceptar"
 17- Cerrar el sistema
 
@@ -28,13 +29,15 @@ Verificaciones:
 18- El formulario queda limpio
 
 19- Archivo Guias.json - la última entrada agregada debe ser similar a:
+    IdCentroDeDistribucionImposicion y el segundo segmento de NroGuia deben
+    coincidir con el CD de la sesión (IdCentroDeDistribucion 2).
 
     {
-      "NroGuia": "CD-1-840",
+      "NroGuia": "CD-2-840",
       "CuitDniCuilCliente": "24078369",
       "FechaImposicion": "<fecha actual>",
       "TipoImposicion": 1,
-      "IdCentroDeDistribucionImposicion": 1,
+      "IdCentroDeDistribucionImposicion": 2,
       "IdAgenciaImposicion": 0,
       "DireccionRetiroDomicilio": "",
       "TipoEntrega": 2,
@@ -55,4 +58,3 @@ Verificaciones:
       "ComisionAgencia": [],
       "IntentosDeEntrega": 0
     }
-

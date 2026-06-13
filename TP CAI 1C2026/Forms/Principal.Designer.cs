@@ -54,12 +54,13 @@
             emisionFacturaMenu = new ToolStripMenuItem();
             resultadoCostoVentaMenu = new ToolStripMenuItem();
             cambiarUsuarioToolStripMenuItem = new ToolStripMenuItem();
+            salirToolStripMenuItem = new ToolStripMenuItem();
             menu.SuspendLayout();
             SuspendLayout();
             // 
             // menu
             // 
-            menu.Items.AddRange(new ToolStripItem[] { imposicionMenu, últimaMillaToolStripMenuItem, troncalToolStripMenuItem, entregasToolStripMenuItem, consultasToolStripMenuItem, administraciónToolStripMenuItem, cambiarUsuarioToolStripMenuItem });
+            menu.Items.AddRange(new ToolStripItem[] { imposicionMenu, últimaMillaToolStripMenuItem, troncalToolStripMenuItem, entregasToolStripMenuItem, consultasToolStripMenuItem, administraciónToolStripMenuItem, cambiarUsuarioToolStripMenuItem, salirToolStripMenuItem });
             menu.Location = new Point(0, 0);
             menu.Name = "menu";
             menu.Size = new Size(1069, 24);
@@ -223,6 +224,13 @@
             cambiarUsuarioToolStripMenuItem.Text = "Cambiar Usuario";
             cambiarUsuarioToolStripMenuItem.Click += cambiarUsuarioToolStripMenuItem_Click;
             // 
+            // salirToolStripMenuItem
+            // 
+            salirToolStripMenuItem.Name = "salirToolStripMenuItem";
+            salirToolStripMenuItem.Size = new Size(41, 20);
+            salirToolStripMenuItem.Text = "Salir";
+            salirToolStripMenuItem.Click += salirToolStripMenuItem_Click;
+            // 
             // Principal
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -268,5 +276,6 @@
         private ToolStripMenuItem emisionFacturaMenu;
         private ToolStripMenuItem resultadoCostoVentaMenu;
         private ToolStripMenuItem cambiarUsuarioToolStripMenuItem;
+        private ToolStripMenuItem salirToolStripMenuItem;
     }
 }
