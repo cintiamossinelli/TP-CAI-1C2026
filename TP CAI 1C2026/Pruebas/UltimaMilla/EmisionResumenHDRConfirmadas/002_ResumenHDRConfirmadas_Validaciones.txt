@@ -3,6 +3,9 @@ Plan de Prueba: ResumenHDRConfirmadas-Validaciones.txt
 Objetivo:
 Validar los mensajes y controles del formulario Emision Resumen HDR Confirmadas sin modificar datos de almacenes.
 
+Precondicion general:
+- Usuario logueado en Centro de Distribucion 1, salvo que el caso indique otro CD.
+
 (Empieza con el menu principal)
 1-  Abrir formulario                         "Emision Resumen HDR Confirmadas"
 
@@ -34,84 +37,94 @@ Validacion fletero inexistente:
 20- Boton del mensaje                        "Aceptar"
 21- Al aceptar el mensaje limpia formulario  DNI vacio, nombre "Nombre del Fletero", ListView vacio
 
-Validacion fletero sin HDR pendientes:
-22- Campo DNI Fletero                        "12354678"
-23- Boton                                    "Buscar"
-24- Nombre del Fletero muestra               "Claudio Ubeda"
-25- Mensaje                                  "El DNI 12354678 no tiene hojas de rutas en transito."
+Validacion fletero existente pero asignado a otro CD:
+22- Usuario logueado                         Centro de Distribucion 1
+23- Campo DNI Fletero                        "10101010"
+24- Boton                                    "Buscar"
+25- Mensaje                                  "No existe ningun fletero registrado con ese DNI."
 26- Boton del mensaje                        "Aceptar"
 27- Al aceptar el mensaje limpia formulario  DNI vacio, nombre "Nombre del Fletero", ListView vacio
-28- Verificar almacenes                      No cambia HDRRetiro.json, HDREntrega.json ni Guias.json
+28- Dato de referencia                       El DNI 10101010 existe, pero pertenece al Centro de Distribucion 2
+
+Validacion fletero sin HDR pendientes:
+29- Usuario logueado                         Centro de Distribucion 1
+30- Campo DNI Fletero                        "12354678"
+31- Boton                                    "Buscar"
+32- Nombre del Fletero muestra               "Claudio Ubeda"
+33- Mensaje                                  "El DNI 12354678 no tiene hojas de rutas en transito."
+34- Boton del mensaje                        "Aceptar"
+35- Al aceptar el mensaje limpia formulario  DNI vacio, nombre "Nombre del Fletero", ListView vacio
+36- Verificar almacenes                      No cambia HDRRetiro.json, HDREntrega.json ni Guias.json
 
 Validacion generar resumen con formulario vacio:
-29- Abrir nuevamente el formulario o mantener pantalla limpia
-30- Verificar pantalla                       DNI vacio, nombre "Nombre del Fletero", ListView vacio
-31- Boton                                    "Generar Resumen de HDR Confirmadas"
-32- Mensaje                                  "Debe ingresar un DNI y presionar Buscar."
-33- Boton del mensaje                        "Aceptar"
-34- Al aceptar el mensaje permanece limpio   DNI vacio, nombre "Nombre del Fletero", ListView vacio
-35- Verificar almacenes                      No cambia HDRRetiro.json, HDREntrega.json ni Guias.json
+37- Abrir nuevamente el formulario o mantener pantalla limpia
+38- Verificar pantalla                       DNI vacio, nombre "Nombre del Fletero", ListView vacio
+39- Boton                                    "Generar Resumen de HDR Confirmadas"
+40- Mensaje                                  "Debe ingresar un DNI y presionar Buscar."
+41- Boton del mensaje                        "Aceptar"
+42- Al aceptar el mensaje permanece limpio   DNI vacio, nombre "Nombre del Fletero", ListView vacio
+43- Verificar almacenes                      No cambia HDRRetiro.json, HDREntrega.json ni Guias.json
 
 Validacion generar resumen sin buscar:
-36- Abrir nuevamente el formulario o mantener pantalla limpia
-37- Campo DNI Fletero                        "11223344"
-38- No presionar el boton Buscar
-39- ListView HDR en transito permanece       Vacio
-40- Boton                                    "Generar Resumen de HDR Confirmadas"
-41- Mensaje                                  "Debe ingresar un DNI y presionar Buscar."
-42- Boton del mensaje                        "Aceptar"
-43- Al aceptar el mensaje no limpia campo    DNI Fletero sigue en "11223344", nombre "Nombre del Fletero", ListView vacio
-44- Verificar almacenes                      No cambia HDRRetiro.json, HDREntrega.json ni Guias.json
+44- Abrir nuevamente el formulario o mantener pantalla limpia
+45- Campo DNI Fletero                        "11223344"
+46- No presionar el boton Buscar
+47- ListView HDR en transito permanece       Vacio
+48- Boton                                    "Generar Resumen de HDR Confirmadas"
+49- Mensaje                                  "Debe ingresar un DNI y presionar Buscar."
+50- Boton del mensaje                        "Aceptar"
+51- Al aceptar el mensaje no limpia campo    DNI Fletero sigue en "11223344", nombre "Nombre del Fletero", ListView vacio
+52- Verificar almacenes                      No cambia HDRRetiro.json, HDREntrega.json ni Guias.json
 
 Validacion DNI borrado luego de cargar HDR:
-45- Campo DNI Fletero                        "11223344"
-46- Boton                                    "Buscar"
-47- Nombre del Fletero muestra               "Jose Lema"
-48- ListView HDR en transito muestra         HDR con prefijos ENT y RET del fletero 11223344
-49- Borrar manualmente Campo DNI Fletero      ""
-50- Marcar cualquier HDR del ListView        Por ejemplo "ENT12"
-51- Boton                                    "Generar Resumen de HDR Confirmadas"
-52- Mensaje                                  "El DNI ingresado no es valido. Actualice el DNI del Fletero."
-53- Boton del mensaje                        "Aceptar"
-54- Al aceptar el mensaje limpia formulario  DNI vacio, nombre "Nombre del Fletero", ListView vacio
-55- Verificar almacenes                      No cambia HDRRetiro.json, HDREntrega.json ni Guias.json
+53- Campo DNI Fletero                        "11223344"
+54- Boton                                    "Buscar"
+55- Nombre del Fletero muestra               "Jose Lema"
+56- ListView HDR en transito muestra         HDR con prefijos ENT y RET del fletero 11223344
+57- Borrar manualmente Campo DNI Fletero      ""
+58- Marcar cualquier HDR del ListView        Por ejemplo "ENT12"
+59- Boton                                    "Generar Resumen de HDR Confirmadas"
+60- Mensaje                                  "El DNI ingresado no es valido. Actualice el DNI del Fletero."
+61- Boton del mensaje                        "Aceptar"
+62- Al aceptar el mensaje limpia formulario  DNI vacio, nombre "Nombre del Fletero", ListView vacio
+63- Verificar almacenes                      No cambia HDRRetiro.json, HDREntrega.json ni Guias.json
 
 Validacion DNI cambiado luego de buscar:
-56- Campo DNI Fletero                        "11223344"
-57- Boton                                    "Buscar"
-58- Nombre del Fletero muestra               "Jose Lema"
-59- ListView HDR en transito muestra         HDR con prefijos ENT y RET del fletero 11223344
-60- Cambiar Campo DNI Fletero manualmente a  "10101010"
-61- Marcar cualquier HDR del ListView        Por ejemplo "ENT12"
-62- Boton                                    "Generar Resumen de HDR Confirmadas"
-63- Mensaje                                  "El DNI ingresado no pertenece a las hojas de ruta mostradas. Por favor actualice el DNI del Fletero."
-64- Boton del mensaje                        "Aceptar"
-65- Al aceptar el mensaje limpia formulario  DNI vacio, nombre "Nombre del Fletero", ListView vacio
-66- Verificar almacenes                      No cambia HDRRetiro.json, HDREntrega.json ni Guias.json
+64- Campo DNI Fletero                        "11223344"
+65- Boton                                    "Buscar"
+66- Nombre del Fletero muestra               "Jose Lema"
+67- ListView HDR en transito muestra         HDR con prefijos ENT y RET del fletero 11223344
+68- Cambiar Campo DNI Fletero manualmente a  "10101010"
+69- Marcar cualquier HDR del ListView        Por ejemplo "ENT12"
+70- Boton                                    "Generar Resumen de HDR Confirmadas"
+71- Mensaje                                  "El DNI ingresado no pertenece a las hojas de ruta mostradas. Por favor actualice el DNI del Fletero."
+72- Boton del mensaje                        "Aceptar"
+73- Al aceptar el mensaje limpia formulario  DNI vacio, nombre "Nombre del Fletero", ListView vacio
+74- Verificar almacenes                      No cambia HDRRetiro.json, HDREntrega.json ni Guias.json
 
 Validacion boton Cancelar:
-67- Campo DNI Fletero                        "11223344"
-68- Boton                                    "Buscar"
-69- Nombre del Fletero muestra               "Jose Lema"
-70- ListView HDR en transito muestra         HDR pendientes del fletero
-71- Boton                                    "Cancelar"
-72- Al presionar Cancelar limpia formulario  DNI vacio, nombre "Nombre del Fletero", ListView vacio
-73- Verificar almacenes                      No cambia HDRRetiro.json, HDREntrega.json ni Guias.json
+75- Campo DNI Fletero                        "11223344"
+76- Boton                                    "Buscar"
+77- Nombre del Fletero muestra               "Jose Lema"
+78- ListView HDR en transito muestra         HDR pendientes del fletero
+79- Boton                                    "Cancelar"
+80- Al presionar Cancelar limpia formulario  DNI vacio, nombre "Nombre del Fletero", ListView vacio
+81- Verificar almacenes                      No cambia HDRRetiro.json, HDREntrega.json ni Guias.json
 
 Validacion HDR de entrega en agencia sin marcar:
-74- Campo DNI Fletero                        "11223344"
-75- Boton                                    "Buscar"
-76- Marcar cualquier HDR excepto              "ENT15"
-77- Dejar sin marcar                         "ENT15 | Agencia 2 (Rosario Sur) | 1"
-78- Boton                                    "Generar Resumen de HDR Confirmadas"
-79- Mensaje                                  "Las HDR de entrega en agencia deben estar marcadas."
-80- Boton del mensaje                        "Aceptar"
-81- El formulario conserva los datos         DNI, nombre y ListView sin cambios
-82- Verificar almacenes                      No cambia HDRRetiro.json, HDREntrega.json ni Guias.json
+82- Campo DNI Fletero                        "11223344"
+83- Boton                                    "Buscar"
+84- Marcar cualquier HDR excepto              "ENT15"
+85- Dejar sin marcar                         "ENT15 | Agencia 2 (Rosario Sur) | 1"
+86- Boton                                    "Generar Resumen de HDR Confirmadas"
+87- Mensaje                                  "Las HDR de entrega en agencia deben estar marcadas."
+88- Boton del mensaje                        "Aceptar"
+89- El formulario conserva los datos         DNI, nombre y ListView sin cambios
+90- Verificar almacenes                      No cambia HDRRetiro.json, HDREntrega.json ni Guias.json
 
 Verificaciones generales:
-83- En las validaciones 2 a 82 no deben cambiar estados de HDR.
-84- En las validaciones 2 a 82 no deben agregarse entradas al Historial de Guias.
-85- En las validaciones 2 a 82 no deben agregarse ComisionFletero.
-86- En las validaciones 2 a 82 no deben cambiar IntentosDeEntrega.
-87- En las validaciones 2 a 82 no debe cambiar PrecioVenta.
+91- En las validaciones 2 a 90 no deben cambiar estados de HDR.
+92- En las validaciones 2 a 90 no deben agregarse entradas al Historial de Guias.
+93- En las validaciones 2 a 90 no deben agregarse ComisionFletero.
+94- En las validaciones 2 a 90 no deben cambiar IntentosDeEntrega.
+95- En las validaciones 2 a 90 no debe cambiar PrecioVenta.
