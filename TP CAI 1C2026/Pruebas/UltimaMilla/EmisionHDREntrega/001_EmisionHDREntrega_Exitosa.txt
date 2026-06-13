@@ -1,6 +1,6 @@
 Plan de Prueba: EmisionHDREntrega-Exitosa.txt
 
-(Empieza con el menú principal)
+(Empieza con el menú principal — logueado como CD N° 1)
 1-  Abrir formulario                        "Emisión de HDR de Entrega"
 2-  Campo DNI Fletero                       "11223344"
 3-  Botón                                   "Buscar"

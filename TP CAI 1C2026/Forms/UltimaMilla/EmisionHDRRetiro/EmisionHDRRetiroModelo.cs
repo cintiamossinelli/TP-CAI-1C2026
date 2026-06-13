@@ -50,6 +50,17 @@ internal class EmisionHDRRetiroModelo
             return null;
         }
 
+        if (entidad.IdCentroDeDistribucion != Program.CdActual)
+        {
+            MessageBox.Show(
+                "El fletero no pertenece al CD logueado.",
+                "Error",
+                MessageBoxButtons.OK,
+                MessageBoxIcon.Error);
+
+            return null;
+        }
+
         _idCDFletero = entidad.IdCentroDeDistribucion;
 
         fleteroSeleccionado = new Fletero

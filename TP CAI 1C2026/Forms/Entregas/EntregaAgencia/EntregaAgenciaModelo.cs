@@ -34,7 +34,8 @@ internal class EntregaAgenciaModelo
             .FirstOrDefault(g =>
                 g.DniDestinatario == dni
                 && g.Estado == EstadoGuiaEnum.PendienteDeEntrega
-                && g.TipoEntrega == TipoEntregaEnum.Agencia);
+                && g.TipoEntrega == TipoEntregaEnum.Agencia
+                && g.IdAgenciaEntrega == Program.AgenciaActual);
 
         if (guiaEntidad == null)
         {
@@ -61,7 +62,8 @@ internal class EntregaAgenciaModelo
             .Where(g =>
                 g.DniDestinatario == dni
                 && g.Estado == EstadoGuiaEnum.PendienteDeEntrega
-                && g.TipoEntrega == TipoEntregaEnum.Agencia)
+                && g.TipoEntrega == TipoEntregaEnum.Agencia
+                && g.IdAgenciaEntrega == Program.AgenciaActual)
             .Select(g => new Guia
             {
                 NGuia = g.NroGuia,

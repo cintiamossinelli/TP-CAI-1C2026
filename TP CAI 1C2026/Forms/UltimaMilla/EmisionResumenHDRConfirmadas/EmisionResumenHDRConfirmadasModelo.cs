@@ -47,7 +47,8 @@ namespace TP_CAI_1C2026.Forms.UltimaMilla.EmisionResumenHDRConfirmadas
                 return null;
 
             FleteroEntidad? entidad = FleteroAlmacen.Fleteros
-                .FirstOrDefault(f => f.DNI == dniInt);
+                .FirstOrDefault(f => f.DNI == dniInt &&
+                                     f.IdCentroDeDistribucion == Program.CdActual);
 
             if (entidad == null)
                 return null;

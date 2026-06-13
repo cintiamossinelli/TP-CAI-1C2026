@@ -1,6 +1,6 @@
 Plan de Prueba: EntregaAgencia-Exitosa.txt
 
-(Empieza con el menú principal)
+(Empieza con el menú principal — logueado como Agencia N° 6)
 1-  Abrir formulario                        "Entrega de Encomienda - Agencia"
 2-  Campo DNI Destinatario                  "20111222"
 3-  Botón                                   "Buscar"
@@ -8,7 +8,7 @@ Plan de Prueba: EntregaAgencia-Exitosa.txt
 5-  Seleccionar guía                        "AG-5-167"
 6-  Botón                                   "Retirar"
 7-  Mensaje                                 "Entrega registrada correctamente.
-                                             Guias entregadas:
+                                             Guías entregadas:
                                              - AG-5-167 | S"
 8-  Botón                                   "Aceptar"
 9-  Cerrar el sistema
