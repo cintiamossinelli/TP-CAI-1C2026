@@ -1,6 +1,6 @@
 Plan de Prueba: EmisionHDREntrega-Validaciones.txt
 
-(Empieza con el menú principal)
+(Empieza con el menú principal — logueado como CD N° 1)
 1-  Abrir formulario                        "Emisión de HDR de Entrega"
 2-  Campo DNI Fletero                       ""
 3-  Botón                                   "Buscar"
@@ -14,51 +14,57 @@ Plan de Prueba: EmisionHDREntrega-Validaciones.txt
 11- Botón                                   "Buscar"
 12- Mensaje                                 "No se encontró ningún fletero con DNI 99999999."
 13- Botón                                   "Aceptar"
-14- Botón                                   "Buscar" por Localidad
-15- Mensaje                                 "Debe seleccionar una localidad."
-16- Botón                                   "Aceptar"
-17- Campo DNI Fletero                       "11223344"
-18- Botón                                   "Buscar"
-19- Nombre del Fletero muestra              "José Lema"
-20- Combobox Localidad se selecciona auto   "Rosario"
-21- Campo Nº Guía                           ""
-22- Botón                                   "Buscar" (buscar guía)
-23- Mensaje                                 "Debe ingresar un número de guía."
-24- Botón                                   "Aceptar"
-25- Campo Nº Guía                           "CC-1-999"
+(Cambiar Program.CdActual a un valor distinto al del fletero para probar la validación)
+14- Campo DNI Fletero                       "11223344"
+15- Botón                                   "Buscar"
+16- Mensaje                                 "El fletero no pertenece al CD logueado."
+17- Botón                                   "Aceptar"
+(Restaurar Program.CdActual al valor original)
+18- Botón                                   "Buscar" por Localidad
+19- Mensaje                                 "Debe seleccionar una localidad."
+20- Botón                                   "Aceptar"
+21- Campo DNI Fletero                       "11223344"
+22- Botón                                   "Buscar"
+23- Nombre del Fletero muestra              "José Lema"
+24- Combobox Localidad se selecciona auto   "Rosario"
+25- Campo Nº Guía                           ""
 26- Botón                                   "Buscar" (buscar guía)
-27- Mensaje                                 "No se encontró ninguna guía con el número CC-1-999."
+27- Mensaje                                 "Debe ingresar un número de guía."
 28- Botón                                   "Aceptar"
-29- (No se selecciona ninguna guía)
-30- Botón                                   "Agregar >>>"
-31- Mensaje                                 "Debe seleccionar al menos una guía para agregar."
+29- Campo Nº Guía                           "CC-1-999"
+30- Botón                                   "Buscar" (buscar guía)
+31- Mensaje                                 "No se encontró ninguna guía con el número CC-1-999."
 32- Botón                                   "Aceptar"
-33- (No se agrega ninguna guía)
-34- Botón                                   "Generar HDR"
-35- Mensaje                                 "Debe agregar al menos una guía a la HDR."
+33- (No se selecciona ninguna guía)
+34- Botón                                   "Agregar >>>"
+35- Mensaje                                 "Debe seleccionar al menos una guía para agregar."
 36- Botón                                   "Aceptar"
-37- Seleccionar guía                        "CC-1-827"
-38- Botón                                   "Agregar >>>"
-39- Lista guías agregadas muestra           "CC-1-827 | S | Av. Pellegrini 450, Rosario"
-40- (No se selecciona ninguna guía del lado derecho)
-41- Botón                                   "<<< Quitar"
-42- Mensaje                                 "Debe seleccionar al menos una guía para quitar."
-43- Botón                                   "Aceptar"
-44- Seleccionar guía                        "CC-1-830"
-45- Botón                                   "Agregar >>>"
-46- Lista guías agregadas muestra           "CC-1-827 | S | Av. Pellegrini 450, Rosario"
+37- (No se agrega ninguna guía)
+38- Botón                                   "Generar HDR"
+39- Mensaje                                 "Debe agregar al menos una guía a la HDR."
+40- Botón                                   "Aceptar"
+41- Seleccionar guía                        "CC-1-827"
+42- Botón                                   "Agregar >>>"
+43- Lista guías agregadas muestra           "CC-1-827 | S | Av. Pellegrini 450, Rosario"
+44- (No se selecciona ninguna guía del lado derecho)
+45- Botón                                   "<<< Quitar"
+46- Mensaje                                 "Debe seleccionar al menos una guía para quitar."
+47- Botón                                   "Aceptar"
+48- Seleccionar guía                        "CC-1-830"
+49- Botón                                   "Agregar >>>"
+50- Lista guías agregadas muestra           "CC-1-827 | S | Av. Pellegrini 450, Rosario"
                                             "CC-1-830 | XL | Bv. Oroño 200, Rosario"
-47- Botón                                   "Generar HDR"
-48- Mensaje                                 "Todas las guías deben tener el mismo lugar de entrega."
-49- Botón                                   "Aceptar"
-50- Botón                                   "Cancelar"
-51- Cerrar el sistema
+51- Botón                                   "Generar HDR"
+52- Mensaje                                 "Todas las guías deben tener el mismo lugar de entrega."
+53- Botón                                   "Aceptar"
+54- Botón                                   "Cancelar"
+55- Cerrar el sistema
 
 Verificaciones:
-52- El campo DNI Fletero queda vacío        ""
-53- El campo Nombre del Fletero muestra     "Nombre del Fletero"
-54- El combobox Localidad está vacío
-55- La lista de guías sin agregar está vacía
-56- La lista de guías agregadas está vacía
-57- Archivo HDREntrega.json — no se agregó ninguna entrada nueva
-58- Archivo Guias.json — ninguna guía cambió de estado
+56- El campo DNI Fletero queda vacío        ""
+57- El campo Nombre del Fletero muestra     "Nombre del Fletero"
+58- El combobox Localidad está vacío
+59- La lista de guías sin agregar está vacía
+60- La lista de guías agregadas está vacía
+61- Archivo HDREntrega.json — no se agregó ninguna entrada nueva
+62- Archivo Guias.json — ninguna guía cambió de estado

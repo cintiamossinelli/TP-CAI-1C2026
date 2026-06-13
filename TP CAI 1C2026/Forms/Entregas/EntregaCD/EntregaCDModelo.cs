@@ -34,7 +34,8 @@ internal class EntregaCDModelo
             .FirstOrDefault(g =>
                 g.DniDestinatario == dni
                 && g.Estado == EstadoGuiaEnum.PendienteDeEntrega
-                && g.TipoEntrega == TipoEntregaEnum.CD);
+                && g.TipoEntrega == TipoEntregaEnum.CD
+                && g.IdCentroDeDistribucionEntrega == Program.CdActual);
 
         if (guiaEntidad == null)
         {
@@ -61,7 +62,8 @@ internal class EntregaCDModelo
             .Where(g =>
                 g.DniDestinatario == dni
                 && g.Estado == EstadoGuiaEnum.PendienteDeEntrega
-                && g.TipoEntrega == TipoEntregaEnum.CD)
+                && g.TipoEntrega == TipoEntregaEnum.CD
+                && g.IdCentroDeDistribucionEntrega == Program.CdActual)
             .Select(g => new Guia
             {
                 NGuia = g.NroGuia,

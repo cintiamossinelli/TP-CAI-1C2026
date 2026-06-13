@@ -1,6 +1,6 @@
 Plan de Prueba: EntregaCD-Validaciones.txt
 
-(Empieza con el menú principal)
+(Empieza con el menú principal — logueado como CD N° 2)
 1-  Abrir formulario                        "Entrega de Encomienda - CD"
 2-  Campo DNI Destinatario                  ""
 3-  Botón                                   "Buscar"
@@ -14,17 +14,23 @@ Plan de Prueba: EntregaCD-Validaciones.txt
 11- Botón                                   "Buscar"
 12- Mensaje                                 "No se encontró ningún destinatario con DNI 30123456."
 13- Botón                                   "Aceptar"
+(Cambiar Program.CdActual a un valor distinto al de la guía para probar la validación)
 14- Campo DNI Destinatario                  "20333445"
 15- Botón                                   "Buscar"
-16- Lista Guías Asociadas muestra           "CD-1-169 | PendienteDeEntrega | L"
-17- (No seleccionar ninguna guía)
-18- Botón                                   "Retirar"
-19- Mensaje                                 "Debe seleccionar al menos una guía para entregar."
-20- Botón                                   "Aceptar"
-21- Botón                                   "Cancelar"
-22- Cerrar el sistema
+16- Mensaje                                 "No se encontró ningún destinatario con DNI 20333445."
+17- Botón                                   "Aceptar"
+(Restaurar Program.CdActual al valor original)
+18- Campo DNI Destinatario                  "20333445"
+19- Botón                                   "Buscar"
+20- Lista Guías Asociadas muestra           "CD-1-169 | PendienteDeEntrega | L"
+21- (No seleccionar ninguna guía)
+22- Botón                                   "Retirar"
+23- Mensaje                                 "Debe seleccionar al menos una guía para entregar."
+24- Botón                                   "Aceptar"
+25- Botón                                   "Cancelar"
+26- Cerrar el sistema
 
 Verificaciones:
-23- El campo DNI Destinatario queda vacío   ""
-24- La lista Guías Asociadas está vacía
-25- Archivo Guias.json — ninguna guía cambió de estado
+27- El campo DNI Destinatario queda vacío   ""
+28- La lista Guías Asociadas está vacía
+29- Archivo Guias.json — ninguna guía cambió de estado
