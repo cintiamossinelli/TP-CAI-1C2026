@@ -24,12 +24,21 @@ namespace TP_CAI_1C2026.Forms.UltimaMilla.EmisionResumenHDR
             }
 
             var fleteroEntidad = FleteroAlmacen.Fleteros
-                .FirstOrDefault(f => f.DNI.ToString() == dniNormalizado
-                && f.IdCentroDeDistribucion == Program.CdActual);
+                .FirstOrDefault(f => f.DNI.ToString() == dniNormalizado);
 
             if (fleteroEntidad == null)
             {
                 MessageBox.Show($"No se encontró un fletero con DNI {dniNormalizado}.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return null;
+            }
+
+            if (fleteroEntidad.IdCentroDeDistribucion != Program.CdActual)
+            {
+                MessageBox.Show(
+                    "El fletero debe coincidir con el CD logueado.",
+                    "Error",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Error);
                 return null;
             }
 

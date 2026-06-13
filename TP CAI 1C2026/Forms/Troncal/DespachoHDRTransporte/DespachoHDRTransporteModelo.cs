@@ -86,7 +86,38 @@ namespace TP_CAI_1C2026.Forms.Troncal.DespachoHDRTransporte
                 .ToList();
         }
 
-        internal void DespacharGuias(List<string> numerosGuias)
+        internal bool DespacharServicio(Servicio servicio)
+        {
+            if (servicio == null)
+            {
+                return false;
+            }
+
+            var hdr = HDRTransporteAlmacen.HDRTransportes
+                .FirstOrDefault(h =>
+                    h.NroHDR == servicio.Id
+                    && h.IdCentroDeDistribucionOrigen == Program.CdActual);
+
+            if (hdr == null || hdr.Guias == null || hdr.Guias.Count == 0)
+            {
+                return false;
+            }
+
+            var guias = GuiaAlmacen.Guias
+                .Where(g => hdr.Guias.Contains(g.NroGuia))
+                .ToList();
+
+            if (guias.Count != hdr.Guias.Count
+                || guias.Any(g => g.Estado != EstadoGuiaEnum.PendienteDeTransporte))
+            {
+                return false;
+            }
+
+            DespacharGuias(hdr.Guias);
+            return true;
+        }
+
+        private void DespacharGuias(IEnumerable<string> numerosGuias)
         {
             var fechaActual = DateTime.Now;
 

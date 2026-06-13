@@ -4,9 +4,13 @@ Objetivo:
 Validar el despacho exitoso de las guias asociadas a una HDR de transporte cuyo servicio se encuentra dentro de los proximos 10 dias y cuyas guias estan pendientes de transporte.
 
 Datos de prueba:
+- Configurar la fecha del equipo en 11/06/2026.
+- Iniciar sesión con tipo de acceso "Centro de distribución" y seleccionar
+  "Rosario" (IdCentroDeDistribucion 1).
 - HDR Transporte:
   NroHDR: 6
   IdServicio: 15
+  IdCentroDeDistribucionOrigen: 1
   Guia: CC-2-838
 - Servicio:
   Empresa: Flechabus
@@ -20,6 +24,8 @@ Datos de prueba:
 1-  Abrir formulario                         "Despacho de Hoja de Ruta de Ómnibus"
 2-  Combo Servicio de Ómnibus muestra        "Flechabus - 12/06/2026 22:10"
                                              "Chevallier - 14/06/2026 20:05"
+    Las HDR mostradas tienen IdCentroDeDistribucionOrigen 1, igual al CD
+    "Rosario" de la sesión.
 3-  Seleccionar servicio                     "Flechabus - 12/06/2026 22:10"
 4-  ListView muestra                         "CC-2-838 | 2 | Sarmiento 525"
 5-  Boton                                    "Despachar HDR"
@@ -46,3 +52,5 @@ Verificaciones generales:
 16- No se modifican otras guias.
 17- No se modifica HDRTransporte.json ni Servicios.json.
 18- Al recargar los servicios, la HDR 6 deja de aparecer porque su guia ya no esta en estado PendienteDeTransporte(9).
+19- Ninguna HDR cuyo IdCentroDeDistribucionOrigen sea distinto de 1 estuvo
+    disponible para seleccionar.

@@ -57,7 +57,10 @@ public class EmisionHDRTransporteModelo
 
         var resultado = transportes
             .Where(t => t.Fecha.Date == fecha.Date)
-            .Where(t => t.Destino.Id == destinoSeleccionado.Id);
+            .Where(t => t.Destino.Id == destinoSeleccionado.Id)
+            .Where(t => !ParadaYaAsignada(
+                t.IdServicio,
+                t.Destino.Id));
 
         if (empresaSeleccionada != null)
         {
@@ -178,6 +181,18 @@ public class EmisionHDRTransporteModelo
             return null;
         }
 
+        if (ParadaYaAsignada(
+            transporteSeleccionado!.IdServicio,
+            destinoSeleccionado!.Id))
+        {
+            MessageBox.Show(
+                "La parada seleccionada ya tiene una Hoja de Ruta de Transporte asignada.",
+                "Error",
+                MessageBoxButtons.OK,
+                MessageBoxIcon.Error);
+            return null;
+        }
+
         if (Program.CdActual <= 0)
         {
             MessageBox.Show("No se pudo determinar el Centro de Distribución logueado.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -220,6 +235,16 @@ public class EmisionHDRTransporteModelo
         if (destinoSeleccionado == null)
         {
             MessageBox.Show("Debe seleccionar un Centro de Distribución destino.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            return false;
+        }
+
+        if (destinoSeleccionado.Id == Program.CdActual)
+        {
+            MessageBox.Show(
+                "El Centro de Distribución destino debe ser distinto al Centro de Distribución logueado.",
+                "Error",
+                MessageBoxButtons.OK,
+                MessageBoxIcon.Error);
             return false;
         }
 
@@ -339,6 +364,16 @@ public class EmisionHDRTransporteModelo
     {
         return ServicioAlmacen.Servicios
             .FirstOrDefault(servicio => servicio.IdServicio == transporte.IdServicio);
+    }
+
+    private static bool ParadaYaAsignada(
+        int idServicio,
+        int idCentroDeDistribucionDestino)
+    {
+        return HDRTransporteAlmacen.HDRTransportes.Any(hdr =>
+            hdr.IdServicio == idServicio
+            && hdr.IdCentroDeDistribucionDestino ==
+                idCentroDeDistribucionDestino);
     }
 
     private int? ResolverIdCentroDestino(GuiaEntidad guia)

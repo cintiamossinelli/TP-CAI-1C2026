@@ -4,9 +4,12 @@ Objetivo:
 Validar la emision exitosa del resumen de HDR para un fletero con hojas de ruta emitidas, verificando la carga de entregas y retiros y los estados finales segun el tipo de entrega.
 
 Datos de prueba:
+- Iniciar sesión con tipo de acceso "Centro de distribución" y seleccionar
+  "Buenos Aires" (IdCentroDeDistribucion 2).
 - Fletero:
   DNI: 10101010
   Nombre: Diego Maradona
+  IdCentroDeDistribucion: 2
 - HDR de entrega en estado Emitida(1):
   16 | Agencia 5 (Microcentro) | 1 | Guia CD-2-174 | Entrega en agencia
   17 | Agencia 6 (Palermo) | 1 | Guia AG-9-176 | Entrega en agencia
@@ -66,3 +69,5 @@ Verificaciones en HDRRetiro.json:
 Verificaciones generales:
 23- Solo se modifican las HDR del fletero 10101010 que estaban en estado Emitida(1).
 24- Las guias asociadas no cambian de estado ni agregan entradas a su historial.
+25- La búsqueda fue permitida porque Diego Maradona pertenece al CD
+    "Buenos Aires" seleccionado en el login.

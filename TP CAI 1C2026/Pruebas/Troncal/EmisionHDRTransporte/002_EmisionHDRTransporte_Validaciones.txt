@@ -4,11 +4,13 @@ Precondiciones:
 - Restaurar Forms\Datos\HDRTransporte.json y Forms\Datos\Guias.json
   a su estado inicial.
 - Configurar la fecha del equipo en 11/06/2026.
-- Iniciar sesión seleccionando el Centro de Distribución "Rosario".
+- Iniciar sesión con tipo de acceso "Centro de distribución" y seleccionar
+  "Rosario" (IdCentroDeDistribucion 1).
 
 (Empieza con el menú principal)
 1-  Abrir formulario                        "Emisión de Hoja de Ruta de Ómnibus"
 2-  Verificar que el Centro de Distribución "Rosario" no aparece como destino disponible
+    El combo solo debe permitir seleccionar un CD distinto del CD de la sesión.
 3-  Campo Fecha                             "15/06/2026"
 4-  Centro de Distribución Destino          (sin selección)
 5-  Botón                                   "Buscar" (buscar transporte)
@@ -19,19 +21,21 @@ Precondiciones:
 10- Botón                                   "Buscar" (buscar transporte)
 11- Mensaje                                 "La fecha debe ser igual a hoy o posterior."
 12- Botón                                   "Aceptar"
-13- Campo Fecha                             "12/06/2026"
-14- Empresa de Transporte                   (sin selección)
+13- Campo Fecha                             "15/06/2026"
+14- Empresa de Transporte                   "Chevallier"
 15- Botón                                   "Buscar" (buscar transporte)
 16- Mensaje                                 "No se encontraron transportes para los filtros ingresados."
 17- Botón                                   "Aceptar"
-18- Campo Fecha                             "15/06/2026"
-19- Empresa de Transporte                   "Chevallier"
+    Dato de referencia: el Servicio 16, parada Buenos Aires, ya está
+    asignado a la HDR N° 7.
+18- Campo Fecha                             "22/06/2026"
+19- Empresa de Transporte                   "Pullman"
 20- Botón                                   "Buscar" (buscar transporte)
-21- Lista de transportes muestra            "15/06/2026 | 17:35 | Chevallier | Buenos Aires"
+21- Lista de transportes muestra            "22/06/2026 | 18:25 | Pullman | Buenos Aires"
 22- Botón                                   "Generar HDR" (sin seleccionar transporte)
 23- Mensaje                                 "Debe seleccionar un transporte."
 24- Botón                                   "Aceptar"
-25- Seleccionar transporte                  "15/06/2026 | 17:35 | Chevallier | Buenos Aires"
+25- Seleccionar transporte                  "22/06/2026 | 18:25 | Pullman | Buenos Aires"
 26- Campo N° Guía                           "XX-9-999"
 27- Botón                                   "Buscar" (buscar guía)
 28- Mensaje                                 "No existen guías que coincidan con la búsqueda."

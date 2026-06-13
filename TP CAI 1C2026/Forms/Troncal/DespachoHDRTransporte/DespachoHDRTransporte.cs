@@ -62,12 +62,17 @@
                 return;
             }
 
-            var numerosGuias = listView1.Items
-                .Cast<ListViewItem>()
-                .Select(item => item.Text)
-                .ToList();
-
-            modelo.DespacharGuias(numerosGuias);
+            if (HDRnumCMB.SelectedItem is not Servicio servicioSeleccionado
+                || !modelo.DespacharServicio(servicioSeleccionado))
+            {
+                MessageBox.Show(
+                    "La hoja de ruta seleccionada no corresponde al Centro de Distribución logueado o ya no está disponible.",
+                    "Validación",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Warning);
+                CargarServiciosDisponibles();
+                return;
+            }
 
             MessageBox.Show("Se han despachado las guía/s con éxito.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
 

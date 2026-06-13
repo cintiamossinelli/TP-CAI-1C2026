@@ -5,7 +5,8 @@ Precondiciones:
   a su estado inicial.
 - Configurar la fecha del equipo en 11/06/2026.
 - El mayor número de HDR de transporte existente debe ser 7.
-- Iniciar sesión seleccionando el Centro de Distribución "Rosario".
+- Iniciar sesión con tipo de acceso "Centro de distribución" y seleccionar
+  "Rosario" (IdCentroDeDistribucion 1).
 
 (Empieza con el menú principal)
 1-  Abrir formulario                        "Emisión de Hoja de Ruta de Ómnibus"
@@ -17,11 +18,11 @@ Precondiciones:
     - Lista de transportes vacía y deshabilitada
     - Sección de guías deshabilitada
 3-  Combobox Centro de Distribución Destino "Buenos Aires"
-4-  Campo Fecha                             "15/06/2026"
-5-  Combobox Empresa de Transporte          "Chevallier"
+4-  Campo Fecha                             "22/06/2026"
+5-  Combobox Empresa de Transporte          "Pullman"
 6-  Botón                                   "Buscar" (buscar transporte)
-7-  Lista de transportes muestra            "15/06/2026 | 17:35 | Chevallier | Buenos Aires"
-8-  Seleccionar transporte                  "15/06/2026 | 17:35 | Chevallier | Buenos Aires"
+7-  Lista de transportes muestra            "22/06/2026 | 18:25 | Pullman | Buenos Aires"
+8-  Seleccionar transporte                  "22/06/2026 | 18:25 | Pullman | Buenos Aires"
 9-  Sección de guías queda habilitada
 10- Campo N° Guía                           "CD-1-8"
 11- Botón                                   "Buscar" (buscar guía)
@@ -60,12 +61,17 @@ Verificaciones:
 
     {
       "NroHDR": 8,
-      "IdServicio": 16,
+      "IdServicio": 20,
       "FechaEmision": "<fecha actual>",
       "IdCentroDeDistribucionOrigen": 1,
       "IdCentroDeDistribucionDestino": 2,
       "Guias": [ "CD-1-820", "CD-1-824", "CD-1-816"]
     }
+
+    IdCentroDeDistribucionOrigen debe coincidir con el CD "Rosario"
+    (IdCentroDeDistribucion 1) seleccionado en el login.
+    La combinación IdServicio 20 + IdCentroDeDistribucionDestino 2
+    identifica la parada asignada y no debe repetirse en otra HDR.
 
     
 
@@ -107,3 +113,5 @@ Verificaciones:
 34- La HDR también puede generarse con guías de distintos Centros de Distribución de origen.
     IdCentroDeDistribucionOrigen siempre toma el ID del Centro de Distribución
     seleccionado en el Login.
+35- Un mismo IdServicio puede aparecer en otra HDR solamente si tiene un
+    IdCentroDeDistribucionDestino diferente, es decir, otra parada.

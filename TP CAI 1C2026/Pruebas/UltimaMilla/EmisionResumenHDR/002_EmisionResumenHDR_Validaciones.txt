@@ -3,6 +3,10 @@ Plan de Prueba: EmisionResumenHDR-Validaciones.txt
 Objetivo:
 Validar en un unico caso los mensajes y controles del formulario Emision de Resumen de HDR sin modificar los almacenes.
 
+Precondición:
+- Iniciar sesión con tipo de acceso "Centro de distribución" y seleccionar
+  "Buenos Aires" (IdCentroDeDistribucion 2).
+
 (Empieza con el menu principal)
 1-  Abrir formulario                         "Emisión de Resumen de HDR"
 
@@ -34,13 +38,30 @@ Validacion fletero inexistente:
 20- Boton del mensaje                        "Aceptar"
 21- Pantalla queda sin HDR                   Nombre vacio y ambos ListView vacios
 
+Validacion fletero asociado a otro CD:
+21.1- Campo DNI Fletero                      "11223344"
+21.2- Boton                                  "Buscar"
+21.3- Mensaje                                "El fletero debe coincidir con el CD logueado."
+21.4- Boton del mensaje                      "Aceptar"
+21.5- Pantalla queda sin HDR                 Nombre vacio y ambos ListView vacios
+      Dato de referencia: José Lema pertenece al CD "Rosario"
+      (IdCentroDeDistribucion 1), pero la sesión corresponde a
+      "Buenos Aires" (IdCentroDeDistribucion 2).
+
 Validacion fletero sin HDR emitidas:
-22- Campo DNI Fletero                        "12354678"
-23- Boton                                    "Buscar"
-24- Nombre del Fletero se carga inicialmente "Claudio Úbeda"
-25- Mensaje                                  "El DNI 12354678 no tiene hojas de ruta asociadas."
-26- Boton del mensaje                        "Aceptar"
-27- Luego del mensaje queda                  Nombre vacio y ambos ListView vacios
+22.1- Cerrar el formulario y cerrar sesión
+22.2- Iniciar sesión con tipo de acceso      "Centro de distribución"
+22.3- Centro de distribución                 "Rosario" (IdCentroDeDistribucion 1)
+22.4- Abrir formulario                       "Emisión de Resumen de HDR"
+22.5- Campo DNI Fletero                      "12354678"
+22.6- Boton                                  "Buscar"
+22.7- Nombre del Fletero se carga inicialmente "Claudio Úbeda"
+22.8- Mensaje                                "El DNI 12354678 no tiene hojas de ruta asociadas."
+22.9- Boton del mensaje                      "Aceptar"
+22.10- Luego del mensaje queda               Nombre vacio y ambos ListView vacios
+22.11- Cerrar el formulario y cerrar sesión
+22.12- Iniciar sesión nuevamente en          "Buenos Aires" (IdCentroDeDistribucion 2)
+22.13- Abrir formulario                      "Emisión de Resumen de HDR"
 
 Validacion generar sin HDR cargadas:
 28- Boton                                    "Cancelar"
