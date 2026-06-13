@@ -16,19 +16,29 @@ using TP_CAI_1C2026.Forms.Troncal.EmisionHDRTransporte;
 using TP_CAI_1C2026.Forms.Imposicion.ImposicionAgencia;
 using TP_CAI_1C2026.Forms.Troncal.DespachoHDRTransporte;
 using TP_CAI_1C2026.Forms.UltimaMilla.EmisionResumenHDR;
+using TP_CAI_1C2026.Forms;
 
 namespace TP_CAI_1C2026
 {
+    internal enum TipoAcceso
+    {
+        Ninguno,
+        CentroDeDistribucion,
+        Agencia,
+        CallCenter
+    }
+
     internal static class Program
     {
-        public static int CdActual { get; set; } = 1;
-        public static int AgenciaActual { get; set; } = 1;
+        public static TipoAcceso AccesoActual { get; set; } = TipoAcceso.Ninguno;
+        public static int CdActual { get; set; }
+        public static int AgenciaActual { get; set; }
 
         [STAThread]
         static void Main()
         {
             ApplicationConfiguration.Initialize();
-            Application.Run(new EntregaAgenciaFRM());
+            Application.Run(new Login());
         }
     }
 }
