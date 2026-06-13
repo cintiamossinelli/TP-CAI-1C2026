@@ -18,6 +18,7 @@ public class EmisionHDRTransporteModelo
     internal List<CentroDeDistribucion> ObtenerCentrosDeDistribucion()
     {
         return CentroDeDistribucionAlmacen.CentrosDeDistribucion
+            .Where(c => c.IdCentroDeDistribucion != Program.CdActual)
             .Select(MapearCentroDeDistribucion)
             .OrderBy(c => c.Nombre)
             .ToList();
@@ -177,21 +178,9 @@ public class EmisionHDRTransporteModelo
             return null;
         }
 
-        var numerosGuias = guiasAgregadas
-            .Select(g => g.NumeroGuia)
-            .ToHashSet(StringComparer.OrdinalIgnoreCase);
-
-        var entidadesGuias = GuiaAlmacen.Guias
-            .Where(g => numerosGuias.Contains(g.NroGuia))
-            .ToList();
-
-        int? idCentroOrigen = entidadesGuias
-            .Select(ResolverIdCentroOrigen)
-            .FirstOrDefault(idCentro => idCentro.HasValue);
-
-        if (!idCentroOrigen.HasValue)
+        if (Program.CdActual <= 0)
         {
-            MessageBox.Show("No se pudo determinar el Centro de Distribución de origen.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            MessageBox.Show("No se pudo determinar el Centro de Distribución logueado.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             return null;
         }
 
@@ -209,7 +198,7 @@ public class EmisionHDRTransporteModelo
             NroHDR = hdr.Id,
             IdServicio = servicio.IdServicio,
             FechaEmision = hdr.FechaEmision,
-            IdCentroDeDistribucionOrigen = idCentroOrigen.Value,
+            IdCentroDeDistribucionOrigen = Program.CdActual,
             IdCentroDeDistribucionDestino = hdr.Destino.Id,
             Guias = hdr.Guias.Select(g => g.NumeroGuia).ToList()
         });
@@ -350,17 +339,6 @@ public class EmisionHDRTransporteModelo
     {
         return ServicioAlmacen.Servicios
             .FirstOrDefault(servicio => servicio.IdServicio == transporte.IdServicio);
-    }
-
-    private int? ResolverIdCentroOrigen(GuiaEntidad guia)
-    {
-        return guia.TipoImposicion switch
-        {
-            TipoImposicionEnum.CD => guia.IdCentroDeDistribucionImposicion,
-            TipoImposicionEnum.Agencia => ResolverIdCentroPorAgencia(guia.IdAgenciaImposicion),
-            TipoImposicionEnum.EnDomicilio => ResolverIdCentroPorDireccion(guia.DireccionRetiroDomicilio),
-            _ => null
-        };
     }
 
     private int? ResolverIdCentroDestino(GuiaEntidad guia)
