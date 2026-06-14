@@ -1,20 +1,16 @@
-using System.Windows.Forms;
 using TP_CAI_1C2026.Forms.Almacen;
 
 namespace TP_CAI_1C2026.Forms.Consultas.ConsultarTracking;
 
 internal class ConsultarTrackingModelo
 {
-    internal Guia? BuscarGuia(string nGuia)
+    internal Guia? BuscarGuia(string nGuia, out string error)
     {
+        error = string.Empty;
+
         if (string.IsNullOrWhiteSpace(nGuia))
         {
-            MessageBox.Show(
-                "El número de guía no puede estar vacío.",
-                "Error",
-                MessageBoxButtons.OK,
-                MessageBoxIcon.Error);
-
+            error = "El número de guía no puede estar vacío.";
             return null;
         }
 
@@ -24,12 +20,7 @@ internal class ConsultarTrackingModelo
 
         if (entidad == null)
         {
-            MessageBox.Show(
-                $"No se encontró ninguna guía con el número {nGuia}.",
-                "Error",
-                MessageBoxButtons.OK,
-                MessageBoxIcon.Error);
-
+            error = $"No se encontró ninguna guía con el número {nGuia}.";
             return null;
         }
 

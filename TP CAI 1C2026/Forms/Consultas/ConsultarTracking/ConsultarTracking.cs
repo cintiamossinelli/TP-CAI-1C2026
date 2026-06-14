@@ -24,9 +24,12 @@ namespace TP_CAI_1C2026.Forms.Consultas.ConsultarTracking
 
         private void buscarBTN_Click(object sender, EventArgs e)
         {
-            var guia = modelo.BuscarGuia(guiaTXT.Text);
+            var guia = modelo.BuscarGuia(guiaTXT.Text, out string error);
             if (guia == null)
+            {
+                MessageBox.Show(error, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
+            }
 
             cuitDniCuilLBL.Text = guia.CuitDniCuil;
             origenLBL.Text = guia.Origen;

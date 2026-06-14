@@ -1,4 +1,3 @@
-using System.Windows.Forms;
 using TP_CAI_1C2026.Forms.Almacen;
 
 namespace TP_CAI_1C2026.Forms.UltimaMilla.EmisionHDRRetiro;
@@ -9,16 +8,13 @@ internal class EmisionHDRRetiroModelo
     public Fletero? fleteroSeleccionado = null;
     private int _idCDFletero = 0;
 
-    internal Fletero? BuscarFletero(string dni)
+    internal Fletero? BuscarFletero(string dni, out string error)
     {
+        error = string.Empty;
+
         if (string.IsNullOrWhiteSpace(dni))
         {
-            MessageBox.Show(
-                "El DNI no puede estar vacío.",
-                "Error",
-                MessageBoxButtons.OK,
-                MessageBoxIcon.Error);
-
+            error = "El DNI no puede estar vacío.";
             return null;
         }
 
@@ -26,12 +22,7 @@ internal class EmisionHDRRetiroModelo
             dniInt <= 0 ||
             dni.Length != 8)
         {
-            MessageBox.Show(
-                "El DNI debe ser numérico, positivo y de 8 dígitos.",
-                "Error",
-                MessageBoxButtons.OK,
-                MessageBoxIcon.Error);
-
+            error = "El DNI debe ser numérico, positivo y de 8 dígitos.";
             return null;
         }
 
@@ -41,23 +32,13 @@ internal class EmisionHDRRetiroModelo
 
         if (entidad == null)
         {
-            MessageBox.Show(
-                $"No se encontró ningún fletero con DNI {dni}.",
-                "Error",
-                MessageBoxButtons.OK,
-                MessageBoxIcon.Error);
-
+            error = $"No se encontró ningún fletero con DNI {dni}.";
             return null;
         }
 
         if (entidad.IdCentroDeDistribucion != Program.CdActual)
         {
-            MessageBox.Show(
-                "El fletero no pertenece al CD logueado.",
-                "Error",
-                MessageBoxButtons.OK,
-                MessageBoxIcon.Error);
-
+            error = "El fletero no pertenece al CD logueado.";
             return null;
         }
 
@@ -137,16 +118,13 @@ internal class EmisionHDRRetiroModelo
             .ToList();
     }
 
-    internal Guia? BuscarGuia(string nGuia)
+    internal Guia? BuscarGuia(string nGuia, out string error)
     {
+        error = string.Empty;
+
         if (string.IsNullOrWhiteSpace(nGuia))
         {
-            MessageBox.Show(
-                "Debe ingresar un número de guía.",
-                "Error",
-                MessageBoxButtons.OK,
-                MessageBoxIcon.Error);
-
+            error = "Debe ingresar un número de guía.";
             return null;
         }
 
@@ -156,12 +134,7 @@ internal class EmisionHDRRetiroModelo
 
         if (guia == null)
         {
-            MessageBox.Show(
-                $"No se encontró ninguna guía con el número {nGuia}.",
-                "Error",
-                MessageBoxButtons.OK,
-                MessageBoxIcon.Error);
-
+            error = $"No se encontró ninguna guía con el número {nGuia}.";
             return null;
         }
 
@@ -247,7 +220,7 @@ internal class EmisionHDRRetiroModelo
 
     internal void AgregarGuia(string nGuia)
     {
-        Guia? guia = BuscarGuia(nGuia);
+        Guia? guia = BuscarGuia(nGuia, out _);
 
         if (guia != null &&
             !guiasAgregadas.Any(g => g.NGuia == guia.NGuia))

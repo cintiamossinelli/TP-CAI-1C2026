@@ -16,9 +16,12 @@ namespace TP_CAI_1C2026.Forms.UltimaMilla.EmisionHDREntrega
 
         private void buscarFleteroTBN_Click(object sender, EventArgs e)
         {
-            var fleteroSeleccionado = modelo.BuscarFletero(dniFleteroTXT.Text);
+            var fleteroSeleccionado = modelo.BuscarFletero(dniFleteroTXT.Text, out string errorFletero);
             if (fleteroSeleccionado == null)
+            {
+                MessageBox.Show(errorFletero, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
+            }
 
             nombreFleteroLBL.Text = fleteroSeleccionado.Nombre;
             CargarGuiasPendientes();
@@ -47,9 +50,12 @@ namespace TP_CAI_1C2026.Forms.UltimaMilla.EmisionHDREntrega
 
         private void buscarGuiaBTN_Click(object sender, EventArgs e)
         {
-            Guia? guia = modelo.BuscarGuia(nGuiaTXT.Text);
+            Guia? guia = modelo.BuscarGuia(nGuiaTXT.Text, out string errorGuia);
             if (guia == null)
+            {
+                MessageBox.Show(errorGuia, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
+            }
 
             guiasSinAgregarLST.Items.Clear();
             ListViewItem item = new ListViewItem(guia.NGuia);

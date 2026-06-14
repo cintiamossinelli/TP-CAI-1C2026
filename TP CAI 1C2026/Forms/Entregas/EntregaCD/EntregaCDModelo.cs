@@ -1,31 +1,22 @@
-using System.Windows.Forms;
 using TP_CAI_1C2026.Forms.Almacen;
 
 namespace TP_CAI_1C2026.Forms.Entregas.EntregaCD;
 
 internal class EntregaCDModelo
 {
-    internal Destinatario? BuscarDestinatario(string dni)
+    internal Destinatario? BuscarDestinatario(string dni, out string error)
     {
+        error = string.Empty;
+
         if (string.IsNullOrWhiteSpace(dni))
         {
-            MessageBox.Show(
-                "El DNI no puede estar vacío.",
-                "Error",
-                MessageBoxButtons.OK,
-                MessageBoxIcon.Error);
-
+            error = "El DNI no puede estar vacío.";
             return null;
         }
 
         if (!long.TryParse(dni, out _) || dni.Length != 8)
         {
-            MessageBox.Show(
-                "El DNI debe ser numérico y de 8 dígitos.",
-                "Error",
-                MessageBoxButtons.OK,
-                MessageBoxIcon.Error);
-
+            error = "El DNI debe ser numérico y de 8 dígitos.";
             return null;
         }
 
@@ -39,12 +30,7 @@ internal class EntregaCDModelo
 
         if (guiaEntidad == null)
         {
-            MessageBox.Show(
-                $"No se encontró ningún destinatario con DNI {dni}.",
-                "Error",
-                MessageBoxButtons.OK,
-                MessageBoxIcon.Error);
-
+            error = $"No se encontró ningún destinatario con DNI {dni}.";
             return null;
         }
 
@@ -85,16 +71,13 @@ internal class EntregaCDModelo
         return resultado;
     }
 
-    internal bool RegistrarEntrega(List<Guia> guiasAEntregar)
+    internal bool RegistrarEntrega(List<Guia> guiasAEntregar, out string error)
     {
+        error = string.Empty;
+
         if (guiasAEntregar.Count == 0)
         {
-            MessageBox.Show(
-                "Debe seleccionar al menos una guía para entregar.",
-                "Error",
-                MessageBoxButtons.OK,
-                MessageBoxIcon.Error);
-
+            error = "Debe seleccionar al menos una guía para entregar.";
             return false;
         }
 
